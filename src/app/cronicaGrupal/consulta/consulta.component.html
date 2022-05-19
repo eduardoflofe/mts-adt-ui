@@ -1,0 +1,207 @@
+<app-menu class="my-4 block"></app-menu>
+<app-card-template>
+  <div header class="flex justify-content-between align-items-center">
+    <h4 class="title">Consulta Crónicas Grupales</h4>
+    <button class="btn btn-primary btn-sm pull-right" type="submit" routerLink="modulo/ver">Nueva
+      crónica</button>
+  </div>
+  <div content>
+    <div class="row">
+      <div class="col-md-4">
+        <div class="form-group">
+          <label class="control-label">
+            Servicio:
+          </label>
+          <select class="form-control" aria-label="Servicio">
+            <option selected>Seleccionar servicio</option>
+            <option value="1">Trabajo social</option>
+            <option value="2">Agenda digital</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="col-md-4">
+        <div class="form-group">
+          <label class="control-label">
+            Turno:
+          </label>
+          <select class="form-control" aria-label="Servicio">
+            <option selected>Seleccionar</option>
+            <option value="1">Matutino</option>
+            <option value="2">Vespertino</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="col-md-4">
+        <div class="form-group">
+          <label class="control-label">
+            Grupo:
+          </label>
+          <select class="form-control" aria-label="Servicio">
+            <option selected>Seleccionar grupo</option>
+            <option value="1">Tour quirugico</option>
+          </select>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-4">
+        <div class="form-group">
+          <label class="control-label">
+            Lugar:
+          </label>
+          <select class="form-control" aria-label="Servicio">
+            <option selected>Seleccionar lugar</option>
+            <option value="1">One</option>
+            <option value="2">Two</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="col-md-4">
+        <div class="form-group datepicker-group">
+          <label class="control-label" for="calendar">Fecha:</label>
+          <input class="form-control" id="calendar" type="text">
+          <span class="glyphicon glyphicon-calendar" aria-hidden="true"></span>
+        </div>
+      </div>
+
+      <div class="col-md-4">
+        <div class="form-group">
+          <label class="control-label">
+            Cronica especifica asociada:
+          </label>
+          <div class="radio flex align-items-center">
+            <label class="inline-flex align-items-center relative mr-5">
+              <input type="radio" name="radio-01" value="opcion-01" class="radio-consulta" checked="checked"> Sí
+            </label>
+            <label class="inline-flex align-items-center ml-5 relative ">
+              <input type="radio" name="radio-01" value="opcion-02" class="radio-consulta" checked="checked"> No
+            </label>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-6">
+        <label class="control-label">Búsquedas anteriores</label>
+      </div>
+      <div class="col-md-6 flex justify-content-end">
+        <div class="form-group">
+          <label class="control-label">Visualizar datos</label>
+          <select class="form-select ml-5">
+            <option [ngValue]="2">2</option>
+            <option [ngValue]="4">4</option>
+            <option [ngValue]="6">6</option>
+          </select>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-12">
+        <table class="table " style="margin-bottom: 0px !important;">
+          <thead>
+            <tr>
+              <th>Fecha</th>
+              <th>Grupo</th>
+              <th>Hora</th>
+              <th>Modalidad</th>
+              <th>Total participantes</th>
+              <th>Participantes que asistieron</th>
+              <th>Estatus</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>24/01/2022</td>
+              <td>Jacob</td>
+              <td>Thornton</td>
+              <td>@fat</td>
+              <td>Jacob</td>
+              <td>Thornton</td>
+              <td>@fat</td>
+            </tr>
+            <tr>
+              <td>24/01/2022</td>
+              <td>Jacob</td>
+              <td>Thornton</td>
+              <td>@fat</td>
+              <td>Jacob</td>
+              <td>Thornton</td>
+              <td>@fat</td>
+            </tr>
+            <tr>
+              <td>24/01/2022</td>
+              <td>Jacob</td>
+              <td>Thornton</td>
+              <td>@fat</td>
+              <td>Jacob</td>
+              <td>Thornton</td>
+              <td>@fat</td>
+            </tr>
+            <tr>
+              <td>24/01/2022</td>
+              <td>Jacob</td>
+              <td>Thornton</td>
+              <td>@fat</td>
+              <td>Jacob</td>
+              <td>Thornton</td>
+              <td>@fat</td>
+            </tr>
+            <tr>
+              <td>24/01/2022</td>
+              <td>Mark</td>
+              <td>Otto</td>
+              <td>@mdo</td>
+              <td>Jacob</td>
+              <td>Thornton</td>
+              <td>@fat</td>
+            </tr>
+            <tr>
+              <td>24/01/2022</td>
+              <td>Mark</td>
+              <td>Otto</td>
+              <td>@mdo</td>
+              <td>Mark</td>
+              <td>Otto</td>
+              <td>@mdo</td>
+            </tr>
+            <tr>
+              <td>24/01/2022</td>
+              <td>Mark</td>
+              <td>Otto</td>
+              <td>@mdo</td>
+              <td>Jacob</td>
+              <td>Thornton</td>
+              <td>@fat</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-4"></div>
+      <div class="col-md-4">
+        <ul class="pagination m-0">
+          <li><a>&laquo;</a></li>
+          <li><a>1</a></li>
+          <li><a>2</a></li>
+          <li><a>3</a></li>
+          <li><a>4</a></li>
+          <li><a>5</a></li>
+          <li><a>&raquo;</a></li>
+        </ul>
+      </div>
+      <div class="col-md-4">
+        <div class="flex justify-content-between align-items-center">
+          <div class="flex align-items-center justify-content-end">
+            <label class="control-label">Página</label>
+            <input class="form-control w-3 ml-2" type="text">
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</app-card-template>

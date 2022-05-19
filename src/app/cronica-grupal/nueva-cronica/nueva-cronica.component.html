@@ -1,0 +1,171 @@
+<div class="row" style="height: 900px; place-content: center; background-color: #f8f8f8;">
+
+
+    <div class="Bg">
+
+        <app-menu></app-menu>
+
+    </div>
+
+    <div class=" col Rectangle-855">
+
+        <div class="Rectangle-929">
+
+            <span class="titulo">
+                Nueva cr&oacute;nica grupal
+            </span>
+        </div>
+
+        <div style="margin-top: 10px;margin-bottom: 10px; margin-left: 16px;">
+
+            <span class="instrucciones">
+                Por favor capture los siguientes datos:
+            </span>
+
+        </div>
+        <form role="form">
+
+            <div class=" container seccion ">
+
+                <div class="row">
+
+                    <div class="col-md-4">
+                        <span class="spanInput">Grupo*:</span>
+                        <select required class="form-select" placeholder="Escribir NSS paciente">
+                            <option value="" disabled selected hidden>Ingresa grupo</option>
+                            <option [ngValue]="3">3</option>
+                            <option [ngValue]="4">4</option>
+                            <option [ngValue]="4">4</option>
+                            <option [ngValue]="4">4</option>
+
+                        </select>
+                        <i></i>
+                    </div>
+                    <div class="col-md-4">
+                        <span class="spanInput">Fecha*:</span>
+
+                        <div class="form-group datepicker-group">
+                            <input class="form-control" id="calendar" type="text" placeholder="Ingresar fecha">
+                            <span class="glyphicon glyphicon-calendar" aria-hidden="true"
+                                style="  top: -4px !important;"></span>
+                        </div>
+
+
+                    </div>
+                    <div class="col-md-4">
+
+                        <span class="spanInput">Hora*:</span>
+                        <select class="form-select" placeholder="Escribir NSS paciente">
+                            <option value="" disabled selected hidden>Ingresar hora</option>
+                            <option [ngValue]="3">3</option>
+                            <option [ngValue]="4">4</option>
+                            <option [ngValue]="4">4</option>
+                            <option [ngValue]="4">4</option>
+
+                        </select>
+                        <i></i>
+                    </div>
+
+                </div>
+
+
+                <div class="row">
+                    <div class="col-md-6">
+                        <span class="spanInput">Ponentes*:</span>
+                        <input class="form-control matricula inputs" id="txtconsulta" placeholder="Ingresar ponentes"
+                            type="text" />
+
+                    </div>
+                    <div class="col-md-6">
+                        <span class="spanInput">N&uacute;mero de asistentes*:</span>
+
+                        <input class="form-control matricula inputs" id="txtconsulta"
+                            placeholder="Ingresar n&uacute;mero de asistentes" type="text" />
+                    </div>
+
+                </div>
+
+                <div class="row">
+                    <div class="col-md-6">
+                        <span class="spanInput">T&eacute;cnica did&aacute;ctica*:</span>
+                        <input class="form-control matricula inputs" id="txtconsulta"
+                            placeholder="Ingresar t&eacute;cnica did&aacute;ctica" type="text" />
+
+                    </div>
+                    <div class="col-md-6">
+                        <span class="spanInput">Material apoyo*:</span>
+
+                        <input class="form-control matricula inputs" id="txtconsulta"
+                            placeholder="Ingresar material apoyo" type="text" />
+                    </div>
+
+                </div>
+
+            </div>
+            <div class=" container seccion">
+
+                <div class="row">
+                    <div class="col-md-6">
+                        <span class="spanInput">Objetivos de la sesi&oacute;n*:</span>
+                        <textarea class="form-control" placeholder="Ingresar objetivos de la sesi&oacute;n"
+                            rows="4"></textarea>
+                    </div>
+                    <div class="col-md-6">
+                        <span class="spanInput">Desarrollo de la sesi&oacute;n*:</span>
+
+                        <textarea class="form-control" placeholder="Ingresar desarrollo de la sesi&oacute;n"
+                            rows="4"></textarea>
+
+                    </div>
+
+                </div>
+
+                <div class="row">
+                    <div class="col-md-6">
+                        <span class="spanInput">Perfil del grupo*:</span>
+                        <textarea class="form-control" placeholder="Escribir NSS paciente" rows="4"></textarea>
+
+
+                    </div>
+                    <div class="col-md-6">
+                        <span class="spanInput">Observaciones*:</span>
+
+                        <textarea class="form-control" placeholder="Ingresar observaciones" rows="4"></textarea>
+
+                    </div>
+
+                </div>
+
+
+            </div>
+        </form>
+
+        <div class="row">
+
+            <div class="col-md-6" style="padding-left: 32px;">
+                <div class="col">
+                    <span class="instrucciones">
+                        *Campos obligatorios:
+                    </span>
+                    <button style="width: 170px;" type="button" class="btn btn-primary buttonL">Agregar
+                        participante</button>
+
+                </div>
+
+
+
+            </div>
+
+            <div class="col-md-6" style="padding-top: 19px; padding-right: 24px;">
+                <button type="button" class="btn btn-primary buttonL" style="float: right">
+                    Guardar </button>
+                <button type="button" class="btn btn-danger buttonL" style="float: right">Cancelar</button>
+            </div>
+
+        </div>
+
+    </div>
+
+
+
+</div>
