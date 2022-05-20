@@ -25,6 +25,11 @@ export class ConsultaComponent implements OnInit {
   ngOnInit(): void {
     this.authService.project$.next("Trabajo Social");
     this.loadCatalogos();
+    this.initSelects();
+  }
+
+  initSelects() {
+    
   }
 
   loadCatalogos() {
@@ -46,15 +51,15 @@ export class ConsultaComponent implements OnInit {
        console.error(httpErrorResponse); 
       }
     );
-    this.cronicaGrupalService.getCatCalendarios().subscribe(
-      (calendario) => {
-        this.horarios = calendario;
-        console.log("HORARIOS: ", this.horarios);
-      },
-      (httpErrorResponse: HttpErrorResponse) => {
-       console.error(httpErrorResponse); 
-      }
-    );
+    // this.cronicaGrupalService.getCatCalendarios().subscribe(
+    //   (calendario) => {
+    //     this.horarios = calendario;
+    //     console.log("HORARIOS: ", this.horarios);
+    //   },
+    //   (httpErrorResponse: HttpErrorResponse) => {
+    //    console.error(httpErrorResponse); 
+    //   }
+    // );
   }
 
   addCronica() {
