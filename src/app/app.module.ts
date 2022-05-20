@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { BusquedaNssComponent } from './busqueda-nss/busqueda-nss.component';
 import { HttpClientModule } from '@angular/common/http';
 import { AppMenuComponent } from './app-menu/app-menu.component';
+import { AppInfoBottomComponent } from './app-info-bottom/app-info-bottom.component';
 import { AppAlertsComponent } from './app-alerts/app-alerts.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import {NgxPaginationModule} from "ngx-pagination";
@@ -24,6 +25,7 @@ import { CardTemplateComponent } from './commons/card-template/card-template.com
     AppComponent,
     BusquedaNssComponent,
     AppMenuComponent,
+    AppInfoBottomComponent,
     AppAlertsComponent,
     AppTarjetaPresentacionComponent,
     CCGrupalEspecificaComponent,

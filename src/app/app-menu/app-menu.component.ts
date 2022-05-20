@@ -15,4 +15,8 @@ export class AppMenuComponent implements OnInit {
 
   pacientesRuta() { this.router.navigate(['busqueda']); }
 
+  irCronicaGrupal() {
+    this.router.navigate(["consulta-cronica-grupal"]);
+  }
+
 }

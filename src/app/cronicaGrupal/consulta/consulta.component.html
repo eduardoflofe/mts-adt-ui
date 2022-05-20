@@ -1,9 +1,10 @@
-<app-menu class="my-4 block"></app-menu>
+<app-menu></app-menu>
 <app-card-template>
   <div header class="flex justify-content-between align-items-center">
-    <h4 class="title">Consulta Crónicas Grupales</h4>
-    <button class="btn btn-primary btn-sm pull-right" type="submit" routerLink="modulo/ver">Nueva
-      crónica</button>
+    <h4 class="title">Consulta de crónicas grupales</h4>
+    <button class="btn btn-primary btn-sm pull-right" type="button" (click)="addCronica();">
+      Nueva crónica
+    </button>
   </div>
   <div content>
     <div class="row">
@@ -62,7 +63,7 @@
       <div class="col-md-4">
         <div class="form-group datepicker-group">
           <label class="control-label" for="calendar">Fecha:</label>
-          <input class="form-control" id="calendar" type="text">
+          <input class="form-control" id="calendar" type="text" placeholder="dd/mm/aaaa">
           <span class="glyphicon glyphicon-calendar" aria-hidden="true"></span>
         </div>
       </div>
@@ -90,7 +91,7 @@
       <div class="col-md-6 flex justify-content-end">
         <div class="form-group">
           <label class="control-label">Visualizar datos</label>
-          <select class="form-select ml-5">
+          <select class="form-select ml-5 select-view-data">
             <option [ngValue]="2">2</option>
             <option [ngValue]="4">4</option>
             <option [ngValue]="6">6</option>
@@ -115,7 +116,7 @@
           </thead>
           <tbody>
             <tr>
-              <td>24/01/2022</td>
+              <td (click)="irDetalle();"><a>24/01/2022</a></td>
               <td>Jacob</td>
               <td>Thornton</td>
               <td>@fat</td>
@@ -124,7 +125,7 @@
               <td>@fat</td>
             </tr>
             <tr>
-              <td>24/01/2022</td>
+              <td (click)="irDetalle();"><a>24/01/2022</a></td>
               <td>Jacob</td>
               <td>Thornton</td>
               <td>@fat</td>
@@ -133,7 +134,7 @@
               <td>@fat</td>
             </tr>
             <tr>
-              <td>24/01/2022</td>
+              <td (click)="irDetalle();"><a>24/01/2022</a></td>
               <td>Jacob</td>
               <td>Thornton</td>
               <td>@fat</td>
@@ -142,7 +143,7 @@
               <td>@fat</td>
             </tr>
             <tr>
-              <td>24/01/2022</td>
+              <td (click)="irDetalle();"><a>24/01/2022</a></td>
               <td>Jacob</td>
               <td>Thornton</td>
               <td>@fat</td>
@@ -151,7 +152,7 @@
               <td>@fat</td>
             </tr>
             <tr>
-              <td>24/01/2022</td>
+              <td (click)="irDetalle();"><a>24/01/2022</a></td>
               <td>Mark</td>
               <td>Otto</td>
               <td>@mdo</td>
@@ -160,7 +161,7 @@
               <td>@fat</td>
             </tr>
             <tr>
-              <td>24/01/2022</td>
+              <td (click)="irDetalle();"><a>24/01/2022</a></td>
               <td>Mark</td>
               <td>Otto</td>
               <td>@mdo</td>
@@ -169,7 +170,7 @@
               <td>@mdo</td>
             </tr>
             <tr>
-              <td>24/01/2022</td>
+              <td (click)="irDetalle();"><a>24/01/2022</a></td>
               <td>Mark</td>
               <td>Otto</td>
               <td>@mdo</td>
@@ -195,10 +196,11 @@
         </ul>
       </div>
       <div class="col-md-4">
-        <div class="flex justify-content-between align-items-center">
+        <div class="flex justify-content-between align-items-center" style="float: right;">
           <div class="flex align-items-center justify-content-end">
             <label class="control-label">Página</label>
-            <input class="form-control w-3 ml-2" type="text">
+            <div class="form-control w-3 ml-2">
+            </div>
           </div>
         </div>
       </div>

@@ -39,3 +39,7 @@ td,th{
 .pagination a {
     border: none;
 }
+
+a {
+    cursor: pointer;
+}

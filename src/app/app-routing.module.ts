@@ -17,7 +17,7 @@ const routes: Routes = [
   { path: 'busquedaEspecifica', component: CCGrupalEspecificaComponent },
   { path: 'nuevaCronica', component: NuevaCronicaComponent },
   { path: 'cronicaGuardada', component: CronicaGuardadaComponent },
-  { path: 'admon-cronica-grupal', component: CCGrupalEspecificaComponent },
+  // { path: 'admon-cronica-grupal', component: CCGrupalEspecificaComponent },
   { path: 'consulta-cronica-grupal', component: ConsultaComponent }
 ];
 

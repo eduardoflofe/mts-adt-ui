@@ -167,7 +167,7 @@
     flex-grow: 0;
     font-family: Montserrat;
     margin: 3px 0 2px 15px;
-    font-size: 14px;
+    font-size: 12px;
     font-weight: 300;
     font-stretch: normal;
     font-style: normal;
@@ -288,18 +288,18 @@
   height: 71px;
   z-index: 4;
   display: flex;
-  margin-left: 100px;
-  position: absolute;
+  /* margin-left: 100px;
+  position: absolute; */
   box-shadow: 4px 4px 15px 0 rgb(0 0 0 / 20%);
-  margin-left: 80px;
-  width: 1137px;
+  /* margin-left: 80px; */
+  width: 93%;
 }
 
 .detalleDescrip {
   flex-grow: 0;
   margin: -12px 0 0 0;
   font-family: Montserrat;
-  font-size: 14px;
+  font-size: 10px;
   font-weight: 500;
   font-stretch: normal;
   font-style: normal;
@@ -335,7 +335,6 @@
 
 
   .Rectangle-306 {
-    width: 1190px;
     height: 449px;
     flex-grow: 0;
     margin: 0px auto 0 auto;
@@ -402,4 +401,26 @@
     padding: 4px 0px 0px px;
     background-color: #ffe8a7;
 
+}
+
+.subHeader {
+  box-shadow: 0px 1px 10px 0px rgb(0 0 0 / 15%);
+}
+
+.buttonL {
+  width: 120px;
+  height: 34px;
+  border-radius: 3px;
+  margin: 10px 15px 0 10px !important;
+  padding: 5px;
+  align-self: stretch;
+  flex-grow: 1;
+  font-family: Montserrat;
+  font-size: 14px;
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  text-align: center;
 }

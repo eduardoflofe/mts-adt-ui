@@ -1,178 +1,132 @@
-<div
-  class="row"
-  style="height: 900px; place-content: center; background-color: #f8f8f8"
->
-  <div class="Bg">
-    <app-menu></app-menu>
+<app-menu></app-menu>
+<app-card-template>
+  <div header class="flex justify-content-between align-items-center">
+    <div class="col-md-1">
+      <img class="botonRegresar" src="../../../assets/hu003-tarjeta/volver (1).ico" alt="" />
+    </div>
+    <div style="display: grid">
+      <span class="pacienteNombreSpan">{{
+        "Nueva crónica grupal específica"
+        }}</span>
+    </div>
+    <div class="Rectangle-1205"></div>
+    <div style="display: grid">
+      <span class="tituloDosSpam">{{
+        "Miércoles 1 de marzo de 2020 12:13:01"
+        }}</span>
+    </div>
+    <div class="Rectangle-1205"></div>
+    <div style="display: grid">
+      <span class="tituloDosSpam">{{ "Tour quirúrgico" }}</span>
+    </div>
   </div>
-
-  <div
-    class="col Rectangle-855"
-    style="border-bottom-right-radius: 1em; border-bottom-left-radius: 1em"
-  >
-    <div class="Rectangle-929 row">
-      <div class="col-md-1">
-        <img
-          class="botonRegresar"
-          src="../../../assets/hu003-tarjeta/volver (1).ico"
-          alt=""
-        />
-      </div>
-
-      <div class="titulo col-md-5">Nueva cronicanica grupal</div>
-      <div class="titulo col-md-6"></div>
+  <div content>
+    <div style="margin-top: 10px;margin-bottom: 10px; margin-left: 16px;">
+      <span class="instrucciones">
+        Por favor capture los siguientes datos:
+      </span>
     </div>
-
-    <div style="margin-top: 10px; margin-bottom: 10px; margin-left: 16px">
-      <!-- <span class="instrucciones">
-            Por favor capture los siguientes datos:
-        </span> -->
-    </div>
-    <form role="form">
-      <div class="container seccion">
-        <div class="row"></div>
-        <div class="row">
+    <div class="container seccion">
+      <div class="row">
+        <div class="col-md-6">
           <div class="col-md-6">
-            <div class="col-md-6">
             <label class="titulo2" style="font-weight: bold; font-size: 16px">
-              Grupo
-            </label>
-            <label class="texto"> Tour quirúrgico </label>
-            <label class="titulo2" style="font-weight: bold; font-size: 16px">
-              Ponente
+              Ponente:
             </label>
             <label class="texto"> Dra Amellaly Cruz Hernández </label>
+
             <label class="titulo2" style="font-weight: bold; font-size: 16px">
-              Tecnica didactica
+              Tecnica didactica:
             </label>
             <label class="texto"> Ingresa tecnica didactica </label>
-            </div>
-            <div class="col-md-6">
-              <label class="titulo2" style="font-weight: bold; font-size: 16px">
-                Fecha
-              </label>
-              <label class="texto"> 20/06/1996 </label>
-              <label class="titulo2" style="font-weight: bold; font-size: 16px">
-              </label>
-              <label class="texto">  </label>
-              <label class="titulo2" style="font-weight: bold; font-size: 16px">
-              </label>
-              <label class="texto">  </label>
-              </div>
           </div>
+        </div>
 
 
+        <div class="col-md-6">
           <div class="col-md-6">
-            <div class="col-md-6">
             <label class="titulo2" style="font-weight: bold; font-size: 16px">
-            </label>
-            <label class="texto">  </label>
-            <label class="titulo2" style="font-weight: bold; font-size: 16px">
-              Numero de asistemntes
+              Numero de asistentes:
             </label>
             <label class="texto"> 5 </label>
             <label class="titulo2" style="font-weight: bold; font-size: 16px">
-              Material de apollo
+              Material de apoyo:
             </label>
             <label class="texto"> Laptop y proyector </label>
           </div>
-          <div class="col-md-6">
-            <label class="titulo2" style="font-weight: bold; font-size: 16px">Hora
-            </label>
-            <label class="texto"> 13:30:24 </label>
-            <label class="titulo2" style="font-weight: bold; font-size: 16px">
-            </label>
-            <label class="texto"> </label>
-            <label class="titulo2" style="font-weight: bold; font-size: 16px">
-            </label>
-            <label class="texto">  </label>
-          </div>
-          </div>
         </div>
-
-        <!-- <div class="row">
-          <div class="col-md-6">
-            <span class="spanInput">T&eacute;cnica did&aacute;ctica*:</span>
-            <input
-              class="form-control matricula inputs"
-              id="txtconsulta"
-              placeholder="Ingresar t&eacute;cnica did&aacute;ctica"
-              type="text"
-            />
-          </div>
-          <div class="col-md-6">
-            <span class="spanInput">Material apoyo*:</span>
-
-            <input
-              class="form-control matricula inputs"
-              id="txtconsulta"
-              placeholder="Ingresar material apoyo"
-              type="text"
-            />
-          </div>
-        </div> -->
       </div>
+    </div>
 
-
-
-      <div class="container seccion">
-        <div class="row">
+    <div class="container seccion">
+      <div class="row">
+        <div class="col-md-6">
           <div class="col-md-6">
-            <label style="font-weight: bold;font-size: 16px;">
-              Objetivos de la sesión
-              </label>
-          </div>
-          <div class="col-md-6">
-            <label style="font-weight: bold;font-size: 16px;">
-              Perfil del grupo
-              </label>
+            <label class="titulo2" style="font-weight: bold; font-size: 16px">
+              Objetivos de la sesión:
+            </label>
+            <label class="texto"> Dra Amellaly Cruz Hernández </label>
+
+            <label class="titulo2" style="font-weight: bold; font-size: 16px">
+              Perfil del grupo:
+            </label>
+            <label class="texto"> Ingresa tecnica didactica </label>
           </div>
         </div>
 
-        <div class="row">
+        <div class="col-md-6">
           <div class="col-md-6">
+            <label class="titulo2" style="font-weight: bold; font-size: 16px">
+              Desarrollo de la sesión:
+            </label>
+            <label class="texto"> Dra Amellaly Cruz Hernández </label>
 
-          </div>
-          <div class="col-md-6">
-
+            <label class="titulo2" style="font-weight: bold; font-size: 16px">
+              Observaciones:
+            </label>
+            <label class="texto"> Ingresa tecnica didactica </label>
           </div>
         </div>
       </div>
-    </form>
+    </div>
 
+    <div class="container seccion">
+      <div class="row">
+        <div class="col-md-8">
+          <label class="control-label texto">Total de participantes <span style="font-weight: bold;">{{5}}</span></label>
 
-
+          <table class="table texto" style="margin-bottom: 0px !important;">
+            <thead>
+              <tr>
+                <th style="background-color: #ddd;">Participantes</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Participante 1</td>
+              </tr>
+              <tr>
+                <td>Participante 2</td>
+              </tr>
+              <tr>
+                <td>Participante 3</td>
+              </tr>
+              <tr>
+                <td>Participante 4</td>
+              </tr>
+              <tr>
+                <td>Participante 5</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
 
     <div class="row">
-      <div class="col-md-6" style="padding-left: 32px">
-        <div class="col">
-          <span class="instrucciones"> *Campos obligatorios: </span>
-          <button
-            style="width: 170px"
-            type="button"
-            class="btn btn-primary buttonL"
-          >
-            Agregar participante
-          </button>
-        </div>
-      </div>
-
-      <div class="col-md-6" style="padding-top: 19px; padding-right: 24px">
-        <button
-          type="button"
-          class="btn btn-primary buttonL"
-          style="float: right"
-        >
-          Guardar
-        </button>
-        <button
-          type="button"
-          class="btn btn-danger buttonL"
-          style="float: right"
-        >
-          Cancelar
-        </button>
+      <div class="col-md-12" style="padding-top: 19px; padding-right: 24px;">
+        <button type="button" class="btn btn-primary buttonL" style="float: right">Imprimir</button>
       </div>
     </div>
   </div>
-</div>
+</app-card-template>
