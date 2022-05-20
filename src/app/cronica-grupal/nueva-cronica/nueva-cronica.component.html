@@ -23,17 +23,18 @@
                 Por favor capture los siguientes datos:
             </span>
         </div>
-        <form role="form">
+        <form novalidate [formGroup]="editForm">
             <div class="container seccion">
                 <div class="row">
                     <div class="col-md-6">
                         <span class="spanInput">Ponentes*:</span>
-                        <input class="form-control matricula inputs" id="txtconsulta" placeholder="Ingresar ponentes"
-                            type="text" />
+                        <input formControlName="descPonentes" class="form-control matricula inputs" id="txtconsulta"
+                            placeholder="Ingresar ponentes" type="text" />
                     </div>
                     <div class="col-md-6">
                         <span class="spanInput">N&uacute;mero de asistentes*:</span>
                         <input class="form-control matricula inputs" id="txtconsulta"
+                            formControlName="numParticipantesAsistieron"
                             placeholder="Ingresar n&uacute;mero de asistentes" type="text" />
                     </div>
                 </div>
@@ -42,11 +43,12 @@
                     <div class="col-md-6">
                         <span class="spanInput">T&eacute;cnica did&aacute;ctica*:</span>
                         <input class="form-control matricula inputs" id="txtconsulta"
-                            placeholder="Ingresar t&eacute;cnica did&aacute;ctica" type="text" />
+                            formControlName="desTecnicaDidactica" placeholder="Ingresar t&eacute;cnica did&aacute;ctica"
+                            type="text" />
                     </div>
                     <div class="col-md-6">
                         <span class="spanInput">Material apoyo*:</span>
-                        <input class="form-control matricula inputs" id="txtconsulta"
+                        <input class="form-control matricula inputs" id="txtconsulta" formControlName="desMaterialApoyo"
                             placeholder="Ingresar material apoyo" type="text" />
                     </div>
                 </div>
@@ -57,12 +59,12 @@
                     <div class="col-md-6">
                         <span class="spanInput">Objetivos de la sesi&oacute;n*:</span>
                         <textarea class="form-control" placeholder="Ingresar objetivos de la sesi&oacute;n"
-                            rows="4"></textarea>
+                            formControlName="desObjetivosSesion" rows="4"></textarea>
                     </div>
                     <div class="col-md-6">
                         <span class="spanInput">Desarrollo de la sesi&oacute;n*:</span>
                         <textarea class="form-control" placeholder="Ingresar desarrollo de la sesi&oacute;n"
-                            rows="4"></textarea>
+                            formControlName="desDesarrolloSesion" rows="4"></textarea>
                     </div>
 
                 </div>
@@ -70,11 +72,13 @@
                 <div class="row">
                     <div class="col-md-6">
                         <span class="spanInput">Perfil del grupo*:</span>
-                        <textarea class="form-control" placeholder="Escribir NSS paciente" rows="4"></textarea>
+                        <textarea class="form-control" placeholder="Escribir NSS paciente" rows="4"
+                            formControlName="desPerfilGrupo"></textarea>
                     </div>
                     <div class="col-md-6">
                         <span class="spanInput">Observaciones*:</span>
-                        <textarea class="form-control" placeholder="Ingresar observaciones" rows="4"></textarea>
+                        <textarea class="form-control" placeholder="Ingresar observaciones" rows="4"
+                            formControlName="desObservaciones"></textarea>
                     </div>
                 </div>
             </div>
@@ -92,7 +96,7 @@
             </div>
 
             <div class="col-md-6" style="padding-top: 19px; padding-right: 24px;">
-                <button type="button" class="btn btn-primary buttonL" style="float: right" (click)="irCronicaImprimir();">
+                <button type="button" class="btn btn-primary buttonL" style="float: right" (click)="guardarCronica();">
                     Guardar
                 </button>
                 <button type="button" class="btn btn-danger buttonL" style="float: right">
