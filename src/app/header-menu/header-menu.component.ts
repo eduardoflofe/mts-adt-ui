@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { BehaviorSubject, Subject } from 'rxjs';
+import { AuthService } from '../service/auth-service.service';
 // import { AuthService } from './service/auth-service.service';
 
 @Component({
@@ -12,28 +13,28 @@ export class HeaderMenuComponent implements OnInit {
   email: string | undefined;
   nombre: string | undefined;
   matricula: string | undefined;
-  private onSession = new BehaviorSubject<boolean>(false);
-
-  onSession$ = this.onSession.asObservable();
+  proyecto: string = "";
 
   constructor(
-    // private authenticationService: AuthService
-  ) { }
+    private authenticationService: AuthService
+  ) {}
 
   ngOnInit(): void {
+    let usuarioLogueadoSub = this.authenticationService.userLogged$.asObservable();
+    this.authenticationService.project$.asObservable().subscribe(
+      (proyectoActual) => this.proyecto = proyectoActual
+    );
     let sessionUsuario: any = sessionStorage.getItem('usuario');
-    if (sessionUsuario) {
+    if (usuarioLogueadoSub) {
       let usuario = JSON.parse(sessionUsuario);
       this.email = usuario.strEmail;
       this.nombre = usuario.strNombres + " " + usuario.strApellidoP;
       this.matricula = usuario.strUserName;
-      this.onSession.next(true);
-      console.log("OBSERVABLE: ", this.onSession);
     }
   }
 
   logOut() {
-    // this.authenticationService.logout();
+    this.authenticationService.logout();
   }
 
 }

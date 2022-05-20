@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { AuthService } from './service/auth-service.service';
 
 
 @Component({
@@ -11,13 +12,17 @@ import { HttpClient } from '@angular/common/http';
 export class AppComponent {
   title = 'busquedaNss';
   descripcion = 'este es un titulo de prueba';
-  constructor(private http: HttpClient) {
+  public userLogged: boolean = false;
 
-
-  }
+  constructor(
+    private http: HttpClient,
+    private authService: AuthService
+    ) {}
 
   ngOnInit() {
-   
+   this.authService.userLogged$.asObservable().subscribe(
+     (response) => this.userLogged = response 
+   );
   }
 
 }

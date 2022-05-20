@@ -4,7 +4,15 @@
 
 export const environment = {
   production: false,
-  msmtsPacientes: 'http://localhost:8080/api/busquedanss/'
+  msmtsPacientes: 'http://localhost:8080/api/busquedanss/',
+  urlServOauth: 'http://localhost:8081',
+  urlSiteGoogleRecaptcha: 'https://www.google.com/recaptcha/api/siteverify',
+  recaptcha: {
+    siteKey: '6LdbfOUfAAAAACVHNAE5P66uCngEas0k6VpEywJR',
+  },
+  siteKey: '6LcjT7wfAAAAAJtcZyGa0K44UBogPnXoeCd2RAuC',
+  secretKey: '6LcjT7wfAAAAAGj4dG-nQ258Nf8i2gEEqFIwZxC5'
+  
 };
 
 /*

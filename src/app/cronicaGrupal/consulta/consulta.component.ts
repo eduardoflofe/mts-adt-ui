@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { AuthService } from 'src/app/service/auth-service.service';
 
 @Component({
   selector: 'app-consulta',
@@ -8,9 +9,13 @@ import { Router } from '@angular/router';
 })
 export class ConsultaComponent implements OnInit {
 
-  constructor(private router: Router) { }
+  constructor(
+    private router: Router,
+    private authService: AuthService
+  ) { }
 
   ngOnInit(): void {
+    this.authService.project$.next("Trabajo Social");
   }
 
   addCronica() {
