@@ -14,9 +14,8 @@
             Servicio:
           </label>
           <select class="form-control" aria-label="Servicio">
-            <option selected>Seleccionar servicio</option>
-            <option value="1">Trabajo social</option>
-            <option value="2">Agenda digital</option>
+            <option [value]="'-1'" selected>Seleccionar servicio</option>
+            <option [value]="servicio.cve_especialidad" *ngFor="let servicio of serviciosEspecialidad">{{ servicio.des_especialidad}}</option>
           </select>
         </div>
       </div>
@@ -27,9 +26,8 @@
             Turno:
           </label>
           <select class="form-control" aria-label="Servicio">
-            <option selected>Seleccionar</option>
-            <option value="1">Matutino</option>
-            <option value="2">Vespertino</option>
+            <option [value]="'-1'" selected>Seleccionar turno</option>
+            <option [value]="turno.cve_turno" *ngFor="let turno of turnos">{{ turno.des_turno}}</option>
           </select>
         </div>
       </div>

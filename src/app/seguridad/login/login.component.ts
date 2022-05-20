@@ -155,7 +155,7 @@ export class LoginComponent implements OnInit {
                       );
                       this.authService.guardarToken(result.access_token);
                       this.seguridadService.registrarUsuario(this.usuario);
-                      this.router.navigate(["/consulta-cronica-grupal"]);
+                      this.router.navigate(["/busqueda"]);
                     },
                     (err: HttpErrorResponse) => {
                       console.log("error " + err.error.message);

@@ -6,6 +6,7 @@ export const environment = {
   production: false,
   msmtsPacientes: 'http://localhost:8080/api/busquedanss/',
   urlServOauth: 'http://localhost:8081',
+  urlServCronicas: 'http://localhost:8085',
   urlSiteGoogleRecaptcha: 'https://www.google.com/recaptcha/api/siteverify',
   recaptcha: {
     siteKey: '6LdbfOUfAAAAACVHNAE5P66uCngEas0k6VpEywJR',
