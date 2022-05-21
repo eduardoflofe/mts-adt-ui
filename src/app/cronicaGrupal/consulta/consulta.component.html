@@ -1,6 +1,6 @@
 <app-menu></app-menu>
 <app-card-template>
-  <div header class="flex justify-content-between align-items-center">
+  <div header class="flex justify-content-between align-items-center consultaCronicasGrupales">
     <h4 class="title">Consulta de crónicas grupales</h4>
     <button class="btn btn-primary btn-sm pull-right" type="button" (click)="addCronica();">
       Nueva crónica
@@ -10,10 +10,10 @@
     <div class="row">
       <div class="col-md-4">
         <div class="form-group">
-          <label class="control-label">
+          <label class="control-label tituloServicio">
             Servicio:
           </label>
-          <select class="form-control" aria-label="Servicio">
+          <select class="form-control" style="background-position-y: 10px;" aria-label="Servicio">
             <option [value]="'-1'" selected>Seleccionar servicio</option>
             <option [value]="servicio.cve_especialidad" *ngFor="let servicio of serviciosEspecialidad">{{ servicio.des_especialidad}}</option>
           </select>
@@ -22,10 +22,10 @@
 
       <div class="col-md-4">
         <div class="form-group">
-          <label class="control-label">
+          <label class="control-label tituloServicio">
             Turno:
           </label>
-          <select class="form-control" aria-label="Servicio">
+          <select  style="background-position-y: 10px;" class="form-control" aria-label="Servicio">
             <option [value]="'-1'" selected>Seleccionar turno</option>
             <option [value]="turno.cve_turno" *ngFor="let turno of turnos">{{ turno.des_turno}}</option>
           </select>
@@ -34,10 +34,10 @@
 
       <div class="col-md-4">
         <div class="form-group">
-          <label class="control-label">
+          <label class="control-label tituloServicio">
             Grupo:
           </label>
-          <select class="form-control" aria-label="Servicio">
+          <select  style="background-position-y: 10px;" class="form-control" aria-label="Servicio">
             <option selected>Seleccionar grupo</option>
             <option value="1">Tour quirugico</option>
           </select>
@@ -50,8 +50,8 @@
           <label class="control-label">
             Lugar:
           </label>
-          <select class="form-control" aria-label="Servicio">
-            <option selected>Seleccionar lugar</option>
+          <select class="form-control" style="background-position-y: 10px;" aria-label="Servicio">
+            <option  style="background-position-y: 10px;" selected>Seleccionar lugar</option>
             <option value="1">One</option>
             <option value="2">Two</option>
           </select>
@@ -62,13 +62,15 @@
         <div class="form-group datepicker-group">
           <label class="control-label" for="calendar">Fecha:</label>
           <input class="form-control" id="calendar" type="text" placeholder="dd/mm/aaaa">
-          <span class="glyphicon glyphicon-calendar" aria-hidden="true"></span>
+          <span class="glyphicon fondocalendar fondocalendar"  aria-hidden="true">
+            <div class="imgCalendar"></div>
+          </span>
         </div>
       </div>
 
       <div class="col-md-4">
         <div class="form-group">
-          <label class="control-label">
+          <label class="control-label ">
             Cronica especifica asociada:
           </label>
           <div class="radio flex align-items-center">
@@ -90,9 +92,9 @@
         <div class="form-group">
           <label class="control-label">Visualizar datos</label>
           <select class="form-select ml-5 select-view-data">
-            <option [ngValue]="2">2</option>
-            <option [ngValue]="4">4</option>
-            <option [ngValue]="6">6</option>
+            <option [ngValue]="15">15</option>
+            <option [ngValue]="30">30</option>
+            <option [ngValue]="60">60</option>
           </select>
         </div>
       </div>
@@ -100,81 +102,81 @@
 
     <div class="row">
       <div class="col-md-12">
-        <table class="table " style="margin-bottom: 0px !important;">
+        <table class="table">
           <thead>
-            <tr>
-              <th>Fecha</th>
-              <th>Grupo</th>
-              <th>Hora</th>
-              <th>Modalidad</th>
-              <th>Total participantes</th>
-              <th>Participantes que asistieron</th>
-              <th>Estatus</th>
+            <tr >
+              <th class="encabezadoTable">Fecha</th>
+              <th class="encabezadoTable">Grupo</th>
+              <th class="encabezadoTable">Hora</th>
+              <th class="encabezadoTable">Modalidad</th>
+              <th class="encabezadoTable">Total participantes</th>
+              <th class="encabezadoTable">Participantes que asistieron</th>
+              <th class="encabezadoTable">Estatus</th>
             </tr>
           </thead>
           <tbody>
             <tr>
-              <td (click)="irDetalle();"><a>24/01/2022</a></td>
-              <td>Jacob</td>
-              <td>Thornton</td>
-              <td>@fat</td>
-              <td>Jacob</td>
-              <td>Thornton</td>
-              <td>@fat</td>
+              <td class="bordesTabla" style="text-decoration: none !important" (click)="irDetalle();"><a>24/01/2022</a></td>
+              <td class="bordesTabla">Jacob</td>
+              <td class="bordesTabla">Thornton</td>
+              <td class="bordesTabla">@fat</td>
+              <td class="bordesTabla">Jacob</td>
+              <td class="bordesTabla">Thornton</td>
+              <td class="bordesTabla">@fat</td>
             </tr>
             <tr>
-              <td (click)="irDetalle();"><a>24/01/2022</a></td>
-              <td>Jacob</td>
-              <td>Thornton</td>
-              <td>@fat</td>
-              <td>Jacob</td>
-              <td>Thornton</td>
-              <td>@fat</td>
+              <td  class="bordesTabla"(click)="irDetalle();"><a>24/01/2022</a></td>
+              <td class="bordesTabla">Jacob</td>
+              <td class="bordesTabla">Thornton</td>
+              <td class="bordesTabla">@fat</td>
+              <td class="bordesTabla">Jacob</td>
+              <td class="bordesTabla">Thornton</td>
+              <td class="bordesTabla">@fat</td>
             </tr>
             <tr>
-              <td (click)="irDetalle();"><a>24/01/2022</a></td>
-              <td>Jacob</td>
-              <td>Thornton</td>
-              <td>@fat</td>
-              <td>Jacob</td>
-              <td>Thornton</td>
-              <td>@fat</td>
+              <td  class="bordesTabla"(click)="irDetalle();"><a>24/01/2022</a></td>
+              <td class="bordesTabla"> Jacob</td>
+              <td class="bordesTabla">Thornton</td>
+              <td class="bordesTabla">@fat</td>
+              <td class="bordesTabla">Jacob</td>
+              <td class="bordesTabla">Thornton</td>
+              <td class="bordesTabla">@fat</td>
             </tr>
             <tr>
-              <td (click)="irDetalle();"><a>24/01/2022</a></td>
-              <td>Jacob</td>
-              <td>Thornton</td>
-              <td>@fat</td>
-              <td>Jacob</td>
-              <td>Thornton</td>
-              <td>@fat</td>
+              <td  class="bordesTabla"(click)="irDetalle();"><a>24/01/2022</a></td>
+              <td class="bordesTabla">Jacob</td>
+              <td class="bordesTabla">Thornton</td>
+              <td class="bordesTabla">@fat</td>
+              <td class="bordesTabla">Jacob</td>
+              <td class="bordesTabla">Thornton</td>
+              <td class="bordesTabla">@fat</td>
             </tr>
             <tr>
-              <td (click)="irDetalle();"><a>24/01/2022</a></td>
-              <td>Mark</td>
-              <td>Otto</td>
-              <td>@mdo</td>
-              <td>Jacob</td>
-              <td>Thornton</td>
-              <td>@fat</td>
+              <td  class="bordesTabla" (click)="irDetalle();"><a>24/01/2022</a></td>
+              <td class="bordesTabla">Mark</td>
+              <td class="bordesTabla">Otto</td>
+              <td class="bordesTabla">@mdo</td>
+              <td class="bordesTabla">Jacob</td>
+              <td class="bordesTabla">Thornton</td>
+              <td class="bordesTabla">@fat</td>
             </tr>
             <tr>
-              <td (click)="irDetalle();"><a>24/01/2022</a></td>
-              <td>Mark</td>
-              <td>Otto</td>
-              <td>@mdo</td>
-              <td>Mark</td>
-              <td>Otto</td>
-              <td>@mdo</td>
+              <td  class="bordesTabla"(click)="irDetalle();"><a>24/01/2022</a></td>
+              <td class="bordesTabla">Mark</td>
+              <td class="bordesTabla">Otto</td>
+              <td class="bordesTabla">@mdo</td>
+              <td class="bordesTabla">Mark</td>
+              <td class="bordesTabla">Otto</td>
+              <td class="bordesTabla">@mdo</td>
             </tr>
             <tr>
-              <td (click)="irDetalle();"><a>24/01/2022</a></td>
-              <td>Mark</td>
-              <td>Otto</td>
-              <td>@mdo</td>
-              <td>Jacob</td>
-              <td>Thornton</td>
-              <td>@fat</td>
+              <td class="bordesTabla"  (click)="irDetalle();"><a>24/01/2022</a></td>
+              <td class="bordesTabla">Mark</td>
+              <td class="bordesTabla">Otto</td>
+              <td class="bordesTabla">@mdo</td>
+              <td class="bordesTabla">Jacob</td>
+              <td class="bordesTabla">Thornton</td>
+              <td class="bordesTabla">@fat</td>
             </tr>
           </tbody>
         </table>
