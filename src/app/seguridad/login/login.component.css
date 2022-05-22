@@ -24,7 +24,7 @@
 .img-bg {
   background-image: url(../../../assets/images/Background-login.png);
   background-repeat: no-repeat;
-  width: 140%;
+  width: 150%;
   height: 550px;
   /*margin: 119px 350px 72px 0;*/
   object-fit: contain;
