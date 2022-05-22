@@ -31,3 +31,8 @@ select {
     flex-wrap: wrap;
     gap: 10px;
 }
+
+.mat-dialog-container {
+    border-radius: 20px 20px 6px 6px!important;
+    padding: 0px !important;
+}

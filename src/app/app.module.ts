@@ -1,8 +1,10 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { MatIconModule } from '@angular/material/icon';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { MatDialogModule } from '@angular/material/dialog';
 import { AppRoutingModule } from './app-routing.module';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppComponent } from './app.component';
 import { BusquedaNssComponent } from './busqueda-nss/busqueda-nss.component';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
@@ -23,11 +25,12 @@ import { RECAPTCHA_SETTINGS, RecaptchaFormsModule, RecaptchaModule, RecaptchaSet
 import { JRInterceptor } from './jrinterceptor.interceptor';
 import { environment } from 'src/environments/environment';
 import { MatFormFieldModule } from '@angular/material/form-field';
-import { ReactiveFormsModule } from '@angular/forms';
 import { UsuariosService } from './service/usuarios.service';
 import { SeguridadService } from './seguridad/seguridad.service';
 import { LoginComponent } from './seguridad/login/login.component';
 import { RegistroComponent } from './seguridad/registro/registro.component';
+import { DataTablesModule } from 'angular-datatables';
+import { AgregarParticipanteDialogComponent } from './cronica-grupal/nueva-cronica/agregar-participante-dialog/agregar-participante-dialog.component';
 
 @NgModule({
   declarations: [
@@ -45,7 +48,8 @@ import { RegistroComponent } from './seguridad/registro/registro.component';
     CronicaGuardadaComponent,
     ConsultaComponent,
     HeaderMenuComponent,
-    CardTemplateComponent
+    CardTemplateComponent,
+    AgregarParticipanteDialogComponent
   ],
   imports: [
     BrowserModule,
@@ -53,12 +57,15 @@ import { RegistroComponent } from './seguridad/registro/registro.component';
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule,
+    BrowserAnimationsModule,
+    MatDialogModule,
     NgbModule,
     MatIconModule,
     MatFormFieldModule,
     RecaptchaModule,
     RecaptchaFormsModule,
-    NgxPaginationModule
+    NgxPaginationModule,
+    DataTablesModule,
   ],
   providers:
     [UsuariosService, SeguridadService, {
