@@ -3,11 +3,15 @@
   border-radius: 0px 0px 10px 10px;
   box-shadow: 0px 15px 15px rgb(0 0 0 / 20%);
   margin-bottom: 10px;
-  height: 90px;
+  /* height: 128px; */
   top: -30px;
   position: relative;
-  width: 80%;
+  /* width: 80%; */
   margin: auto;
+  width: 95%;
+  margin: auto;
+  margin-left: 59px;
+  height: 128px;
 }
 
 .barra-bottom {
@@ -27,16 +31,18 @@
 
 .part-img {
   width: 20%;
+  /* height: 150%; */
 }
 
 .part-img img {
-  height: 60px;
+  /* height: 60px; */
   display: flex;
   margin: auto;
   top: 5px;
   position: relative;
   z-index: 1;
   border-radius: 5px;
+  height: 90px;
 }
 
 .part-txt {

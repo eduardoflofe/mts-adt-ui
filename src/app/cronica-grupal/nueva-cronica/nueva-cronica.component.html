@@ -1,110 +1,166 @@
-<app-menu></app-menu>
+<app-app-alerts></app-app-alerts>
+<div class="Bg">
+  <app-menu></app-menu>
+  </div>
 <app-card-template>
-    <div header class="flex justify-content-between align-items-center">
-        <div style="display: grid">
-            <span class="pacienteNombreSpan">{{
-                "Nueva crónica grupal específica"
-                }}</span>
-        </div>
-        <div class="Rectangle-1205"></div>
-        <div style="display: grid">
-            <span class="tituloDosSpam">{{
-                "Miércoles 1 de marzo de 2020 12:13:01"
-                }}</span>
-        </div>
-        <div class="Rectangle-1205"></div>
-        <div style="display: grid">
-            <span class="tituloDosSpam">{{ "Tour quirúrgico" }}</span>
-        </div>
+  <div header class="flex justify-content-between row">
+    <div class="col-md-5">
+      <div style="display: grid; text-align: left" >
+        <span class="pacienteNombreSpan">{{
+          "Nueva crónica grupal"
+        }}</span>
+      </div>
     </div>
-    <div content>
-        <div style="margin-top: 10px;margin-bottom: 10px; margin-left: 16px;">
-            <span class="instrucciones">
-                Por favor capture los siguientes datos:
-            </span>
+    <hr class="hrCronica" />
+    <div class="col-md-3 border border-dark">
+      <div style="display: grid">
+        <span class="tituloDosSpam" style="text-align: left; padding-top: 3%;margin-left: -80%;">{{
+          "Miércoles 1 de marzo de 2020 12:13:01"
+        }}</span>
+      </div>
+    </div>
+    <hr class="hrCronica" />
+    <div class="col-md-3">
+      <div style="display: grid; text-align: left;  padding-top: 3%;margin-left: -80%;
+      ">
+        <span class="tituloDosSpam">{{ "Tour quirúrgico" }}</span>
+      </div>
+    </div>
+  </div>
+  <div content>
+    <div >
+      <span class="instrucciones" >
+        Por favor capture los siguientes datos:
+      </span>
+    </div>
+    <form novalidate [formGroup]="editForm" class="formInfo">
+      <div class="container seccion" >
+        <div class="row">
+          <div class="col-md-6">
+            <span class="spanInput">Ponentes*:</span>
+            <input
+              formControlName="descPonentes"
+              class="form-control matricula inputs"
+              id="txtconsulta"
+              placeholder="Ingresar ponentes"
+              type="text"
+            />
+          </div>
+          <div class="col-md-6">
+            <span class="spanInput">N&uacute;mero de asistentes*:</span>
+            <input
+              class="form-control matricula inputs"
+              id="txtconsulta"
+              formControlName="numParticipantesAsistieron"
+              placeholder="Ingresar n&uacute;mero de asistentes"
+              type="text"
+            />
+          </div>
         </div>
-        <form novalidate [formGroup]="editForm">
-            <div class="container seccion">
-                <div class="row">
-                    <div class="col-md-6">
-                        <span class="spanInput">Ponentes*:</span>
-                        <input formControlName="descPonentes" class="form-control matricula inputs" id="txtconsulta"
-                            placeholder="Ingresar ponentes" type="text" />
-                    </div>
-                    <div class="col-md-6">
-                        <span class="spanInput">N&uacute;mero de asistentes*:</span>
-                        <input class="form-control matricula inputs" id="txtconsulta"
-                            formControlName="numParticipantesAsistieron"
-                            placeholder="Ingresar n&uacute;mero de asistentes" type="text" />
-                    </div>
-                </div>
-
-                <div class="row">
-                    <div class="col-md-6">
-                        <span class="spanInput">T&eacute;cnica did&aacute;ctica*:</span>
-                        <input class="form-control matricula inputs" id="txtconsulta"
-                            formControlName="desTecnicaDidactica" placeholder="Ingresar t&eacute;cnica did&aacute;ctica"
-                            type="text" />
-                    </div>
-                    <div class="col-md-6">
-                        <span class="spanInput">Material apoyo*:</span>
-                        <input class="form-control matricula inputs" id="txtconsulta" formControlName="desMaterialApoyo"
-                            placeholder="Ingresar material apoyo" type="text" />
-                    </div>
-                </div>
-            </div>
-
-            <div class="container seccion">
-                <div class="row">
-                    <div class="col-md-6">
-                        <span class="spanInput">Objetivos de la sesi&oacute;n*:</span>
-                        <textarea class="form-control" placeholder="Ingresar objetivos de la sesi&oacute;n"
-                            formControlName="desObjetivosSesion" rows="4"></textarea>
-                    </div>
-                    <div class="col-md-6">
-                        <span class="spanInput">Desarrollo de la sesi&oacute;n*:</span>
-                        <textarea class="form-control" placeholder="Ingresar desarrollo de la sesi&oacute;n"
-                            formControlName="desDesarrolloSesion" rows="4"></textarea>
-                    </div>
-
-                </div>
-
-                <div class="row">
-                    <div class="col-md-6">
-                        <span class="spanInput">Perfil del grupo*:</span>
-                        <textarea class="form-control" placeholder="Escribir NSS paciente" rows="4"
-                            formControlName="desPerfilGrupo"></textarea>
-                    </div>
-                    <div class="col-md-6">
-                        <span class="spanInput">Observaciones*:</span>
-                        <textarea class="form-control" placeholder="Ingresar observaciones" rows="4"
-                            formControlName="desObservaciones"></textarea>
-                    </div>
-                </div>
-            </div>
-        </form>
 
         <div class="row">
-            <div class="col-md-6" style="padding-left: 32px;">
-                <div class="col">
-                    <span class="instrucciones">
-                        *Campos obligatorios
-                    </span>
-                    <button style="width: 170px;" type="button" class="btn btn-primary buttonL">Agregar
-                        participante</button>
-                </div>
-            </div>
-
-            <div class="col-md-6" style="padding-top: 19px; padding-right: 24px;">
-                <button type="button" class="btn btn-primary buttonL" style="float: right" (click)="guardarCronica();">
-                    Guardar
-                </button>
-                <button type="button" class="btn btn-danger buttonL" style="float: right">
-                    Cancelar
-                </button>
-            </div>
+          <div class="col-md-6">
+            <span class="spanInput">T&eacute;cnica did&aacute;ctica*:</span>
+            <input
+              class="form-control matricula inputs"
+              id="txtconsulta"
+              formControlName="desTecnicaDidactica"
+              placeholder="Ingresar t&eacute;cnica did&aacute;ctica"
+              type="text"
+            />
+          </div>
+          <div class="col-md-6">
+            <span class="spanInput">Material apoyo*:</span>
+            <input
+              class="form-control matricula inputs"
+              id="txtconsulta"
+              formControlName="desMaterialApoyo"
+              placeholder="Ingresar material apoyo"
+              type="text"
+            />
+          </div>
         </div>
+      </div>
+
+      <div class="container seccion">
+        <div class="row">
+          <div class="col-md-6">
+            <span class="spanInput">Objetivos de la sesi&oacute;n*:</span>
+            <textarea
+              class="form-control"
+              placeholder="Ingresar objetivos de la sesi&oacute;n"
+              formControlName="desObjetivosSesion"
+              rows="4"
+            ></textarea>
+            <span class="spanCaracteres">0/500 caracteres</span>
+          </div>
+          <div class="col-md-6">
+            <span class="spanInput">Desarrollo de la sesi&oacute;n*:</span>
+            <textarea
+              class="form-control"
+              placeholder="Ingresar desarrollo de la sesi&oacute;n"
+              formControlName="desDesarrolloSesion"
+              rows="4"
+            ></textarea>
+            <span class="spanCaracteres">0/500 caracteres</span>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-md-6">
+            <span class="spanInput">Perfil del grupo*:</span>
+            <textarea
+              class="form-control"
+              placeholder="Escribir NSS paciente"
+              rows="4"
+              formControlName="desPerfilGrupo"
+            ></textarea>
+            <span class="spanCaracteres">0/500 caracteres</span>
+          </div>
+          <div class="col-md-6">
+            <span class="spanInput">Observaciones*:</span>
+            <textarea
+              class="form-control"
+              placeholder="Ingresar observaciones"
+              rows="4"
+              formControlName="desObservaciones"
+            ></textarea>
+            <span class="spanCaracteres">0/500 caracteres</span>
+          </div>
+        </div>
+      </div>
+    </form>
+
+    <div class="row">
+      <div class="col-md-6" style="">
+        <div class="col">
+          <span class="instrucciones"> *Campos obligatorios </span>
+          <button
+            style="width: 170px; border: solid 1px #9d2449;"
+            type="button"
+            class="btn btn-primary buttonL">
+            Agregar participante
+          </button>
+        </div>
+      </div>
+
+      <div class="col-md-6" style="padding-top: 19px; padding-right: 24px;  margin-top: -1.4%;">
+        <button
+          type="button"
+          class="btn btn-primary buttonL"
+          style="float: right;border: solid 1px #9d2449;"
+          (click)="guardarCronica()" >
+          Guardar
+        </button>
+        <button
+          type="button"
+          class="btn btn-danger buttonL"
+          style="float: right; border: solid 1px #b38e5d;">
+          Cancelar
+        </button>
+      </div>
     </div>
+  </div>
 </app-card-template>
 
 <app-info-bottom></app-info-bottom>

@@ -1,24 +1,33 @@
-<app-menu></app-menu>
-<app-card-template>
-  <div header class="flex justify-content-between align-items-center">
-    <div style="display: grid">
-      <span class="pacienteNombreSpan">{{
-        "Consulta crónica grupal"
+<div class="Bg">
+  <app-menu></app-menu>
+  </div>
+<app-card-template style=" width: 1217px;
+height: 654px;">
+  <div header class="flex justify-content-between row">
+    <div class="col-md-5">
+      <div style="display: grid; text-align: left;">
+        <span class="pacienteNombreSpan">{{
+          "Consulta cronica grupal"
         }}</span>
+      </div>
     </div>
-    <div class="Rectangle-1205"></div>
-    <div style="display: grid">
-      <span class="tituloDosSpam">{{
-        "Miércoles 1 de marzo de 2020 12:13:01"
+    <hr class="hrCronicaFecha" />
+    <div class="col-md-4 border border-dark">
+      <div style="display: grid">
+        <span class="tituloDosSpam" style="text-align: left; padding-top: 3%;margin-left: -70%;">{{
+          "Miércoles 1 de marzo de 2020 12:13:01"
         }}</span>
+      </div>
     </div>
-    <div class="Rectangle-1205"></div>
-    <div style="display: grid">
-      <span class="tituloDosSpam">{{ "Tour quirúrgico" }}</span>
+    <hr class="hrCronicaServicio" />
+    <div class="col-md-3">
+      <div style="display: grid; text-align: left;  padding-top: 3%;margin-left: -103%;">
+        <span class="tituloDosSpam">{{ "Tour quirúrgico" }}</span>
+      </div>
     </div>
   </div>
 
-  <div subHeader class="flex justify-content-between align-items-center subHeader">
+  <div subHeader class="flex justify-content-between align-items-center subHeader" style="margin-top: -30;">
     <div style="width: 7%">
       <div class="divAmarillo">
         <img style="width: 75px;   box-shadow: 4px 4px 15px 0 rgb(0 0 0 / 20%);"
@@ -129,8 +138,8 @@
       </div>
 
       <div class="botones">
-        <button class="btn btn-danger btuser buttonL">Cancelar</button>
-        <button class="btn btn-primary btuser buttonL">Imprimir</button>
+        <button class="btn btn-danger btuser buttonL" style="border: solid 1px #b38e5d;">Cancelar</button>
+        <button class="btn btn-primary btuser buttonL" style="border: solid 1px #9d2449;">Imprimir</button>
       </div>
 
     </div>
