@@ -21,10 +21,10 @@ export class NuevaCronicaComponent implements OnInit {
     numParticipantesAsistieron: [null, Validators.required],
     desTecnicaDidactica: [null, Validators.required],
     desMaterialApoyo: [null, Validators.required],
-    desObjetivosSesion: [null, Validators.required],
-    desDesarrolloSesion: [null, Validators.required],
-    desPerfilGrupo: [null, Validators.required],
-    desObservaciones: [null, Validators.required],
+    desObjetivosSesion: [null, Validators.compose([Validators.required, Validators.maxLength(500)])],
+    desDesarrolloSesion: [null, Validators.compose([Validators.required, Validators.maxLength(500)])],
+    desPerfilGrupo: [null, Validators.compose([Validators.required, Validators.maxLength(500)])],
+    desObservaciones: [null, Validators.compose([Validators.required, Validators.maxLength(500)])],
   })
 
   constructor(

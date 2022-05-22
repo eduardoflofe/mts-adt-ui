@@ -90,9 +90,11 @@
               class="form-control"
               placeholder="Ingresar objetivos de la sesi&oacute;n"
               formControlName="desObjetivosSesion"
+              #objetivosRef
+              maxlength="500"
               rows="4"
             ></textarea>
-            <span class="spanCaracteres">0/500 caracteres</span>
+            <span class="spanCaracteres">{{objetivosRef.value?.length}}/{{objetivosRef.getAttribute('maxlength')}} caracteres</span>
           </div>
           <div class="col-md-6">
             <span class="spanInput">Desarrollo de la sesi&oacute;n*:</span>
@@ -100,9 +102,11 @@
               class="form-control"
               placeholder="Ingresar desarrollo de la sesi&oacute;n"
               formControlName="desDesarrolloSesion"
+              #desarrolloRef
+              maxlength="500"
               rows="4"
             ></textarea>
-            <span class="spanCaracteres">0/500 caracteres</span>
+            <span class="spanCaracteres">{{desarrolloRef.value?.length}}/{{desarrolloRef.getAttribute('maxlength')}} caracteres</span>
           </div>
         </div>
 
@@ -114,8 +118,10 @@
               placeholder="Escribir NSS paciente"
               rows="4"
               formControlName="desPerfilGrupo"
+              #perfilRef
+              maxlength="500"
             ></textarea>
-            <span class="spanCaracteres">0/500 caracteres</span>
+            <span class="spanCaracteres">{{perfilRef.value?.length}}/{{perfilRef.getAttribute('maxlength')}} caracteres</span>
           </div>
           <div class="col-md-6">
             <span class="spanInput">Observaciones*:</span>
@@ -124,8 +130,10 @@
               placeholder="Ingresar observaciones"
               rows="4"
               formControlName="desObservaciones"
+              #observacionesRef
+              maxlength="500"
             ></textarea>
-            <span class="spanCaracteres">0/500 caracteres</span>
+            <span class="spanCaracteres">{{observacionesRef.value?.length}}/{{observacionesRef.getAttribute('maxlength')}} caracteres</span>
           </div>
         </div>
       </div>
