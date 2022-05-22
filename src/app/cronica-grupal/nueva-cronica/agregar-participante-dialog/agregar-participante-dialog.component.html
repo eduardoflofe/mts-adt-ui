@@ -1,0 +1,117 @@
+<div class="modal-container">
+    <div class="header-part">
+        <form [formGroup]="editForm">
+            <div class="body-princ">
+                <div class="form-group usrlist pull-left">
+                    <label class="label-nss-paciente">NSS paciente</label>
+                    <input class="form-control input-paciente" id="nss" placeholder="NSS paciente"
+                        formControlName="nssPaciente" />
+                </div>
+
+                <div class="form-group grpbtns pull-left">
+                    <button class="btn btn-default btn-limpiar" (click)="limpiarBusqueda()">Limpiar</button>
+                    <button class="btn btn-primary btn-buscar " (click)="buscarPaciente()">Buscar</button>
+                </div>
+
+                <div class="form-group grpbtns pull-right">
+                    <label class="title-left">
+                        Búsqueda de NSS
+                    </label>
+                    <img src="../../../assets/images/Vector.svg" class="Vector">
+                </div>
+            </div>
+        </form>
+        <img class="img-lienzo" src="../../../assets/images/bg-header.png">
+        <div class="header-bar-bottom">
+
+        </div>
+    </div>
+
+    <div class="body-part">
+        <div class="subcontent">
+            <div class="content-title" col-12 col-md-12>
+                <span class="label-atencion">
+                    ¿Quién recibe la atención?
+                </span>
+                <span class="label-total-participantes">
+                    Total de participantes
+                    <span class="label-atencion">
+                        &nbsp; &nbsp; {{0}}
+                    </span>
+                </span>
+            </div>
+            <div class="not-data" *ngIf="pacientesList.length !== 0">
+                <label class="label-not-data">
+                    {{descNotData}}
+                </label>
+            </div>
+            <div class="content-table">
+                <table id="tblpacientes" datatable class="table table-hover table-bordered table-gral caption-top">
+                    <caption class="content-table-title">
+                        <span class="label-content-table-title">
+                            {{'Resultados'}}
+                            <label class="label-atencion">
+                                &nbsp; &nbsp; {{4}}
+                            </label>
+                        </span>
+                    </caption>
+                    <thead>
+                        <tr>
+                            <th><img style="cursor: pointer;" src="../../../assets/images/checkbox.svg"></th>
+                            <th>NSS</th>
+                            <th>Participante</th>
+                            <th>Parentesco</th>
+                            <th>Agregado Médico</th>
+                            <th>Unidad Médica</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><img style="cursor: pointer;" src="../../../assets/images/checkbox.svg"></td>
+                            <td>4382641109</td>
+                            <td>Jaime Daniel Villalobos Barrios</td>
+                            <td>Titular</td>
+                            <td>24567890567</td>
+                            <td>UMF #40</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="fields-extras">
+                <div class="form-group pull-left container-otros">
+                    <label class="label-nombre">Otros:</label>
+                    <div class="form-group flex">
+                        <input class="form-control input-nombre" id="turno"
+                            placeholder="Ingresar nombre de participante" formControlName="nssPaciente" />
+                        <img style="cursor: pointer;" src="../../../assets/images/plus-circle.svg">
+                    </div>
+
+                </div>
+                <div class="otros">
+                    <table id="tblotros" datatable
+                        class="table table-hover table-bordered table-gral table-otros caption-top">
+                        <thead>
+                            <tr>
+                                <th>Nombre</th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Juan Manuel González Campos</td>
+                                <td style="text-align: center !important;">
+                                    <img style="cursor: pointer;" src="../../../assets/images/tache.svg">
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group footer-part">
+            <button class="btn btn-primary btn-guardar" (click)="buscarPaciente()">Guardar</button>
+        </div>
+    </div>
+</div>
