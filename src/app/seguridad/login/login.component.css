@@ -24,7 +24,7 @@
 .img-bg {
   background-image: url(../../../assets/images/Background-login.png);
   background-repeat: no-repeat;
-  width: 100%;
+  width: 140%;
   height: 550px;
   /*margin: 119px 350px 72px 0;*/
   object-fit: contain;
@@ -36,6 +36,7 @@
   height: 550px;
   background-color: #fff;
   width: 40.972%;
+  margin-right: -61px;
 }
 .t-social{
   width: 113px;
@@ -389,3 +390,17 @@ re-captcha.is-invalid > div {
   height: 800px;
 }
 
+
+
+/* medias queryes */
+
+/* Large devices (laptops/desktops, 992px and up) */
+@media only screen and (min-width: 992px) {
+
+  }
+
+/* Extra large devices (large laptops and desktops, 1200px and up) */
+@media only screen and (min-width: 1200px) {
+
+
+}
