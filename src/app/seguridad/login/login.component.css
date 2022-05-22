@@ -34,7 +34,6 @@
   float: right;
   width: 573px;
   height: 550px;
-  /*margin: 117px 0 72px 140.8px;*/
   background-color: #fff;
   width: 40.972%;
 }
@@ -385,7 +384,7 @@ re-captcha.is-invalid > div {
 } */
 
 .img-trabajosocial{
-  width: 1300px;
+  width: 250%;
   margin-left: -450px;
   height: 800px;
 }

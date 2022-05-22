@@ -199,7 +199,7 @@ select {
 }
 
 .texto{
-  width: 1148px;
+  width: 187%;
   height: 40px;
   flex-grow: 0;
   margin: 2px 0 0 7px;
@@ -212,6 +212,7 @@ select {
   letter-spacing: normal;
   text-align: left;
   color: #545454;
+
 }
 
 
@@ -275,4 +276,27 @@ select {
 .formInfo{
   margin-left: -22px;
     margin-right: -22px;
+}
+
+.tabla>tbody>tr>td,
+.tabla>tbody>tr>th,
+.tabla>tfoot>tr>td,
+.tabla>tfoot>tr>th,
+.tabla>thead>tr>td,
+.tabla>thead>tr>th {
+    padding: 1px;
+    /* line-height: 1.428571429; */
+    /* vertical-align: top; */
+    border-top: 1px solid #ddd
+
+}
+
+.table-gral {
+  margin-top: 0;
+  margin-left: 0;
+  margin-right: 0;
+  margin-bottom: 0;
+  border-collapse: collapse;
+  border-bottom: 0 solid #dee2e6;
+  width: 96%;
 }

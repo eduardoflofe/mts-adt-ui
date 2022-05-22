@@ -431,7 +431,7 @@
   height: 2.0vh;
   width: 0.1%;
   margin-top: 0.6%;
-  margin-left: -17%;
+  margin-left: -15%;
   text-align: left;
   background-color: #000000;
 }
@@ -442,7 +442,7 @@
   height: 2.0vh;
   width: 0.1%;
   margin-top: 0.6%;
-  margin-left: -27%;
+  margin-left: -23%;
   text-align: left;
   background-color: #000000;
 }
@@ -450,6 +450,16 @@
 .tituloDosSpam{
   font-size: 16px;
   color:#222222;
+  text-align: left;
+  padding-top: 2.1%;
+  margin-left: -70%;
+}
+.tituloDosFechaSpam{
+  font-size: 16px;
+  color:#222222;
+  text-align: left;
+  padding-top: 3%;
+  margin-left: -60%;
 }
 
 .menu[_ngcontent-dqb-c91] {
