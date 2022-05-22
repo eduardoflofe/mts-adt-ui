@@ -59,16 +59,13 @@
 }
 
 .seccion {
-
     width: 96%;
     border-radius: 15px;
     border: solid 1px #e6e6e6;
     margin-left: auto;
     margin-right: auto;
-    margin-top: 5px;
+    /* margin-top: 5px; */
     padding-bottom: 10px;
-
-
 }
 
 .spanInput {
@@ -226,7 +223,7 @@ textarea {
 }
 
 .container {
-    margin-bottom: 12px;
+    margin-bottom: 10px;
 }
 
 .hrCronica {
@@ -254,5 +251,4 @@ textarea {
     display: flex;
     align-items: flex-end;
     color: #272829;
-    margin-left: 14px;
 }

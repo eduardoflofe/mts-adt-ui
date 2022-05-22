@@ -99,29 +99,39 @@
                     </div>
                 </div>
             </div>
-        </form>
 
-        <div class="row">
-            <div class="col-md-6" style="">
-                <div class="col">
-                    <span class="campo-obligatorio"> *Campos obligatorios </span>
-                    <button style="width: 170px; border: solid 1px #9d2449;" type="button"
-                        class="btn btn-primary buttonL" (click)="addParticipanteDialog();">
-                        Agregar participante
+
+            <div class="container" style="margin-bottom: 0px;">
+                <span class="campo-obligatorio"> *Campos obligatorios </span>
+                <button style="width: 170px; border: solid 1px #9d2449; margin-left: -10px !important;" type="button"
+                    class="btn btn-primary buttonL" (click)="addParticipanteDialog();">
+                    Agregar participante
+                </button>
+            </div>
+
+            <div class="container seccion">
+                <div class="row">
+                </div>
+
+                <button style="width: 170px; border: solid 1px #9d2449; margin-left: 0px !important;" type="button"
+                    class="btn btn-primary buttonL" (click)="addParticipanteDialog();">
+                    Agregar participante
+                </button>
+            </div>
+
+            <div class="row">
+                <div class="col-md-12" style="padding-top: 19px; padding-right: 24px;  margin-top: -1.4%;">
+                    <button type="button" class="btn btn-primary buttonL"
+                        style="float: right;border: solid 1px #9d2449;" (click)="guardarCronica()">
+                        Guardar
+                    </button>
+                    <button type="button" class="btn btn-danger buttonL"
+                        style="float: right; border: solid 1px #b38e5d;">
+                        Cancelar
                     </button>
                 </div>
             </div>
-
-            <div class="col-md-6" style="padding-top: 19px; padding-right: 24px;  margin-top: -1.4%;">
-                <button type="button" class="btn btn-primary buttonL" style="float: right;border: solid 1px #9d2449;"
-                    (click)="guardarCronica()">
-                    Guardar
-                </button>
-                <button type="button" class="btn btn-danger buttonL" style="float: right; border: solid 1px #b38e5d;">
-                    Cancelar
-                </button>
-            </div>
-        </div>
+        </form>
     </div>
 </app-card-template>
 
