@@ -40,6 +40,7 @@ export class NuevaCronicaComponent implements OnInit {
     const dialogRef = this.dialog.open(AgregarParticipanteDialogComponent, {
       width: '1170px',
       height: '588px',
+      maxWidth: '1170px',
       data: '',
     });
 
