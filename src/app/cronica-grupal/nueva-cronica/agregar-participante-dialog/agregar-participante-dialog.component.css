@@ -186,7 +186,7 @@ input {
 
 .content-title {
     background: #FFFFFF;
-    border: 1px solid #DDDDDD;
+    /* border: 1px solid #DDDDDD; */
     border-radius: 5px 0px 0px 0px;
     display: flex;
     justify-content: space-between;
@@ -227,7 +227,8 @@ input {
 }
 
 .content-table-title {
-    border: 1px solid #DDDDDD;
+    border-top: 1px solid #DDDDDD;
+    border-bottom: 1px solid #DDDDDD;
     height: 40px;
     padding: 6px 5px;
 }
