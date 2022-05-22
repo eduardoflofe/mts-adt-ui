@@ -41,6 +41,8 @@ export class NuevaCronicaComponent implements OnInit {
       width: '1170px',
       height: '588px',
       maxWidth: '1170px',
+      position: { top: `100px` },
+      panelClass: 'dialog-styles',
       data: '',
     });
 

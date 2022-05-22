@@ -33,6 +33,15 @@ select {
 }
 
 .mat-dialog-container {
-    border-radius: 20px 20px 6px 6px!important;
+    border-radius: 20px 20px 6px 6px !important;
     padding: 0px !important;
+}
+
+.cdk-global-overlay-wrapper {
+    overflow: auto;
+    pointer-events: auto;
+}
+
+.dialog-styles {
+    margin-bottom: 30px;
 }
