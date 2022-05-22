@@ -21,16 +21,14 @@ export class JRInterceptor implements HttpInterceptor {
     ) {
       request = request.clone({
         setHeaders: {
-          'Authorization': 'Bearer ' + sessionStorage.getItem('tokenJR')
+          'Authorization': 'Bearer ' + sessionStorage.getItem('token')
         }
       });
     } else {
-      if(request.url.endsWith("token")){
-
-      } else {
+      if(request.url.endsWith("token")){} else {
         request = request.clone({
           setHeaders: {
-            'Authorization': 'Bearer ' + sessionStorage.getItem('tokenJR'),
+            'Authorization': 'Bearer ' + sessionStorage.getItem('token'),
             'Content-Type': 'application/json'
           }
         });
@@ -40,6 +38,7 @@ export class JRInterceptor implements HttpInterceptor {
     return next.handle(request).pipe(
       tap(evt => {
         if (evt instanceof HttpResponse) {
+          console.log("###### Interceptor HttpResponse execute . . .")
         }
       })
     );

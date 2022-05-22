@@ -34,8 +34,44 @@ export class CronicaGrupalService {
     return this.http.get<any>(`${environment.urlServCronicas}/api/listTurnos`);
   }
 
-  getCatCalendarios() {
-    return this.http.get<any>(`${environment.urlServCronicas}/api/listCalendario`);
+  getCatGrupo(cveServicio: string) {
+    return this.http.get<any>(`${environment.urlServCronicas}/api/listPrograma/${cveServicio}`);
+  }
+
+  getCatLugar(cveServicio: string) {
+    return this.http.get<any>(`${environment.urlServCronicas}/api/listUbicacion/${cveServicio}`);
+  }
+
+  getAllCronicasGrupales() {
+    return this.http.get<any>(`${environment.urlServCronicas}/api/cronicasgrupales`);
+  }
+
+  getCronicasGrupalesByServicioEspecialidad(cveServicio: string) {
+    return this.http.get<any>(`${environment.urlServCronicas}/api/cronicasbyesp/${cveServicio}`);
+  }
+
+  getCronicasGrupalesByTurno(cveTurno: number) {
+    return this.http.get<any>(`${environment.urlServCronicas}/api/cronicasbyturno/${cveTurno}`);
+  }
+
+  getCronicasGrupalesByGrupo(cveGrupo: number) {
+    return this.http.get<any>(`${environment.urlServCronicas}/api/cronicasbygrupo/${cveGrupo}`);
+  }
+
+  getCronicasGrupalesByUbicacion(cveUbicacion: string) {
+    return this.http.get<any>(`${environment.urlServCronicas}/api/cronicasbyubicacion/${cveUbicacion}`);
+  }
+
+  getCronicasGrupalesByFecha(fecha: string | null) {
+    return this.http.get<any>(`${environment.urlServCronicas}/api/cronicasbyfecha/${fecha}`);
+  }
+
+  getCronicasGrupalesByEspecialidadEspecifica(especialidadEspecifica: string) {
+    return this.http.get<any>(`${environment.urlServCronicas}/api/cronicasbyespecif/${especialidadEspecifica}`);
+  }
+
+  getCronicasGrupalesByFiltros(cveServicio: string, cveTurno: number, cveGrupo: number, cveUbicacion: string, fecha: string | null, especialidadEspecifica: string) {
+    return this.http.get<any>(`${environment.urlServCronicas}/api/filtrocronicas/${cveServicio}/${cveTurno}/${cveGrupo}/${cveUbicacion}/${fecha}/${especialidadEspecifica}`);
   }
 
 }

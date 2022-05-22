@@ -10,6 +10,7 @@ import { AdmonPasswordResponse } from '../models/admon-password-response.model';
 import { RecaptchaResponse } from '../models/recaptcha-response-model';
 import { Router } from '@angular/router';
 import { BehaviorSubject } from 'rxjs';
+import { JwtHelperService } from '@auth0/angular-jwt';
 
 
 @Injectable({
@@ -21,13 +22,17 @@ export class AuthService {
   private _token!: string;
   public nombreUsuarioActivo = "";
   public userLogged$: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
-  public project$: BehaviorSubject<string> = new BehaviorSubject<string>("");
+  public project$: BehaviorSubject<string> = new BehaviorSubject<string>("Trabajo Social");
+  public isAuthenticatedObs$!: BehaviorSubject<boolean>;
 
   constructor(
     private http: HttpClient, 
     public webService: WebImssService,
+    private jwtHelper: JwtHelperService,
     private router: Router
-    ) { }
+    ) { 
+      this.isAuthenticatedObs$ = new BehaviorSubject<boolean>(false);
+    }
 
   public get usuario(): Usuario {
     if (this._usuario != null) {
@@ -177,6 +182,15 @@ export class AuthService {
     return this.usuario != undefined;
   }
 
+  isAuthenticatedUser(): boolean {
+    const tokenJR = sessionStorage.getItem('token');
+    if (tokenJR == '' || tokenJR == null || tokenJR == 'token is null') {
+      this.isAuthenticatedObs$.next(false);
+      return false;
+    }
+    return true;
+  }
+
   logout(): void {
     this._token = '';
     this._usuario = new Usuario;
@@ -185,6 +199,8 @@ export class AuthService {
     sessionStorage.removeItem('token');
     sessionStorage.removeItem('usuario');
     this.userLogged$.next(false);
+    this.isAuthenticatedObs$.next(false);
+    sessionStorage.setItem('token','token is null'); 
     this.router.navigate(["/login"]);
   }
 

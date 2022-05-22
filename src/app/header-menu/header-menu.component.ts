@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { BehaviorSubject, Subject } from 'rxjs';
+import { BehaviorSubject, Observable, Subject } from 'rxjs';
 import { AuthService } from '../service/auth-service.service';
 // import { AuthService } from './service/auth-service.service';
 
@@ -15,11 +15,22 @@ export class HeaderMenuComponent implements OnInit {
   matricula: string | undefined;
   proyecto: string = "";
 
+  isAuthenticated$!: Observable<boolean>;
+
   constructor(
     private authenticationService: AuthService
-  ) {}
+  ) { }
 
   ngOnInit(): void {
+    this.isAuthenticated$ = this.authenticationService.isAuthenticatedObs$;
+    this.authenticationService.isAuthenticatedObs$.subscribe(
+      (isAuthiticated: boolean) => {
+        this.nombre = isAuthiticated ? this.authenticationService.usuario.strNombres + " " + this.authenticationService.usuario.strApellidoP : "";
+        this.email = isAuthiticated ? this.authenticationService.usuario.strEmail : "";
+        this.matricula = isAuthiticated ? this.authenticationService.usuario.strUserName : "";
+      }
+    )
+
     let usuarioLogueadoSub = this.authenticationService.userLogged$.asObservable();
     this.authenticationService.project$.asObservable().subscribe(
       (proyectoActual) => this.proyecto = proyectoActual

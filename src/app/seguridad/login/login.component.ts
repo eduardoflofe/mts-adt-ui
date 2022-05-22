@@ -1,17 +1,14 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, NgForm, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { NgbAlert, NgbModal, ModalDismissReasons } from '@ng-bootstrap/ng-bootstrap';
-import { Subject } from 'rxjs';
-import { debounceTime } from 'rxjs/operators';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { SeguridadService } from '../seguridad.service';
-import { HttpClient, HttpErrorResponse, HttpEventType, HttpHeaders, HttpRequest, HttpResponse } from '@angular/common/http';
+import { HttpErrorResponse } from '@angular/common/http';
 import { objAlert } from '../../common/alerta/alerta.interface';
 import { AuthService } from 'src/app/service/auth-service.service';
 import { Aplicacion } from 'src/app/models/aplicacion.model';
 import { Usuario } from 'src/app/models/usuario.model';
 import { MailService } from 'src/app/service/mail-service.service';
-// import { ReCaptchaV3Service } from 'ng-recaptcha';
 import { RecaptchaResponse } from 'src/app/models/recaptcha-response-model';
 import { DomSanitizer } from '@angular/platform-browser';
 import { MatIconRegistry } from '@angular/material/icon';
@@ -51,18 +48,16 @@ export class LoginComponent implements OnInit {
   alert!: objAlert;
   showPassword: boolean = false;
   recaptchaResponse: RecaptchaResponse = new RecaptchaResponse();
-  token: string|undefined;
+  token: string | undefined;
 
   constructor(private formBuilder: FormBuilder,
     private seguridadService: SeguridadService,
     private mailService: MailService,
     private authService: AuthService,
-    private router: Router, 
-    private http: HttpClient, 
+    private router: Router,
     private modalService: NgbModal,
     private domSanitizer: DomSanitizer,
-    private matIconRegistry: MatIconRegistry,
-    // private recaptchaV3Service: ReCaptchaV3Service
+    private matIconRegistry: MatIconRegistry
   ) {
     this.token = undefined;
     this.matIconRegistry.addSvgIcon(
@@ -84,6 +79,7 @@ export class LoginComponent implements OnInit {
       this.aplicacion = resp;
       console.log(" app " + this.aplicacion.cveUsuario);
     }, (error: HttpErrorResponse) => {
+      console.error("Error: ", error);
       // this.msjError("Hubo error en la conexión con los servicios");
       // this.mostrarMensaje(4, this._Mensajes.MSJ_ERROR_CONEXION_API);
     });
@@ -104,7 +100,7 @@ export class LoginComponent implements OnInit {
   }
   get emailInput() { return this.signin.get('email'); }
   get passwordInput() { return this.signin.get('password'); }
-  
+
   async loginusuario(): Promise<void> {
     this.submitted = true;
     this.boton = true;
@@ -123,80 +119,63 @@ export class LoginComponent implements OnInit {
           email: this.logindata.value.email,
           password: this.logindata.value.password
         })*/
-
       try {
         // this.recaptchaV3Service.execute('importantAction')
         //   .subscribe((token: string) => {
+        console.log(`Token [${this.token}] generated`);
+        // this.authService.validateRecaptcha(token).subscribe(
+        //   (result) => {
+        //     console.log(result);
+        //     this.recaptchaResponse = result;
+        // if (this.recaptchaResponse.success == true) {
+        //login
+        this.usuario.strEmail = this.logindata.get("usuario")?.value;
+        this.usuario.strPassword = this.logindata.get("password")?.value;
 
-            console.log(`Token [${this.token}] generated`);
-            // this.authService.validateRecaptcha(token).subscribe(
-            //   (result) => {
-
-            //     console.log(result);
-            //     this.recaptchaResponse = result;
-
-                // if (this.recaptchaResponse.success == true) {
-
-                  //login
-
-                  this.usuario.strEmail = this.logindata.get("usuario")?.value;
-                  this.usuario.strPassword = this.logindata.get("password")?.value;
-
-
-                  this.authService.login(this.usuario, this.aplicacion).subscribe(
-                    (result) => {
-                      console.log(result);
-                      this.authService.userLogged$.next(true);
-                      this.authService.getUserData(this.usuario.strEmail).subscribe(
-                        (response: any) => {
-                          console.log("RESPONSE: ", response);
-                          this.authService.guardarUsuarioEnSesion(response);
-                        }
-                      );
-                      this.authService.guardarToken(result.access_token);
-                      this.seguridadService.registrarUsuario(this.usuario);
-                      this.router.navigate(["/busqueda"]);
-                    },
-                    (err: HttpErrorResponse) => {
-                      console.log("error " + err.error.message);
-                      if (err.error.message == undefined) {
-                        this.showError("<strong>Error.</strong> Servicio no esta disponible. Favor de reportarlo!.");
-                        return;
-                      }
-                      if (err.status == 400) {
-                        this.strMsjError = "" + err.status;
-                      } else {
-                        this.strMsjError = "" + err.status;
-                      }
-                      this.showError(err.error.message);
-                      //this.showError(err.error.message?err.message:err.error.message);
-                    }
-                  );
-
-
-                // } else {
-
-                //   this.showError(" Eres un robot");
-                // }
-
-
-
-            //   },
-            //   (err: HttpErrorResponse) => {
-            //     console.log("eror " + err.error.message);
-            //     if (err.status == 400) {
-            //       this.strMsjError = "" + err.status;
-            //     } else {
-            //       this.strMsjError = "" + err.status;
-            //     }
-            //     this.showError(err.error.message ? err.message : err.message);
-            //   }
-            // );
-
-
-          // });
-
-
+        this.authService.login(this.usuario, this.aplicacion).subscribe(
+          (result) => {
+            console.log(result);
+            this.authService.userLogged$.next(true);
+            this.authService.getUserData(this.usuario.strEmail).subscribe(
+              (response: any) => {
+                console.log("RESPONSE: ", response);
+                this.authService.guardarUsuarioEnSesion(response);
+              }
+            );
+            this.authService.guardarToken(result.access_token);
+            this.seguridadService.registrarUsuario(this.usuario);
+            this.router.navigate(["/busqueda"]);
+          },
+          (err: HttpErrorResponse) => {
+            console.log("error " + err.error.message);
+            if (err.error.message == undefined) {
+              this.showError("<strong>Error.</strong> Servicio no esta disponible. Favor de reportarlo!.");
+              return;
+            }
+            if (err.status == 400) {
+              this.strMsjError = "" + err.status;
+            } else {
+              this.strMsjError = "" + err.status;
+            }
+            this.showError(err.error.message);
+            //this.showError(err.error.message?err.message:err.error.message);
+          }
+        );
+        // } else {
+        //   this.showError(" Eres un robot");
+        // }
+        //   },
+        //   (err: HttpErrorResponse) => {
+        //     console.log("eror " + err.error.message);
+        //     if (err.status == 400) {
+        //       this.strMsjError = "" + err.status;
+        //     } else {
+        //       this.strMsjError = "" + err.status;
+        //     }
+        //     this.showError(err.error.message ? err.message : err.message);
+        //   }
+        // );
+        // });
         // } else {
         //  this.showError();
         // }
@@ -206,12 +185,10 @@ export class LoginComponent implements OnInit {
       // this.logindata.reset();
     } else {
       this.showError('<strong>Error.</strong> Ingresa los datos obligatorios');
-
-
     }
   }
-  private showError(error: string) {
 
+  private showError(error: string) {
     this.alert = {
       message: error,
       type: 'error',
@@ -225,8 +202,8 @@ export class LoginComponent implements OnInit {
       }
     }, 5000);
   }
-  //success
 
+  //Success
   private showSucces(msg: string) {
 
     this.alert = {
@@ -263,28 +240,16 @@ export class LoginComponent implements OnInit {
 
   validacorreo() {
     this.correosubmitted = true;
-
     if (this.correodata.valid) {
-
       let correo = this.correodata.get('correornv')?.value;
-
-
       this.mailService.recuperarPassword(correo).subscribe(
         (result) => {
           $('#content').modal('hide');
-
           if (result.status == '200') this.showSucces(" Correo enviado satisfactoriamente!");
           else this.showError(result.status);
-
-
-
-
         },
         (err: HttpErrorResponse) => {
-
           console.log("eror " + err.error.status);
-
-
           $('#content').modal('hide');
           this.showError(" Correo no registrado!");
         }
@@ -292,7 +257,6 @@ export class LoginComponent implements OnInit {
     } else {
       $('#content').modal('hide');
       this.showError(" ¡La cuenta de correo no contiene una estructura válida!");
-
     }
     this.correodata.reset();
   }

@@ -1,8 +1,6 @@
-
 <div class="bg">
   <app-menu></app-menu>
-  </div>
-
+</div>
 <app-card-template style=" width: 1217px;
 height: 654px;">
   <div header class="flex justify-content-between row">
@@ -16,9 +14,8 @@ height: 654px;">
     <hr class="hrCronicaFecha" />
     <div class="col-md-4 border border-dark">
       <div style="display: grid; margin-left: 4.7%;">
-        <span class="tituloDosSpam">{{
-          "Miércoles 1 de marzo de 2020 12:13:01"
-        }}</span>
+        <span class="tituloDosSpam">{{ today | date:"EEEE" }} {{ day }} de {{ months[month] }} de {{ year }}
+          {{ rxTime | date: 'hh:mm:ss' }}</span>
       </div>
     </div>
     <hr class="hrCronicaServicio" />

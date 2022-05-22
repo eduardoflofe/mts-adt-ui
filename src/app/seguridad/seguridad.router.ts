@@ -5,16 +5,15 @@ import { AuthService } from "../service/auth-service.service";
 
 
 @Injectable()
-export class SeguridadRouter implements CanActivate{
+export class SeguridadRouter implements CanActivate {
 
-  constructor(private authService: AuthService, private router: Router){}
+  constructor(private authService: AuthService, private router: Router) { }
 
   canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot) {
-   if(this.authService.onSession()){
+    if (!this.authService.isAuthenticatedUser()) {
+      this.router.navigate(['/login']);
+      return false;
+    }
     return true;
-   }else{
-    this.router.navigate(['/login']);
-    return false;
-   }
   }
 }

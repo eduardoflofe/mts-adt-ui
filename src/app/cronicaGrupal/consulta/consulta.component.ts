@@ -1,3 +1,4 @@
+import { DatePipe } from '@angular/common';
 import { HttpErrorResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
@@ -12,26 +13,32 @@ import { CronicaGrupalService } from 'src/app/service/cronica-grupal.service';
 })
 export class ConsultaComponent implements OnInit {
 
+  servicioSelected: any = '-1';
   serviciosEspecialidad: any[] = [];
+  turnoSelected: any = '-1';
   turnos: any[] = [];
-  horarios: any[] = [];
+  grupoSelected: any = '-1';
+  grupos: any[] = [];
+  lugarSelected: any = '-1';
+  lugares: any[] = [];
+  fechaSelected!: Date;
+  radioBtnSelected: any;
+
+  cronicasGrupales: any[] = [];
 
   constructor(
     private router: Router,
     private authService: AuthService,
-    private cronicaGrupalService: CronicaGrupalService
+    private cronicaGrupalService: CronicaGrupalService,
+    private datePipe: DatePipe
   ) { }
 
   ngOnInit(): void {
     this.authService.project$.next("Trabajo Social");
     this.loadCatalogos();
-    this.initSelects();
   }
 
-  initSelects() {
-    
-  }
-
+  //Metodo que carga los catalogos iniciales y la información incial de la tabla CronicasGrupales
   loadCatalogos() {
     this.cronicaGrupalService.getCatServicios().subscribe(
       (servicios) => {
@@ -39,7 +46,7 @@ export class ConsultaComponent implements OnInit {
         console.log("SERVICIOS: ", this.serviciosEspecialidad);
       },
       (httpErrorResponse: HttpErrorResponse) => {
-       console.error(httpErrorResponse); 
+        console.error(httpErrorResponse);
       }
     );
     this.cronicaGrupalService.getCatTurnos().subscribe(
@@ -48,18 +55,177 @@ export class ConsultaComponent implements OnInit {
         console.log("TURNOS: ", this.turnos);
       },
       (httpErrorResponse: HttpErrorResponse) => {
-       console.error(httpErrorResponse); 
+        console.error(httpErrorResponse);
       }
     );
-    // this.cronicaGrupalService.getCatCalendarios().subscribe(
-    //   (calendario) => {
-    //     this.horarios = calendario;
-    //     console.log("HORARIOS: ", this.horarios);
-    //   },
-    //   (httpErrorResponse: HttpErrorResponse) => {
-    //    console.error(httpErrorResponse); 
-    //   }
-    // );
+    this.cronicaGrupalService.getCatGrupo('1').subscribe(
+      (grupos) => {
+        this.grupos = grupos;
+        console.log("GRUPOS: ", this.turnos);
+      },
+      (httpErrorResponse: HttpErrorResponse) => {
+        console.error(httpErrorResponse);
+      }
+    );
+    this.cronicaGrupalService.getCatLugar('1').subscribe(
+      (lugares) => {
+        this.lugares = lugares;
+        console.log("LUGARES: ", this.turnos);
+      },
+      (httpErrorResponse: HttpErrorResponse) => {
+        console.error(httpErrorResponse);
+      }
+    );
+    this.cronicaGrupalService.getAllCronicasGrupales().subscribe(
+      (cronicasGrupales) => {
+        this.cronicasGrupales = cronicasGrupales;
+        console.log("CRONICAS GRUPALES: ", this.cronicasGrupales);
+      }
+    );
+  }
+
+  //Metodo que se ejecuta al seleccionar un nuevo valor del catalogo de Servicio
+  onChangeServicio(valueSelect: Event) {
+    this.servicioSelected = valueSelect;
+    //Limpiamos arreglo del catalogo de servicios
+    this.serviciosEspecialidad = [];
+    //Consumimo catalogo de grupo by ServicioEspecialidad seleccionado
+    this.cronicaGrupalService.getCatGrupo(this.servicioSelected).subscribe(
+      (grupos) => {
+        this.grupos = grupos;
+        console.log("GRUPOS BY SERVICIO: ", this.turnos);
+      },
+      (httpErrorResponse: HttpErrorResponse) => {
+        console.error(httpErrorResponse);
+      }
+    );
+    //Consumimo catalogo de grupo by ServicioEspecialidad seleccionado
+    this.cronicaGrupalService.getCatLugar(this.servicioSelected).subscribe(
+      (lugares) => {
+        this.lugares = lugares;
+        console.log("LUGARES BY SERVICIO: ", this.turnos);
+      },
+      (httpErrorResponse: HttpErrorResponse) => {
+        console.error(httpErrorResponse);
+      }
+    );
+    if (this.validateAllDataFull()) {
+      this.getCronicasGrupales();
+    } else {
+      //Poblamos la tabla de acuerdo al filtro de servicio seleccionado
+      this.cronicaGrupalService.getCronicasGrupalesByServicioEspecialidad(this.servicioSelected).subscribe(
+        (cronicasGrupales) => {
+          this.cronicasGrupales = [];
+          this.cronicasGrupales = cronicasGrupales;
+          console.log("CRONICAS GRUPALES BY SERVICIO: ", this.cronicasGrupales);
+        }
+      );
+    }
+  }
+
+  //Metodo que se ejecuta al seleccionar un nuevo valor del catalogo de Turno
+  onChangeTurno(valueSelect: Event) {
+    this.turnoSelected = valueSelect;
+    if (this.validateAllDataFull()) {
+      this.getCronicasGrupales();
+    } else {
+      //Poblamos la tabla de acuerdo al filtro de turno seleccionado
+      this.cronicaGrupalService.getCronicasGrupalesByTurno(Number(this.turnoSelected)).subscribe(
+        (cronicasGrupales) => {
+          this.cronicasGrupales = [];
+          this.cronicasGrupales = cronicasGrupales;
+          console.log("CRONICAS GRUPALES BY TURNO: ", this.cronicasGrupales);
+        }
+      );
+    }
+  }
+
+  //Metodo que se ejecuta al seleccionar un nuevo valor del catalogo de Grupo
+  onChangeGrupo(valueSelect: Event) {
+    this.grupoSelected = valueSelect;
+    if (this.validateAllDataFull()) {
+      this.getCronicasGrupales();
+    } else {
+      //Poblamos la tabla de acuerdo al filtro de grupo seleccionado
+      this.cronicaGrupalService.getCronicasGrupalesByGrupo(Number(this.grupoSelected)).subscribe(
+        (cronicasGrupales) => {
+          this.cronicasGrupales = [];
+          this.cronicasGrupales = cronicasGrupales;
+          console.log("CRONICAS GRUPALES BY GRUPO: ", this.cronicasGrupales);
+        }
+      );
+    }
+  }
+
+  //Metodo que se ejecuta al seleccionar un nuevo valor del catalogo de Lugar
+  onChangeLugar(valueSelect: Event) {
+    this.lugarSelected = valueSelect;
+    if (this.validateAllDataFull()) {
+      this.getCronicasGrupales();
+    } else {
+      //Poblamos la tabla de acuerdo al filtro de lugar seleccionado
+      this.cronicaGrupalService.getCronicasGrupalesByUbicacion(this.lugarSelected).subscribe(
+        (cronicasGrupales) => {
+          this.cronicasGrupales = [];
+          this.cronicasGrupales = cronicasGrupales;
+          console.log("CRONICAS GRUPALES BY LUGAR: ", this.cronicasGrupales);
+        }
+      );
+    }
+  }
+
+  //Metodo que se ejecuta al seleccionar un nuevo valor de Fecha
+  onChangeFecha(valueSelect: Date) {
+    this.fechaSelected = valueSelect;
+    const fecha = this.datePipe.transform(this.fechaSelected, 'dd-MM-yyyy');
+    if (this.validateAllDataFull()) {
+      this.getCronicasGrupales();
+    } else {
+      //Poblamos la tabla de acuerdo al filtro de fecha seleccionado
+      this.cronicaGrupalService.getCronicasGrupalesByFecha(fecha).subscribe(
+        (cronicasGrupales) => {
+          this.cronicasGrupales = [];
+          this.cronicasGrupales = cronicasGrupales;
+          console.log("CRONICAS GRUPALES BY FECHA: ", this.cronicasGrupales);
+        }
+      );
+    }
+  }
+
+  onChangeRadioBoton(value: Event) {
+    console.log("RADIO: ", this.radioBtnSelected);
+    if (this.validateAllDataFull()) {
+      this.getCronicasGrupales();
+    } else {      
+      //Poblamos la tabla de acuerdo al filtro de radio seleccionado
+      this.cronicaGrupalService.getCronicasGrupalesByEspecialidadEspecifica(this.radioBtnSelected).subscribe(
+        (cronicasGrupales) => {
+          this.cronicasGrupales = [];
+          this.cronicasGrupales = cronicasGrupales;
+          console.log("CRONICAS GRUPALES BY LUGAR: ", this.cronicasGrupales);
+        }
+      );
+    }
+  }
+
+  validateAllDataFull(): boolean {
+    if (this.servicioSelected !== '-1' && this.turnoSelected !== '-1'
+      && this.grupoSelected !== '-1' && this.lugarSelected !== '-1'
+      && this.fechaSelected !== null && this.radioBtnSelected) {
+      return true;
+    }
+    return false;
+  }
+
+  getCronicasGrupales() {
+    const fecha = this.datePipe.transform(this.fechaSelected, 'dd-MM-yyyy');
+    this.cronicaGrupalService.getCronicasGrupalesByFiltros(this.servicioSelected !== '-1' ? this.servicioSelected : '-', this.turnoSelected !== '-1' ? Number(this.turnoSelected) : 0, this.grupoSelected !== '-1' ? Number(this.grupoSelected) : 0, this.lugarSelected !== '-1' ? this.lugarSelected : '-', fecha !== null ? fecha : '00-00-0000', this.radioBtnSelected !== '' ? this.radioBtnSelected : '-').subscribe(
+      (cronicasGrupales) => {
+        this.cronicasGrupales = [];
+        this.cronicasGrupales = cronicasGrupales;
+        console.log("CRONICAS GRUPALES BY FILTROS: ", this.cronicasGrupales);
+      }
+    );
   }
 
   addCronica() {

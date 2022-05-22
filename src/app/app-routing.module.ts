@@ -15,15 +15,16 @@ import { RegistroComponent } from './seguridad/registro/registro.component';
 
 
 const routes: Routes = [
-  { path: '', component: LoginComponent, canActivate: [SeguridadRouter] },
-  { path: 'login', component: LoginComponent, canActivate: [SeguridadRouter] },
+  { path: '', component: LoginComponent },
+  { path: 'login', component: LoginComponent },
   { path: 'recuperarpassword', component: RegistroComponent },
   { path: 'busqueda', component: BusquedaNssComponent },
   { path: 'tarjeta', component: AppTarjetaPresentacionComponent },
   { path: 'busquedaEspecifica', component: CCGrupalEspecificaComponent },
   { path: 'nuevaCronica', component: NuevaCronicaComponent },
   { path: 'cronicaGuardada', component: CronicaGuardadaComponent },
-  { path: 'consulta-cronica-grupal', component: ConsultaComponent }
+  { path: 'consulta-cronica-grupal', component: ConsultaComponent },
+  { path: '**', redirectTo: 'login' }
 ];
 
 @NgModule({

@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { LOCALE_ID, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { MatIconModule } from '@angular/material/icon';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -31,6 +31,11 @@ import { LoginComponent } from './seguridad/login/login.component';
 import { RegistroComponent } from './seguridad/registro/registro.component';
 import { DataTablesModule } from 'angular-datatables';
 import { AgregarParticipanteDialogComponent } from './cronica-grupal/nueva-cronica/agregar-participante-dialog/agregar-participante-dialog.component';
+import { JwtModule } from '@auth0/angular-jwt';
+import { DatePipe, registerLocaleData } from '@angular/common';
+import '@angular/common/locales/global/es'
+
+registerLocaleData('es');
 
 @NgModule({
   declarations: [
@@ -66,9 +71,18 @@ import { AgregarParticipanteDialogComponent } from './cronica-grupal/nueva-croni
     RecaptchaFormsModule,
     NgxPaginationModule,
     DataTablesModule,
+    JwtModule.forRoot({
+      config: {
+        tokenGetter: function tokenGetter() {
+          return sessionStorage.getItem('token');
+        },
+        allowedDomains: ['localhost:4200','localhost:8080','localhost:8081'],
+        disallowedRoutes: ['http://localhost:8080/login','http://localhost:8081/login']
+      }
+    })
   ],
   providers:
-    [UsuariosService, SeguridadService, {
+    [DatePipe, UsuariosService, SeguridadService, {
       provide:
         RECAPTCHA_SETTINGS,
       useValue: {
@@ -77,8 +91,15 @@ import { AgregarParticipanteDialogComponent } from './cronica-grupal/nueva-croni
     }, {
         provide:
             HTTP_INTERCEPTORS, useClass: JRInterceptor, multi: true 
+      }, {
+        provide:
+            LOCALE_ID, useValue: 'es'
       }
     ],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule { 
+  constructor(){
+   sessionStorage.setItem('token','token is null'); 
+  }
+}
