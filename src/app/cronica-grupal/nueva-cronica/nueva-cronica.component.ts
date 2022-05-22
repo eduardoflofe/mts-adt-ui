@@ -52,20 +52,24 @@ export class NuevaCronicaComponent implements OnInit {
   }
 
   guardarCronica() {
-    this.cronica = {
-      ...this.cronica,
-      ...this.editForm.value
-    };
+    this.editForm.markAllAsTouched();
 
-    this.cronicaService.addCronica(this.cronica).subscribe(
-      (resp) => {
-        if (resp) {
-          this.router.navigate(["cronicaGuardada"]);
+    if (this.editForm.valid) {
+      this.cronica = {
+        ...this.cronica,
+        ...this.editForm.value
+      };
+
+      this.cronicaService.addCronica(this.cronica).subscribe(
+        (resp) => {
+          if (resp) {
+            this.router.navigate(["cronicaGuardada"]);
+          }
+        },
+        (httpErrorResponse: HttpErrorResponse) => {
+          console.error(httpErrorResponse);
         }
-      },
-      (httpErrorResponse: HttpErrorResponse) => {
-        console.error(httpErrorResponse);
-      }
-    );
+      );
+    }
   }
 }

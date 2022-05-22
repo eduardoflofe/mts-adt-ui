@@ -103,20 +103,49 @@
 
             <div class="container" style="margin-bottom: 0px;">
                 <span class="campo-obligatorio"> *Campos obligatorios </span>
+                <!-- TO-DO Aplicar logica para ocultar o mostrar boton
                 <button style="width: 170px; border: solid 1px #9d2449; margin-left: -10px !important;" type="button"
                     class="btn btn-primary buttonL" (click)="addParticipanteDialog();">
                     Agregar participante
-                </button>
+                </button> -->
             </div>
 
             <div class="container seccion">
-                <div class="row">
+                <div class="row col-md-12" style="margin-top: 20px;">
+                    <span class="label-total-participantes" style="margin: 0px 10px;">
+                        Total de participantes
+                        <span class="label-atencion">
+                            &nbsp; &nbsp; {{3}}
+                        </span>
+                    </span>
                 </div>
-
-                <button style="width: 170px; border: solid 1px #9d2449; margin-left: 0px !important;" type="button"
-                    class="btn btn-primary buttonL" (click)="addParticipanteDialog();">
-                    Agregar participante
-                </button>
+                <div class="row col-md-8">
+                    <table id="tblparticipante" datatable
+                        class="table table-hover table-bordered table-gral table-participantes caption-top">
+                        <thead>
+                            <tr>
+                                <th>Participantes</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Daniela García Rodríguez</td>
+                            </tr>
+                            <tr>
+                                <td>Jaime Daniel Villalobos Barrios</td>
+                            </tr>
+                            <tr>
+                                <td>Juan Manuel González Campos</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="row col-md-12">
+                    <button style="width: 170px; border: solid 1px #9d2449; margin-left: 0px !important;" type="button"
+                        class="btn btn-primary buttonL" (click)="addParticipanteDialog();">
+                        Agregar participante
+                    </button>
+                </div>
             </div>
 
             <div class="row">

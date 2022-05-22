@@ -1,10 +1,14 @@
+label span {
+    font-family: 'Montserrat';
+    font-style: normal;
+}
+
 .Bg {
     height: 218px;
     flex-grow: 0;
     background-color: #10312b;
     display: grid;
     place-content: center;
-
 }
 
 .Rectangle-855 {
@@ -82,7 +86,6 @@
     letter-spacing: normal;
     text-align: left;
     color: #222;
-
 }
 
 select {
@@ -251,4 +254,72 @@ textarea {
     display: flex;
     align-items: flex-end;
     color: #272829;
+}
+
+.table-gral {
+    margin-top: 0;
+    margin-left: 0;
+    margin-right: 0;
+    margin-bottom: 0;
+    border-collapse: collapse;
+    border-bottom: 0 solid #dee2e6;
+}
+
+.table>:not(:first-child) {
+    border-top: 0 solid #dee2e6;
+    border-bottom: 0 solid #dee2e6;
+}
+
+table.table-gral>thead tr th {
+    background: rgba(196, 196, 196, 0.1);
+    border: 1px solid #EEEEEE;
+    border-radius: 0px;
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 17px;
+    align-items: center;
+    text-align: center;
+    color: #222222;
+
+}
+
+table.table-gral>tbody tr td {
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 15px !important;
+    align-items: center;
+    text-align: center;
+    color: #000000;
+}
+
+table.table-participantes>thead tr th {
+    align-items: center;
+    text-align: left;
+}
+
+table.table-participantes>tbody tr td {
+    align-items: center;
+    text-align: left;
+}
+
+.table-participantes {
+    background: #FFFFFF;
+    border: 1px solid #EEEEEE;
+    border-radius: 5px;
+}
+
+.label-total-participantes {
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 17px;
+    color: #666666;
+}
+
+.label-atencion {
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 17px;
+    color: #222222;
 }
