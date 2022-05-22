@@ -81,6 +81,8 @@
   letter-spacing: normal;
   text-align: center;
   color: #bc955c;
+  margin-right: -28%;
+  margin-top: 19%;
 }
 .trabajo-social {
   width: 476.5px;
@@ -95,6 +97,7 @@
   letter-spacing: normal;
   text-align: right;
   color: #fff;
+  margin-right: -28%;
 }
 
 /*Seccion de formulario*/
@@ -380,3 +383,10 @@ re-captcha.is-invalid > div {
     width: 1440px;
   }
 } */
+
+.img-trabajosocial{
+  width: 1300px;
+  margin-left: -450px;
+  height: 800px;
+}
+

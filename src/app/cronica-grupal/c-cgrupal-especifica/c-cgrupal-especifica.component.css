@@ -452,24 +452,10 @@
   color:#222222;
 }
 
-/* #pentagono {
-  position: relative;
-background: transparent;
-  width: 20%;
-  border-width: 120px 58px 0;
-  border-style: solid;
-  border-color: #63639c transparent;
-margin-top: 150px;
+.menu[_ngcontent-dqb-c91] {
+  height: 1299px;
+  flex-grow: 0;
+  background-color: #10312b;
+  display: grid;
+  place-content: center;
 }
-
-#pentagono::before {
-  content: "";
-  position: absolute;
-  height: 0;
-  width: 0;
-  top: -230px;
-  left: -58px;
-  border-width: 0 133px 110px;
-  border-style: solid;
-  border-color: transparent transparent #63639c;
-} */
