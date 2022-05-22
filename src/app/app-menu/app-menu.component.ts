@@ -1,3 +1,4 @@
+import { BusquedaNssComponent } from './../busqueda-nss/busqueda-nss.component';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
@@ -17,6 +18,10 @@ export class AppMenuComponent implements OnInit {
 
   irCronicaGrupal() {
     this.router.navigate(["consulta-cronica-grupal"]);
+  }
+
+  irBusquedaDePacientesPorNss(){
+    this.router.navigate(["busqueda"]);
   }
 
 }

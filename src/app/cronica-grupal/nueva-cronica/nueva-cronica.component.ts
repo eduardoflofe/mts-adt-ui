@@ -73,5 +73,7 @@ export class NuevaCronicaComponent implements OnInit {
         }
       );
     }
+    this.router.navigate(["cronicaGuardada"]);
   }
+
 }
