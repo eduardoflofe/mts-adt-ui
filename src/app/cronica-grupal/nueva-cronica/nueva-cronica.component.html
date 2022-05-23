@@ -1,9 +1,9 @@
 <app-app-alerts></app-app-alerts>
-    <app-menu></app-menu>
+<app-menu></app-menu>
 <app-card-template>
 
 
-  <div header class="flex justify-content-between row">
+    <div header class="flex justify-content-between row">
         <div class="col-md-4">
             <div style="display: grid; text-align: left">
                 <span class="pacienteNombreSpan">{{
@@ -11,14 +11,14 @@
                     }}</span>
             </div>
         </div>
-        <hr class="hrCronica" style="margin-left: -5%"/>
+        <hr class="hrCronica" style="margin-left: -5%" />
         <div class="col-md-4 ">
             <div style="display: grid; margin-left: -7%;">
                 <span class="tituloDosSpam">{{ today | date:"EEEE" }} {{ day }} de {{ months[month] }} de {{ year }}
                     {{ rxTime | date: 'hh:mm:ss' }}</span>
             </div>
         </div>
-        <hr class="hrCronica" style="margin-left: -5%;"/>
+        <hr class="hrCronica" style="margin-left: -5%;" />
         <div class="col-md-4">
             <div style="display: grid; text-align: left; margin-left: -4%;">
                 <span class="tituloDosSpam">{{ "Tour quirúrgico" }}</span>
@@ -115,7 +115,7 @@
                     <span class="label-total-participantes" style="margin: 0px 10px;">
                         Total de participantes
                         <span class="label-atencion">
-                            &nbsp; &nbsp; {{3}}
+                            &nbsp; &nbsp; {{listParticipantes.length}}
                         </span>
                     </span>
                 </div>
@@ -128,14 +128,8 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
-                                <td>Daniela García Rodríguez</td>
-                            </tr>
-                            <tr>
-                                <td>Jaime Daniel Villalobos Barrios</td>
-                            </tr>
-                            <tr>
-                                <td>Juan Manuel González Campos</td>
+                            <tr *ngFor="let item of listParticipantes; let i=index">
+                                <td>{{item.nombreParticipante}}</td>
                             </tr>
                         </tbody>
                     </table>

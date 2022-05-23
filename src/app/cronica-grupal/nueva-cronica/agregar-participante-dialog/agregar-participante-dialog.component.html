@@ -36,11 +36,11 @@
                 <span class="label-total-participantes">
                     Total de participantes
                     <span class="label-atencion">
-                        &nbsp; &nbsp; {{0}}
+                        &nbsp; &nbsp; {{countChecked}}
                     </span>
                 </span>
             </div>
-            <div class="not-data" *ngIf="pacientesList.length !== 0">
+            <div class="not-data" *ngIf="listPacientes.length !== 0">
                 <label class="label-not-data">
                     {{descNotData}}
                 </label>
@@ -51,13 +51,17 @@
                         <span class="label-content-table-title">
                             {{'Resultados'}}
                             <label class="label-atencion">
-                                &nbsp; &nbsp; {{4}}
+                                &nbsp; &nbsp; {{listPacientes.length}}
                             </label>
                         </span>
                     </caption>
                     <thead>
                         <tr>
-                            <th><img style="cursor: pointer;" src="../../../assets/images/checkbox.svg"></th>
+                            <!-- <th><img style="cursor: pointer;" src="../../../assets/images/checkbox.svg"></th> -->
+                            <th>
+                                <input type="checkbox" [disabled]="listPacientes.length === 0"
+                                    (change)="changeAll($event)" />
+                            </th>
                             <th>NSS</th>
                             <th>Participante</th>
                             <th>Parentesco</th>
@@ -66,13 +70,16 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <td><img style="cursor: pointer;" src="../../../assets/images/checkbox.svg"></td>
-                            <td>4382641109</td>
-                            <td>Jaime Daniel Villalobos Barrios</td>
-                            <td>Titular</td>
-                            <td>24567890567</td>
-                            <td>UMF #40</td>
+                        <tr *ngFor=" let item of listPacientes; let i=index">
+                            <td>
+                                <input type="checkbox" [checked]="item.checked"
+                                    (change)="changeChecked($event, item)" />
+                            </td>
+                            <td>{{ item.numNssPaciente }}</td>
+                            <td>{{ item.nombrePaciente }}</td>
+                            <td>{{ item.parentesco }}</td>
+                            <td>{{ item.agregadoMedico }}</td>
+                            <td>{{ item.unidadMedica }}</td>
                         </tr>
                     </tbody>
                 </table>
@@ -82,36 +89,39 @@
                 <div class="form-group pull-left container-otros">
                     <label class="label-nombre">Otros:</label>
                     <div class="form-group flex">
-                        <input class="form-control input-nombre" id="turno"
+                        <input class="form-control input-nombre" id="turno" [(ngModel)]="nombre"
                             placeholder="Ingresar nombre de participante" />
-                        <img style="cursor: pointer;" src="../../../assets/images/plus-circle.svg">
+                        <img style="cursor: pointer;" src="../../../assets/images/plus-circle.svg" (click)="addOtro();">
                     </div>
 
                 </div>
-                <div class="otros">
-                    <table id="tblotros" datatable
-                        class="table table-hover table-bordered table-gral table-otros caption-top">
-                        <thead>
-                            <tr>
-                                <th>Nombre</th>
-                                <th></th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>Juan Manuel González Campos</td>
-                                <td style="text-align: center !important;">
-                                    <img style="cursor: pointer;" src="../../../assets/images/tache.svg">
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
+                <div class="otros" *ngIf="otros.length > 0">
+                    <form [formGroup]="otrosForm">
+                        <table id="tblotros" datatable
+                            class="table table-hover table-bordered table-gral table-otros caption-top">
+                            <thead>
+                                <tr>
+                                    <th>Nombre</th>
+                                    <th style="width: 50px;"></th>
+                                </tr>
+                            </thead>
+                            <tbody formArrayName="otros">
+                                <tr *ngFor="let item of otros.value; let i=index">
+                                    <td>{{item.nombreCompleto}}</td>
+                                    <td style="text-align: center !important;">
+                                        <img style="cursor: pointer;" src="../../../assets/images/tache.svg"
+                                            (click)="removeOtro(i)">
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </form>
                 </div>
             </div>
         </div>
 
         <div class="form-group footer-part">
-            <button class="btn btn-primary btn-guardar" (click)="buscarPaciente()">Guardar</button>
+            <button class="btn btn-primary btn-guardar" (click)="guardarParticipantes()">Guardar</button>
         </div>
     </div>
 </div>

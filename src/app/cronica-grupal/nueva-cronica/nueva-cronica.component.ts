@@ -8,6 +8,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { AgregarParticipanteDialogComponent } from './agregar-participante-dialog/agregar-participante-dialog.component';
 import { Subscription, timer } from "rxjs";
 import { map, share } from "rxjs/operators";
+import { Participante } from 'src/app/models/participante.model';
 
 @Component({
   selector: 'app-nueva-cronica',
@@ -15,6 +16,8 @@ import { map, share } from "rxjs/operators";
   styleUrls: ['./nueva-cronica.component.css']
 })
 export class NuevaCronicaComponent implements OnInit {
+
+  public listParticipantes: Participante[] = [];
 
   time = new Date();
   rxTime = new Date();
@@ -46,7 +49,7 @@ export class NuevaCronicaComponent implements OnInit {
     private cronicaService: CronicaService,
   ) { }
 
-  ngOnInit(): void { 
+  ngOnInit(): void {
     const currentDate = new Date();
     this.day = currentDate.getDate();
     this.month = currentDate.getMonth();
@@ -61,22 +64,23 @@ export class NuevaCronicaComponent implements OnInit {
       .subscribe(time => {
         this.rxTime = time;
       }
-    );
+      );
   }
 
   addParticipanteDialog() {
     const dialogRef = this.dialog.open(AgregarParticipanteDialogComponent, {
       width: '1170px',
-      height: '588px',
+      height: 'auto',
       maxWidth: '1170px',
       position: { top: `100px` },
       panelClass: 'dialog-styles',
       data: '',
     });
 
-    dialogRef.afterClosed().subscribe(result => {
-      if (result) {
-        console.log('este es el id a canmcelar ');
+    dialogRef.afterClosed().subscribe((participantes: Participante[]) => {
+      if (participantes && participantes.length > 0) {
+        console.log(participantes);
+        this.listParticipantes = participantes;
       }
     });
   }
@@ -92,7 +96,7 @@ export class NuevaCronicaComponent implements OnInit {
 
       console.log("OBJETO: ", this.cronica);
       let params = {
-        'cronica':JSON.stringify(this.cronica),
+        'cronica': JSON.stringify(this.cronica),
       }
       this.router.navigate(["cronicaGuardada"], { queryParams: params, skipLocationChange: true });
 

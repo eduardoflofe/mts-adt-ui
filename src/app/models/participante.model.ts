@@ -1,6 +1,6 @@
 export class Participante {
     cveCronicaGrupal?: string;
-    numNssParticipante?: number;
+    numNssParticipante?: string;
     indAsistencia?: boolean;
     nombreParticipante?: string;
 }
