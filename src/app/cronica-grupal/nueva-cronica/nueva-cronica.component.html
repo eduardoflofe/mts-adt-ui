@@ -1,28 +1,32 @@
 <app-app-alerts></app-app-alerts>
     <app-menu></app-menu>
 <app-card-template>
-    <div header class="flex justify-content-between row">
-        <div class="col-md-5">
+
+
+  <div header class="flex justify-content-between row">
+        <div class="col-md-4">
             <div style="display: grid; text-align: left">
                 <span class="pacienteNombreSpan">{{
                     "Nueva crónica grupal"
                     }}</span>
             </div>
         </div>
-        <hr class="hrCronica"/>
-        <div class="col-md-3 ">
-            <div style="display: grid; margin-left: 4.7%;">
+        <hr class="hrCronica" style="margin-left: -5%"/>
+        <div class="col-md-4 ">
+            <div style="display: grid; margin-left: -7%;">
                 <span class="tituloDosSpam">{{ today | date:"EEEE" }} {{ day }} de {{ months[month] }} de {{ year }}
                     {{ rxTime | date: 'hh:mm:ss' }}</span>
             </div>
         </div>
-        <hr class="hrCronicaServicio" />
-        <div class="col-md-3">
-            <div style="display: grid; text-align: left; margin-left: 4%;">
+        <hr class="hrCronica" style="margin-left: -4%;"/>
+        <div class="col-md-4">
+            <div style="display: grid; text-align: left; margin-left: -3%;">
                 <span class="tituloDosSpam">{{ "Tour quirúrgico" }}</span>
             </div>
         </div>
     </div>
+
+
     <div content>
         <div>
             <span class="instrucciones">

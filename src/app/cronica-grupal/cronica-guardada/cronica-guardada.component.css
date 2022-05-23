@@ -280,17 +280,9 @@ margin-left: -60%;
 }
 
 .hrCronica{
-  /* margin-left: -1%;
-  border: none;
-  border-left: 1px solid hsla(200, 10%, 50%,100);
-  width: 0.5px;
-  margin-top: 0.6%;
-  text-align: left; */
+
+  text-align: left;
   background-color: #000000;
-  /* padding-top: 0.8%; */
-  /* padding-top: 2%;
-  height: 1vh; */
-  /* border-left: thick solid #000; */
   height: 25px;
   width: 0.2%;
   margin-top: 8px;

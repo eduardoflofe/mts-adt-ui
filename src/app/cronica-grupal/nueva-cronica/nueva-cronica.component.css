@@ -192,11 +192,22 @@ textarea {
 }
 
 .tituloDosSpam {
+  width: 120%;
+  height: 23px;
     font-size: 16px;
     color: #222222;
     font-weight: 600;
+    margin-top: 3%;
+}
+
+
+.tituloDosServicioSpam {
+  font-size: 16px;
+  color: #222222;
+  font-weight: 600;
 
 }
+
 
 .spanCaracteres {
     font-family: Montserrat;
@@ -318,15 +329,11 @@ table.table-participantes>tbody tr td {
 }
 
 .hrCronica {
-  border-left: 1px solid hsla(200, 10%, 50%, 100);
-  padding-top: 0.8%;
-  margin-left: -150px;
   text-align: left;
-  border: none;
-  height: 1.5vh;
-  width: 0.5px;
-  margin-top: 0.6%;
   background-color: #000000;
+  height: 25px;
+  width: 0.2%;
+  margin-top: 8px;
 }
 
 .hrCronicaServicio{
