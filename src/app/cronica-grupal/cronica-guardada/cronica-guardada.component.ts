@@ -3,6 +3,7 @@ import { Subscription, timer } from "rxjs";
 import { map, share } from "rxjs/operators";
 import { DatePipe } from "@angular/common";
 import { ActivatedRoute, Router } from '@angular/router';
+import { objAlert } from 'src/app/common/alerta/alerta.interface';
 
 @Component({
   selector: 'app-cronica-guardada',
@@ -11,6 +12,8 @@ import { ActivatedRoute, Router } from '@angular/router';
 })
 
 export class CronicaGuardadaComponent implements OnInit, OnDestroy {
+  
+  alert!: objAlert;
 
   time = new Date();
   rxTime = new Date();
@@ -30,7 +33,7 @@ export class CronicaGuardadaComponent implements OnInit, OnDestroy {
   ) { }
 
   ngOnInit(): void {
-
+    this.showSucces("¡La información se guardó con éxito!")
     this.route.queryParamMap.subscribe((params: any) => {
       this.cronica = params.getAll('cronica');
       console.log("OBJETO ENVIADO: ", JSON.parse(this.cronica[0]));
@@ -50,6 +53,38 @@ export class CronicaGuardadaComponent implements OnInit, OnDestroy {
       .subscribe(time => {
         this.rxTime = time;
       });
+  }
+
+  private showError(error:string) {
+    this.alert = {
+      message:error,
+      type: 'error',
+      visible: true
+    }
+    setTimeout(() => {
+      this.alert = {
+        message:'',
+        type: 'custom',
+        visible: false
+      }
+    }, 5000);
+  }
+
+  //Success
+  private showSucces(msg:string) {
+
+    this.alert = {
+      message:'<strong>Estatus.</strong>'+msg,
+      type: 'success',
+      visible: true
+    }
+    setTimeout(() => {
+      this.alert = {
+        message:'',
+        type: 'custom',
+        visible: false
+      }
+    }, 2000);
   }
 
   regresar() {

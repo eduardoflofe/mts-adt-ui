@@ -15,7 +15,7 @@
   <div [innerHTML]="objAlerta.message"></div>
 </div>
 </div>
-<div *ngIf="objAlerta!=null && objAlerta.type=='success'" style="position: absolute; width: 100%">
+<div *ngIf="objAlerta!=null && objAlerta.type=='success'" style="position: absolute; width: 100%; top: 4.7em !important; z-index: 999999999;">
   <div *ngIf="objAlerta.visible || undefined" class="alert alert-success alert-dismissible" style="margin: 0 auto; width: 50%;">
     <button type="button" class="close x-ciera" data-dismiss="alert" aria-label="Close"><span aria-hidden="true" class="success">x</span></button>
     <div [innerHTML]="objAlerta.message"></div>

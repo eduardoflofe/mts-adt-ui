@@ -141,3 +141,7 @@ width: auto;
   color: #4d92df ;
 text-decoration: none;
 }
+
+.form-control {
+  font-size: 14px !important;
+}

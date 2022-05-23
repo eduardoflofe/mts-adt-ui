@@ -1,3 +1,4 @@
+<app-alerta [objAlerta]="alert"></app-alerta>
 <app-menu></app-menu>
 <app-card-template>
   <div header class=" justify-content-between align-items-center">
@@ -32,12 +33,12 @@
             <label class="titulo2" style="font-weight: bold; font-size: 16px">
               Ponente:
             </label>
-            <label class="texto"> Dra Amellaly Cruz Hernández </label>
+            <label class="texto">{{ cronica.descPonentes }}</label>
 
             <label class="titulo2" style="font-weight: bold; font-size: 16px">
               Tecnica didactica:
             </label>
-            <label class="texto"> Ingresa tecnica didactica </label>
+            <label class="texto">{{ cronica.desTecnicaDidactica }}</label>
           </div>
         </div>
 
@@ -46,11 +47,11 @@
             <label class="titulo2" style="font-weight: bold; font-size: 16px">
               Numero de asistentes:
             </label>
-            <label class="texto"> 5 </label>
+            <label class="texto">{{ cronica.numParticipantesAsistieron }}</label>
             <label class="titulo2" style="font-weight: bold; font-size: 16px">
               Material de apoyo:
             </label>
-            <label class="texto"> Laptop y proyector </label>
+            <label class="texto">{{ cronica.desMaterialApoyo }}</label>
           </div>
         </div>
       </div>
@@ -63,12 +64,11 @@
             <label class="titulo2" style="font-weight: bold; font-size: 16px">
               Objetivos de la sesión:
             </label>
-            <label class="texto"> Dra Amellaly Cruz Hernández </label>
-
+            <label class="texto">{{ cronica.desObjetivosSesion }}</label>
             <label class="titulo2" style="font-weight: bold; font-size: 16px">
               Perfil del grupo:
             </label>
-            <label class="texto"> Ingresa tecnica didactica </label>
+            <label class="texto">{{ cronica.desPerfilGrupo }}</label>
           </div>
         </div>
 
@@ -77,12 +77,12 @@
             <label class="titulo2" style="font-weight: bold; font-size: 16px">
               Desarrollo de la sesión:
             </label>
-            <label class="texto"> Dra Amellaly Cruz Hernández </label>
+            <label class="texto">{{ cronica.desDesarrolloSesion }}</label>
 
             <label class="titulo2" style="font-weight: bold; font-size: 16px">
               Observaciones:
             </label>
-            <label class="texto"> Ingresa tecnica didactica </label>
+            <label class="texto">{{ cronica.desObservaciones }}</label>
           </div>
         </div>
       </div>
@@ -93,7 +93,7 @@
         <div class="col-md-5">
           <label class="control-label texto"
             >Total de participantes
-            <span style="font-weight: bold">{{ 5 }}</span></label
+            <span style="font-weight: bold">{{ cronica.numParticipantesAsistieron }}</span></label
           >
 
           <table
@@ -130,15 +130,8 @@
     </div>
 
     <div class="row">
-      <div
-        class="col-md-12"
-        style="padding-top: 19px; padding-right: 24px; margin-top: -3%"
-      >
-        <button
-          type="button"
-          class="btn btn-primary buttonL"
-          style="float: right; border: solid 1px #9d2449"
-        >
+      <div class="col-md-12" style="padding-top: 19px; padding-right: 24px; margin-top: -3%">
+        <button type="button" class="btn btn-primary buttonL" style="float: right; border: solid 1px #9d2449">
           Imprimir
         </button>
       </div>

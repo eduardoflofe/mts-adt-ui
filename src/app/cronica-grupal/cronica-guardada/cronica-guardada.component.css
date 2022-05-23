@@ -185,12 +185,9 @@ select {
 }
 
 .titulo2{
-  /* width: 269px; */
   width: 358px;
-  /* height: 29px; */
-  /* margin: 0 897px 69px 1px; */
   font-family: Montserrat;
-  font-size: 12px;
+  font-size: 12px !important;
   font-weight: 600;
   font-weight: bold;
   font-stretch: normal;
@@ -206,7 +203,7 @@ select {
   flex-grow: 0;
   margin: 2px 0 0 7px;
   font-family: Montserrat;
-  font-size: 14px;
+  font-size: 14px !important;
   font-weight: normal;
   font-stretch: normal;
   font-style: normal;
