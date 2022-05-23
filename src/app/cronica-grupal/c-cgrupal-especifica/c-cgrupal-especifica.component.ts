@@ -15,7 +15,6 @@ export class CCGrupalEspecificaComponent implements OnInit, OnDestroy {
   intervalId: any;
   subscription: Subscription | undefined;
   months = ["enero", "febrero", "marzo", "abril", "mayo", "junio", "julio", "agosto", "septiembre", "octubre", "noviembre", "diciembre"];
-  days = ["Lunes", "Martes", "Miércoles", "Jueves", "Viernes", "Sábado", "Domingo"];
   today:any;
   day:any;
   month:any;
@@ -30,14 +29,7 @@ export class CCGrupalEspecificaComponent implements OnInit, OnDestroy {
     this.month = currentDate.getMonth();
     this.year = currentDate.getFullYear();
     this.today = currentDate;
-    console.log("DAY: ", this.today);
-
-    // Using Basic Interval
-    this.intervalId = setInterval(() => {
-      this.time = new Date();
-    }, 1000);
-
-    // Using RxJS Timer
+    
     this.subscription = timer(0, 1000)
       .pipe(
         map(() => new Date()),
