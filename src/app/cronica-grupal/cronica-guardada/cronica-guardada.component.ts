@@ -12,7 +12,7 @@ import { objAlert } from 'src/app/common/alerta/alerta.interface';
 })
 
 export class CronicaGuardadaComponent implements OnInit, OnDestroy {
-  
+
   alert!: objAlert;
 
   time = new Date();
@@ -26,7 +26,7 @@ export class CronicaGuardadaComponent implements OnInit, OnDestroy {
   year:any;
 
   cronica: any;
-  
+
   constructor(
     private route: ActivatedRoute,
     private router: Router
