@@ -57,8 +57,6 @@
         </div>
 
       </div>
-
-
       <div class="Rectangle-8555">
 
         <div class="nss-paciente1">
@@ -66,8 +64,6 @@
           <div *ngIf="resultadoTotal > 0; then thenBlock else elseBlock"></div>
 
           <ng-template #thenBlock>
-
-            <div class="Rectangle-960">
 
               <span class="resultados">
                 Resultados
@@ -81,13 +77,11 @@
                 <option [ngValue]="3">3</option>
                 <option [ngValue]="4">4</option>
               </select>
-              <i></i>
 
               <span class="visDatos" style="width: auto; float: right;">
                 Visualizar datos
               </span>
 
-            </div>
 
             <table class="table " style="margin-bottom: 0px !important;">
               <thead style=" background: #f9f9f9;">
@@ -209,24 +203,24 @@
 
             <ng-template #noEsError>
 
-              <div class="Rectangle-960">
+
 
                 <span class="resultados">
-                  Resultados {{resultadoTotal}}
+                  Resultados <b>{{resultadoTotal}}</b>
                 </span>
 
                 <select class="form-select">
+
                   <option [ngValue]="2">2</option>
                   <option [ngValue]="4">4</option>
                   <option [ngValue]="6">6</option>
                 </select>
-                <i></i>
 
                 <span class="visDatos" style="width: auto; float: right;">
                   Visualizar datos
                 </span>
 
-              </div>
+
 
               <table class="table ">
                 <thead style=" background: #f9f9f9;">
@@ -238,6 +232,8 @@
                   </tr>
                 </thead>
               </table>
+
+
               <div class="Rectangle-9600" style="    background: #f9f9f9;">
                 <span class="sinInfolbl">
                   sin informaci&oacute;n disponible
@@ -245,18 +241,59 @@
 
               </div>
 
+              <div class="pading1">
+              <hr >
+              <div class="col-md-4  "></div>
+
+                <div class="col-md-4">
+
+                  <ul class="pagination m-0">
+
+                    <li><a>1</a></li>
+
+                  </ul>
+                </div>
+                <div class="col-md-4">
+                  <div class="flex justify-content-between align-items-center" style="float: right;">
+                    <div class="flex align-items-center justify-content-end ">
+                      <label class="control-label ">Página</label>
+                      <div class="form-control w-3 ml-2">
+                      </div>
+
+                    </div>
+
+                  </div>
+
+                </div>
+              </div>
+
+
+
+
             </ng-template>
 
           </ng-template>
 
 
 
+
+
         </div>
+
+
+
 
       </div>
 
+
+
     </div>
+
 
   </div>
 
+
+
 </div>
+
+
