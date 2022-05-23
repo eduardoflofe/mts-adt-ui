@@ -13,6 +13,13 @@ declare var $:any;
   styleUrls: ['./consulta.component.css']
 })
 export class ConsultaComponent implements OnInit {
+  isCollapsed: boolean[] = [];
+
+  page: number = 1;
+  pageSize: number = 2;
+  resultadoTotal: number = 0;
+
+
 
   catalogoEstatus: any[] = ['No impartida','Por impartir','Impartida'];
 
@@ -28,6 +35,35 @@ export class ConsultaComponent implements OnInit {
   radioBtnSelected: any;
 
   cronicasGrupales: any[] = [];
+
+  consultaCronica =  [ {
+    "fecha":"20/06/2000", "grupo":"A", "Hora":"20:30", "Modalidad":"Tarde", "TotalParticipantes":"24", "ParticipantesQueAsistieron":"Dos", "Estatus":"Terminada"
+  },
+  {
+    "fecha":"20/06/2000", "grupo":"A", "Hora":"20:30", "Modalidad":"Tarde", "TotalParticipantes":"24", "ParticipantesQueAsistieron":"Dos", "Estatus":"Terminada"
+  },
+  {
+    "fecha":"20/06/2000", "grupo":"A", "Hora":"20:30", "Modalidad":"Tarde", "TotalParticipantes":"24", "ParticipantesQueAsistieron":"Dos", "Estatus":"Terminada"
+  },
+  {
+    "fecha":"20/06/2000", "grupo":"A", "Hora":"20:30", "Modalidad":"Tarde", "TotalParticipantes":"24", "ParticipantesQueAsistieron":"Dos", "Estatus":"Terminada"
+  },
+  {
+    "fecha":"20/06/2000", "grupo":"A", "Hora":"20:30", "Modalidad":"Tarde", "TotalParticipantes":"24", "ParticipantesQueAsistieron":"Dos", "Estatus":"Terminada"
+  },
+  {
+    "fecha":"20/06/2000", "grupo":"A", "Hora":"20:30", "Modalidad":"Tarde", "TotalParticipantes":"24", "ParticipantesQueAsistieron":"Dos", "Estatus":"Terminada"
+  },
+  {
+    "fecha":"20/06/2000", "grupo":"A", "Hora":"20:30", "Modalidad":"Tarde", "TotalParticipantes":"24", "ParticipantesQueAsistieron":"Dos", "Estatus":"Terminada"
+  },
+  {
+    "fecha":"20/06/2000", "grupo":"A", "Hora":"20:30", "Modalidad":"Tarde", "TotalParticipantes":"24", "ParticipantesQueAsistieron":"Dos", "Estatus":"Terminada"
+  },
+  {
+    "fecha":"20/06/2000", "grupo":"A", "Hora":"20:30", "Modalidad":"Tarde", "TotalParticipantes":"24", "ParticipantesQueAsistieron":"Dos", "Estatus":"Terminada"
+  },
+ ];
 
   constructor(
     private router: Router,
@@ -194,7 +230,7 @@ export class ConsultaComponent implements OnInit {
     console.log("RADIO: ", this.radioBtnSelected);
     if (this.validateAllDataFull()) {
       this.getCronicasGrupales();
-    } else {      
+    } else {
       //Poblamos la tabla de acuerdo al filtro de radio seleccionado
       this.cronicaGrupalService.getCronicasGrupalesByEspecialidadEspecifica(this.radioBtnSelected).subscribe(
         (cronicasGrupales) => {
@@ -236,6 +272,11 @@ export class ConsultaComponent implements OnInit {
     }
     console.log("OBJETO DETALLE: ", cronicaGrupal);
     this.router.navigate(["busquedaEspecifica"], { queryParams: params, skipLocationChange: true });
+  }
+
+  muestra(i: number) {
+    this.isCollapsed[i] = !this.isCollapsed[i];
+
   }
 
 }
