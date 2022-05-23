@@ -341,7 +341,7 @@ table.table-otros>tbody tr td {
 
 .otros {
     width: 991px;
-    height: 59.08px;
+    height: auto;
     margin-bottom: 5px;
 }
 
