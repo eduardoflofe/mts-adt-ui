@@ -6,6 +6,8 @@ import { Cronica } from 'src/app/models/cronica.model';
 import { CronicaService } from 'src/app/service/cronica.service';
 import { MatDialog } from '@angular/material/dialog';
 import { AgregarParticipanteDialogComponent } from './agregar-participante-dialog/agregar-participante-dialog.component';
+import { Subscription, timer } from "rxjs";
+import { map, share } from "rxjs/operators";
 
 @Component({
   selector: 'app-nueva-cronica',
@@ -13,6 +15,16 @@ import { AgregarParticipanteDialogComponent } from './agregar-participante-dialo
   styleUrls: ['./nueva-cronica.component.css']
 })
 export class NuevaCronicaComponent implements OnInit {
+
+  time = new Date();
+  rxTime = new Date();
+  intervalId: any;
+  subscription: Subscription | undefined;
+  months = ["enero", "febrero", "marzo", "abril", "mayo", "junio", "julio", "agosto", "septiembre", "octubre", "noviembre", "diciembre"];
+  today: any;
+  day: any;
+  month: any;
+  year: any;
 
   cronica!: Cronica;
 
@@ -34,7 +46,23 @@ export class NuevaCronicaComponent implements OnInit {
     private cronicaService: CronicaService,
   ) { }
 
-  ngOnInit(): void { }
+  ngOnInit(): void { 
+    const currentDate = new Date();
+    this.day = currentDate.getDate();
+    this.month = currentDate.getMonth();
+    this.year = currentDate.getFullYear();
+    this.today = currentDate;
+
+    this.subscription = timer(0, 1000)
+      .pipe(
+        map(() => new Date()),
+        share()
+      )
+      .subscribe(time => {
+        this.rxTime = time;
+      }
+    );
+  }
 
   addParticipanteDialog() {
     const dialogRef = this.dialog.open(AgregarParticipanteDialogComponent, {
@@ -62,18 +90,34 @@ export class NuevaCronicaComponent implements OnInit {
         ...this.editForm.value
       };
 
-      this.cronicaService.addCronica(this.cronica).subscribe(
-        (resp) => {
-          if (resp) {
-            this.router.navigate(["cronicaGuardada"]);
-          }
-        },
-        (httpErrorResponse: HttpErrorResponse) => {
-          console.error(httpErrorResponse);
-        }
-      );
+      console.log("OBJETO: ", this.cronica);
+      let params = {
+        'cronica':JSON.stringify(this.cronica),
+      }
+      this.router.navigate(["cronicaGuardada"], { queryParams: params, skipLocationChange: true });
+
+      // this.cronicaService.addCronica(this.cronica).subscribe(
+      //   (resp) => {
+      //     if (resp) {
+      //       this.router.navigate(["cronicaGuardada"]);
+      //     }
+      //   },
+      //   (httpErrorResponse: HttpErrorResponse) => {
+      //     console.error(httpErrorResponse);
+      //   }
+      // );
     }
-    this.router.navigate(["cronicaGuardada"]);
+  }
+
+  cancelar() {
+    this.router.navigateByUrl("/consulta-cronica-grupal", { skipLocationChange: true });
+  }
+
+  ngOnDestroy() {
+    clearInterval(this.intervalId);
+    if (this.subscription) {
+      this.subscription.unsubscribe();
+    }
   }
 
 }

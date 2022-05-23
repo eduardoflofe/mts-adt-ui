@@ -31,7 +31,7 @@ export class SeguridadService {
     };
 
     this.seguridadCambio.next(true);
-    this.router.navigate(['/login']);
+    this.router.navigate(['/login'], { skipLocationChange: true });
   }
 
   login(loginData: LoginData) {

@@ -181,6 +181,7 @@ select {
     height: 34px;
     margin: 0 15px 0 0;
     object-fit: contain;
+    cursor: pointer;
 }
 
 .titulo2{

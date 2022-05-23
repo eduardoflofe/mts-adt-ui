@@ -25,5 +25,9 @@ export class AppComponent {
    );
   }
 
+  onActivate() {
+    window.scroll(0,0);
+ }
+
 }
 declare let $: any;

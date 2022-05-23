@@ -11,15 +11,14 @@
         </div>
         <hr class="hrCronica"/>
         <div class="col-md-3 ">
-            <div style="display: grid">
-                <span class="tituloDosSpam" style="text-align: left; padding-top: 3%;margin-left: -50%;">{{
-                    "Miércoles 1 de marzo de 2020 12:13:01"
-                    }}</span>
+            <div style="display: grid; margin-left: 4.7%;">
+                <span class="tituloDosSpam">{{ today | date:"EEEE" }} {{ day }} de {{ months[month] }} de {{ year }}
+                    {{ rxTime | date: 'hh:mm:ss' }}</span>
             </div>
         </div>
         <hr class="hrCronicaServicio" />
         <div class="col-md-3">
-            <div style="display: grid; text-align: left;  padding-top: 3%;margin-left: -50%;">
+            <div style="display: grid; text-align: left; margin-left: 4%;">
                 <span class="tituloDosSpam">{{ "Tour quirúrgico" }}</span>
             </div>
         </div>
@@ -147,12 +146,12 @@
 
             <div class="row">
                 <div class="col-md-12" style="padding-top: 19px; padding-right: 24px;  margin-top: -1.4%;">
-                    <button type="button" class="btn btn-primary buttonL"
+                    <button [disabled]="!this.editForm.valid" type="button" class="btn btn-primary buttonL"
                         style="float: right;border: solid 1px #9d2449;" (click)="guardarCronica()">
                         Guardar
                     </button>
                     <button type="button" class="btn btn-danger buttonL"
-                        style="float: right; border: solid 1px #b38e5d;">
+                        style="float: right; border: solid 1px #b38e5d;" (click)="cancelar()">
                         Cancelar
                     </button>
                 </div>

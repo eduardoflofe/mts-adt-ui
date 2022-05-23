@@ -46,7 +46,7 @@ export class BusquedaNssComponent {
 
     this.tarjetaService.add(this.pacienteSeleccionado);
 
-    this.router.navigate(['tarjeta']);
+    this.router.navigate(['tarjeta'], { skipLocationChange: true });
     console.log(this.pacienteSeleccionado)
 
   }

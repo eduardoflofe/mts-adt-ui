@@ -11,7 +11,7 @@ export class SeguridadRouter implements CanActivate {
 
   canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot) {
     if (!this.authService.isAuthenticatedUser()) {
-      this.router.navigate(['/login']);
+      this.router.navigate(['/login'], { skipLocationChange: true });
       return false;
     }
     return true;

@@ -13,9 +13,11 @@
           <label class="control-label tituloServicio">
             Servicio:
           </label>
-          <select class="form-control" style="background-position-y: 10px;" aria-label="Servicio" [(ngModel)]="this.servicioSelected" (onchange)="onChangeServicio($event)">
+          <select class="form-control" style="background-position-y: 10px;" aria-label="Servicio"
+            [(ngModel)]="this.servicioSelected" (change)="onChangeServicio($event)">
             <option [value]="'-1'" selected>Seleccionar servicio</option>
-            <option [value]="servicio.cve_especialidad" *ngFor="let servicio of serviciosEspecialidad">{{ servicio.des_especialidad}}</option>
+            <option [value]="servicio.cve_especialidad" *ngFor="let servicio of serviciosEspecialidad">
+              {{ servicio.des_especialidad}}</option>
           </select>
         </div>
       </div>
@@ -25,7 +27,8 @@
           <label class="control-label tituloServicio">
             Turno:
           </label>
-          <select  style="background-position-y: 10px;" class="form-control" aria-label="Servicio" [(ngModel)]="this.turnoSelected" (onchange)="onChangeTurno($event)">
+          <select style="background-position-y: 10px;" class="form-control" aria-label="Servicio"
+            [(ngModel)]="this.turnoSelected" (change)="onChangeTurno($event)">
             <option [value]="'-1'" selected>Seleccionar turno</option>
             <option [value]="turno.cve_turno" *ngFor="let turno of turnos">{{ turno.des_turno}}</option>
           </select>
@@ -37,9 +40,11 @@
           <label class="control-label tituloServicio">
             Grupo:
           </label>
-          <select  style="background-position-y: 10px;" class="form-control" aria-label="Servicio" [(ngModel)]="this.grupoSelected" (onchange)="onChangeGrupo($event)">
+          <select style="background-position-y: 10px;" class="form-control" aria-label="Servicio"
+            [(ngModel)]="this.grupoSelected" (change)="onChangeGrupo($event)">
             <option [value]="'-1'" selected>Seleccionar grupo</option>
-            <option [value]="grupo.cve_grupo_programa" *ngFor="let grupo of grupos">{{ grupo.des_grupo_programa }}</option>
+            <option [value]="grupo.cve_grupo_programa" *ngFor="let grupo of grupos">{{ grupo.des_grupo_programa }}
+            </option>
           </select>
         </div>
       </div>
@@ -50,10 +55,11 @@
           <label class="control-label">
             Lugar:
           </label>
-          <select class="form-control" style="background-position-y: 10px;" aria-label="Servicio" [(ngModel)]="this.lugarSelected" (onchange)="onChangeLugar($event)">
-            <!-- <option  style="background-position-y: 10px;" selected>Seleccionar lugar</option> -->
+          <select class="form-control" style="background-position-y: 10px;" aria-label="Servicio"
+            [(ngModel)]="this.lugarSelected" (change)="onChangeLugar($event)">
             <option [value]="'-1'" style="background-position-y: 10px;" selected>Seleccionar grupo</option>
-            <option [value]="lugar.cve_ubicacion" *ngFor="let lugar of lugares">{{ lugar.des_completa_ubicacion }}</option>
+            <option [value]="lugar.cve_ubicacion" *ngFor="let lugar of lugares">{{ lugar.des_completa_ubicacion }}
+            </option>
           </select>
         </div>
       </div>
@@ -61,8 +67,8 @@
       <div class="col-md-4">
         <div class="form-group datepicker-group">
           <label class="control-label" for="calendar">Fecha:</label>
-          <input class="form-control" id="calendar" type="text" placeholder="dd/mm/aaaa">
-          <span class="glyphicon fondocalendar fondocalendar"  aria-hidden="true">
+          <input calendar class="form-control" id="calendar" type="text" placeholder="dd/mm/aaaa" (blur)="onChangeFecha();">
+          <span class="glyphicon glyphicon-calendar fondocalendar"  aria-hidden="true">
             <div class="imgCalendar"></div>
           </span>
         </div>
@@ -71,14 +77,16 @@
       <div class="col-md-4">
         <div class="form-group">
           <label class="control-label ">
-            Cronica especifica asociada:
+            Cronica específica asociada:
           </label>
           <div class="radio flex align-items-center">
             <label class="inline-flex align-items-center relative mr-5">
-              <input type="radio" name="radio-01" value="Si" [(ngModel)]="radioBtnSelected" (change)="onChangeRadioBoton($event)" class="radio-consulta" checked="checked"> Sí
+              <input type="radio" name="radio-01" value="Si" [(ngModel)]="radioBtnSelected"
+                (change)="onChangeRadioBoton($event)" class="radio-consulta" checked="checked"> Sí
             </label>
             <label class="inline-flex align-items-center ml-5 relative ">
-              <input type="radio" name="radio-01" value="No" [(ngModel)]="radioBtnSelected" (change)="onChangeRadioBoton($event)" class="radio-consulta" checked="checked"> No
+              <input type="radio" name="radio-01" value="No" [(ngModel)]="radioBtnSelected"
+                (change)="onChangeRadioBoton($event)" class="radio-consulta" checked="checked"> No
             </label>
           </div>
         </div>
@@ -105,7 +113,7 @@
         <table class="table">
           <thead>
             <tr >
-              <th class="encabezadoTable">Fechar</th>
+              <th class="encabezadoTable">Fecha</th>
               <th class="encabezadoTable">Grupo</th>
               <th class="encabezadoTable">Hora</th>
               <th class="encabezadoTable">Modalidad</th>
@@ -115,7 +123,16 @@
             </tr>
           </thead>
           <tbody>
-            <tr>
+            <tr *ngFor="let item of cronicasGrupales">
+              <td class="bordesTabla" style="text-decoration: none !important; color: #4D92DF!important; text-decoration: none !important;" (click)="irDetalle(item);">{{ item.fecFechaCorta }}</td>
+              <td class="bordesTabla">{{ item.desGrupo }}</td>
+              <td class="bordesTabla">{{ item.timHora }}</td>
+              <td class="bordesTabla">{{ item.desModalidad }}</td>
+              <td class="bordesTabla">{{ item.numTotalParticipantes }}</td>
+              <td class="bordesTabla">{{ item.numParticipantesAsistieron }}</td>
+              <td class="bordesTabla">{{ catalogoEstatus[item.idEstatusCronica] }}</td>
+            </tr>
+            <!-- <tr>
               <td class="bordesTabla" style="text-decoration: none !important; color: #4D92DF!important; text-decoration: none !important;" (click)="irDetalle();"><a>24/01/2022</a></td>
               <td class="bordesTabla">Jacob</td>
               <td class="bordesTabla">Thornton</td>
@@ -177,7 +194,7 @@
               <td class="bordesTabla">Jacob</td>
               <td class="bordesTabla">Thornton</td>
               <td class="bordesTabla">@fat</td>
-            </tr>
+            </tr> -->
           </tbody>
         </table>
       </div>

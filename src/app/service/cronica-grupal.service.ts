@@ -1,29 +1,24 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Usuario } from 'src/app/models/usuario.model';
 import { environment } from 'src/environments/environment';
-import { WebImssService } from './web-imss-service.service';
-import { Aplicacion } from '../models/aplicacion.model';
-import { MailResponse } from '../models/mail-response.model';
 import { AdmonPasswordRequest } from '../models/admon-password-request.model';
 import { AdmonPasswordResponse } from '../models/admon-password-response.model';
-import { RecaptchaResponse } from '../models/recaptcha-response-model';
 import { Router } from '@angular/router';
-import { BehaviorSubject } from 'rxjs';
+import { Observable } from 'rxjs';
 
 
 @Injectable({
   providedIn: 'root'
 })
-export class CronicaGrupalService { 
+export class CronicaGrupalService {
 
   constructor(
-    private http: HttpClient, 
+    private http: HttpClient,
     private router: Router
   ) { }
 
-  actualizarPassword(admonPasswordRequest:AdmonPasswordRequest){
-     return this.http.post<AdmonPasswordResponse>(`${environment.urlServOauth}/api/aplicacion/actualizarPassword/`, admonPasswordRequest);
+  actualizarPassword(admonPasswordRequest: AdmonPasswordRequest) {
+    return this.http.post<AdmonPasswordResponse>(`${environment.urlServOauth}/api/aplicacion/actualizarPassword/`, admonPasswordRequest);
   }
 
   getCatServicios() {
@@ -72,6 +67,12 @@ export class CronicaGrupalService {
 
   getCronicasGrupalesByFiltros(cveServicio: string, cveTurno: number, cveGrupo: number, cveUbicacion: string, fecha: string | null, especialidadEspecifica: string) {
     return this.http.get<any>(`${environment.urlServCronicas}/api/filtrocronicas/${cveServicio}/${cveTurno}/${cveGrupo}/${cveUbicacion}/${fecha}/${especialidadEspecifica}`);
+  }
+
+  downloadPdf(data: any): Observable<Blob> {
+    const headers = new HttpHeaders({ 'Content-Type': 'application/json', responseType: 'blob' });
+    return this.http.post<Blob>(environment.urlServCronicas + '/api/downloadReportPdf', JSON.stringify(data),
+    { headers: headers, responseType: 'blob' as 'json'});
   }
 
 }

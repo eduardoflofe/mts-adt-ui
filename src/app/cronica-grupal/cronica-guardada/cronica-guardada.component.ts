@@ -2,6 +2,7 @@ import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Subscription, timer } from "rxjs";
 import { map, share } from "rxjs/operators";
 import { DatePipe } from "@angular/common";
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-cronica-guardada',
@@ -21,9 +22,20 @@ export class CronicaGuardadaComponent implements OnInit, OnDestroy {
   month:any;
   year:any;
 
-  constructor() { }
+  cronica: any;
+  
+  constructor(
+    private route: ActivatedRoute,
+    private router: Router
+  ) { }
 
   ngOnInit(): void {
+
+    this.route.queryParamMap.subscribe((params: any) => {
+      this.cronica = params.getAll('cronica');
+      console.log("OBJETO ENVIADO: ", JSON.parse(this.cronica[0]));
+    });
+
     const currentDate = new Date();
     this.day = currentDate.getDate();
     this.month = currentDate.getMonth();
@@ -38,6 +50,10 @@ export class CronicaGuardadaComponent implements OnInit, OnDestroy {
       .subscribe(time => {
         this.rxTime = time;
       });
+  }
+
+  regresar() {
+    this.router.navigateByUrl("/consulta-cronica-grupal", { skipLocationChange: true });
   }
 
   ngOnDestroy() {

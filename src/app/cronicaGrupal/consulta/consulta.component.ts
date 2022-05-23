@@ -1,10 +1,11 @@
 import { DatePipe } from '@angular/common';
 import { HttpErrorResponse } from '@angular/common/http';
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { take } from 'rxjs/operators';
 import { AuthService } from 'src/app/service/auth-service.service';
 import { CronicaGrupalService } from 'src/app/service/cronica-grupal.service';
+
+declare var $:any;
 
 @Component({
   selector: 'app-consulta',
@@ -12,6 +13,8 @@ import { CronicaGrupalService } from 'src/app/service/cronica-grupal.service';
   styleUrls: ['./consulta.component.css']
 })
 export class ConsultaComponent implements OnInit {
+
+  catalogoEstatus: any[] = ['No impartida','Por impartir','Impartida'];
 
   servicioSelected: any = '-1';
   serviciosEspecialidad: any[] = [];
@@ -36,6 +39,7 @@ export class ConsultaComponent implements OnInit {
   ngOnInit(): void {
     this.authService.project$.next("Trabajo Social");
     this.loadCatalogos();
+    $('#calendar').datepicker();
   }
 
   //Metodo que carga los catalogos iniciales y la información incial de la tabla CronicasGrupales
@@ -86,9 +90,6 @@ export class ConsultaComponent implements OnInit {
 
   //Metodo que se ejecuta al seleccionar un nuevo valor del catalogo de Servicio
   onChangeServicio(valueSelect: Event) {
-    this.servicioSelected = valueSelect;
-    //Limpiamos arreglo del catalogo de servicios
-    this.serviciosEspecialidad = [];
     //Consumimo catalogo de grupo by ServicioEspecialidad seleccionado
     this.cronicaGrupalService.getCatGrupo(this.servicioSelected).subscribe(
       (grupos) => {
@@ -125,7 +126,6 @@ export class ConsultaComponent implements OnInit {
 
   //Metodo que se ejecuta al seleccionar un nuevo valor del catalogo de Turno
   onChangeTurno(valueSelect: Event) {
-    this.turnoSelected = valueSelect;
     if (this.validateAllDataFull()) {
       this.getCronicasGrupales();
     } else {
@@ -142,7 +142,6 @@ export class ConsultaComponent implements OnInit {
 
   //Metodo que se ejecuta al seleccionar un nuevo valor del catalogo de Grupo
   onChangeGrupo(valueSelect: Event) {
-    this.grupoSelected = valueSelect;
     if (this.validateAllDataFull()) {
       this.getCronicasGrupales();
     } else {
@@ -159,7 +158,6 @@ export class ConsultaComponent implements OnInit {
 
   //Metodo que se ejecuta al seleccionar un nuevo valor del catalogo de Lugar
   onChangeLugar(valueSelect: Event) {
-    this.lugarSelected = valueSelect;
     if (this.validateAllDataFull()) {
       this.getCronicasGrupales();
     } else {
@@ -175,9 +173,9 @@ export class ConsultaComponent implements OnInit {
   }
 
   //Metodo que se ejecuta al seleccionar un nuevo valor de Fecha
-  onChangeFecha(valueSelect: Date) {
-    this.fechaSelected = valueSelect;
-    const fecha = this.datePipe.transform(this.fechaSelected, 'dd-MM-yyyy');
+  onChangeFecha() {
+    console.log("FECHA SELECTED: ", this.fechaSelected);
+    const fecha = this.datePipe.transform(new Date(), 'dd-MM-yyyy');
     if (this.validateAllDataFull()) {
       this.getCronicasGrupales();
     } else {
@@ -229,11 +227,15 @@ export class ConsultaComponent implements OnInit {
   }
 
   addCronica() {
-    this.router.navigate(["nuevaCronica"]);
+    this.router.navigate(["nuevaCronica"], { skipLocationChange: true });
   }
 
-  irDetalle() {
-    this.router.navigate(["busquedaEspecifica"]);
+  irDetalle(cronicaGrupal: any) {
+    let params = {
+      'cronica': JSON.stringify(cronicaGrupal),
+    }
+    console.log("OBJETO DETALLE: ", cronicaGrupal);
+    this.router.navigate(["busquedaEspecifica"], { queryParams: params, skipLocationChange: true });
   }
 
 }

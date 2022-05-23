@@ -160,7 +160,7 @@ export class RegistroComponent implements OnInit {
         visible: false
       }
       if(redirect){
-        this.router.navigate(["/login"]);
+        this.router.navigate(["/login"], { skipLocationChange: true });
       }
     }, 5000);
   }

@@ -201,7 +201,7 @@ export class AuthService {
     this.userLogged$.next(false);
     this.isAuthenticatedObs$.next(false);
     sessionStorage.setItem('token','token is null'); 
-    this.router.navigate(["/login"]);
+    this.router.navigate(["/login"], { skipLocationChange: true });
   }
 
   async obtenerUsuario(usuario: string, contrasena: string) {
