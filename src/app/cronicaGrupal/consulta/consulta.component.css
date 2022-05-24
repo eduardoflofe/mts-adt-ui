@@ -40,6 +40,7 @@ th {
   border-radius: 50%;
 }
 
+
 .pagination a {
   border: none;
 }
@@ -69,7 +70,7 @@ a {
 }
 
 .div-container-image {
-  margin-left: 25%;  
+  margin-left: 25%;
 }
 
 .tituloServicio {
@@ -123,10 +124,25 @@ a {
   text-align: left;
   background-color: rgba(196, 196, 196, 0.1);
   border: 1px solid #EEEEEE;
+  text-align: center;
+}
+
+.encabezadoTableCentro {
+  width: 150;
+  text-align: left;
+  background-color: rgba(196, 196, 196, 0.1);
+  border: 1px solid #EEEEEE;
+  text-align: center;
+  padding-top: 13px;
 }
 
 .bordesTabla {
   border: 1px solid #ddd;
+  text-align: center;
+}
+.bordesTablaGrupo {
+  border: 1px solid #ddd;
+
 }
 
 .links {
@@ -155,9 +171,7 @@ a {
 
 }
 
-
-.my-pagination /deep/ .current {
-
+.my-pagination ::ng-deep .current {
   width: 2em;
   height: 2em;
   text-align: center;
@@ -185,15 +199,14 @@ a {
   transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s
 }
 
-
 .tabla>tbody>tr>td,
 .tabla>tbody>tr>th,
 .tabla>tfoot>tr>td,
 .tabla>tfoot>tr>th,
 .tabla>thead>tr>td,
 .tabla>thead>tr>th {
-  padding: 1.8px;
-  line-height: 1.428571429;
-  vertical-align: top;
-  border-top: 1px solid #ddd;
+    padding: 1.8px;
+    line-height: 1.428571429;
+    vertical-align: top;
+    border-top: 1px solid #ddd;
 }
