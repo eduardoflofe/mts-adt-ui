@@ -6,7 +6,7 @@
       Nueva crónica
     </button>
   </div>
-  <div content>
+  <div content style="padding-bottom: 35px;">
     <div class="row">
       <div class="col-md-4">
         <div class="form-group">
@@ -100,135 +100,143 @@
         <div class="form-group">
           <label class="control-label">Visualizar datos</label>
           <select class="form-select ml-5 select-view-data" [(ngModel)]="pageSize">
-            <option class="select-font" [ngValue]="15">15</option>
-            <option class="select-font" [ngValue]="20">20</option>
-            <option class="select-font" [ngValue]="25">25</option>
+            <option class="select-font" [ngValue]="2">2</option>
+            <option class="select-font" [ngValue]="6">6</option>
+            <option class="select-font" [ngValue]="8">8</option>
           </select>
         </div>
       </div>
     </div>
 
-    <div class="row">
-      <div class="col-md-12">
-        <table class="table">
-          <thead>
-            <tr >
-              <th class="encabezadoTable">Fecha</th>
-              <th class="encabezadoTable">Grupo</th>
-              <th class="encabezadoTable">Hora</th>
-              <th class="encabezadoTable">Modalidad</th>
-              <th class="encabezadoTable">Total participantes</th>
-              <th class="encabezadoTable">Participantes que asistieron</th>
-              <th class="encabezadoTable">Estatus</th>
-            </tr>
-          </thead>
-          <tbody
-            *ngFor="let item of consultaCronica | paginate:{itemsPerPage:pageSize,currentPage:page}; let i = index">
-            <tr >
-              <td class="bordesTabla" style="text-decoration: none !important; color: #4D92DF!important; text-decoration: none !important;" (click)="irDetalle(item);">{{ item.fecha }}</td>
-              <td class="bordesTabla">{{ item.grupo }}</td>
-              <td class="bordesTabla">{{ item.Hora }}</td>
-              <td class="bordesTabla">{{ item.Modalidad }}</td>
-              <td class="bordesTabla">{{ item.TotalParticipantes }}</td>
-              <td class="bordesTabla">{{ item.ParticipantesQueAsistieron }}</td>
-              <td class="bordesTabla">{{ item.Estatus}}</td>
-            </tr>
-            <!-- <tr *ngFor="let item of cronicasGrupales">
-              <td class="bordesTabla" style="text-decoration: none !important; color: #4D92DF!important; text-decoration: none !important;" (click)="irDetalle(item);">{{ item.fecFechaCorta }}</td>
-              <td class="bordesTabla">{{ item.desGrupo }}</td>
-              <td class="bordesTabla">{{ item.timHora }}</td>
-              <td class="bordesTabla">{{ item.desModalidad }}</td>
-              <td class="bordesTabla">{{ item.numTotalParticipantes }}</td>
-              <td class="bordesTabla">{{ item.numParticipantesAsistieron }}</td>
-              <td class="bordesTabla">{{ catalogoEstatus[item.idEstatusCronica] }}</td>
-            </tr> -->
-            <!-- <tr>
-              <td class="bordesTabla" style="text-decoration: none !important; color: #4D92DF!important; text-decoration: none !important;" (click)="irDetalle();"><a>24/01/2022</a></td>
-              <td class="bordesTabla">Jacob</td>
-              <td class="bordesTabla">Thornton</td>
-              <td class="bordesTabla">@fat</td>
-              <td class="bordesTabla">Jacob</td>
-              <td class="bordesTabla">Thornton</td>
-              <td class="bordesTabla">@fat</td>
-            </tr>
-            <tr>
-              <td  class="bordesTabla"(click)="irDetalle();"><a>24/01/2022</a></td>
-              <td class="bordesTabla">Jacob</td>
-              <td class="bordesTabla">Thornton</td>
-              <td class="bordesTabla">@fat</td>
-              <td class="bordesTabla">Jacob</td>
-              <td class="bordesTabla">Thornton</td>
-              <td class="bordesTabla">@fat</td>
-            </tr>
-            <tr>
-              <td  class="bordesTabla"(click)="irDetalle();"><a>24/01/2022</a></td>
-              <td class="bordesTabla"> Jacob</td>
-              <td class="bordesTabla">Thornton</td>
-              <td class="bordesTabla">@fat</td>
-              <td class="bordesTabla">Jacob</td>
-              <td class="bordesTabla">Thornton</td>
-              <td class="bordesTabla">@fat</td>
-            </tr>
-            <tr>
-              <td  class="bordesTabla"(click)="irDetalle();"><a>24/01/2022</a></td>
-              <td class="bordesTabla">Jacob</td>
-              <td class="bordesTabla">Thornton</td>
-              <td class="bordesTabla">@fat</td>
-              <td class="bordesTabla">Jacob</td>
-              <td class="bordesTabla">Thornton</td>
-              <td class="bordesTabla">@fat</td>
-            </tr>
-            <tr>
-              <td  class="bordesTabla" (click)="irDetalle();"><a>24/01/2022</a></td>
-              <td class="bordesTabla">Mark</td>
-              <td class="bordesTabla">Otto</td>
-              <td class="bordesTabla">@mdo</td>
-              <td class="bordesTabla">Jacob</td>
-              <td class="bordesTabla">Thornton</td>
-              <td class="bordesTabla">@fat</td>
-            </tr>
-            <tr>
-              <td  class="bordesTabla"(click)="irDetalle();"><a>24/01/2022</a></td>
-              <td class="bordesTabla">Mark</td>
-              <td class="bordesTabla">Otto</td>
-              <td class="bordesTabla">@mdo</td>
-              <td class="bordesTabla">Mark</td>
-              <td class="bordesTabla">Otto</td>
-              <td class="bordesTabla">@mdo</td>
-            </tr>
-            <tr>
-              <td class="bordesTabla"  (click)="irDetalle();"><a>24/01/2022</a></td>
-              <td class="bordesTabla">Mark</td>
-              <td class="bordesTabla">Otto</td>
-              <td class="bordesTabla">@mdo</td>
-              <td class="bordesTabla">Jacob</td>
-              <td class="bordesTabla">Thornton</td>
-              <td class="bordesTabla">@fat</td>
-            </tr> -->
-          </tbody>
-        </table>
+    <div *ngIf="consultaCronica.length <= 0 ;  then noHayInformacion else mostrarDatos" ></div>
+    <ng-template #noHayInformacion>
+      <div class="errorimgdiv">
+        <img class="errorimg" src="./assets/hu002-busqueda/no encontrado.png">
       </div>
-    </div>
-    <div class="row col-md-12" style="height: 40px; border: 1px solid #ddd; margin-top: -2.4%; margin-left: 0px;">
-      <div class="col-md-4"></div>
-        <div class="col-md-4">
-          <div class="Rectangle-9601" style="margin-top: 0px !important;  justify-content: center; ">
-            <div class="">
-              <pagination-controls style="margin-left: auto; margin-right: auto;" class="my-pagination"
-                (pageChange)="page = $event" previousLabel="" nextLabel="" screenReaderPaginationLabel="Pagination">
-              </pagination-controls>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-4">
-          <div class="flex align-items-center justify-content-end" style="margin-right: -7%; margin-top: 1.3%;">
-            <label class="control-label" style="padding-top: 4px; margin-right: 10px;">Página</label>
-            <div class="form .wa-3 " style="text-align: center; width: 13%;">
-              <div style="float: right;">{{page}} </div>
-            </div>
-          </div>
-        </div>
-    </div>
-  </div>
+    </ng-template>
 
+    <ng-template #mostrarDatos>
+      <div class="row">
+        <div class="col-md-12">
+          <table class="tabla" style="width: 100%">
+            <thead>
+              <tr >
+                <th class="encabezadoTable">Fecha</th>
+                <th class="encabezadoTable">Grupo</th>
+                <th class="encabezadoTable">Hora</th>
+                <th class="encabezadoTable">Modalidad</th>
+                <th class="encabezadoTable">Total participantes</th>
+                <th class="encabezadoTable">Participantes que asistieron</th>
+                <th class="encabezadoTable">Estatus</th>
+              </tr>
+            </thead>
+            <tbody
+              *ngFor="let item of consultaCronica | paginate:{itemsPerPage:pageSize,currentPage:page}; let i = index">
+              <tr >
+                <td class="bordesTabla" style="cursor: pointer; text-align: center  ; text-decoration: none !important; color: #4D92DF!important; text-decoration: none !important;" (click)="irDetalle(item);">{{ item.fecha }}</td>
+                <td class="bordesTabla">{{ item.grupo }}</td>
+                <td class="bordesTabla">{{ item.Hora }}</td>
+                <td class="bordesTabla">{{ item.Modalidad }}</td>
+                <td class="bordesTabla">{{ item.TotalParticipantes }}</td>
+                <td class="bordesTabla">{{ item.ParticipantesQueAsistieron }}</td>
+                <td class="bordesTabla">{{ item.Estatus}}</td>
+              </tr>
+              <!-- <tr *ngFor="let item of cronicasGrupales">
+                <td class="bordesTabla" style="text-decoration: none !important; color: #4D92DF!important; text-decoration: none !important;" (click)="irDetalle(item);">{{ item.fecFechaCorta }}</td>
+                <td class="bordesTabla">{{ item.desGrupo }}</td>
+                <td class="bordesTabla">{{ item.timHora }}</td>
+                <td class="bordesTabla">{{ item.desModalidad }}</td>
+                <td class="bordesTabla">{{ item.numTotalParticipantes }}</td>
+                <td class="bordesTabla">{{ item.numParticipantesAsistieron }}</td>
+                <td class="bordesTabla">{{ catalogoEstatus[item.idEstatusCronica] }}</td>
+              </tr> -->
+              <!-- <tr>
+                <td class="bordesTabla" style="text-decoration: none !important; color: #4D92DF!important; text-decoration: none !important;" (click)="irDetalle();"><a>24/01/2022</a></td>
+                <td class="bordesTabla">Jacob</td>
+                <td class="bordesTabla">Thornton</td>
+                <td class="bordesTabla">@fat</td>
+                <td class="bordesTabla">Jacob</td>
+                <td class="bordesTabla">Thornton</td>
+                <td class="bordesTabla">@fat</td>
+              </tr>
+              <tr>
+                <td  class="bordesTabla"(click)="irDetalle();"><a>24/01/2022</a></td>
+                <td class="bordesTabla">Jacob</td>
+                <td class="bordesTabla">Thornton</td>
+                <td class="bordesTabla">@fat</td>
+                <td class="bordesTabla">Jacob</td>
+                <td class="bordesTabla">Thornton</td>
+                <td class="bordesTabla">@fat</td>
+              </tr>
+              <tr>
+                <td  class="bordesTabla"(click)="irDetalle();"><a>24/01/2022</a></td>
+                <td class="bordesTabla"> Jacob</td>
+                <td class="bordesTabla">Thornton</td>
+                <td class="bordesTabla">@fat</td>
+                <td class="bordesTabla">Jacob</td>
+                <td class="bordesTabla">Thornton</td>
+                <td class="bordesTabla">@fat</td>
+              </tr>
+              <tr>
+                <td  class="bordesTabla"(click)="irDetalle();"><a>24/01/2022</a></td>
+                <td class="bordesTabla">Jacob</td>
+                <td class="bordesTabla">Thornton</td>
+                <td class="bordesTabla">@fat</td>
+                <td class="bordesTabla">Jacob</td>
+                <td class="bordesTabla">Thornton</td>
+                <td class="bordesTabla">@fat</td>
+              </tr>
+              <tr>
+                <td  class="bordesTabla" (click)="irDetalle();"><a>24/01/2022</a></td>
+                <td class="bordesTabla">Mark</td>
+                <td class="bordesTabla">Otto</td>
+                <td class="bordesTabla">@mdo</td>
+                <td class="bordesTabla">Jacob</td>
+                <td class="bordesTabla">Thornton</td>
+                <td class="bordesTabla">@fat</td>
+              </tr>
+              <tr>
+                <td  class="bordesTabla"(click)="irDetalle();"><a>24/01/2022</a></td>
+                <td class="bordesTabla">Mark</td>
+                <td class="bordesTabla">Otto</td>
+                <td class="bordesTabla">@mdo</td>
+                <td class="bordesTabla">Mark</td>
+                <td class="bordesTabla">Otto</td>
+                <td class="bordesTabla">@mdo</td>
+              </tr>
+              <tr>
+                <td class="bordesTabla"  (click)="irDetalle();"><a>24/01/2022</a></td>
+                <td class="bordesTabla">Mark</td>
+                <td class="bordesTabla">Otto</td>
+                <td class="bordesTabla">@mdo</td>
+                <td class="bordesTabla">Jacob</td>
+                <td class="bordesTabla">Thornton</td>
+                <td class="bordesTabla">@fat</td>
+              </tr> -->
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <div class="row col-md-12" style="height: 41px; border: 1px solid #ddd; margin-top: 0px; margin-bottom: 10px; margin-left: 0px;">
+        <div class="col-md-4"></div>
+          <div class="col-md-4">
+            <div class="Rectangle-9601" style="margin-top: 0px !important;  justify-content: center; ">
+              <div class="">
+                <pagination-controls style="margin-left: auto; margin-right: auto; text-decoration: none !important;" class="my-pagination"
+                  (pageChange)="page = $event" previousLabel="" nextLabel="" screenReaderPaginationLabel="Pagination">
+                </pagination-controls>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="flex align-items-center justify-content-end" style="margin-right: -7%; margin-top: 1.3%;">
+              <label class="control-label" style="padding-top: 4px; margin-right: 10px; color: #3E3E3E;">Página</label>
+              <div class="form .wa-3 " style="text-align: center; width: 10%;">
+                <div style="float: right; margin-right: 0.3px; margin-top: -5px; color: #EEEEEE;">{{page}} </div>
+              </div>
+            </div>
+          </div>
+      </div>
+    </ng-template>
+    </div>
 </app-card-template>

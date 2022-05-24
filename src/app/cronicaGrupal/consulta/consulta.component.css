@@ -3,10 +3,9 @@
 }
 
 .control-label {
-    font-weight: 600;
+    font-weight: 400;
     font-size: 14px;
     line-height: 17px;
-    color: #272829;
     text-align: right;
 }
 
@@ -149,7 +148,7 @@ text-decoration: none;
 }
 
 
-.my-pagination /deep/ .ngx-pagination .current {
+.my-pagination /deep/ .current {
 
   width: 2em;
   height: 2em;
@@ -160,7 +159,10 @@ text-decoration: none;
   margin: 0 1em;
   display: inline-block;
   color: white;
+  font-size: 17.47px;
   position: relative;
+  margin-top: 1%;
+  text-decoration: none;
 }
 
 .form {
@@ -176,3 +178,14 @@ text-decoration: none;
 }
 
 
+.tabla>tbody>tr>td,
+.tabla>tbody>tr>th,
+.tabla>tfoot>tr>td,
+.tabla>tfoot>tr>th,
+.tabla>thead>tr>td,
+.tabla>thead>tr>th {
+    padding: 1.8px;
+    line-height: 1.428571429;
+    vertical-align: top;
+    border-top: 1px solid #ddd;
+}

@@ -35,7 +35,6 @@ export class ConsultaComponent implements OnInit {
   radioBtnSelected: any;
 
   cronicasGrupales: any[] = [];
-
   consultaCronica =  [ {
     "fecha":"20/06/2000", "grupo":"A", "Hora":"20:30", "Modalidad":"Tarde", "TotalParticipantes":"24", "ParticipantesQueAsistieron":"Dos", "Estatus":"Terminada"
   },
