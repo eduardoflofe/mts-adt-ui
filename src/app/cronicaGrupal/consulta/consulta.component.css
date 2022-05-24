@@ -138,11 +138,12 @@ a {
 
 .bordesTabla {
   border: 1px solid #ddd;
-  text-align: center;
+  text-align: center !important;
 }
+
 .bordesTablaGrupo {
   border: 1px solid #ddd;
-
+  text-align: center !important;
 }
 
 .links {
