@@ -71,7 +71,7 @@ export class CronicaGrupalService {
   }
 
   addCronica(cronica: Cronica) {
-    return this.http.post<any>(`${environment.urlServCronicas}/api/guardanueva/`, cronica);
+    return this.http.post(`${environment.urlServCronicas}/api/guardanueva/`, cronica);
   }
 
   downloadPdf(data: any): Observable<Blob> {

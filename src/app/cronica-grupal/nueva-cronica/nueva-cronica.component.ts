@@ -98,10 +98,15 @@ export class NuevaCronicaComponent implements OnInit {
       let params = {
         'cronica': JSON.stringify(this.cronica),
       }
-
       this.cronicaGrupalService.addCronica(this.cronica).subscribe(
-        (response) => {
-          if(response === 'OK'){
+        (response: any) => {
+          console.log(response);
+          // if(JSON.parse(response) === 'OK'){
+          //   this.router.navigate(["cronicaGuardada"], { queryParams: params, skipLocationChange: true });
+          // }
+        }, (response: HttpErrorResponse) => {
+          console.log("RESPUESTA: ", response.statusText);
+          if(response.statusText === 'OK'){
             this.router.navigate(["cronicaGuardada"], { queryParams: params, skipLocationChange: true });
           }
         }

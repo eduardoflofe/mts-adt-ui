@@ -50,7 +50,7 @@ export class ConsultaComponent implements OnInit {
 
   //Metodo que carga los catalogos iniciales y la información incial de la tabla CronicasGrupales
   loadCatalogos() {
-    this.cronicaGrupalService.getCatServicios().subscribe(
+    this.cronicaGrupalService.getCatServicios().toPromise().then(
       (servicios) => {
         this.serviciosEspecialidad = servicios;
         console.log("SERVICIOS: ", this.serviciosEspecialidad);
@@ -59,7 +59,7 @@ export class ConsultaComponent implements OnInit {
         console.error(httpErrorResponse);
       }
     );
-    this.cronicaGrupalService.getCatTurnos().subscribe(
+    this.cronicaGrupalService.getCatTurnos().toPromise().then(
       (turnos) => {
         this.turnos = turnos;
         console.log("TURNOS: ", this.turnos);
@@ -68,7 +68,7 @@ export class ConsultaComponent implements OnInit {
         console.error(httpErrorResponse);
       }
     );
-    this.cronicaGrupalService.getCatGrupo('1').subscribe(
+    this.cronicaGrupalService.getCatGrupo('1').toPromise().then(
       (grupos) => {
         this.grupos = grupos;
         console.log("GRUPOS: ", this.turnos);
@@ -77,7 +77,7 @@ export class ConsultaComponent implements OnInit {
         console.error(httpErrorResponse);
       }
     );
-    this.cronicaGrupalService.getCatLugar('1').subscribe(
+    this.cronicaGrupalService.getCatLugar('1').toPromise().then(
       (lugares) => {
         this.lugares = lugares;
         console.log("LUGARES: ", this.turnos);
@@ -86,7 +86,7 @@ export class ConsultaComponent implements OnInit {
         console.error(httpErrorResponse);
       }
     );
-    this.cronicaGrupalService.getAllCronicasGrupales().subscribe(
+    this.cronicaGrupalService.getAllCronicasGrupales().toPromise().then(
       (cronicasGrupales: any) => {
         let cronicasArray = Object.keys(cronicasGrupales).map(index => {
           let cronica = cronicasGrupales[index];

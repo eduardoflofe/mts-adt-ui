@@ -71,7 +71,7 @@ export class CCGrupalEspecificaComponent implements OnInit, OnDestroy {
         contenido: this.cronica.desDesarrolloSesion !== null ? this.cronica.desDesarrolloSesion : "",
         perfilGrupo: this.cronica.desPerfilGrupo !== null ? this.cronica.desPerfilGrupo : "",
         observaciones: this.cronica.desObservaciones !== null ? this.cronica.desObservaciones : "",
-        trabajadorSocial: "Antonio Alcántar"
+        trabajadorSocial: "Antonio Esteban Alcántar"
     };
     console.log("DATA REPORT: ", data);
     this.cronicaGrupalService.downloadPdf(data).subscribe(
