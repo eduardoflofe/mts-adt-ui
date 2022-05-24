@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  msmtsPacientes: 'http://localhost:8080/api/v1/mts-pacientes/busquedanss/',
+  msmtsPacientes: 'http://localhost:8080/api/busquedanss/',
   urlServOauth: 'http://localhost:8081',
   urlServCatalogos: 'http://localhost:8084',
   urlServCronicas: 'http://localhost:8085',
