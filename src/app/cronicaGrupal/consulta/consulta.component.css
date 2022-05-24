@@ -68,6 +68,10 @@ a {
   color: #222;
 }
 
+.div-container-image {
+  margin-left: 25%;  
+}
+
 .tituloServicio {
   color: #272829;
   font-size: 14px;
