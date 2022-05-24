@@ -30,18 +30,9 @@ export class HeaderMenuComponent implements OnInit {
         this.matricula = isAuthiticated ? this.authenticationService.usuario.strUserName : "";
       }
     )
-
-    let usuarioLogueadoSub = this.authenticationService.userLogged$.asObservable();
     this.authenticationService.project$.asObservable().subscribe(
       (proyectoActual) => this.proyecto = proyectoActual
     );
-    let sessionUsuario: any = sessionStorage.getItem('usuario');
-    if (usuarioLogueadoSub) {
-      let usuario = JSON.parse(sessionUsuario);
-      this.email = usuario.strEmail;
-      this.nombre = usuario.strNombres + " " + usuario.strApellidoP;
-      this.matricula = usuario.strUserName;
-    }
   }
 
   logOut() {

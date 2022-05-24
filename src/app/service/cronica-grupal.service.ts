@@ -5,6 +5,7 @@ import { AdmonPasswordRequest } from '../models/admon-password-request.model';
 import { AdmonPasswordResponse } from '../models/admon-password-response.model';
 import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
+import { Cronica } from '../models/cronica.model';
 
 
 @Injectable({
@@ -22,23 +23,23 @@ export class CronicaGrupalService {
   }
 
   getCatServicios() {
-    return this.http.get<any>(`${environment.urlServCronicas}/api/listservicios`);
+    return this.http.get<any>(`${environment.urlServCatalogos}/api/listservicios`);
   }
 
   getCatTurnos() {
-    return this.http.get<any>(`${environment.urlServCronicas}/api/listTurnos`);
+    return this.http.get<any>(`${environment.urlServCatalogos}/api/listTurnos`);
   }
 
   getCatGrupo(cveServicio: string) {
-    return this.http.get<any>(`${environment.urlServCronicas}/api/listPrograma/${cveServicio}`);
+    return this.http.get<any>(`${environment.urlServCatalogos}/api/listPrograma/${cveServicio}`);
   }
 
   getCatLugar(cveServicio: string) {
-    return this.http.get<any>(`${environment.urlServCronicas}/api/listUbicacion/${cveServicio}`);
+    return this.http.get<any>(`${environment.urlServCatalogos}/api/listUbicacion/${cveServicio}`);
   }
 
   getAllCronicasGrupales() {
-    return this.http.get<any>(`${environment.urlServCronicas}/api/cronicasgrupales`);
+    return this.http.get<any>(`${environment.urlServCronicas}/api/cronicasgrupales`, { responseType: 'json'});
   }
 
   getCronicasGrupalesByServicioEspecialidad(cveServicio: string) {
@@ -69,9 +70,13 @@ export class CronicaGrupalService {
     return this.http.get<any>(`${environment.urlServCronicas}/api/filtrocronicas/${cveServicio}/${cveTurno}/${cveGrupo}/${cveUbicacion}/${fecha}/${especialidadEspecifica}`);
   }
 
+  addCronica(cronica: Cronica) {
+    return this.http.post<any>(`${environment.urlServCronicas}/api/guardanueva/`, cronica);
+  }
+
   downloadPdf(data: any): Observable<Blob> {
     const headers = new HttpHeaders({ 'Content-Type': 'application/json', responseType: 'blob' });
-    return this.http.post<Blob>(environment.urlServCronicas + '/api/downloadReportPdf', JSON.stringify(data),
+    return this.http.post<Blob>(environment.urlServReporte + '/reporte/reporteCronica', JSON.stringify(data),
     { headers: headers, responseType: 'blob' as 'json'});
   }
 

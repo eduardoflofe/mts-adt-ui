@@ -1,8 +1,7 @@
 <div class="bg">
   <app-menu></app-menu>
 </div>
-<app-card-template style=" width: 1217px;
-height: 654px;">
+<app-card-template style=" width: 1217px; height: 654px;">
   <div header class="flex justify-content-between row">
     <div class="col-md-5">
       <div style="display: grid; text-align: left;">
@@ -21,7 +20,7 @@ height: 654px;">
     <hr class="hrCronicaServicio" />
     <div class="col-md-3">
       <div style="display: grid; text-align: left; margin-left: 4%;">
-        <span class="tituloDosSpam">{{ cronica.desEspecialidad }}</span>
+        <span class="tituloDosSpam">{{ this.cronica.desEspecialidad }}</span>
       </div>
     </div>
   </div>
@@ -36,46 +35,46 @@ height: 654px;">
 
     <div class="pacienteDetalleDiv">
       <div style="display: grid; width: 90px;  margin-left: 10px;">
-        <span class="unidadSpan">{{ cronica.desEspecialidad }}</span>
+        <span class="unidadSpan">{{ this.cronica.desEspecialidad }}</span>
         <span class="detalleDescrip">{{ "Servicio" }}</span>
       </div>
 
       <div class="Rectangle-12052"></div>
 
       <div style="display: grid; width: 123px">
-        <span class="unidadSpan">{{ cronica.desGrupo }}</span>
+        <span class="unidadSpan">{{ this.cronica.desGrupo }}</span>
         <span class="detalleDescrip">{{ "Grupo" }}</span>
       </div>
 
       <div class="Rectangle-12052"></div>
 
       <div style="display: grid; width: 95px">
-        <span class="unidadSpan">{{ cronica.desUbicacion }}</span>
+        <span class="unidadSpan">{{ this.cronica.desUbicacion }}</span>
         <span class="detalleDescrip">{{ "Lugar" }}</span>
       </div>
 
       <div class="Rectangle-12052"></div>
 
       <div style="display: grid; width: 83px">
-        <span class="unidadSpan">{{ cronica.desModalidad }}</span>
+        <span class="unidadSpan">{{ this.cronica.desModalidad }}</span>
         <span class="detalleDescrip">{{ "Modalidad" }}</span>
       </div>
 
       <div class="Rectangle-12052"></div>
 
       <div style="display: grid; width: 290px">
-        <span class="unidadSpan">{{ cronica.descPonentes }}</span>
+        <span class="unidadSpan">{{ this.cronica.descPonentes }}</span>
         <span class="detalleDescrip">{{ "Ponentes" }}</span>
       </div>
 
       <div class="Rectangle-12052"></div>
 
       <div style="display: grid; width: 134px">
-        <span class="unidadSpan">{{ catalogoEstatus[cronica.idEstatusCronica] }}</span>
+        <span class="unidadSpan">{{ catalogoEstatus[this.cronica.idEstatusCronica] }}</span>
         <span class="detalleDescrip">{{ "Estatus" }}</span>
       </div>
       <div style="display: grid; width: 184px">
-        <span class="unidadSpan">{{ cronica.numTotalParticipantes }}</span>
+        <span class="unidadSpan">{{ this.cronica.numTotalParticipantes }}</span>
         <span class="detalleDescrip">{{ "Numero de Participantes" }}</span>
       </div>
     </div>
@@ -89,7 +88,7 @@ height: 654px;">
             Técnica Didáctica:
           </label>
           <label class="textoCuatro">
-            {{ cronica.desTecnicaDidactica }}
+            {{ this.cronica.desTecnicaDidactica }}
           </label>
           <br>
           <br>
@@ -98,7 +97,7 @@ height: 654px;">
             Objetivos de la sesión:
           </label>
           <label class="textoCuatro">
-            {{ cronica.desObjetivosSesion }}
+            {{ this.cronica.desObjetivosSesion }}
           </label>
           <br>
           <br>
@@ -107,7 +106,7 @@ height: 654px;">
             Perfil del grupo:
           </label>
           <label class="textoCuatro">
-            {{ cronica.desPerfilGrupo }}
+            {{ this.cronica.desPerfilGrupo }}
           </label>
           <br>
           <br>
@@ -119,7 +118,7 @@ height: 654px;">
             Desarrollo de la sesión:
           </label>
           <label class="textoCuatro">
-            {{ cronica.desDesarrolloSesion }}
+            {{ this.cronica.desDesarrolloSesion }}
           </label>
           <br>
           <br>
@@ -127,14 +126,14 @@ height: 654px;">
             Observaciones:
           </label>
           <label class="textoCuatro" style="z-index: 100;">
-            {{ cronica.desObservaciones }}
+            {{ this.cronica.desObservaciones }}
           </label>
         </div>
       </div>
 
       <div class="botones">
         <button class="btn btn-danger btuser buttonL" style="border: solid 1px #b38e5d;" (click)="cancelar();">Cancelar</button>
-        <button class="btn btn-primary btuser buttonL" style="border: solid 1px #9d2449;">Imprimir</button>
+        <button class="btn btn-primary btuser buttonL" style="border: solid 1px #9d2449;" (click)="imprimir();">Imprimir</button>
       </div>
 
     </div>

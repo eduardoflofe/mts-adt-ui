@@ -13,10 +13,9 @@ declare var $:any;
   styleUrls: ['./consulta.component.css']
 })
 export class ConsultaComponent implements OnInit {
-  isCollapsed: boolean[] = [];
 
   page: number = 1;
-  pageSize: number = 2;
+  pageSize: number = 15;
   resultadoTotal: number = 0;
 
 
@@ -35,34 +34,6 @@ export class ConsultaComponent implements OnInit {
   radioBtnSelected: any;
 
   cronicasGrupales: any[] = [];
-  consultaCronica =  [ {
-    "fecha":"20/06/2000", "grupo":"A", "Hora":"20:30", "Modalidad":"Tarde", "TotalParticipantes":"24", "ParticipantesQueAsistieron":"Dos", "Estatus":"Terminada"
-  },
-  {
-    "fecha":"20/06/2000", "grupo":"A", "Hora":"20:30", "Modalidad":"Tarde", "TotalParticipantes":"24", "ParticipantesQueAsistieron":"Dos", "Estatus":"Terminada"
-  },
-  {
-    "fecha":"20/06/2000", "grupo":"A", "Hora":"20:30", "Modalidad":"Tarde", "TotalParticipantes":"24", "ParticipantesQueAsistieron":"Dos", "Estatus":"Terminada"
-  },
-  {
-    "fecha":"20/06/2000", "grupo":"A", "Hora":"20:30", "Modalidad":"Tarde", "TotalParticipantes":"24", "ParticipantesQueAsistieron":"Dos", "Estatus":"Terminada"
-  },
-  {
-    "fecha":"20/06/2000", "grupo":"A", "Hora":"20:30", "Modalidad":"Tarde", "TotalParticipantes":"24", "ParticipantesQueAsistieron":"Dos", "Estatus":"Terminada"
-  },
-  {
-    "fecha":"20/06/2000", "grupo":"A", "Hora":"20:30", "Modalidad":"Tarde", "TotalParticipantes":"24", "ParticipantesQueAsistieron":"Dos", "Estatus":"Terminada"
-  },
-  {
-    "fecha":"20/06/2000", "grupo":"A", "Hora":"20:30", "Modalidad":"Tarde", "TotalParticipantes":"24", "ParticipantesQueAsistieron":"Dos", "Estatus":"Terminada"
-  },
-  {
-    "fecha":"20/06/2000", "grupo":"A", "Hora":"20:30", "Modalidad":"Tarde", "TotalParticipantes":"24", "ParticipantesQueAsistieron":"Dos", "Estatus":"Terminada"
-  },
-  {
-    "fecha":"20/06/2000", "grupo":"A", "Hora":"20:30", "Modalidad":"Tarde", "TotalParticipantes":"24", "ParticipantesQueAsistieron":"Dos", "Estatus":"Terminada"
-  },
- ];
 
   constructor(
     private router: Router,
@@ -116,8 +87,12 @@ export class ConsultaComponent implements OnInit {
       }
     );
     this.cronicaGrupalService.getAllCronicasGrupales().subscribe(
-      (cronicasGrupales) => {
-        this.cronicasGrupales = cronicasGrupales;
+      (cronicasGrupales: any) => {
+        let cronicasArray = Object.keys(cronicasGrupales).map(index => {
+          let cronica = cronicasGrupales[index];
+          return cronica;
+        });
+        this.cronicasGrupales = cronicasArray[0]
         console.log("CRONICAS GRUPALES: ", this.cronicasGrupales);
       }
     );
@@ -152,7 +127,11 @@ export class ConsultaComponent implements OnInit {
       this.cronicaGrupalService.getCronicasGrupalesByServicioEspecialidad(this.servicioSelected).subscribe(
         (cronicasGrupales) => {
           this.cronicasGrupales = [];
-          this.cronicasGrupales = cronicasGrupales;
+          let cronicasArray = Object.keys(cronicasGrupales).map(index => {
+            let cronica = cronicasGrupales[index];
+            return cronica;
+          });
+          this.cronicasGrupales = cronicasArray[0];
           console.log("CRONICAS GRUPALES BY SERVICIO: ", this.cronicasGrupales);
         }
       );
@@ -168,7 +147,11 @@ export class ConsultaComponent implements OnInit {
       this.cronicaGrupalService.getCronicasGrupalesByTurno(Number(this.turnoSelected)).subscribe(
         (cronicasGrupales) => {
           this.cronicasGrupales = [];
-          this.cronicasGrupales = cronicasGrupales;
+          let cronicasArray = Object.keys(cronicasGrupales).map(index => {
+            let cronica = cronicasGrupales[index];
+            return cronica;
+          });
+          this.cronicasGrupales = cronicasArray[0];
           console.log("CRONICAS GRUPALES BY TURNO: ", this.cronicasGrupales);
         }
       );
@@ -184,7 +167,11 @@ export class ConsultaComponent implements OnInit {
       this.cronicaGrupalService.getCronicasGrupalesByGrupo(Number(this.grupoSelected)).subscribe(
         (cronicasGrupales) => {
           this.cronicasGrupales = [];
-          this.cronicasGrupales = cronicasGrupales;
+          let cronicasArray = Object.keys(cronicasGrupales).map(index => {
+            let cronica = cronicasGrupales[index];
+            return cronica;
+          });
+          this.cronicasGrupales = cronicasArray[0];
           console.log("CRONICAS GRUPALES BY GRUPO: ", this.cronicasGrupales);
         }
       );
@@ -200,7 +187,11 @@ export class ConsultaComponent implements OnInit {
       this.cronicaGrupalService.getCronicasGrupalesByUbicacion(this.lugarSelected).subscribe(
         (cronicasGrupales) => {
           this.cronicasGrupales = [];
-          this.cronicasGrupales = cronicasGrupales;
+          let cronicasArray = Object.keys(cronicasGrupales).map(index => {
+            let cronica = cronicasGrupales[index];
+            return cronica;
+          });
+          this.cronicasGrupales = cronicasArray[0];
           console.log("CRONICAS GRUPALES BY LUGAR: ", this.cronicasGrupales);
         }
       );
@@ -218,7 +209,11 @@ export class ConsultaComponent implements OnInit {
       this.cronicaGrupalService.getCronicasGrupalesByFecha(fecha).subscribe(
         (cronicasGrupales) => {
           this.cronicasGrupales = [];
-          this.cronicasGrupales = cronicasGrupales;
+          let cronicasArray = Object.keys(cronicasGrupales).map(index => {
+            let cronica = cronicasGrupales[index];
+            return cronica;
+          });
+          this.cronicasGrupales = cronicasArray[0];
           console.log("CRONICAS GRUPALES BY FECHA: ", this.cronicasGrupales);
         }
       );
@@ -234,7 +229,11 @@ export class ConsultaComponent implements OnInit {
       this.cronicaGrupalService.getCronicasGrupalesByEspecialidadEspecifica(this.radioBtnSelected).subscribe(
         (cronicasGrupales) => {
           this.cronicasGrupales = [];
-          this.cronicasGrupales = cronicasGrupales;
+          let cronicasArray = Object.keys(cronicasGrupales).map(index => {
+            let cronica = cronicasGrupales[index];
+            return cronica;
+          });
+          this.cronicasGrupales = cronicasArray[0];
           console.log("CRONICAS GRUPALES BY LUGAR: ", this.cronicasGrupales);
         }
       );
@@ -255,7 +254,11 @@ export class ConsultaComponent implements OnInit {
     this.cronicaGrupalService.getCronicasGrupalesByFiltros(this.servicioSelected !== '-1' ? this.servicioSelected : '-', this.turnoSelected !== '-1' ? Number(this.turnoSelected) : 0, this.grupoSelected !== '-1' ? Number(this.grupoSelected) : 0, this.lugarSelected !== '-1' ? this.lugarSelected : '-', fecha !== null ? fecha : '00-00-0000', this.radioBtnSelected !== '' ? this.radioBtnSelected : '-').subscribe(
       (cronicasGrupales) => {
         this.cronicasGrupales = [];
-        this.cronicasGrupales = cronicasGrupales;
+        let cronicasArray = Object.keys(cronicasGrupales).map(index => {
+            let cronica = cronicasGrupales[index];
+            return cronica;
+          });
+          this.cronicasGrupales = cronicasArray[0];
         console.log("CRONICAS GRUPALES BY FILTROS: ", this.cronicasGrupales);
       }
     );
@@ -271,11 +274,6 @@ export class ConsultaComponent implements OnInit {
     }
     console.log("OBJETO DETALLE: ", cronicaGrupal);
     this.router.navigate(["busquedaEspecifica"], { queryParams: params, skipLocationChange: true });
-  }
-
-  muestra(i: number) {
-    this.isCollapsed[i] = !this.isCollapsed[i];
-
   }
 
 }

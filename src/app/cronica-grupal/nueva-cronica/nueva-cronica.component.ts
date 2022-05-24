@@ -3,12 +3,12 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Cronica } from 'src/app/models/cronica.model';
-import { CronicaService } from 'src/app/service/cronica.service';
 import { MatDialog } from '@angular/material/dialog';
 import { AgregarParticipanteDialogComponent } from './agregar-participante-dialog/agregar-participante-dialog.component';
 import { Subscription, timer } from "rxjs";
 import { map, share } from "rxjs/operators";
 import { Participante } from 'src/app/models/participante.model';
+import { CronicaGrupalService } from 'src/app/service/cronica-grupal.service';
 
 @Component({
   selector: 'app-nueva-cronica',
@@ -46,7 +46,7 @@ export class NuevaCronicaComponent implements OnInit {
     private router: Router,
     private fb: FormBuilder,
     public dialog: MatDialog,
-    private cronicaService: CronicaService,
+    private cronicaGrupalService: CronicaGrupalService,
   ) { }
 
   ngOnInit(): void {
@@ -98,18 +98,14 @@ export class NuevaCronicaComponent implements OnInit {
       let params = {
         'cronica': JSON.stringify(this.cronica),
       }
-      this.router.navigate(["cronicaGuardada"], { queryParams: params, skipLocationChange: true });
 
-      // this.cronicaService.addCronica(this.cronica).subscribe(
-      //   (resp) => {
-      //     if (resp) {
-      //       this.router.navigate(["cronicaGuardada"]);
-      //     }
-      //   },
-      //   (httpErrorResponse: HttpErrorResponse) => {
-      //     console.error(httpErrorResponse);
-      //   }
-      // );
+      this.cronicaGrupalService.addCronica(this.cronica).subscribe(
+        (response) => {
+          if(response === 'OK'){
+            this.router.navigate(["cronicaGuardada"], { queryParams: params, skipLocationChange: true });
+          }
+        }
+      );
     }
   }
 
