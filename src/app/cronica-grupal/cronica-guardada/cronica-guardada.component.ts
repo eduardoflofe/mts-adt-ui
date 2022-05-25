@@ -77,7 +77,7 @@ export class CronicaGuardadaComponent implements OnInit, OnDestroy {
   private showSucces(msg:string) {
 
     this.alert = {
-      message:'<strong>Estatus.</strong>'+msg,
+      message:'<strong></strong>'+msg,
       type: 'success',
       visible: true
     }
@@ -87,7 +87,7 @@ export class CronicaGuardadaComponent implements OnInit, OnDestroy {
         type: 'custom',
         visible: false
       }
-    }, 2000);
+    }, 60000);
   }
 
   regresar() {
