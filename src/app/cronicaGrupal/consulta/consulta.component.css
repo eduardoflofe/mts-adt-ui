@@ -91,19 +91,17 @@ a {
 
 .fondocalendar {
   background-color: #eeeeee;
-
   transform: translateY(-8%);
   background-size: 10px 12px;
-
   background-repeat: no-repeat;
-
-  margin: 1.6px 1px 3px 18.2px;
+  margin: 0.6px 1px 3px 18.2px;
   padding: 0 20.2px 0 18.2px;
-  height: 37px;
+  height: 36.5px;
+  border-radius: 2px 2px 2px 2px;
 }
 
 .imgCalendar {
-  background-image: url("../../../assets/images/calendar.png");
+  background-image: url("../../../assets/images/calendario.svg");
   background-repeat: no-repeat;
   color: #191919;
   position: absolute;
@@ -113,6 +111,7 @@ a {
   top: 50%;
   transform: translateY(-49%);
   background-size: 20px 19px;
+  margin-left: -1.6px;
 }
 
 .datepicker-group .glyphicon {
