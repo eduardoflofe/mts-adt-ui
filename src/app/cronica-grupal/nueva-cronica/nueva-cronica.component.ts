@@ -91,7 +91,8 @@ export class NuevaCronicaComponent implements OnInit {
     if (this.editForm.valid) {
       this.cronica = {
         ...this.cronica,
-        ...this.editForm.value
+        ...this.editForm.value,
+        participanteList: this.listParticipantes
       };
 
       console.log("OBJETO: ", this.cronica);

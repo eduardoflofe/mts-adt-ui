@@ -1,10 +1,18 @@
+<div *ngIf="alertVisible">
+    <div class="alert alert-dismissible alertCompl" [ngClass]="alertTipo">
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span
+                aria-hidden="true">&times;</span></button>
+        <div [innerHTML]="alertMensaje"></div>
+    </div>
+</div>
+
 <div class="modal-container">
     <div class="header-part">
         <form [formGroup]="editForm">
             <div class="body-princ">
                 <div class="form-group usrlist pull-left">
                     <label class="label-nss-paciente">NSS paciente</label>
-                    <input class="form-control input-paciente" id="nss" placeholder="NSS paciente"
+                    <input class="form-control input-paciente" id="nss" placeholder="NSS paciente" maxlength="10"
                         formControlName="nssPaciente" />
                 </div>
 
@@ -36,16 +44,16 @@
                 <span class="label-total-participantes">
                     Total de participantes
                     <span class="label-atencion">
-                        &nbsp; &nbsp; {{countChecked}}
+                        &nbsp; &nbsp; {{countChecked + otros.length}}
                     </span>
                 </span>
             </div>
-            <div class="not-data" *ngIf="listPacientes.length !== 0">
+            <div class="not-data" *ngIf="listPacientes.length === 0">
                 <label class="label-not-data">
                     {{descNotData}}
                 </label>
             </div>
-            <div class="content-table">
+            <div class="content-table" *ngIf="listPacientes.length > 0">
                 <table id="tblpacientes" datatable class="table table-hover table-bordered table-gral caption-top">
                     <caption class="content-table-title">
                         <span class="label-content-table-title">
@@ -75,8 +83,8 @@
                                 <input type="checkbox" [checked]="item.checked"
                                     (change)="changeChecked($event, item)" />
                             </td>
-                            <td>{{ item.numNssPaciente }}</td>
-                            <td>{{ item.nombrePaciente }}</td>
+                            <td>{{ item.nss }}</td>
+                            <td>{{ item.paciente }}</td>
                             <td>{{ item.parentesco }}</td>
                             <td>{{ item.agregadoMedico }}</td>
                             <td>{{ item.unidadMedica }}</td>

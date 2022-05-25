@@ -68,15 +68,17 @@
                 <div class="row">
                     <div class="col-md-6">
                         <span class="spanInput">Objetivos de la sesi&oacute;n*:</span>
-                        <textarea class="form-control" placeholder="Ingresar objetivos de la sesi&oacute;n" style="height: 167px;"
-                            formControlName="desObjetivosSesion" #objetivosRef maxlength="500" rows="4"></textarea>
+                        <textarea class="form-control" placeholder="Ingresar objetivos de la sesi&oacute;n"
+                            style="height: 167px;" formControlName="desObjetivosSesion" #objetivosRef maxlength="500"
+                            rows="4"></textarea>
                         <span class="spanCaracteres">{{objetivosRef.value?.length}} /
                             {{objetivosRef.getAttribute('maxlength')}} caracteres</span>
                     </div>
                     <div class="col-md-6">
                         <span class="spanInput">Desarrollo de la sesi&oacute;n*:</span>
-                        <textarea class="form-control" placeholder="Ingresar desarrollo de la sesi&oacute;n" style="height: 167px;"
-                            formControlName="desDesarrolloSesion" #desarrolloRef maxlength="500" rows="4"></textarea>
+                        <textarea class="form-control" placeholder="Ingresar desarrollo de la sesi&oacute;n"
+                            style="height: 167px;" formControlName="desDesarrolloSesion" #desarrolloRef maxlength="500"
+                            rows="4"></textarea>
                         <span class="spanCaracteres">{{desarrolloRef.value?.length}} /
                             {{desarrolloRef.getAttribute('maxlength')}} caracteres</span>
                     </div>
@@ -85,15 +87,17 @@
                 <div class="row">
                     <div class="col-md-6">
                         <span class="spanInput">Perfil del grupo*:</span>
-                        <textarea class="form-control" placeholder="Escribir NSS paciente" rows="4" style="height: 167px;"
-                            formControlName="desPerfilGrupo" #perfilRef maxlength="500"></textarea>
+                        <textarea class="form-control" placeholder="Escribir NSS paciente" rows="4"
+                            style="height: 167px;" formControlName="desPerfilGrupo" #perfilRef
+                            maxlength="500"></textarea>
                         <span class="spanCaracteres">{{perfilRef.value?.length}} /
                             {{perfilRef.getAttribute('maxlength')}} caracteres</span>
                     </div>
                     <div class="col-md-6">
                         <span class="spanInput">Observaciones*:</span>
-                        <textarea class="form-control" placeholder="Ingresar observaciones" rows="4" style="height: 167px;"
-                            formControlName="desObservaciones" #observacionesRef maxlength="500"></textarea>
+                        <textarea class="form-control" placeholder="Ingresar observaciones" rows="4"
+                            style="height: 167px;" formControlName="desObservaciones" #observacionesRef
+                            maxlength="500"></textarea>
                         <span class="spanCaracteres">{{observacionesRef.value?.length}} /
                             {{observacionesRef.getAttribute('maxlength')}} caracteres</span>
                     </div>
@@ -103,14 +107,14 @@
 
             <div class="container" style="margin-bottom: 0px; margin-left: 3.62%;">
                 <span class="campo-obligatorio"> *Campos obligatorios </span>
-                <!-- TO-DO Aplicar logica para ocultar o mostrar boton
-                <button style="width: 170px; border: solid 1px #9d2449; margin-left: -10px !important;" type="button"
+                <button *ngIf="listParticipantes.length === 0"
+                    style="width: 170px; border: solid 1px #9d2449; margin-left: -10px !important;" type="button"
                     class="btn btn-primary buttonL" (click)="addParticipanteDialog();">
                     Agregar participante
-                </button> -->
+                </button>
             </div>
 
-            <div class="container seccion">
+            <div class="container seccion" *ngIf="listParticipantes.length > 0">
                 <div class="row col-md-12" style="margin-top: 20px;">
                     <span class="label-total-participantes" style="margin: 0px 10px;">
                         Total de participantes

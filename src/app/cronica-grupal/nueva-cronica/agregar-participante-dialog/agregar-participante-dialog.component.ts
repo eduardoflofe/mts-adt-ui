@@ -3,6 +3,7 @@ import { FormGroup, FormBuilder, FormArray, Validators } from '@angular/forms';
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { Paciente } from 'src/app/models/paciente.model';
 import { Participante } from 'src/app/models/participante.model';
+import { ServiceService } from 'src/app/busqueda-nss/busqueda-nss.service';
 
 declare var $: any;
 declare var $gmx: any;
@@ -25,8 +26,18 @@ export class AgregarParticipanteDialogComponent implements OnInit {
     public pagactual: number = 1;
     public dtOptions: DataTables.Settings = {};
 
+    public alertMensaje: string = "";
+    public alertVisible: boolean = false;
+    public alertTipo: string = "";
+    public errorBusqueda: boolean = false;
+
     public editForm: FormGroup = this.fb.group({
-        nssPaciente: [null, Validators.required]
+        nssPaciente: [null,
+            Validators.compose([
+                Validators.required,
+                Validators.minLength(10),
+                Validators.maxLength(10)]
+            )],
     })
 
     public otrosForm: FormGroup = this.fb.group({
@@ -36,6 +47,7 @@ export class AgregarParticipanteDialogComponent implements OnInit {
     constructor(
         private fb: FormBuilder,
         public dialogRef: MatDialogRef<AgregarParticipanteDialogComponent>,
+        private serviceService: ServiceService,
         @Inject(MAT_DIALOG_DATA) public data: any,
     ) {
         this.descripcion = data.descripcion;
@@ -64,40 +76,59 @@ export class AgregarParticipanteDialogComponent implements OnInit {
     limpiarBusqueda(): void {
         this.editForm.reset();
         this.listPacientes = [];
+        this.descNotData = "Sin información disponible";
+        this.getCountChecked();
     }
 
     buscarPaciente(): void {
-        console.log(this.editForm.value);
+        if (this.editForm.valid) {
+            this.serviceService.getAll(this.editForm.get('nssPaciente')?.value).subscribe({
+                next: (resp: any) => {
+                    this.listPacientes = resp.busquedanss.beneficiarios;
 
-        //TO-DO Servicio para buscar paciente por NSS
+                    if (resp.busquedanss.registrosTotal === 0) {
+                        this.descNotData = "Sin resultados para mostrar";
+                    } else {
+                        this.getCountChecked();
+                    }
 
-        this.listPacientes = [
-            {
-                checked: false,
-                numNssPaciente: '4382641109',
-                nombrePaciente: 'Jaime Daniel Villalobos Barrios',
-                parentesco: 'Titular',
-                agregadoMedico: '24567890567',
-                unidadMedica: 'UMF #40',
-            },
-            {
-                checked: true,
-                numNssPaciente: '7648043776	',
-                nombrePaciente: 'Daniela García Rodríguez',
-                parentesco: 'Esposa',
-                agregadoMedico: '25567890567',
-                unidadMedica: 'UMF #40',
-            },
-            {
-                checked: false,
-                numNssPaciente: '4052890017',
-                nombrePaciente: 'Jaime Daniel Villalobos García',
-                parentesco: 'Hijo',
-                agregadoMedico: '26567890567',
-                unidadMedica: 'UMF #40',
-            }
-        ];
-        this.getCountChecked();
+                }, error: (err) => {
+                    this.muestraAlerta('<strong>Error de red.</strong> No fue posible conectar con la API de busqueda',
+                        'alert-danger', null
+                    );
+                    console.log(err);
+                    this.errorBusqueda = true;
+                    this.descNotData = "Sin resultados para mostrar";
+                    // this.listPacientes = [
+                    //     {
+                    //         nss: 4382641109,
+                    //         paciente: 'Jaime Daniel Villalobos Barrios',
+                    //         parentesco: 'Titular',
+                    //         agregadoMedico: '24567890567',
+                    //         unidadMedica: 'UMF #40',
+                    //     },
+                    //     {
+                    //         nss: 7648043776,
+                    //         paciente: 'Daniela García Rodríguez',
+                    //         parentesco: 'Esposa',
+                    //         agregadoMedico: '25567890567',
+                    //         unidadMedica: 'UMF #40',
+                    //     },
+                    //     {
+                    //         nss: 4052890017,
+                    //         paciente: 'Jaime Daniel Villalobos García',
+                    //         parentesco: 'Hijo',
+                    //         agregadoMedico: '26567890567',
+                    //         unidadMedica: 'UMF #40',
+                    //     }
+                    // ]
+                }
+            });
+        } else {
+            this.muestraAlerta('<strong>Error.</strong>¡La longitud del NSS no es correcta, favor de verificar!',
+                'alert-danger', null
+            );
+        }
     }
 
     cancelar(): void {
@@ -109,17 +140,19 @@ export class AgregarParticipanteDialogComponent implements OnInit {
             const pacientes = this.listPacientes.filter((item: Paciente) => item.checked === true);
             pacientes.map((item: Paciente) => {
                 this.listParticipantes.push({
-                    nombreParticipante: item.nombrePaciente,
-                    numNssParticipante: item.numNssPaciente,
+                    nombreParticipante: item.paciente,
+                    numNssParticipante: item.nss,
+                    indAsistencia: false,
                 });
             });
 
             for (let i = 0; i < this.otros.length; i += 1) {
                 this.listParticipantes.push({
                     nombreParticipante: this.otros.at(i).get('nombreCompleto')?.value,
+                    numNssParticipante: null,
+                    indAsistencia: false,
                 });
             }
-            console.log(this.listParticipantes);
             this.dialogRef.close(this.listParticipantes);
         }
     }
@@ -159,5 +192,22 @@ export class AgregarParticipanteDialogComponent implements OnInit {
 
     get otros(): FormArray {
         return this.otrosForm.get("nombres") as FormArray
+    }
+
+    muestraAlerta(mensaje: string, estilo: string, funxion: any) {
+
+        this.alertMensaje = mensaje;
+        this.alertTipo = estilo;
+        this.alertVisible = true;
+
+        setTimeout(() => {
+            this.alertMensaje = mensaje;
+            this.alertTipo = estilo;
+            this.alertVisible = false;
+
+            if (funxion != null) {
+                funxion();
+            }
+        }, 5000);
     }
 }

@@ -1,7 +1,7 @@
 export class Paciente {
     checked?: boolean;
-    numNssPaciente?: string;
-    nombrePaciente?: string;
+    nss?: number;
+    paciente?: string;
     parentesco?: string;
     agregadoMedico?: string;
     unidadMedica?: string;

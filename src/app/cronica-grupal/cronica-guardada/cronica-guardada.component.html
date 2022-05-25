@@ -104,9 +104,9 @@
         <div class="col-md-5">
           <label class="control-label texto"
             >Total de participantes
-            <span style="font-weight: bold">{{
-              cronica.numParticipantesAsistieron
-            }}</span></label>
+            <span style="font-weight: bold">
+              {{cronica.participanteList.length}}
+            </span></label>
           <table
             class="tabla texto"
             style="margin-bottom: 0px !important; border: #eeeeee 2px solid">
@@ -118,20 +118,8 @@
               </tr>
             </thead>
             <tbody>
-              <tr>
-                <td>Participante 1</td>
-              </tr>
-              <tr>
-                <td>Participante 2</td>
-              </tr>
-              <tr>
-                <td>Participante 3</td>
-              </tr>
-              <tr>
-                <td>Participante 4</td>
-              </tr>
-              <tr>
-                <td>Participante 5</td>
+              <tr *ngFor="let item of cronica.participanteList">
+                <td>{{item.nombreParticipante}}</td>
               </tr>
             </tbody>
           </table>

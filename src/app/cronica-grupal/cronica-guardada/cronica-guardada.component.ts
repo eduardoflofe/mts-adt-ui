@@ -113,7 +113,8 @@ export class CronicaGuardadaComponent implements OnInit, OnDestroy {
         contenido: this.cronica.desDesarrolloSesion !== null ? this.cronica.desDesarrolloSesion : "",
         perfilGrupo: this.cronica.desPerfilGrupo !== null ? this.cronica.desPerfilGrupo : "",
         observaciones: this.cronica.desObservaciones !== null ? this.cronica.desObservaciones : "",
-        trabajadorSocial: "Antonio Esteban Alcántar"
+        trabajadorSocial: "Antonio Esteban Alcántar",
+        participantes: this.cronica.participanteList
     };
     console.log("DATA REPORT: ", data);
     this.cronicaGrupalService.downloadPdf(data).subscribe(
