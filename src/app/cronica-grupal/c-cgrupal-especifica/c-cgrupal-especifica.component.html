@@ -13,8 +13,8 @@
     <hr class="hrCronicaFecha" />
     <div class="col-md-4 border border-dark">
       <div style="display: grid; margin-left: 4.7%;">
-        <span class="tituloDosSpam">{{ today | date:"EEEE" }} {{ day }} de {{ months[month] }} de {{ year }}
-          {{ rxTime | date: 'hh:mm:ss' }}</span>
+        <span class="tituloDosSpam">{{ today | date: "EEEE" }} {{ day }} de {{ month }} de
+          {{ year }} {{ this.cronica.timHora }}</span>
       </div>
     </div>
     <hr class="hrCronicaServicio" />

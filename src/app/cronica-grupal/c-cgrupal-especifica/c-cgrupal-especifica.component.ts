@@ -10,12 +10,12 @@ import { CronicaGrupalService } from "src/app/service/cronica-grupal.service";
   templateUrl: './c-cgrupal-especifica.component.html',
   styleUrls: ['./c-cgrupal-especifica.component.css']
 })
-export class CCGrupalEspecificaComponent implements OnInit, OnDestroy {
+export class CCGrupalEspecificaComponent implements OnInit {
 
-  time = new Date();
-  rxTime = new Date();
-  intervalId: any;
-  subscription: Subscription | undefined;
+  // time = new Date();
+  // rxTime = new Date();
+  // intervalId: any;
+  // subscription: Subscription | undefined;
   months = ["enero", "febrero", "marzo", "abril", "mayo", "junio", "julio", "agosto", "septiembre", "octubre", "noviembre", "diciembre"];
   today: any;
   day: any;
@@ -36,22 +36,68 @@ export class CCGrupalEspecificaComponent implements OnInit, OnDestroy {
       this.cronica = JSON.parse(params.getAll('cronica'));
       console.log("OBJETO ENVIADO PARA DETALLE: ", this.cronica);
     });
-
-    const currentDate = new Date();
-    this.day = currentDate.getDate();
-    this.month = currentDate.getMonth();
-    this.year = currentDate.getFullYear();
+    //martes 24 de mayo de 2022 08:00:12
+    console.log("FECHA: ", this.cronica.fecFechaCorta);
+    this.day = this.cronica.fecFechaCorta.substring('0','2');
+    console.log("DAY: ", this.day);
+    const month = this.cronica.fecFechaCorta.substring('3','5');
+    switch(month) {
+      case '01':
+          this.month = 'enero';
+          break;
+      case '02':
+          this.month = 'febrero';
+          break;
+      case '03':
+          this.month = 'marzo';
+          break;
+      case '04':
+          this.month = 'abril';
+          break;
+      case '05':
+          this.month = 'mayo';
+          break;
+      case '06':
+          this.month = 'junio';
+          break;
+      case '07':
+          this.month = 'julio';
+          break;
+      case '08':
+          this.month = 'agosto';
+          break;
+      case '09':
+          this.month = 'septiembre';
+          break;
+      case '10':
+          this.month = 'octubre';
+          break;
+      case '11':
+          this.month = 'noviembre';
+          break;
+      case '12':
+          this.month = 'diciembre';
+          break;
+  }
+    console.log("MONTH: ", this.month);
+    this.year = this.cronica.fecFechaCorta.substring('6','10');
+    console.log("YEAR: ", this.year);
+    const currentDate = new Date(this.year+"-"+this.month+"-"+this.day);
+    // this.day = currentDate.getDate();
+    // this.month = currentDate.getMonth();
+    // this.year = currentDate.getFullYear();
     this.today = currentDate;
+    console.log("DATE: ", this.today);
 
-    this.subscription = timer(0, 1000)
-      .pipe(
-        map(() => new Date()),
-        share()
-      )
-      .subscribe(time => {
-        this.rxTime = time;
-      }
-    );
+    // this.subscription = timer(0, 1000)
+    //   .pipe(
+    //     map(() => new Date()),
+    //     share()
+    //   )
+    //   .subscribe(time => {
+    //     this.rxTime = time;
+    //   }
+    // );
   }
 
   cancelar() {
@@ -60,11 +106,17 @@ export class CCGrupalEspecificaComponent implements OnInit, OnDestroy {
 
   imprimir() {
     let data: any = {
-        grupo : this.cronica.desGrupo !== null ? this.cronica.desGrupo : "",
+      ooad: "CDMX NORTE",
+        unidad: "HGZ 48 SAN PEDRO XALAPA",
+        clavePtal: "35E1011D2153",
+        turno: "MATUTINO",
+        servicio: "GRUPO",
+        grupo: "TOUR QUIRURJICO",
+        // grupo : this.cronica.desGrupo !== null ? this.cronica.desGrupo : "",
         fecha: this.cronica.fecFechaCorta !== null ? this.cronica.fecFechaCorta : "",
         hora: this.cronica.timHora !== null ? this.cronica.timHora : "",
         ponentes: this.cronica.descPonentes !== null ? this.cronica.descPonentes : "",
-        numAsistentes: this.cronica.numParticipantesAsistieron !== null ? this.cronica.numParticipantesAsistieron : "",
+        numAsistentes: this.cronica.numTotalParticipantes !== null ? this.cronica.numTotalParticipantes : "",
         tecnicaDidactica: this.cronica.desTecnicaDidactica !== null ? this.cronica.desTecnicaDidactica : "",
         materialApoyo: this.cronica.desMaterialApoyo !== null ? this.cronica.desMaterialApoyo : "",
         objetivoSesion: this.cronica.desObjetivosSesion !== null ? this.cronica.desObjetivosSesion : "",
@@ -84,13 +136,6 @@ export class CCGrupalEspecificaComponent implements OnInit, OnDestroy {
         console.error("Error al descargar reporte: ", error.message);
       }
     )
-  }
-
-  ngOnDestroy() {
-    clearInterval(this.intervalId);
-    if (this.subscription) {
-      this.subscription.unsubscribe();
-    }
   }
 
 }

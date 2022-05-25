@@ -17,7 +17,7 @@ export class BusquedaNssComponent {
 
   page: number = 1;
 
-  pageSize: number = 2;
+  pageSize: number = 15;
 
   alertMensaje: string = "";
   alertVisible: boolean = false;

@@ -87,7 +87,7 @@ export class CronicaGuardadaComponent implements OnInit, OnDestroy {
         type: 'custom',
         visible: false
       }
-    }, 60000);
+    }, 2000);
   }
 
   regresar() {
@@ -96,11 +96,17 @@ export class CronicaGuardadaComponent implements OnInit, OnDestroy {
 
   imprimir() {
     let data: any = {
-        grupo : this.cronica.desGrupo !== null ? this.cronica.desGrupo : "",
+        ooad: "CDMX NORTE",
+        unidad: "HGZ 48 SAN PEDRO XALAPA",
+        clavePtal: "35E1011D2153",
+        turno: "MATUTINO",
+        servicio: "GRUPO",
+        grupo: "TOUR QUIRURJICO",
+        // grupo : this.cronica.desGrupo !== null ? this.cronica.desGrupo : "",
         fecha: this.cronica.fecFechaCorta !== null ? this.cronica.fecFechaCorta : "",
         hora: this.cronica.timHora !== null ? this.cronica.timHora : "",
         ponentes: this.cronica.descPonentes !== null ? this.cronica.descPonentes : "",
-        numAsistentes: this.cronica.numParticipantesAsistieron !== null ? this.cronica.numParticipantesAsistieron : "",
+        numAsistentes: this.cronica.numTotalParticipantes !== null ? this.cronica.numTotalParticipantes : "",
         tecnicaDidactica: this.cronica.desTecnicaDidactica !== null ? this.cronica.desTecnicaDidactica : "",
         materialApoyo: this.cronica.desMaterialApoyo !== null ? this.cronica.desMaterialApoyo : "",
         objetivoSesion: this.cronica.desObjetivosSesion !== null ? this.cronica.desObjetivosSesion : "",

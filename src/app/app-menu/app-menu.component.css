@@ -38,10 +38,12 @@
   border-top-left-radius: 6px;
   border-bottom-left-radius: 6px;
 }
-.bsca-pct > img {
+
+.bsca-pct>img {
   padding-left: 3px;
 }
-.bsca-pct > span {
+
+.bsca-pct>span {
   margin-left: 6px;
   margin-right: 14px;
   width: 112px;
@@ -66,10 +68,12 @@
   align-items: center;
   position: relative;
 }
+
 .blq-2 img:nth-child(1) {
   display: none;
 }
-.blq-2 > img.marg-sup {
+
+.blq-2>img.marg-sup {
   height: 5px;
   width: 171px;
   position: absolute;
@@ -79,6 +83,7 @@
   object-position: top;
   display: none;
 }
+
 .blq-2:hover {
   color: #0e7b77;
   background: url("../../assets/images/Subtract-sm.svg");
@@ -86,15 +91,35 @@
   background-size: contain;
   background-repeat: no-repeat;
 }
+
+.blq-2-selected img:nth-child(3) {
+  display: block;
+}
+
+.blq-2-selected img:nth-child(1) {
+  display: block;
+}
+
+.blq-2-selected img:nth-child(2) {
+  display: none;
+}
+
+.blq-2-selected {
+  background: url("../../assets/images/Subtract-sm.svg");
+}
+
 .blq-2:hover img:nth-child(2) {
   display: none;
 }
+
 .blq-2:hover img:nth-child(1) {
   display: block;
 }
+
 .blq-2:hover img:nth-child(3) {
   display: block;
 }
+
 .blq-3 {
   /* margin-right: 8px; */
   width: 197px;
@@ -104,10 +129,12 @@
   align-items: center;
   position: relative;
 }
+
 .blq-3 img:nth-child(1) {
   display: none;
 }
-.blq-3 > img.marg-sup {
+
+.blq-3>img.marg-sup {
   height: 5px;
   width: 197px;
   position: absolute;
@@ -117,6 +144,7 @@
   object-position: top;
   display: none;
 }
+
 .blq-3:hover {
   color: #0e7b77;
   background: url("../../assets/images/Subtract.svg");
@@ -124,18 +152,22 @@
   background-size: contain;
   background-repeat: no-repeat;
 }
+
 .blq-3:hover img:nth-child(2) {
   display: none;
 }
+
 .blq-3:hover img:nth-child(1) {
   display: block;
   width: 25px;
   height: 36px;
   object-fit: none;
 }
+
 .blq-3:hover img:nth-child(3) {
   display: block;
 }
+
 .blq-4 {
   /* margin-right: 9px; */
   width: 197px;
@@ -145,10 +177,12 @@
   align-items: center;
   position: relative;
 }
+
 .blq-4 img:nth-child(1) {
   display: none;
 }
-.blq-4 > img.marg-sup {
+
+.blq-4>img.marg-sup {
   height: 5px;
   width: 197px;
   position: absolute;
@@ -158,6 +192,7 @@
   object-position: top;
   display: none;
 }
+
 .blq-4:hover {
   color: #0e7b77;
   background: url("../../assets/images/Subtract.svg");
@@ -165,15 +200,19 @@
   background-size: contain;
   background-repeat: no-repeat;
 }
+
 .blq-4:hover img:nth-child(2) {
   display: none;
 }
+
 .blq-4:hover img:nth-child(1) {
   display: block;
 }
+
 .blq-4:hover img:nth-child(3) {
   display: block;
 }
+
 .blq-5 {
   /* margin-right: 11px; */
   width: 237px;
@@ -183,10 +222,12 @@
   align-items: center;
   position: relative;
 }
+
 .blq-5 img:nth-child(1) {
   display: none;
 }
-.blq-5 > img.marg-sup {
+
+.blq-5>img.marg-sup {
   height: 5px;
   width: 237px;
   position: absolute;
@@ -196,6 +237,7 @@
   object-position: top;
   display: none;
 }
+
 .blq-5:hover {
   color: #0e7b77;
   background: url("../../assets/images/Subtract-lg.svg");
@@ -203,18 +245,20 @@
   background-size: cover;
   background-repeat: no-repeat;
 }
+
 .blq-5:hover img:nth-child(2) {
   display: none;
 }
+
 .blq-5:hover img:nth-child(1),
 .blq-5:hover img:nth-child(3) {
   display: block;
 }
 
-.blq-2 > img,
-.blq-3 > img,
-.blq-4 > img,
-.blq-5 > img {
+.blq-2>img,
+.blq-3>img,
+.blq-4>img,
+.blq-5>img {
   margin-right: 10px;
 }
 

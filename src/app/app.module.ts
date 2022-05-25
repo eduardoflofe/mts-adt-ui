@@ -33,7 +33,8 @@ import { DataTablesModule } from 'angular-datatables';
 import { AgregarParticipanteDialogComponent } from './cronica-grupal/nueva-cronica/agregar-participante-dialog/agregar-participante-dialog.component';
 import { JwtModule } from '@auth0/angular-jwt';
 import { DatePipe, registerLocaleData } from '@angular/common';
-import '@angular/common/locales/global/es'
+import '@angular/common/locales/global/es';
+import { NumberDirective } from './directives/only-numbers.directive';
 
 registerLocaleData('es');
 
@@ -54,7 +55,8 @@ registerLocaleData('es');
     ConsultaComponent,
     HeaderMenuComponent,
     CardTemplateComponent,
-    AgregarParticipanteDialogComponent
+    AgregarParticipanteDialogComponent,
+    NumberDirective
   ],
   imports: [
     BrowserModule,

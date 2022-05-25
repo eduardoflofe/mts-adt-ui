@@ -17,7 +17,7 @@
 
       <div id="busqueda">
         <input class="form-control matricula inputs" id="txtconsulta" placeholder="Escribir NSS paciente" type="text"
-          required minlength="10" [(ngModel)]="txtNSS" />
+          required minlength="10" [(ngModel)]="txtNSS" numbersOnly />
 
         <button (click)="limpiar()" class="btn btn-default btuser boton">
           Limpiar
@@ -80,7 +80,7 @@
           <tbody style="border-collapse: unset !important; border-top: 0px solid #f1eaea !important;"
             *ngFor="let beneficiario of listaPacientes | paginate:{itemsPerPage:pageSize,currentPage:page}; let i = index">
             <tr style="border-collapse: unset !important;">
-              <td class="link-texto" style="text-align: center !important; padding: 0px; color:#bbd5f2;">
+              <td class="link-texto" style="text-align: center !important; padding: 0px; color:#4D92DF;">
                 <span (click)="elementoSeleccionado(beneficiario)">{{beneficiario.nss}}</span>
               </td>
               <td style="padding: 0px!important; padding-left: 13px !important;">{{beneficiario.paciente}}</td>
@@ -171,10 +171,9 @@
           </span>
 
           <select class="form-select">
-
-            <option [ngValue]="2">2</option>
-            <option [ngValue]="4">4</option>
-            <option [ngValue]="6">6</option>
+            <option [ngValue]="15">15</option>
+            <option [ngValue]="20">20</option>
+            <option [ngValue]="25">25</option>
           </select>
 
           <span class="visDatos" style="width: auto; float: right;">
@@ -194,7 +193,7 @@
 
           <div class="Rectangle-9600" style="    background: #f9f9f9;">
             <span class="sinInfolbl">
-              sin informaci&oacute;n disponible
+              Sin informaci&oacute;n disponible
             </span>
 
           </div>
