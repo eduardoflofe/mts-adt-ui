@@ -17,7 +17,7 @@
 
       <div id="busqueda">
         <input class="form-control matricula inputs" id="txtconsulta" placeholder="Escribir NSS paciente" type="text"
-          required minlength="10" [(ngModel)]="txtNSS" numbersOnly />
+          required minlength="10" maxlength="10" [(ngModel)]="txtNSS" numbersOnly />
 
         <button (click)="limpiar()" class="btn btn-default btuser boton">
           Limpiar
