@@ -33,14 +33,16 @@ export class CCGrupalEspecificaComponent implements OnInit {
 
   ngOnInit(): void {
     this.route.queryParamMap.subscribe((params: any) => {
-      this.cronica = JSON.parse(params.getAll('cronica'));
+      if (params.getAll('cronica').length > 0) {
+        this.cronica = JSON.parse(params.getAll('cronica'))
+      }
       console.log("OBJETO ENVIADO PARA DETALLE: ", this.cronica);
     });
     //martes 24 de mayo de 2022 08:00:12
-    console.log("FECHA: ", this.cronica.fecFechaCorta);
-    this.day = this.cronica.fecFechaCorta.substring('0','2');
+    console.log("FECHA: ", this.cronica?.fecFechaCorta);
+    this.day = this.cronica?.fecFechaCorta.substring('0','2');
     console.log("DAY: ", this.day);
-    const month = this.cronica.fecFechaCorta.substring('3','5');
+    const month = this.cronica?.fecFechaCorta.substring('3','5');
     switch(month) {
       case '01':
           this.month = 'enero';
@@ -80,7 +82,7 @@ export class CCGrupalEspecificaComponent implements OnInit {
           break;
   }
     console.log("MONTH: ", this.month);
-    this.year = this.cronica.fecFechaCorta.substring('6','10');
+    this.year = this.cronica?.fecFechaCorta.substring('6','10');
     console.log("YEAR: ", this.year);
     const currentDate = new Date(this.year+"-"+this.month+"-"+this.day);
     // this.day = currentDate.getDate();
@@ -112,17 +114,17 @@ export class CCGrupalEspecificaComponent implements OnInit {
         turno: "MATUTINO",
         servicio: "GRUPO",
         grupo: "TOUR QUIRURJICO",
-        // grupo : this.cronica.desGrupo !== null ? this.cronica.desGrupo : "",
-        fecha: this.cronica.fecFechaCorta !== null ? this.cronica.fecFechaCorta : "",
-        hora: this.cronica.timHora !== null ? this.cronica.timHora : "",
-        ponentes: this.cronica.descPonentes !== null ? this.cronica.descPonentes : "",
-        numAsistentes: this.cronica.numTotalParticipantes !== null ? this.cronica.numTotalParticipantes : "",
-        tecnicaDidactica: this.cronica.desTecnicaDidactica !== null ? this.cronica.desTecnicaDidactica : "",
-        materialApoyo: this.cronica.desMaterialApoyo !== null ? this.cronica.desMaterialApoyo : "",
-        objetivoSesion: this.cronica.desObjetivosSesion !== null ? this.cronica.desObjetivosSesion : "",
-        contenido: this.cronica.desDesarrolloSesion !== null ? this.cronica.desDesarrolloSesion : "",
-        perfilGrupo: this.cronica.desPerfilGrupo !== null ? this.cronica.desPerfilGrupo : "",
-        observaciones: this.cronica.desObservaciones !== null ? this.cronica.desObservaciones : "",
+        // grupo : this.cronica?.desGrupo !== null ? this.cronica?.desGrupo : "",
+        fecha: this.cronica?.fecFechaCorta !== null ? this.cronica?.fecFechaCorta : "",
+        hora: this.cronica?.timHora !== null ? this.cronica?.timHora : "",
+        ponentes: this.cronica?.descPonentes !== null ? this.cronica?.descPonentes : "",
+        numAsistentes: this.cronica?.numTotalParticipantes !== null ? this.cronica?.numTotalParticipantes : "",
+        tecnicaDidactica: this.cronica?.desTecnicaDidactica !== null ? this.cronica?.desTecnicaDidactica : "",
+        materialApoyo: this.cronica?.desMaterialApoyo !== null ? this.cronica?.desMaterialApoyo : "",
+        objetivoSesion: this.cronica?.desObjetivosSesion !== null ? this.cronica?.desObjetivosSesion : "",
+        contenido: this.cronica?.desDesarrolloSesion !== null ? this.cronica?.desDesarrolloSesion : "",
+        perfilGrupo: this.cronica?.desPerfilGrupo !== null ? this.cronica?.desPerfilGrupo : "",
+        observaciones: this.cronica?.desObservaciones !== null ? this.cronica?.desObservaciones : "",
         trabajadorSocial: "Antonio Esteban Alcántar"
     };
     console.log("DATA REPORT: ", data);

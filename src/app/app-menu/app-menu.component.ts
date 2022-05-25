@@ -1,5 +1,5 @@
 import { BusquedaNssComponent } from './../busqueda-nss/busqueda-nss.component';
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
 @Component({
@@ -8,24 +8,22 @@ import { Router } from '@angular/router';
   styleUrls: ['./app-menu.component.css']
 })
 export class AppMenuComponent implements OnInit {
-  selectedCronica: boolean = false;
+  @Input()
+  activeItem: number = 0;
+
   constructor(private router: Router) { }
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void { }
 
   pacientesRuta() {
-    this.selectedCronica = false;
     this.router.navigate(['busqueda'], { skipLocationChange: true });
   }
 
-  irCronicaGrupal(select: boolean) {
-    this.selectedCronica = select;
+  irCronicaGrupal() {
     this.router.navigate(["consulta-cronica-grupal"], { skipLocationChange: true });
   }
 
   irBusquedaDePacientesPorNss() {
-    this.selectedCronica = false;
     this.router.navigate(["busqueda"], { skipLocationChange: true });
   }
 
