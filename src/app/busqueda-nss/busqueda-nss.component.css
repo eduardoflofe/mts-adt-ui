@@ -335,7 +335,7 @@ select {
 
 }
 
-i {
+.collapsedElement {
     position: absolute;
     right: 10px;
     width: 13px;
@@ -557,4 +557,9 @@ option {
     background-color: #fff;
     color: #f8f8f8;
 
+}
+
+.arrow-down {
+    top: 190px;
+    z-index: 9999;
 }

@@ -71,7 +71,17 @@
         <table class="table " style="margin-bottom: 0px !important;">
           <thead style=" background: #f9f9f9;">
             <tr>
-              <th style="width: 160px; padding-left: 33px !important;">NSS</th>
+              <th style="width: 160px; padding-left: 33px !important;">
+                NSS
+                <i class="fa-solid fa-caret-up arrow arrow-up"
+                  [ngClass]="{'active-opacity': columnaId === 'nss' && order === 'asc'}"
+                  (click)="sortBy('nss', 'asc', 'number')">
+                </i>
+                <i class="fa-solid fa-caret-down arrow arrow-down"
+                  [ngClass]="{'active-opacity': columnaId === 'nss' && order === 'desc'}"
+                  (click)="sortBy('nss', 'desc', 'number')">
+                </i>
+              </th>
               <th style="width: 600px; padding-left: 10px !important;">Paciente</th>
               <th style="text-align: center !important;">Agregado Médico</th>
               <th style="text-align: center !important;">Unidad Médica</th>
@@ -88,8 +98,8 @@
               </td>
               <td style="text-align: center !important; padding: 0px!important;">UMF {{beneficiario.unidadMedica}}
                 <button type="button" class="botonTabla" (click)="muestra(i);">
-                  <i *ngIf="isCollapsed[i]" class="iconTabla"></i>
-                  <i *ngIf="!isCollapsed[i]" class="iconTablainv"></i>
+                  <i *ngIf="isCollapsed[i]" class="iconTabla collapsedElement"></i>
+                  <i *ngIf="!isCollapsed[i]" class="iconTablainv collapsedElement"></i>
                 </button>
               </td>
             </tr>
@@ -102,7 +112,7 @@
                 <div>
                   <table class=" subtable">
                     <thead class="bg-primary subtable" style="background-color: #5f8cdc !important;">
-                      <tr class="subtableTr colorSubtabla" >
+                      <tr class="subtableTr colorSubtabla">
                         <th style="width: 160px; text-align: left !important;">CURP</th>
                         <th style="width: 160px; text-align: left !important;">Fecha de nacimiento</th>
                         <th style="width: 160px; text-align: left !important;">Turno</th>

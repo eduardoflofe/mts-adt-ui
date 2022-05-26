@@ -53,3 +53,27 @@ select {
 .dialog-styles {
     margin-bottom: 30px;
 }
+
+.arrow {
+    cursor: pointer;
+    opacity: 0.5;
+    position: absolute;
+}
+
+.arrow-up {
+    margin: -2px 5px;
+    z-index: 999;
+}
+
+.arrow-down {
+    margin-left: 5px;
+    top: 20px;
+}
+
+.active-opacity {
+    opacity: 1;
+}
+
+td.dataTables_empty {
+    display: none !important;
+}
