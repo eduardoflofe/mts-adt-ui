@@ -23,6 +23,10 @@ label span {
     margin-right: auto;
 }
 
+.glyphicon-calendar:before {
+    display: none;
+}
+
 .Rectangle-929 {
     width: 1216px;
     height: 68px;

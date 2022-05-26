@@ -1,23 +1,23 @@
 import { Participante } from "./participante.model"
 export class Cronica {
-    id?: string;
-    idCalendarioAnual?: string;
+    id?: string | null;
+    idCalendarioAnual?: string | null;
     idEspecialidad?: string;
-    desEspecialidad?: string;
+    desEspecialidad?: string | null;
     idTurno?: number;
-    desTurno?: string;
+    desTurno?: string | null;
     idGrupo?: number;
-    desGrupo?: string;
+    desGrupo?: string | null;
     idUbicacion?: string;
-    desUbicacion?: string;
+    desUbicacion?: string | null;
     fecFechaCorta?: string;
-    fecFechaCompleta?: string;
+    fecFechaCompleta?: string | null;
     timHora?: string;
-    desModalidad?: string;
+    desModalidad?: string | null;
     numTotalParticipantes?: number;
-    numParticipantesAsistieron?: string;
+    numParticipantesAsistieron?: string | null;
     idEstatusCronica?: number;
-    desEstatusCronica?: string;
+    desEstatusCronica?: string | null;
     descPonentes?: string;
     desTecnicaDidactica?: string;
     desMaterialApoyo?: string;

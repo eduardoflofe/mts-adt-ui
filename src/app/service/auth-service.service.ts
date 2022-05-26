@@ -23,16 +23,14 @@ export class AuthService {
   public nombreUsuarioActivo = "";
   public userLogged$: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
   public project$: BehaviorSubject<string> = new BehaviorSubject<string>("Trabajo Social");
-  public isAuthenticatedObs$!: BehaviorSubject<boolean>;
+  public isAuthenticatedObs$: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
 
   constructor(
     private http: HttpClient, 
     public webService: WebImssService,
     private jwtHelper: JwtHelperService,
     private router: Router
-    ) { 
-      this.isAuthenticatedObs$ = new BehaviorSubject<boolean>(false);
-    }
+    ) { }
 
   public get usuario(): Usuario {
     if (this._usuario != null) {
@@ -151,6 +149,7 @@ export class AuthService {
     this._usuario.strUserName = usuario.matricula;
     this._usuario.rolUser = usuario.rol.cveRol;
     this._usuario.nameRolUser = usuario.rol.nomRol;
+    // this._usuario.puesto = usuario.puesto;
     this._usuario.cveUsuario = 1;
     sessionStorage.setItem('usuario', JSON.stringify(this._usuario));
   }
@@ -188,6 +187,7 @@ export class AuthService {
       this.isAuthenticatedObs$.next(false);
       return false;
     }
+    this.isAuthenticatedObs$.next(true);
     return true;
   }
 

@@ -1,6 +1,6 @@
 import { DatePipe } from '@angular/common';
 import { HttpErrorResponse } from '@angular/common/http';
-import { Component, ElementRef, OnInit } from '@angular/core';
+import { AfterViewInit, Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthService } from 'src/app/service/auth-service.service';
 import { CronicaGrupalService } from 'src/app/service/cronica-grupal.service';
@@ -13,7 +13,7 @@ declare var $: any;
   templateUrl: './consulta.component.html',
   styleUrls: ['./consulta.component.css']
 })
-export class ConsultaComponent implements OnInit {
+export class ConsultaComponent implements OnInit, AfterViewInit {
 
   page: number = 1;
   pageSize: number = 15;
@@ -33,37 +33,15 @@ export class ConsultaComponent implements OnInit {
   grupos: any[] = [];
   lugarSelected: any = '-1';
   lugares: any[] = [];
-  fechaSelected!: Date;
+  fechaSelected!: string;
   radioBtnSelected: any;
 
   cronicasGrupales: any[] = [];
 
-  // cronicasGrupales: any[] = [
-  //   {
-  //     fecFechaCorta: '25/01/2022',
-  //     desGrupo: 'Lorem ipsum dolor sit amet',
-  //     timHora: '01:00',
-  //     desModalidad: '',
-  //     numTotalParticipantes: '',
-  //     numParticipantesAsistieron: '',
-  //     idEstatusCronica: 'No impartida',
-  //   },
-  //   {
-  //     fecFechaCorta: '24/01/2022',
-  //     desGrupo: 'Lorem ipsum dolor sit amet',
-  //     timHora: '15:00',
-  //     desModalidad: '',
-  //     numTotalParticipantes: '',
-  //     numParticipantesAsistieron: '',
-  //     idEstatusCronica: 'Impartida',
-  //   }
-  // ];
-
   constructor(
     private router: Router,
     private authService: AuthService,
-    private cronicaGrupalService: CronicaGrupalService,
-    private datePipe: DatePipe
+    private cronicaGrupalService: CronicaGrupalService
   ) { }
 
   ngOnInit(): void {
@@ -78,7 +56,21 @@ export class ConsultaComponent implements OnInit {
     this.sortBy(this.columnaId, this.order, 'fecha');
     this.authService.project$.next("Trabajo Social");
     this.loadCatalogos();
-    $('#calendar').datepicker();
+  }
+
+  ngAfterViewInit(): void {
+    $('#calendar').datepicker({
+      dateFormat: "yy/mm/dd",
+      onSelect: (date: any, datepicker: any) => {
+        if (date != '') {
+          this.fechaSelected = date.replaceAll('/', '-');
+          // console.log("date onSelect: ", date);
+          setTimeout(() => {
+            this.getCronicasGrupales()
+          }, 0)
+        }
+      }
+    });
   }
 
   //Metodo que carga los catalogos iniciales y la información incial de la tabla CronicasGrupales
@@ -104,7 +96,7 @@ export class ConsultaComponent implements OnInit {
     this.cronicaGrupalService.getCatGrupo('1').toPromise().then(
       (grupos) => {
         this.grupos = grupos;
-        console.log("GRUPOS: ", this.turnos);
+        console.log("GRUPOS: ", this.grupos);
       },
       (httpErrorResponse: HttpErrorResponse) => {
         console.error(httpErrorResponse);
@@ -113,7 +105,7 @@ export class ConsultaComponent implements OnInit {
     this.cronicaGrupalService.getCatLugar('1').toPromise().then(
       (lugares) => {
         this.lugares = lugares;
-        console.log("LUGARES: ", this.turnos);
+        console.log("LUGARES: ", this.lugares);
       },
       (httpErrorResponse: HttpErrorResponse) => {
         console.error(httpErrorResponse);
@@ -153,124 +145,26 @@ export class ConsultaComponent implements OnInit {
         console.error(httpErrorResponse);
       }
     );
-    if (this.validateAllDataFull()) {
-      this.getCronicasGrupales();
-    } else {
-      //Poblamos la tabla de acuerdo al filtro de servicio seleccionado
-      this.cronicaGrupalService.getCronicasGrupalesByServicioEspecialidad(this.servicioSelected).subscribe(
-        (cronicasGrupales) => {
-          this.cronicasGrupales = [];
-          let cronicasArray = Object.keys(cronicasGrupales).map(index => {
-            let cronica = cronicasGrupales[index];
-            return cronica;
-          });
-          this.cronicasGrupales = cronicasArray[0];
-          console.log("CRONICAS GRUPALES BY SERVICIO: ", this.cronicasGrupales);
-        }
-      );
-    }
+    this.getCronicasGrupales();
   }
 
   //Metodo que se ejecuta al seleccionar un nuevo valor del catalogo de Turno
   onChangeTurno(valueSelect: Event) {
-    if (this.validateAllDataFull()) {
-      this.getCronicasGrupales();
-    } else {
-      //Poblamos la tabla de acuerdo al filtro de turno seleccionado
-      this.cronicaGrupalService.getCronicasGrupalesByTurno(Number(this.turnoSelected)).subscribe(
-        (cronicasGrupales) => {
-          this.cronicasGrupales = [];
-          let cronicasArray = Object.keys(cronicasGrupales).map(index => {
-            let cronica = cronicasGrupales[index];
-            return cronica;
-          });
-          this.cronicasGrupales = cronicasArray[0];
-          console.log("CRONICAS GRUPALES BY TURNO: ", this.cronicasGrupales);
-        }
-      );
-    }
+    this.getCronicasGrupales();
   }
 
   //Metodo que se ejecuta al seleccionar un nuevo valor del catalogo de Grupo
   onChangeGrupo(valueSelect: Event) {
-    if (this.validateAllDataFull()) {
-      this.getCronicasGrupales();
-    } else {
-      //Poblamos la tabla de acuerdo al filtro de grupo seleccionado
-      this.cronicaGrupalService.getCronicasGrupalesByGrupo(Number(this.grupoSelected)).subscribe(
-        (cronicasGrupales) => {
-          this.cronicasGrupales = [];
-          let cronicasArray = Object.keys(cronicasGrupales).map(index => {
-            let cronica = cronicasGrupales[index];
-            return cronica;
-          });
-          this.cronicasGrupales = cronicasArray[0];
-          console.log("CRONICAS GRUPALES BY GRUPO: ", this.cronicasGrupales);
-        }
-      );
-    }
+    this.getCronicasGrupales();
   }
 
   //Metodo que se ejecuta al seleccionar un nuevo valor del catalogo de Lugar
   onChangeLugar(valueSelect: Event) {
-    if (this.validateAllDataFull()) {
-      this.getCronicasGrupales();
-    } else {
-      //Poblamos la tabla de acuerdo al filtro de lugar seleccionado
-      this.cronicaGrupalService.getCronicasGrupalesByUbicacion(this.lugarSelected).subscribe(
-        (cronicasGrupales) => {
-          this.cronicasGrupales = [];
-          let cronicasArray = Object.keys(cronicasGrupales).map(index => {
-            let cronica = cronicasGrupales[index];
-            return cronica;
-          });
-          this.cronicasGrupales = cronicasArray[0];
-          console.log("CRONICAS GRUPALES BY LUGAR: ", this.cronicasGrupales);
-        }
-      );
-    }
-  }
-
-  //Metodo que se ejecuta al seleccionar un nuevo valor de Fecha
-  onChangeFecha() {
-    console.log("FECHA SELECTED: ", this.fechaSelected);
-    const fecha = this.datePipe.transform(new Date(), 'dd-MM-yyyy');
-    if (this.validateAllDataFull()) {
-      this.getCronicasGrupales();
-    } else {
-      //Poblamos la tabla de acuerdo al filtro de fecha seleccionado
-      this.cronicaGrupalService.getCronicasGrupalesByFecha(fecha).subscribe(
-        (cronicasGrupales) => {
-          this.cronicasGrupales = [];
-          let cronicasArray = Object.keys(cronicasGrupales).map(index => {
-            let cronica = cronicasGrupales[index];
-            return cronica;
-          });
-          this.cronicasGrupales = cronicasArray[0];
-          console.log("CRONICAS GRUPALES BY FECHA: ", this.cronicasGrupales);
-        }
-      );
-    }
+    this.getCronicasGrupales();
   }
 
   onChangeRadioBoton(value: Event) {
-    console.log("RADIO: ", this.radioBtnSelected);
-    if (this.validateAllDataFull()) {
-      this.getCronicasGrupales();
-    } else {
-      //Poblamos la tabla de acuerdo al filtro de radio seleccionado
-      this.cronicaGrupalService.getCronicasGrupalesByEspecialidadEspecifica(this.radioBtnSelected).subscribe(
-        (cronicasGrupales) => {
-          this.cronicasGrupales = [];
-          let cronicasArray = Object.keys(cronicasGrupales).map(index => {
-            let cronica = cronicasGrupales[index];
-            return cronica;
-          });
-          this.cronicasGrupales = cronicasArray[0];
-          console.log("CRONICAS GRUPALES BY LUGAR: ", this.cronicasGrupales);
-        }
-      );
-    }
+    this.getCronicasGrupales();
   }
 
   validateAllDataFull(): boolean {
@@ -283,9 +177,9 @@ export class ConsultaComponent implements OnInit {
   }
 
   getCronicasGrupales() {
-    const fecha = this.datePipe.transform(this.fechaSelected, 'dd-MM-yyyy');
-    this.cronicaGrupalService.getCronicasGrupalesByFiltros(this.servicioSelected !== '-1' ? this.servicioSelected : '-', this.turnoSelected !== '-1' ? Number(this.turnoSelected) : 0, this.grupoSelected !== '-1' ? Number(this.grupoSelected) : 0, this.lugarSelected !== '-1' ? this.lugarSelected : '-', fecha !== null ? fecha : '00-00-0000', this.radioBtnSelected !== '' ? this.radioBtnSelected : '-').subscribe(
+    this.cronicaGrupalService.getCronicasGrupalesByFiltros(this.servicioSelected !== '-1' ? this.servicioSelected : '-', this.turnoSelected !== '-1' ? Number(this.turnoSelected) : 0, this.grupoSelected !== '-1' ? Number(this.grupoSelected) : 0, this.lugarSelected !== '-1' ? this.lugarSelected : '-', this.fechaSelected !== undefined ? this.fechaSelected : '0000-00-00', this.radioBtnSelected !== undefined ? this.radioBtnSelected : '-').subscribe(
       (cronicasGrupales) => {
+        console.log("RESPUESTA CRONICAS: ", cronicasGrupales);
         this.cronicasGrupales = [];
         let cronicasArray = Object.keys(cronicasGrupales).map(index => {
           let cronica = cronicasGrupales[index];
@@ -298,7 +192,10 @@ export class ConsultaComponent implements OnInit {
   }
 
   addCronica() {
-    this.router.navigate(["nuevaCronica"], { skipLocationChange: true });
+    let params = {
+      'cronica': null,
+    }
+    this.router.navigate(["nuevaCronica"], { queryParams: params, skipLocationChange: true });
   }
 
   irDetalle(cronicaGrupal: any) {
@@ -306,7 +203,22 @@ export class ConsultaComponent implements OnInit {
       'cronica': JSON.stringify(cronicaGrupal),
     }
     console.log("OBJETO DETALLE: ", cronicaGrupal);
-    this.router.navigate(["busquedaEspecifica"], { queryParams: params, skipLocationChange: true });
+    if (this.radioBtnSelected === 'Si') {
+      console.log(" ENTRAMOS A SI ");
+      if (cronicaGrupal.desTecnicaDidactica === null && cronicaGrupal.desDesarrolloSesion === null && cronicaGrupal.desObjetivosSesion === null && cronicaGrupal.desObservaciones === null && cronicaGrupal.desPerfilGrupo === null) {
+        console.log("NO HAY INFO");
+        this.router.navigate(["nuevaCronica"], { queryParams: params, skipLocationChange: true });
+      } else {
+        console.log("SI HAY INFO");
+        this.router.navigate(["busquedaEspecifica"], { queryParams: params, skipLocationChange: true });
+      }
+    } else if (this.radioBtnSelected === 'No') {
+      console.log(" ENTRAMOS A NO ");
+      this.router.navigate(["nuevaCronica"], { queryParams: params, skipLocationChange: true });
+    } else {
+      console.log(" ENTRAMOS SIN VALOR ");
+      return;
+    }
   }
 
   sortBy(columnaId: string, order: string, type: string) {
