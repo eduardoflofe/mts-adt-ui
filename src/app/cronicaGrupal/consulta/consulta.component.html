@@ -111,12 +111,36 @@
     <ng-container *ngIf="cronicasGrupales.length > 0 else mostrarSeccionSinResultados">
       <div class="row">
         <div class="col-md-12">
-          <table class="tabla"style="width: 100%;">
+          <table datatable [dtOptions]="dtOptions" class="tabla" style="width: 100%;">
             <thead>
               <tr >
-                <th class="encabezadoTable" style="padding-top: 13px;">Fecha</th>
+                <th class="encabezadoTable" style="padding-top: 13px;">
+                  Fecha
+                  <i 
+                    class="fa-solid fa-caret-up arrow arrow-up" 
+                    [ngClass]="{'active-opacity': columnaId === 'fecFechaCorta' && order === 'asc'}"
+                    (click)="sortBy('fecFechaCorta', 'asc', 'fecha')">
+                  </i>
+                  <i 
+                    class="fa-solid fa-caret-down arrow arrow-down" 
+                    [ngClass]="{'active-opacity': columnaId === 'fecFechaCorta' && order === 'desc'}" 
+                    (click)="sortBy('fecFechaCorta', 'desc', 'fecha')">
+                  </i>
+                </th>
                 <th class="encabezadoTable" style="padding-top: 13px;">Grupo</th>
-                <th class="encabezadoTable" style="padding-top: 13px;">Hora</th>
+                <th class="encabezadoTable" style="padding-top: 13px; width: 70px;">
+                  Hora
+                  <i 
+                    class="fa-solid fa-caret-up arrow arrow-up" 
+                    [ngClass]="{'active-opacity': columnaId === 'timHora' && order === 'asc'}" 
+                    (click)="sortBy('timHora', 'asc', 'hora')">
+                  </i>
+                  <i 
+                    class="fa-solid fa-caret-down arrow arrow-down" 
+                    [ngClass]="{'active-opacity': columnaId === 'timHora' && order === 'desc'}" 
+                    (click)="sortBy('timHora', 'desc', 'hora')">
+                  </i>
+                </th>
                 <th class="encabezadoTable" style="padding-top: 13px;">Modalidad</th>
                 <th class="encabezadoTable">Total<br>participantes</th>
                 <th class="encabezadoTable">Participantes<br>que asistieron</th>
