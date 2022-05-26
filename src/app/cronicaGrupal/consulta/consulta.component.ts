@@ -36,26 +36,28 @@ export class ConsultaComponent implements OnInit {
   fechaSelected!: Date;
   radioBtnSelected: any;
 
-  cronicasGrupales: any[] = [
-    {
-      fecFechaCorta: '25/01/2022',
-      desGrupo: 'Lorem ipsum dolor sit amet',
-      timHora: '01:00',
-      desModalidad: '',
-      numTotalParticipantes: '',
-      numParticipantesAsistieron: '',
-      idEstatusCronica: 'No impartida',
-    },
-    {
-      fecFechaCorta: '24/01/2022',
-      desGrupo: 'Lorem ipsum dolor sit amet',
-      timHora: '15:00',
-      desModalidad: '',
-      numTotalParticipantes: '',
-      numParticipantesAsistieron: '',
-      idEstatusCronica: 'Impartida',
-    }
-  ];
+  cronicasGrupales: any[] = [];
+
+  // cronicasGrupales: any[] = [
+  //   {
+  //     fecFechaCorta: '25/01/2022',
+  //     desGrupo: 'Lorem ipsum dolor sit amet',
+  //     timHora: '01:00',
+  //     desModalidad: '',
+  //     numTotalParticipantes: '',
+  //     numParticipantesAsistieron: '',
+  //     idEstatusCronica: 'No impartida',
+  //   },
+  //   {
+  //     fecFechaCorta: '24/01/2022',
+  //     desGrupo: 'Lorem ipsum dolor sit amet',
+  //     timHora: '15:00',
+  //     desModalidad: '',
+  //     numTotalParticipantes: '',
+  //     numParticipantesAsistieron: '',
+  //     idEstatusCronica: 'Impartida',
+  //   }
+  // ];
 
   constructor(
     private router: Router,
@@ -125,27 +127,7 @@ export class ConsultaComponent implements OnInit {
           let cronica = cronicasGrupales[index];
           return cronica;
         });
-        this.cronicasGrupales = cronicasArray[0]
-        this.cronicasGrupales = [
-          {
-            fecFechaCorta: '25/01/2022',
-            desGrupo: 'Lorem ipsum dolor sit amet',
-            timHora: '00:00',
-            desModalidad: '',
-            numTotalParticipantes: '',
-            numParticipantesAsistieron: '',
-            idEstatusCronica: 'No impartida',
-          },
-          {
-            fecFechaCorta: '24/01/2022',
-            desGrupo: 'Lorem ipsum dolor sit amet',
-            timHora: '01:00',
-            desModalidad: '',
-            numTotalParticipantes: '',
-            numParticipantesAsistieron: '',
-            idEstatusCronica: 'Impartida',
-          }
-        ]
+        this.cronicasGrupales = cronicasArray[0];
         console.log("CRONICAS GRUPALES: ", this.cronicasGrupales);
       }
     );
