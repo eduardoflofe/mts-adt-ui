@@ -60,12 +60,16 @@ a {
 }
 
 .consultaCronicasGrupales {
+  font-family: 'Montserrat';
   font-size: 24px;
   font-stretch: normal;
   font-style: normal;
-  line-height: normal;
+  line-height: 29px;
+  font-weight: 700;
   letter-spacing: normal;
   text-align: left;
+  left: 3.45%;
+  right: 71.79%;
   color: #222;
 }
 
@@ -209,4 +213,22 @@ a {
     line-height: 1.428571429;
     vertical-align: top;
     border-top: 1px solid #ddd;
+}
+
+.buttonL {
+  width: 120px;
+  height: 34px;
+  border-radius: 3px;
+  margin: 10px 15px 0 10px !important;
+  padding: 5px;
+  align-self: stretch;
+  flex-grow: 1;
+  font-family: Montserrat;
+  font-size: 14px;
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  text-align: center;
 }

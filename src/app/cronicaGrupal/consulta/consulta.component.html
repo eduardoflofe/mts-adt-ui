@@ -1,10 +1,16 @@
 <app-menu></app-menu>
 <app-card-template>
   <div header class="flex justify-content-between align-items-center consultaCronicasGrupales">
-    <h4 class="title">Consulta de crónicas grupales</h4>
-    <button class="btn btn-primary btn-sm pull-right" type="button" (click)="addCronica();">
+    
+      <label>
+            Consulta de crónicas grupales
+      </label>
+    
+    <div class="botones">
+    <button class="btn btn-primary btuser buttonL" style="border: solid 1px" (click)="addCronica();">
       Nueva crónica
     </button>
+  </div>
   </div>
   <div content style="padding-bottom: 3.7%;">
     <div class="row">
@@ -57,7 +63,7 @@
           </label>
           <select class="form-control" style="background-position-y: 10px;" aria-label="Servicio"
             [(ngModel)]="this.lugarSelected" (change)="onChangeLugar($event)">
-            <option class="select-font" [value]="'-1'" style="background-position-y: 10px;" selected>Seleccionar grupo</option>
+            <option class="select-font" [value]="'-1'" style="background-position-y: 10px;" selected>Seleccionar lugar</option>
             <option class="select-font" [value]="lugar.cve_ubicacion" *ngFor="let lugar of lugares">{{ lugar.des_completa_ubicacion }}
             </option>
           </select>
