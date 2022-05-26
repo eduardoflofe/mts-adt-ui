@@ -75,3 +75,12 @@
   line-height: 20px;
   color: #222222;
 }
+
+.texto-grall {
+  font-family: 'Montserrat';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 17px;
+  color: #222222;
+}
