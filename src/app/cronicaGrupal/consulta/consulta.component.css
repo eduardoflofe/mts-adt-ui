@@ -215,6 +215,7 @@ a {
     border-top: 1px solid #ddd;
 }
 
+<<<<<<< HEAD
 .buttonL {
   width: 120px;
   height: 34px;
@@ -231,4 +232,25 @@ a {
   line-height: normal;
   letter-spacing: normal;
   text-align: center;
+=======
+
+.arrow {
+  cursor: pointer;
+  opacity: 0.5;
+  position: absolute;
+}
+
+.arrow-up {
+  margin: -2px 5px;
+  z-index: 999;
+}
+
+.arrow-down {
+  margin-left: 5px;
+  top: 20px;
+}
+
+.active-opacity {
+  opacity: 1;
+>>>>>>> 8186ec60738e120902d3aca91bf5ef1508bf5ae9
 }

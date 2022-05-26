@@ -4,8 +4,9 @@ import { Component, ElementRef, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthService } from 'src/app/service/auth-service.service';
 import { CronicaGrupalService } from 'src/app/service/cronica-grupal.service';
+import * as momment from 'moment';
 
-declare var $:any;
+declare var $: any;
 
 @Component({
   selector: 'app-consulta',
@@ -17,10 +18,12 @@ export class ConsultaComponent implements OnInit {
   page: number = 1;
   pageSize: number = 15;
   resultadoTotal: number = 0;
+  dtOptions: DataTables.Settings = {};
+  numitems: number = 15;
+  order: string = 'desc';
+  columnaId: string = 'fecFechaCorta';
 
-
-
-  catalogoEstatus: any[] = ['No impartida','Por impartir','Impartida'];
+  catalogoEstatus: any[] = ['No impartida', 'Por impartir', 'Impartida'];
 
   servicioSelected: any = '-1';
   serviciosEspecialidad: any[] = [];
@@ -35,6 +38,27 @@ export class ConsultaComponent implements OnInit {
 
   cronicasGrupales: any[] = [];
 
+  // cronicasGrupales: any[] = [
+  //   {
+  //     fecFechaCorta: '25/01/2022',
+  //     desGrupo: 'Lorem ipsum dolor sit amet',
+  //     timHora: '01:00',
+  //     desModalidad: '',
+  //     numTotalParticipantes: '',
+  //     numParticipantesAsistieron: '',
+  //     idEstatusCronica: 'No impartida',
+  //   },
+  //   {
+  //     fecFechaCorta: '24/01/2022',
+  //     desGrupo: 'Lorem ipsum dolor sit amet',
+  //     timHora: '15:00',
+  //     desModalidad: '',
+  //     numTotalParticipantes: '',
+  //     numParticipantesAsistieron: '',
+  //     idEstatusCronica: 'Impartida',
+  //   }
+  // ];
+
   constructor(
     private router: Router,
     private authService: AuthService,
@@ -43,6 +67,17 @@ export class ConsultaComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
+    this.dtOptions = {
+      order: [[2, 'desc']],
+      ordering: false,
+      // pagingType: 'simple_numbers',
+      paging: false,
+      // pageLength: this.numitems,
+      processing: false,
+      info: false,
+      searching: false,
+    };
+    this.sortBy(this.columnaId, this.order, 'fecha');
     this.authService.project$.next("Trabajo Social");
     this.loadCatalogos();
     $('#calendar').datepicker();
@@ -92,7 +127,7 @@ export class ConsultaComponent implements OnInit {
           let cronica = cronicasGrupales[index];
           return cronica;
         });
-        this.cronicasGrupales = cronicasArray[0]
+        this.cronicasGrupales = cronicasArray[0];
         console.log("CRONICAS GRUPALES: ", this.cronicasGrupales);
       }
     );
@@ -255,10 +290,10 @@ export class ConsultaComponent implements OnInit {
       (cronicasGrupales) => {
         this.cronicasGrupales = [];
         let cronicasArray = Object.keys(cronicasGrupales).map(index => {
-            let cronica = cronicasGrupales[index];
-            return cronica;
-          });
-          this.cronicasGrupales = cronicasArray[0];
+          let cronica = cronicasGrupales[index];
+          return cronica;
+        });
+        this.cronicasGrupales = cronicasArray[0];
         console.log("CRONICAS GRUPALES BY FILTROS: ", this.cronicasGrupales);
       }
     );
@@ -274,6 +309,37 @@ export class ConsultaComponent implements OnInit {
     }
     console.log("OBJETO DETALLE: ", cronicaGrupal);
     this.router.navigate(["busquedaEspecifica"], { queryParams: params, skipLocationChange: true });
+  }
+
+  sortBy(columnaId: string, order: string, type: string) {
+    this.columnaId = columnaId;
+    this.order = order;
+
+    this.cronicasGrupales = this.cronicasGrupales.sort((a: any, b: any) => {
+      let c: any = this.converType(a[columnaId], type);
+      let d: any = this.converType(b[columnaId], type);
+      if (order === 'desc') {
+        return d - c; // Descendiente
+      } else {
+        return c - d; // Ascendiente
+      }
+    });
+  }
+
+  converType(val: any, type: string) {
+    let data;
+    switch (type) {
+      case 'fecha':
+        data = momment(val, 'DD/MM/YYYY');
+        break;
+      case 'hora':
+        data = momment(val, 'HH:mm');
+        break;
+
+      default:
+        break;
+    }
+    return data;
   }
 
 }

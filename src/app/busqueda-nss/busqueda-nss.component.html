@@ -17,7 +17,7 @@
 
       <div id="busqueda">
         <input class="form-control matricula inputs" id="txtconsulta" placeholder="Escribir NSS paciente" type="text"
-          required minlength="10" [(ngModel)]="txtNSS" numbersOnly />
+          required minlength="10" maxlength="10" [(ngModel)]="txtNSS" numbersOnly />
 
         <button (click)="limpiar()" class="btn btn-default btuser boton">
           Limpiar
@@ -102,7 +102,7 @@
                 <div>
                   <table class=" subtable">
                     <thead class="bg-primary subtable" style="background-color: #5f8cdc !important;">
-                      <tr class="subtableTr">
+                      <tr class="subtableTr colorSubtabla" >
                         <th style="width: 160px; text-align: left !important;">CURP</th>
                         <th style="width: 160px; text-align: left !important;">Fecha de nacimiento</th>
                         <th style="width: 160px; text-align: left !important;">Turno</th>

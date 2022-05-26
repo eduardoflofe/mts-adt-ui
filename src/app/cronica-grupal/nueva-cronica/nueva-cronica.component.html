@@ -1,11 +1,16 @@
 <app-app-alerts></app-app-alerts>
-<app-menu></app-menu>
+<app-menu [activeItem]="1"></app-menu>
 <app-card-template>
 
    
 
+<<<<<<< HEAD
     <div header class="flex justify-content-between align-items-center consultaCronicasGrupales">
         <div class="col-md-4">
+=======
+    <div header class="flex justify-content-between row">
+        <div class="col-md-12">
+>>>>>>> 8186ec60738e120902d3aca91bf5ef1508bf5ae9
             <div style="display: grid; text-align: left">
                 <span class="pacienteNombreSpan">{{
                     "Nueva crónica grupal"
@@ -36,6 +41,39 @@
         </div>
         <form novalidate [formGroup]="editForm" class="formInfo">
             <div class="container seccion">
+              <div class="row">
+                <div class="col-md-4">
+                  <div class="form-group">
+                    <span class="spanInput">Grupo*:</span>
+                    <select class="form-control" style="background-position-y: 10px;" aria-label="Servicio">
+                      <option class="select-font" [value]="'-1'" class="form-control matricula inputs" selected>Ingresar grupo</option>
+                      <option class="select-font">{{ 'Ingresar Grupo' }}
+                      </option>
+                    </select>
+                  </div>
+                </div>
+
+                <div class="col-md-4">
+                  <div class="form-group datepicker-group">
+                    <span class="spanInput">Fecha*:</span>
+                    <input calendar class="form-control" id="calendarNuevaCronica" type="text" placeholder="dd/mm/aaaa">
+                    <span class="glyphicon fondocalendar"  aria-hidden="true">
+                      <div class="imgCalendar"></div>
+                    </span>
+                  </div>
+                </div>
+
+                <div class="col-md-4">
+                  <div class="form-group">
+                    <span class="spanInput">Hora*:</span>
+                    <select class="form-control " style="background-position-y: 10px;" aria-label="Servicio">
+                      <option class="select-font " [value]="'-1'" style="background-position-y: 10px;"   placeholder="Ingresar ponentes"  selected>Ingresar hora</option>
+                      <option class="select-font " >{{ '' }}
+                      </option>
+                    </select>
+                  </div>
+                </div>
+              </div>
                 <div class="row">
                     <div class="col-md-6">
                         <span class="spanInput">Ponentes*:</span>
