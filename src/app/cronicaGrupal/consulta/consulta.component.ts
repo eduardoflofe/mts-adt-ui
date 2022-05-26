@@ -70,9 +70,7 @@ export class ConsultaComponent implements OnInit {
     this.dtOptions = {
       order: [[2, 'desc']],
       ordering: false,
-      // pagingType: 'simple_numbers',
       paging: false,
-      // pageLength: this.numitems,
       processing: false,
       info: false,
       searching: false,
@@ -315,7 +313,7 @@ export class ConsultaComponent implements OnInit {
     this.columnaId = columnaId;
     this.order = order;
 
-    this.cronicasGrupales = this.cronicasGrupales.sort((a: any, b: any) => {
+    this.cronicasGrupales.sort((a: any, b: any) => {
       let c: any = this.converType(a[columnaId], type);
       let d: any = this.converType(b[columnaId], type);
       if (order === 'desc') {
@@ -333,7 +331,7 @@ export class ConsultaComponent implements OnInit {
         data = momment(val, 'DD/MM/YYYY');
         break;
       case 'hora':
-        data = momment(val, 'HH:mm');
+        data = momment(val, 'HH:mm:ss');
         break;
 
       default:

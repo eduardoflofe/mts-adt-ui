@@ -3,6 +3,7 @@ import { Component } from '@angular/core';
 import { pacienteSeleccionado } from './paciente.interface';
 import { Router } from '@angular/router';
 import { AppTarjetaPresentacionService } from '../app-tarjeta-presentacion/app-tarjeta-presentacion.service';
+import * as momment from 'moment';
 
 @Component({
   selector: 'app-busqueda-nss',
@@ -27,18 +28,20 @@ export class BusquedaNssComponent {
 
   txtNSS = "4382641109";
 
-  listaPacientes: any;
+  listaPacientes: any[] = [];
 
   errorBusqueda: boolean = false;
 
   resultadoTotal: number = 0;
 
-  constructor(private ServiceService: ServiceService,
+  order: string = 'desc';
+  columnaId: string = 'nss';
+
+  constructor(
+    private ServiceService: ServiceService,
     private router: Router,
-    private tarjetaService: AppTarjetaPresentacionService) {
-
-
-  }
+    private tarjetaService: AppTarjetaPresentacionService
+  ) { }
 
   elementoSeleccionado(obj: any) {
 
@@ -84,8 +87,9 @@ export class BusquedaNssComponent {
             for (var i = 0; i < this.resultadoTotal; i++) {
               this.isCollapsed[i] = true;
             }
-
           }
+
+          this.sortBy(this.columnaId, this.order, 'fecha');
 
         }, error: (err) => {
 
@@ -136,8 +140,39 @@ export class BusquedaNssComponent {
     }, 5000);
   }
 
+  sortBy(columnaId: string, order: string, type: string) {
+    console.log(columnaId, order, type);
+    
+    this.columnaId = columnaId;
+    this.order = order;
 
+    this.listaPacientes.sort((a: any, b: any) => {
+      let c: any = this.converType(a[columnaId], type);
+      let d: any = this.converType(b[columnaId], type);
+      if (order === 'desc') {
+        return d - c; // Descendiente
+      } else {
+        return c - d; // Ascendiente
+      }
+    });
+  }
 
+  converType(val: any, type: string) {
+    let data;
+    switch (type) {
+      case 'fecha':
+        data = momment(val, 'DD/MM/YYYY');
+        break;
+      case 'hora':
+        data = momment(val, 'HH:mm:ss');
+        break;
+      case 'number':
+        data = parseInt(val);
+        break;
 
-
+      default:
+        break;
+    }
+    return data;
+  }
 }
