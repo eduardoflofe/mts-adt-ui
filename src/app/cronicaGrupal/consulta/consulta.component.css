@@ -143,10 +143,41 @@ a {
   border: 1px solid #ddd;
   text-align: center !important;
 }
-
-.bordesTablaGrupo {
+.bordesTablaFecha {
   border: 1px solid #ddd;
   text-align: center !important;
+  padding-top: 14px;
+}
+
+.bordesTablaHora {
+  border: 1px solid #ddd;
+  text-align: center !important;
+  width: 13%;
+}
+
+.bordesTablaModalidad {
+  border: 1px solid #ddd;
+  text-align: center !important;
+  width: 11%;
+
+}
+
+.bordesTablaTotalParticipantes {
+  border: 1px solid #ddd;
+  text-align: center !important;
+  width: 13%;
+
+}
+.bordesTablaAsistieron {
+  border: 1px solid #ddd;
+  text-align: center !important;
+  width: 13%;
+
+}
+.bordesTablaGrupo {
+  border: 1px solid #ddd;
+  text-align: left !important;
+  width: 23%;
 }
 
 .links {

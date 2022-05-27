@@ -134,7 +134,7 @@
                     (click)="sortBy('fecFechaCorta', 'desc', 'fecha')">
                   </i>
                 </th>
-                <th class="encabezadoTable" style="padding-top: 13px;">Grupo</th>
+                <th class="encabezadoTable" style="padding-top: 13px; text-align: left;">Grupo</th>
                 <th class="encabezadoTable" style="padding-top: 13px; width: 70px;">
                   Hora
                   <i class="fa-solid fa-caret-up arrow arrow-up"
@@ -152,17 +152,16 @@
                 <th class="encabezadoTable" style="padding-top: 13px;">Estatus</th>
               </tr>
             </thead>
-            <tbody
-              *ngFor="let item of cronicasGrupales | paginate:{itemsPerPage:pageSize,currentPage:page}; let i = index">
+            <tbody *ngFor="let item of cronicasGrupales | paginate:{itemsPerPage:pageSize,currentPage:page}; let i = index">
               <tr>
-                <td class="bordesTabla"
+                <td class="bordesTablaFecha"
                   style="cursor: pointer; text-decoration: none !important; color: #4D92DF!important; text-decoration: none !important;"
                   (click)="irDetalle(item);">{{ item.fecFechaCorta }}</td>
                 <td class="bordesTablaGrupo">{{ item.desGrupo }}</td>
-                <td class="bordesTabla">{{ item.timHora }}</td>
-                <td class="bordesTabla">{{ item.desModalidad }}</td>
-                <td class="bordesTabla">{{ item.numTotalParticipantes }}</td>
-                <td class="bordesTabla">{{ item.numParticipantesAsistieron }}</td>
+                <td class="bordesTablaHora">{{ item.timHora }}</td>
+                <td class="bordesTablaModalidad">{{ item.desModalidad }}</td>
+                <td class="bordesTablaTotalParticipantes">{{ item.numTotalParticipantes }}</td>
+                <td class="bordesTablaAsistieron">{{ item.numParticipantesAsistieron }}</td>
                 <td class="bordesTabla">{{ catalogoEstatus[item.idEstatusCronica] }}</td>
               </tr>
             </tbody>
