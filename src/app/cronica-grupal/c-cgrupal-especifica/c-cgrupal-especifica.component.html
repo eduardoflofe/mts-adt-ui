@@ -74,7 +74,7 @@
     </div>
   </div>
 
-  <div content>
+  <div content style="padding-bottom: 5.5%;">
     <div class="Rectangle-306" style="background-color: white">
       <div class="Texto-arriba" style="background-color: white">
         <div class="Texto-derecha" style="background-color: white">
@@ -90,7 +90,7 @@
           <label style="font-weight: bold;font-size: 16px;">
             Objetivos de la sesión:
           </label>
-          <label class="textoCuatro">
+          <label class="textoCuatroIzquierdo">
             {{ cronica?.desObjetivosSesion }}
           </label>
           <br>
@@ -99,19 +99,18 @@
           <label style="font-weight: bold;font-size: 16px;">
             Perfil del grupo:
           </label>
-          <label class="textoCuatro">
+          <label class="textoCuatroIzquierdo">
             {{ cronica?.desPerfilGrupo }}
           </label>
           <br>
           <br>
 
         </div>
-
         <div class="Texto-izquierda" style="background-color: white">
           <label style="font-weight: bold;font-size: 16px;">
             Desarrollo de la sesión:
           </label>
-          <label class="textoCuatro">
+          <label class="textoCuatroDerecho">
             {{ cronica?.desDesarrolloSesion }}
           </label>
           <br>
@@ -119,17 +118,15 @@
           <label style="font-weight: bold;font-size: 16px;">
             Observaciones:
           </label>
-          <label class="textoCuatro" style="z-index: 100;">
+          <label class="textoCuatroDerecho" style="z-index: 100;">
             {{ cronica?.desObservaciones }}
           </label>
         </div>
       </div>
-
-      <div class="botones">
+      <div class="botones" style="margin-top: 4.8%;">
         <button class="btn btn-danger btuser buttonL" style="border: solid 1px #b38e5d;" (click)="cancelar();">Cancelar</button>
         <button class="btn btn-primary btuser buttonL" style="border: solid 1px #9d2449;" (click)="imprimir();">Imprimir</button>
       </div>
-
     </div>
   </div>
 </app-card-template>

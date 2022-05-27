@@ -145,6 +145,22 @@
   color: #222;
 }
 
+.textoCuatro{
+  width: 480px;
+  height: 20px;
+  flex-grow: 0;
+  font-family: Montserrat;
+  margin: 3px 0 2px 15px;
+  font-size: 12px;
+  font-weight: 300;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  text-align: left;
+  color: #222;
+}
+
 .tituloTresSpam {
   width: 100%;
   flex-grow: 0;
@@ -161,8 +177,8 @@
   margin-top: 5px;
 }
 
-.textoCuatro {
-  width: 560px;
+.textoCuatroDerecho {
+  width: 507px;
   height: 20px;
   flex-grow: 0;
   font-family: Montserrat;
@@ -175,9 +191,23 @@
   letter-spacing: normal;
   text-align: left;
   color: #222;
+  margin-left: 18px;
+}
 
-
-
+.textoCuatroIzquierdo {
+  width: 480px;
+  height: 20px;
+  flex-grow: 0;
+  font-family: Montserrat;
+  margin: 3px 0 2px 15px;
+  font-size: 12px;
+  font-weight: 300;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  text-align: left;
+  color: #222;
 }
 
 .Rectangle-1205 {
@@ -351,7 +381,7 @@
   float: right;
   height: 300px;
   flex-grow: 0;
-  margin: 0px auto 0 auto;
+  margin: 0px 0 0 auto;
   padding: 15px 1px 20px 0;
   border-radius: 6px;
 }
