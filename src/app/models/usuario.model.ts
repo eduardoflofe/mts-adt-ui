@@ -21,6 +21,10 @@ export class Usuario {
     public strApellidoM?: string = "";
     public cveUsuario?: number;
     public rolUser?: number;
+    public matricula?: string = "";
+    public puesto?: string = "";
+    public unidadMedica?: string = "";
+    public cedulaProfesional?: string = "";
     public nameRolUser?: string = "";
     public areaDefault?: string = "";
     constructor() { }
