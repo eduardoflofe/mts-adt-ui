@@ -52,6 +52,13 @@ label span {
     width: 50%;
 }
 
+.button-close {
+    position: absolute;
+    left: 97%;
+    top: -30px;
+    cursor: pointer;
+}
+
 div.usrlist {
     width: 370px;
     height: 40px;
