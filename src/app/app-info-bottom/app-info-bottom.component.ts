@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Usuario } from '../models/usuario.model';
 
 @Component({
   selector: 'app-info-bottom',
@@ -7,7 +8,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AppInfoBottomComponent implements OnInit {
 
+  public usuario!: Usuario;
+
   constructor() { }
 
-  ngOnInit(): void { }
+  ngOnInit(): void {
+    let userTmp = sessionStorage.getItem('usuario') || '';
+    if (userTmp !== '') {
+      this.usuario = JSON.parse(userTmp);
+    }
+  }
 }
