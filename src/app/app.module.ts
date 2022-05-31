@@ -35,6 +35,7 @@ import { JwtModule } from '@auth0/angular-jwt';
 import { DatePipe, registerLocaleData } from '@angular/common';
 import '@angular/common/locales/global/es';
 import { NumberDirective } from './directives/only-numbers.directive';
+import { NuevaNotaTSocialComponent } from './nueva-nota-tsocial/nueva-nota-tsocial.component';
 
 registerLocaleData('es');
 
@@ -56,7 +57,8 @@ registerLocaleData('es');
     HeaderMenuComponent,
     CardTemplateComponent,
     AgregarParticipanteDialogComponent,
-    NumberDirective
+    NumberDirective,
+    NuevaNotaTSocialComponent
   ],
   imports: [
     BrowserModule,

@@ -11,6 +11,7 @@ import { ConsultaComponent } from './cronicaGrupal/consulta/consulta.component';
 import { LoginComponent } from './seguridad/login/login.component';
 import { SeguridadRouter } from './seguridad/seguridad.router';
 import { RegistroComponent } from './seguridad/registro/registro.component';
+import {NuevaNotaTSocialComponent} from './nueva-nota-tsocial/nueva-nota-tsocial.component';
 
 
 
@@ -24,6 +25,7 @@ const routes: Routes = [
   { path: 'nuevaCronica', component: NuevaCronicaComponent, canActivate: [SeguridadRouter] },
   { path: 'cronicaGuardada', component: CronicaGuardadaComponent, canActivate: [SeguridadRouter] },
   { path: 'consulta-cronica-grupal', component: ConsultaComponent, canActivate: [SeguridadRouter] },
+  { path: 'nuevaNotaTrabajoSocial', component:NuevaNotaTSocialComponent, canActivate: [SeguridadRouter]},
   { path: '**', redirectTo: 'login' }
 ];
 

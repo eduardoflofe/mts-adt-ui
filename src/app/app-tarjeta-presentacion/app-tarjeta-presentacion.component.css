@@ -7,16 +7,16 @@
 
 }
 
-
 .Rectangle-855 {
 
-    width: 1181PX;
+  width: 1166px;
     height: 145px;
     background-color: white;
     border-top-left-radius: 15px;
     border-top-right-radius: 15px;
-    margin-top: -65px;
-    margin-left: auto;
+    /* margin-top: -65px; */
+    /* margin-left: auto; */
+    margin-left: -1%;
     margin-right: auto;
     display: flex;
 }
@@ -62,7 +62,8 @@
 }
 
 .Ellipse-61 {
-    width: 243.9px;
+    /* width: 243.9px; */
+    width: 229.9px;
     height: 107px;
     flex-grow: 0;
     margin: 0px 0px 0px 248px;
@@ -150,7 +151,7 @@
 }
 
 .divDetallePaciente {
-    width: 1180px;
+  width: 1166px;
     height: 71px;
     margin-top: 73px;
     margin-right: 0px;
@@ -179,7 +180,7 @@
     height: 71px;
     z-index: 4;
     display: flex;
-    margin-left: 84px;
+    margin-left: 94px;
     position: absolute;
 
 }
@@ -202,5 +203,7 @@
     width: 73px;
     height: 70px;
     flex-grow: 0;
+
+    /* margin-left: -1%; */
 
 }
