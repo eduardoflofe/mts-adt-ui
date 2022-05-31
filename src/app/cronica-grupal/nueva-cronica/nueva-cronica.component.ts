@@ -11,6 +11,7 @@ import { Participante } from 'src/app/models/participante.model';
 import { CronicaGrupalService } from 'src/app/service/cronica-grupal.service';
 
 declare var $: any;
+const NUM_PARTICIPANTES: number = 5;
 
 @Component({
   selector: 'app-nueva-cronica',
@@ -18,14 +19,11 @@ declare var $: any;
   styleUrls: ['./nueva-cronica.component.css']
 })
 export class NuevaCronicaComponent implements OnInit, AfterViewInit {
-
   public listParticipantes: Participante[] = [];
-
-  cronica!: Cronica;
-  cronicaRecibida: any;
-  editForm!: FormGroup;
-
-  grupos: any[] = [];
+  public cronica!: Cronica;
+  public cronicaRecibida: any;
+  public editForm!: FormGroup;
+  public grupos: any[] = [];
 
   constructor(
     private router: Router,
@@ -102,6 +100,22 @@ export class NuevaCronicaComponent implements OnInit, AfterViewInit {
         }
       );
     }
+
+    this.getNumParticipantes();
+  }
+
+  getNumParticipantes() {
+    // TO DO Implementar servicio para obtener Numero de Participantes 
+    // this.cronicaGrupalService.getNumParticipantes(idCita).subscribe((resp: any) => {
+    //     if (resp) {
+    //       this.editForm.get('numParticipantesAsistieron')?.patchValue(resp.numParticipantes || 0);
+    //     }
+    //   },
+    //   (httpErrorResponse: HttpErrorResponse) => {
+    //     console.error(httpErrorResponse);
+    //   }
+    // );
+    this.editForm.get('numParticipantesAsistieron')?.patchValue(NUM_PARTICIPANTES + this.listParticipantes.length);
   }
 
   addParticipanteDialog() {
@@ -116,8 +130,8 @@ export class NuevaCronicaComponent implements OnInit, AfterViewInit {
 
     dialogRef.afterClosed().subscribe((participantes: Participante[]) => {
       if (participantes && participantes.length > 0) {
-        console.log(participantes);
         this.listParticipantes = participantes;
+        this.editForm.get('numParticipantesAsistieron')?.patchValue(NUM_PARTICIPANTES + this.listParticipantes.length);
       }
     });
   }
