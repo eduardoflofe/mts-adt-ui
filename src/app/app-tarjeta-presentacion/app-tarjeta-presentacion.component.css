@@ -9,14 +9,14 @@
 
 .Rectangle-855 {
 
-  width: 1166px;
+  width: 100%;
     height: 145px;
     background-color: white;
     border-top-left-radius: 15px;
     border-top-right-radius: 15px;
     /* margin-top: -65px; */
     /* margin-left: auto; */
-    margin-left: -1%;
+    margin-left: auto;
     margin-right: auto;
     display: flex;
 }
@@ -63,7 +63,7 @@
 
 .Ellipse-61 {
     /* width: 243.9px; */
-    width: 229.9px;
+    width: 203.9px;
     height: 107px;
     flex-grow: 0;
     margin: 0px 0px 0px 248px;
@@ -151,7 +151,8 @@
 }
 
 .divDetallePaciente {
-  width: 1166px;
+  /* width: 117.5%; */
+  width: 96.5%;
     height: 71px;
     margin-top: 73px;
     margin-right: 0px;
@@ -177,10 +178,11 @@
 }
 
 .pacienteDetalleDiv {
-    height: 71px;
+
+  margin-left: 77px;
     z-index: 4;
     display: flex;
-    margin-left: 94px;
+    /* margin-left: 68px; */
     position: absolute;
 
 }
