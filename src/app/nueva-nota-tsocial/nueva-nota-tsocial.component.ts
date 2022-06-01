@@ -2,6 +2,8 @@ import { Validators } from '@angular/forms'
 import { Component, OnInit } from '@angular/core'
 import { FormBuilder, FormControl, FormGroup, NgForm } from '@angular/forms'
 
+declare var $: any;
+
 @Component({
   selector: 'app-nueva-nota-tsocial',
   templateUrl: './nueva-nota-tsocial.component.html',

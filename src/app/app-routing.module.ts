@@ -12,6 +12,7 @@ import { LoginComponent } from './seguridad/login/login.component';
 import { SeguridadRouter } from './seguridad/seguridad.router';
 import { RegistroComponent } from './seguridad/registro/registro.component';
 import {NuevaNotaTSocialComponent} from './nueva-nota-tsocial/nueva-nota-tsocial.component';
+import { ConsultaListaNotasTSocialComponent } from './consulta-lista-notas-tsocial/consulta-lista-notas-tsocial.component';
 
 
 
@@ -26,6 +27,7 @@ const routes: Routes = [
   { path: 'cronicaGuardada', component: CronicaGuardadaComponent, canActivate: [SeguridadRouter] },
   { path: 'consulta-cronica-grupal', component: ConsultaComponent, canActivate: [SeguridadRouter] },
   { path: 'nuevaNotaTrabajoSocial', component:NuevaNotaTSocialComponent, canActivate: [SeguridadRouter]},
+  { path: 'ListaNotasTrabajoSocial', component:ConsultaListaNotasTSocialComponent, canActivate: [SeguridadRouter]},
   { path: '**', redirectTo: 'login' }
 ];
 
