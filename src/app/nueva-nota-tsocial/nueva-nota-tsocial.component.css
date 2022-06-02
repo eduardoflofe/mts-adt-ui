@@ -93,26 +93,21 @@
 
 .Atencin {
   padding: 10px;
-  font-weight: 600;
-  font-size: 20px;
-  line-height: 17px;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 21.94px;
   color: #222222;
+  text-align: center;
+  
 }
 
 
 
 .modal-content .line62{
-  left: 0.4%;
-  right: 0%;
-  top: 32%;
-  bottom: 56.72%;
-  border: 1px solid #CCCCCC;
-  transform: matrix(1, 0, 0, 1, 0, 0);
-  height: 0.5px;
+  
+  height: 0.15px;
   width: 494px;
-  left: 2px;
-  top: 106px;
-  border-radius: 10px;
+  border-bottom: 3px #CCCCCC;;
 }
 
 
@@ -126,3 +121,4 @@
   margin: auto;
   width: 496px;
 }
+

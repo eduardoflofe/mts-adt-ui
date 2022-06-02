@@ -19,13 +19,13 @@ const routes: Routes = [
   { path: '', component: LoginComponent },
   { path: 'login', component: LoginComponent },
   { path: 'recuperarpassword', component: RegistroComponent },
-  { path: 'busqueda', component: BusquedaNssComponent, canActivate: [SeguridadRouter] },
-  { path: 'tarjeta', component: AppTarjetaPresentacionComponent, canActivate: [SeguridadRouter] },
-  { path: 'busquedaEspecifica', component: CCGrupalEspecificaComponent, canActivate: [SeguridadRouter] },
-  { path: 'nuevaCronica', component: NuevaCronicaComponent, canActivate: [SeguridadRouter] },
-  { path: 'cronicaGuardada', component: CronicaGuardadaComponent, canActivate: [SeguridadRouter] },
-  { path: 'consulta-cronica-grupal', component: ConsultaComponent, canActivate: [SeguridadRouter] },
-  { path: 'nuevaNotaTrabajoSocial', component:NuevaNotaTSocialComponent, canActivate: [SeguridadRouter]},
+  { path: 'busqueda', component: BusquedaNssComponent},
+  { path: 'tarjeta', component: AppTarjetaPresentacionComponent },
+  { path: 'busquedaEspecifica', component: CCGrupalEspecificaComponent },
+  { path: 'nuevaCronica', component: NuevaCronicaComponent},
+  { path: 'cronicaGuardada', component: CronicaGuardadaComponent},
+  { path: 'consulta-cronica-grupal', component: ConsultaComponent},
+  { path: 'nuevaNotaTrabajoSocial', component:NuevaNotaTSocialComponent},
   { path: '**', redirectTo: 'login' }
 ];
 
