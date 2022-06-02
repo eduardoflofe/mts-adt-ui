@@ -13,8 +13,6 @@ import { RecaptchaResponse } from 'src/app/models/recaptcha-response-model';
 import { DomSanitizer } from '@angular/platform-browser';
 import { MatIconRegistry } from '@angular/material/icon';
 
-//import * as $ from 'https://framework-gb.cdn.gob.mx/gobmx.js'
-
 declare var $: any;
 
 @Component({
@@ -138,7 +136,7 @@ export class LoginComponent implements OnInit {
             this.authService.userLogged$.next(true);
             this.authService.getUserData(this.usuario.strEmail).subscribe(
               (response: any) => {
-                console.log("RESPONSE: ", response);
+                // console.log("RESPONSE: ", response);
                 this.authService.guardarUsuarioEnSesion(response);
               }
             );
@@ -182,7 +180,6 @@ export class LoginComponent implements OnInit {
       } catch (error) {
         // this.showError();
       }
-      // this.logindata.reset();
     } else {
       this.showError('<strong>Error.</strong> Ingresa los datos obligatorios');
     }
@@ -205,7 +202,6 @@ export class LoginComponent implements OnInit {
 
   //Success
   private showSucces(msg: string) {
-
     this.alert = {
       message: '<strong>Estatus.</strong>' + msg,
       type: 'success',

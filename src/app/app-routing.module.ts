@@ -26,8 +26,8 @@ const routes: Routes = [
   { path: 'nuevaCronica', component: NuevaCronicaComponent, canActivate: [SeguridadRouter] },
   { path: 'cronicaGuardada', component: CronicaGuardadaComponent, canActivate: [SeguridadRouter] },
   { path: 'consulta-cronica-grupal', component: ConsultaComponent, canActivate: [SeguridadRouter] },
-  { path: 'nuevaNotaTrabajoSocial', component:NuevaNotaTSocialComponent, canActivate: [SeguridadRouter]},
-  { path: 'ListaNotasTrabajoSocial', component:ConsultaListaNotasTSocialComponent, canActivate: [SeguridadRouter]},
+  { path: 'nueva-nota', component:NuevaNotaTSocialComponent, canActivate: [SeguridadRouter]},
+  { path: 'consulta-notas', component:ConsultaListaNotasTSocialComponent, canActivate: [SeguridadRouter]},
   { path: '**', redirectTo: 'login' }
 ];
 

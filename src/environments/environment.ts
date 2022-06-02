@@ -8,7 +8,6 @@ export const environment = {
   urlServOauth: 'http://localhost:8081',
   urlServCatalogos: 'http://localhost:8084',
   urlServCronicas: 'http://localhost:8085',
-  urlServReporte: 'http://localhost:8082',
   urlSiteGoogleRecaptcha: 'https://www.google.com/recaptcha/api/siteverify',
   recaptcha: {
     siteKey: '6LdbfOUfAAAAACVHNAE5P66uCngEas0k6VpEywJR',
