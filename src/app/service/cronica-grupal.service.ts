@@ -18,10 +18,6 @@ export class CronicaGrupalService {
     private router: Router
   ) { }
 
-  actualizarPassword(admonPasswordRequest: AdmonPasswordRequest) {
-    return this.http.post<AdmonPasswordResponse>(`${environment.urlServOauth}/api/aplicacion/actualizarPassword/`, admonPasswordRequest);
-  }
-
   getCatServicios() {
     return this.http.get<any>(`${environment.urlServCatalogos}/api/listservicios`);
   }
@@ -76,7 +72,7 @@ export class CronicaGrupalService {
 
   downloadPdf(data: any): Observable<Blob> {
     const headers = new HttpHeaders({ 'Content-Type': 'application/json', responseType: 'blob' });
-    return this.http.post<Blob>(environment.urlServReporte + '/reporte/reporteCronica', JSON.stringify(data),
+    return this.http.post<Blob>(environment.urlServCronicas + '/reporte/reporteCronica', JSON.stringify(data),
     { headers: headers, responseType: 'blob' as 'json'});
   }
 

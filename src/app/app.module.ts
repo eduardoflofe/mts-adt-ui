@@ -36,6 +36,7 @@ import { DatePipe, registerLocaleData } from '@angular/common';
 import '@angular/common/locales/global/es';
 import { NumberDirective } from './directives/only-numbers.directive';
 import { NuevaNotaTSocialComponent } from './nueva-nota-tsocial/nueva-nota-tsocial.component';
+import { ConsultaListaNotasTSocialComponent } from './consulta-lista-notas-tsocial/consulta-lista-notas-tsocial.component';
 
 registerLocaleData('es');
 
@@ -58,7 +59,8 @@ registerLocaleData('es');
     CardTemplateComponent,
     AgregarParticipanteDialogComponent,
     NumberDirective,
-    NuevaNotaTSocialComponent
+    NuevaNotaTSocialComponent,
+    ConsultaListaNotasTSocialComponent
   ],
   imports: [
     BrowserModule,

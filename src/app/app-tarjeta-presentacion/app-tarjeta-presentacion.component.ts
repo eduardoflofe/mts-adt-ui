@@ -4,7 +4,7 @@ import { AppTarjetaPresentacionService } from './../app-tarjeta-presentacion/app
 
 
 @Component({
-  selector: 'app-app-tarjeta-presentacion',
+  selector: 'app-tarjeta-presentacion',
   templateUrl: './app-tarjeta-presentacion.component.html',
   styleUrls: ['./app-tarjeta-presentacion.component.css']
 })

@@ -91,6 +91,20 @@
   font-size: 15px;
 }
 
+.nuevaNotaTrabajoSocial {
+  font-family: 'Montserrat';
+  font-size: 24px;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 29px;
+  font-weight: 700;
+  letter-spacing: normal;
+  text-align: left;
+  left: 3.45%;
+  right: 71.79%;
+  color: #222;
+}
+
 .Atencin {
   padding: 10px;
   font-weight: 500;

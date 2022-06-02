@@ -5,6 +5,8 @@ import { Router } from '@angular/router';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 declare var $: any;
 
+declare var $: any;
+
 @Component({
   selector: 'app-nueva-nota-tsocial',
   templateUrl: './nueva-nota-tsocial.component.html',
@@ -61,22 +63,22 @@ export class NuevaNotaTSocialComponent implements OnInit {
       keyboard: false,
       backdrop: 'static'
     })
-    $('#content').modal('show')
+    $('#content').modal('show');
   }
   
   cancelar() {
-    $('#content').modal('hide')
+    $('#content').modal('hide');
   }
   
   salirModal(){
-    this.router.navigateByUrl("/nuevaNotaTrabajoSocial", { skipLocationChange: true });
-    $('#content').modal('hide')  
+    this.router.navigateByUrl("/consulta-notas", { skipLocationChange: true });
+    $('#content').modal('hide');
   }
   guardar() {
     Validators.required
     this.camposCompletos = true
     this.muestraAlerta(
-      '<strong></strong>¡La información se guardó con exito!',
+      '¡La información se guardó con exito!',
       'alert-danger',
       null,
     )

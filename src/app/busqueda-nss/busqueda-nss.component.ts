@@ -49,7 +49,7 @@ export class BusquedaNssComponent {
 
     this.tarjetaService.add(this.pacienteSeleccionado);
 
-    this.router.navigate(['tarjeta'], { skipLocationChange: true });
+    this.router.navigate(['consulta-notas'], { skipLocationChange: true });
     console.log(this.pacienteSeleccionado)
 
   }

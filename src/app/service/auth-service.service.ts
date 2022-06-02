@@ -146,7 +146,7 @@ export class AuthService {
     this._usuario.strNombres = usuario.nombre;
     this._usuario.strApellidoP = usuario.apellidoPaterno;
     this._usuario.strApellidoM = usuario.apellidoMaterno;
-    this._usuario.strUserName = usuario.matricula;
+    this._usuario.matricula = usuario.matricula;
     this._usuario.rolUser = usuario.rol.cveRol;
     this._usuario.nameRolUser = usuario.rol.nomRol;
     this._usuario.puesto = usuario.puesto;

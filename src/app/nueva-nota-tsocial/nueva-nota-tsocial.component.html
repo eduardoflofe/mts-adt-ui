@@ -1,3 +1,5 @@
+<app-tarjeta-presentacion></app-tarjeta-presentacion>
+
 <div *ngIf="alertVisible">
   <div class="alert alert-dismissible alertCompl" [ngClass]="alertTipo">
     <button type="button" class="close" data-dismiss="alert" aria-label="Close">
@@ -6,7 +8,6 @@
     <div [innerHTML]="alertMensaje"></div>
   </div>
 </div>
- <app-menu></app-menu>
  
  <!-- Modal btn cancelar eduardo Flores-->
 <div class="modal fade" role="dialog" id="content" #content >
@@ -53,7 +54,7 @@
   <div header class="flex justify-content-between row">
     <div class="col-md-12">
       <div style="display: grid; text-align: left">
-        <span class="pacienteNombreSpan">{{
+        <span class="nuevaNotaTrabajoSocial">{{
           "Nueva nota de trabajo social"
         }}</span>
       </div>
@@ -79,8 +80,8 @@
                 class="form-control"
                 [ngClass]="{
                   'form-control-error':
-                  camposNota.controls?.tipoDeNota?.dirty &&
-                  camposNota.controls?.tipoDeNota?.errors
+                    camposNota.controls?.tipoDeNota?.dirty &&
+                    camposNota.controls?.tipoDeNota?.errors
                 }"
                 formControlName="tipoDeNota"
                 id="tipoDeNota"
@@ -96,8 +97,8 @@
               </select>
               <small
                 *ngIf="
-                camposNota.controls?.tipoDeNota?.dirty &&
-                camposNota.controls?.tipoDeNota?.errors
+                  camposNota.controls?.tipoDeNota?.dirty &&
+                  camposNota.controls?.tipoDeNota?.errors
                 "
                 class="form-text form-text-error Campo-obligatorio"
               >
@@ -114,8 +115,8 @@
               <select
                 [ngClass]="{
                   'form-control-error':
-                  camposNota.controls?.redDeApoyo?.dirty &&
-                  camposNota.controls?.redDeApoyo?.errors
+                    camposNota.controls?.redDeApoyo?.dirty &&
+                    camposNota.controls?.redDeApoyo?.errors
                 }"
                 class="form-control"
                 formControlName="redDeApoyo"
@@ -123,9 +124,9 @@
                 style="background-position-y: 5px"
                 aria-label="Servicio"
               >
-              <option class="select-font">
-                {{ " Seleccionar red de apoyo" }}
-              </option>
+                <option class="select-font">
+                  {{ " Seleccionar red de apoyo" }}
+                </option>
 
                 <option class="select-font">
                   {{ "" }}
@@ -134,8 +135,8 @@
               </select>
               <small
                 *ngIf="
-                camposNota.controls?.redDeApoyo?.dirty &&
-                camposNota.controls?.redDeApoyo?.errors
+                  camposNota.controls?.redDeApoyo?.dirty &&
+                  camposNota.controls?.redDeApoyo?.errors
                 "
                 class="form-text form-text-error Campo-obligatorio"
               >
@@ -150,8 +151,8 @@
               <select
                 [ngClass]="{
                   'form-control-error':
-                  camposNota.controls?.actividadTecnica?.dirty &&
-                  camposNota.controls?.actividadTecnica?.errors
+                    camposNota.controls?.actividadTecnica?.dirty &&
+                    camposNota.controls?.actividadTecnica?.errors
                 }"
                 class="form-control"
                 id="actividadTecnica"
@@ -159,9 +160,9 @@
                 style="background-position-y: 5px"
                 aria-label="Servicio"
               >
-              <option class="select-font">
-                {{ " Seleccionar actividad técnica" }}
-              </option>
+                <option class="select-font">
+                  {{ " Seleccionar actividad técnica" }}
+                </option>
                 <option class="select-font">
                   {{ "" }}
                 </option>
@@ -171,8 +172,8 @@
               </select>
               <small
                 *ngIf="
-                camposNota.controls?.actividadTecnica?.dirty &&
-                camposNota.controls?.actividadTecnica?.errors
+                  camposNota.controls?.actividadTecnica?.dirty &&
+                  camposNota.controls?.actividadTecnica?.errors
                 "
                 class="form-text form-text-error Campo-obligatorio"
               >
@@ -180,42 +181,41 @@
               </small>
             </div>
           </div>
-          <div class="col-md-12" style="margin-left: -1.1%;">
-          <div class="col-md-4">
-            <div class="form-group">
-              <span class="spanInput">Diagnostico médico*:</span>
-              <select
-                [ngClass]="{
-                  'form-control-error':
-                  camposNota.controls?.diagnosticoMedico?.dirty &&
-                  camposNota.controls?.diagnosticoMedico?.errors
-                }"
-                class="form-control"
-                id="diagnosticoMedico"
-                formControlName="diagnosticoMedico"
-                style="background-position-y: 5px"
-                aria-label="Servicio"
-              >
-              <option class="select-font">
-                {{ " Seleccionar diagnostico médico" }}
-              </option>
-                <option class="select-font">
-                  {{ "" }}
-                </option>
-              </select>
-              <small
-                *ngIf="
-                camposNota.controls?.diagnosticoMedico?.dirty &&
-                camposNota.controls?.diagnosticoMedico?.errors
-                "
-                class="form-text form-text-error Campo-obligatorio"
-              >
-                Campo obligatorios
-              </small>
+          <div class="col-md-12" style="margin-left: -1.1%">
+            <div class="col-md-4">
+              <div class="form-group">
+                <span class="spanInput">Diagnostico médico*:</span>
+                <select
+                  [ngClass]="{
+                    'form-control-error':
+                      camposNota.controls?.diagnosticoMedico?.dirty &&
+                      camposNota.controls?.diagnosticoMedico?.errors
+                  }"
+                  class="form-control"
+                  id="diagnosticoMedico"
+                  formControlName="diagnosticoMedico"
+                  style="background-position-y: 5px"
+                  aria-label="Servicio"
+                >
+                  <option class="select-font">
+                    {{ " Seleccionar diagnostico médico" }}
+                  </option>
+                  <option class="select-font">
+                    {{ "" }}
+                  </option>
+                </select>
+                <small
+                  *ngIf="
+                    camposNota.controls?.diagnosticoMedico?.dirty &&
+                    camposNota.controls?.diagnosticoMedico?.errors
+                  "
+                  class="form-text form-text-error Campo-obligatorio"
+                >
+                  Campo obligatorios
+                </small>
+              </div>
             </div>
           </div>
-</div>
-
         </div>
         <div class="separador"></div>
       </div>
@@ -228,8 +228,8 @@
             <textarea
               [ngClass]="{
                 'form-control-error':
-                camposNota.controls?.redaccionCronologica?.dirty &&
-                camposNota.controls?.redaccionCronologica?.errors
+                  camposNota.controls?.redaccionCronologica?.dirty &&
+                  camposNota.controls?.redaccionCronologica?.errors
               }"
               class="form-control"
               id="redaccionCronologica"
@@ -244,8 +244,8 @@
             </textarea>
             <small
               *ngIf="
-              camposNota.controls?.redaccionCronologica?.dirty &&
-              camposNota.controls?.redaccionCronologica?.errors
+                camposNota.controls?.redaccionCronologica?.dirty &&
+                camposNota.controls?.redaccionCronologica?.errors
               "
               class="form-text form-text-error Campo-obligatorio"
             >
@@ -261,8 +261,8 @@
             <textarea
               [ngClass]="{
                 'form-control-error':
-                camposNota.controls?.diagnosticoSocial?.dirty &&
-                camposNota.controls?.diagnosticoSocial?.errors
+                  camposNota.controls?.diagnosticoSocial?.dirty &&
+                  camposNota.controls?.diagnosticoSocial?.errors
               }"
               class="form-control"
               id="diagnosticoSocial"
@@ -271,15 +271,19 @@
               formControlName="diagnosticoSocial"
               #desarrolloRef
               maxlength="4096"
-              rows="4"></textarea>
+              rows="4"
+            ></textarea>
             <span class="spanCaracteres"
               >{{ desarrolloRef.value?.length }} /
-              {{ desarrolloRef.getAttribute("maxlength") }} caracteres</span>
+              {{ desarrolloRef.getAttribute("maxlength") }} caracteres</span
+            >
             <small
               *ngIf="
-              camposNota.controls?.diagnosticoSocial?.dirty &&
-              camposNota.controls?.diagnosticoSocial?.errors"
-              class="form-text form-text-error Campo-obligatorio" >
+                camposNota.controls?.diagnosticoSocial?.dirty &&
+                camposNota.controls?.diagnosticoSocial?.errors
+              "
+              class="form-text form-text-error Campo-obligatorio"
+            >
               Campo obligatorio
             </small>
           </div>
