@@ -1,6 +1,9 @@
 import { Validators } from '@angular/forms'
 import { Component, OnInit } from '@angular/core'
 import { FormBuilder, FormControl, FormGroup, NgForm } from '@angular/forms'
+import { Router } from '@angular/router';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+declare var $: any;
 
 @Component({
   selector: 'app-nueva-nota-tsocial',
@@ -28,10 +31,13 @@ export class NuevaNotaTSocialComponent implements OnInit {
     diagnosticoSocial: ['', Validators.required],
   })
 
-  constructor(private formBuilder: FormBuilder) {}
+  constructor(private formBuilder: FormBuilder,
+    private router: Router,
+    private modalService: NgbModal) {}
 
   ngOnInit(): void {
   }
+
 
   muestraAlerta(mensaje: string, estilo: string, funxion: any) {
     this.alertMensaje = mensaje
@@ -49,6 +55,23 @@ export class NuevaNotaTSocialComponent implements OnInit {
     }, 5000)
   }
 
+  modalcarga(content: any) {
+    //this.modalService.open(content, {centered: true,size: 'lg', backdrop: 'static', keyboard: false})
+    $('#content').modal({
+      keyboard: false,
+      backdrop: 'static'
+    })
+    $('#content').modal('show')
+  }
+  
+  cancelar() {
+    $('#content').modal('hide')
+  }
+  
+  salirModal(){
+    this.router.navigateByUrl("/nuevaNotaTrabajoSocial", { skipLocationChange: true });
+    $('#content').modal('hide')  
+  }
   guardar() {
     Validators.required
     this.camposCompletos = true
