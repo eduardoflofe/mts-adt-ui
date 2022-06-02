@@ -1,5 +1,37 @@
 <app-app-alerts></app-app-alerts>
 <app-menu [activeItem]="1"></app-menu>
+<div class="modal fade" role="dialog" id="content" #content>
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center" fxLayoutAlign="space-between center" fxLayout="column">
+        <img src="../../../../assets/images/Group 2082.png" class="Group-2082" alt="">
+        <div class="modal-title Atencin">Atención</div>
+      </div>
+      <div class="line62" style=""></div>
+      <div class="col-md12" style="text-align: center; margin-top: 5%;">
+
+          <label class="titulo">¿Desea salir sin guardar cambios?</label>
+
+      </div>
+      <div class="col-md12 row"
+          style="background-color: #FFFF; width:495px; height: 118px; text-align: center; margin: auto;
+          padding: 15px;">
+
+          <div class="col-md10" width="10px" height="10px" aling="center" >
+              <button type="button" class="btn btn-danger buttonL" style="border: solid 1px #b38e5d;"
+                  (click)="cancelar()">
+                  Cancelar
+              </button>
+              <button type="button" class="btn btn-primary buttonL" style="border: solid 1px #9d2449;"
+                  (click)="salirModal()">
+                  Aceptar
+              </button>
+          </div>
+          </div>
+
+      </div><!-- /.modal-content -->
+</div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
 <app-card-template>
 
 
