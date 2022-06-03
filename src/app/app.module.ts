@@ -1,3 +1,4 @@
+import { ConsultaNotaTSocialComponent } from './consulta-nota-tsocial/consulta-nota-tsocial.component';
 import { LOCALE_ID, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { MatIconModule } from '@angular/material/icon';
@@ -60,7 +61,9 @@ registerLocaleData('es');
     AgregarParticipanteDialogComponent,
     NumberDirective,
     NuevaNotaTSocialComponent,
-    ConsultaListaNotasTSocialComponent
+    ConsultaListaNotasTSocialComponent,
+    ConsultaNotaTSocialComponent
+
   ],
   imports: [
     BrowserModule,
@@ -96,7 +99,7 @@ registerLocaleData('es');
       } as RecaptchaSettings
     }, {
         provide:
-            HTTP_INTERCEPTORS, useClass: JRInterceptor, multi: true 
+            HTTP_INTERCEPTORS, useClass: JRInterceptor, multi: true
       }, {
         provide:
             LOCALE_ID, useValue: 'es'
@@ -104,8 +107,8 @@ registerLocaleData('es');
     ],
   bootstrap: [AppComponent]
 })
-export class AppModule { 
+export class AppModule {
   constructor(){
-   sessionStorage.setItem('token','token is null'); 
+   sessionStorage.setItem('token','token is null');
   }
 }

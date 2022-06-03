@@ -65,15 +65,16 @@ export class NuevaNotaTSocialComponent implements OnInit {
     })
     $('#content').modal('show');
   }
-  
+
   cancelar() {
     $('#content').modal('hide');
   }
-  
+
   salirModal(){
     this.router.navigateByUrl("/consulta-notas", { skipLocationChange: true });
     $('#content').modal('hide');
   }
+
   guardar() {
     Validators.required
     this.camposCompletos = true
@@ -82,5 +83,12 @@ export class NuevaNotaTSocialComponent implements OnInit {
       'alert-danger',
       null,
     )
+  }
+
+  irConsultaNota(){
+    let params = {
+      'objetoAEnviar': null,
+    }
+    this.router.navigate(["consulta-nota"], { queryParams: params, skipLocationChange: true });
   }
 }
