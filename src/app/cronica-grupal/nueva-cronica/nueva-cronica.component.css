@@ -423,3 +423,32 @@ table.table-participantes>tbody tr td {
 .datepicker-group .yyphicon {
   color: #EEEEEE !important;
 }
+
+.Atencin {
+  padding: 10px;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 21.94px;
+  color: #222222;
+  text-align: center;
+  
+}
+
+
+.line62{
+  height: 0.15px;
+  background-color: #CCCCCC;
+  width: 494px;
+}
+
+
+
+.modal-header{
+  background-color: #fff;
+  color:#fff;
+}
+
+.modal-content{
+  margin: auto;
+  width: 496px;
+}
