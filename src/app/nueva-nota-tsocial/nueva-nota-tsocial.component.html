@@ -6,15 +6,13 @@
     <div [innerHTML]="alertMensaje"></div>
   </div>
 </div>
- <!--<app-menu></app-menu> -->
 
- <!-- Modal btn cancelar eduardo Flores-->
-<div class="modal fade" role="dialog" id="content" #content >
+<!-- Modal btn cancelar eduardo Flores-->
+<div class="modal fade" role="dialog" id="content" #content>
   <div class="modal-dialog" role="document">
     <div class="modal-content" style="border: 1px solid #CCCCCC ;
     box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.16); border-radius: 10px;">
-      <div class="modal-header text-center" fxLayoutAlign="space-between center" fxLayout="column"
-      style="border: 1px solid #CCCCCC ; border-bottom: 1px;
+      <div class="modal-header text-center" fxLayoutAlign="space-between center" fxLayout="column" style="border: 1px solid #CCCCCC ; border-bottom: 1px;
       border-radius: 10px 10px 0 0;">
         <img src="../../../../assets/images/Group 2082.png" class="Group-2082" alt="">
         <div class="modal-title Atencin">Atención</div>
@@ -22,36 +20,34 @@
       <div class="line62" style="border-bottom: black;"></div>
       <div class="col-md12" style="text-align: center; margin-top: 5%; height: 80px;">
 
-          <label class="titulo" style="font-weight: 500; font-size: 24px; 
-          line-height: 21.94px; text-align: center;" >¿Desea salir sin guardar</label>
-          <br>
-          <label style="font-weight: 500; font-size: 24px; 
+        <label class="titulo" style="font-weight: 500; font-size: 24px; 
+          line-height: 21.94px; text-align: center;">¿Desea salir sin guardar</label>
+        <br>
+        <label style="font-weight: 500; font-size: 24px; 
           line-height: 21.94px; text-align: center;"> los cambios?</label>
 
       </div>
-      <div class="col-md12 row"
-          style="width:495px; height: 118px; text-align: center; margin: auto;
+      <div class="col-md12 row" style="width:495px; height: 118px; text-align: center; margin: auto;
           padding: 15px; background-color: #FAFAFA; border-radius: 10px;">
 
-          <div class="col-md10" width="495px" height="118px" aling="center" >
-              <button type="button" class="btn btn-danger buttonL" style="border: solid 1px #b38e5d;"
-                  (click)="cancelar()">
-                  Cancelar
-              </button>
-              <button type="button" class="btn btn-primary buttonL" style="border: solid 1px #9d2449;"
-                  (click)="salirModal()">
-                  Aceptar
-              </button>
-          </div>
-          </div>
-
+        <div class="col-md10" width="495px" height="118px" aling="center">
+          <button type="button" class="btn btn-danger buttonL" style="border: solid 1px #b38e5d;" (click)="cancelar()">
+            Cancelar
+          </button>
+          <button type="button" class="btn btn-primary buttonL" style="border: solid 1px #9d2449;"
+            (click)="salirModal()">
+            Aceptar
+          </button>
+        </div>
       </div>
-</div>
+
+    </div>
+  </div>
 </div>
 <!-- fin modal btn cancelar-->
 
 <div style="margin-bottom: 1%"></div>
-<!-- <app-app-tarjeta-presentacion></app-app-tarjeta-presentacion> -->
+<app-tarjeta-presentacion></app-tarjeta-presentacion>
 <app-card-template>
   <div header class="flex justify-content-between row">
     <div class="col-md-12">
@@ -75,32 +71,16 @@
           <div class="col-md-4">
             <div class="form-group">
               <span class="spanInput">Tipo de nota*:</span>
-              <select
-                class="form-control"
-                [ngClass]="{
-                  'form-control-error':
-                    camposNota.controls?.tipoDeNota?.dirty &&
-                    camposNota.controls?.tipoDeNota?.errors
-                }"
-                formControlName="tipoDeNota"
-                id="tipoDeNota"
-                style="background-position-y: 5px"
-                aria-label="Servicio"
-              >
-                <option class="select-font">
-                  {{ "Ingresar Tipo de nota" }}
-                </option>
-                <option class="select-font">
-                  {{ "" }}
-                </option>
+              <select class="form-control"
+                [ngClass]="{'form-control-error': camposNota.controls?.tipoDeNota?.dirty && camposNota.controls?.tipoDeNota?.errors }"
+                formControlName="tipoDeNota" id="tipoDeNota" style="background-position-y: 5px" aria-label="Servicio">
+                <option class="select-font" [value]="'-1'" selected>Ingresar tipo de nota</option>
+                <option class="select-font" [value]="0" selected>Nota 1</option>
               </select>
-              <small
-                *ngIf="
+              <small *ngIf="
                   camposNota.controls?.tipoDeNota?.dirty &&
                   camposNota.controls?.tipoDeNota?.errors
-                "
-                class="form-text form-text-error Campo-obligatorio"
-              >
+                " class="form-text form-text-error Campo-obligatorio">
                 Campo obligatorios
               </small>
             </div>
@@ -108,37 +88,21 @@
 
           <div class="col-md-4">
             <div class="form-group">
-              <span class="spanInput"
-                >Red de apoyo con la que cuenta el paciente*:</span
-              >
-              <select
-                [ngClass]="{
+              <span class="spanInput">Red de apoyo con la que cuenta el paciente*:</span>
+              <select [ngClass]="{
                   'form-control-error':
                     camposNota.controls?.redDeApoyo?.dirty &&
                     camposNota.controls?.redDeApoyo?.errors
-                }"
-                class="form-control"
-                formControlName="redDeApoyo"
-                id="redDeApoyo"
-                style="background-position-y: 5px"
-                aria-label="Servicio"
-              >
-                <option class="select-font">
-                  {{ " Seleccionar red de apoyo" }}
-                </option>
-
-                <option class="select-font">
-                  {{ "" }}
-                </option>
+                }" class="form-control" formControlName="redDeApoyo" id="redDeApoyo" style="background-position-y: 5px"
+                aria-label="Servicio">
+                <option class="select-font" [value]="'-1'" selected>Seleccionar red de apoyo</option>
+                <option class="select-font" [value]="0" selected>Red Apoyo 1</option>
                 <option class="select-font">{{ "Ingresar Grupo" }}</option>
               </select>
-              <small
-                *ngIf="
+              <small *ngIf="
                   camposNota.controls?.redDeApoyo?.dirty &&
                   camposNota.controls?.redDeApoyo?.errors
-                "
-                class="form-text form-text-error Campo-obligatorio"
-              >
+                " class="form-text form-text-error Campo-obligatorio">
                 Campo obligatorios
               </small>
             </div>
@@ -147,35 +111,19 @@
           <div class="col-md-4">
             <div class="form-group">
               <span class="spanInput">Actividad técnica*:</span>
-              <select
-                [ngClass]="{
+              <select [ngClass]="{
                   'form-control-error':
                     camposNota.controls?.actividadTecnica?.dirty &&
                     camposNota.controls?.actividadTecnica?.errors
-                }"
-                class="form-control"
-                id="actividadTecnica"
-                formControlName="actividadTecnica"
-                style="background-position-y: 5px"
-                aria-label="Servicio"
-              >
-                <option class="select-font">
-                  {{ " Seleccionar actividad técnica" }}
-                </option>
-                <option class="select-font">
-                  {{ "" }}
-                </option>
-                <option class="select-font">
-                  {{ "Ingresar Actividad técnica" }}
-                </option>
+                }" class="form-control" id="actividadTecnica" formControlName="actividadTecnica"
+                style="background-position-y: 5px" aria-label="Servicio">
+                <option class="select-font" [value]="'-1'" selected>Seleccionar actividad técnica</option>
+                <option class="select-font" [value]="0" selected>Actividad 1</option>
               </select>
-              <small
-                *ngIf="
+              <small *ngIf="
                   camposNota.controls?.actividadTecnica?.dirty &&
                   camposNota.controls?.actividadTecnica?.errors
-                "
-                class="form-text form-text-error Campo-obligatorio"
-              >
+                " class="form-text form-text-error Campo-obligatorio">
                 Campo obligatorios
               </small>
             </div>
@@ -184,32 +132,19 @@
             <div class="col-md-4">
               <div class="form-group">
                 <span class="spanInput">Diagnostico médico*:</span>
-                <select
-                  [ngClass]="{
+                <select [ngClass]="{
                     'form-control-error':
                       camposNota.controls?.diagnosticoMedico?.dirty &&
                       camposNota.controls?.diagnosticoMedico?.errors
-                  }"
-                  class="form-control"
-                  id="diagnosticoMedico"
-                  formControlName="diagnosticoMedico"
-                  style="background-position-y: 5px"
-                  aria-label="Servicio"
-                >
-                  <option class="select-font">
-                    {{ " Seleccionar diagnostico médico" }}
-                  </option>
-                  <option class="select-font">
-                    {{ "" }}
-                  </option>
+                  }" class="form-control" id="diagnosticoMedico" formControlName="diagnosticoMedico"
+                  style="background-position-y: 5px" aria-label="Servicio">
+                  <option class="select-font" [value]="'-1'" selected>Seleccionar diagnóstico médico</option>
+                  <option class="select-font" [value]="0" selected>Diagnóstico 1</option>
                 </select>
-                <small
-                  *ngIf="
+                <small *ngIf="
                     camposNota.controls?.diagnosticoMedico?.dirty &&
                     camposNota.controls?.diagnosticoMedico?.errors
-                  "
-                  class="form-text form-text-error Campo-obligatorio"
-                >
+                  " class="form-text form-text-error Campo-obligatorio">
                   Campo obligatorios
                 </small>
               </div>
@@ -222,68 +157,42 @@
         <div class="row">
 
           <div class="col-md-12 form-group">
-            <span class="spanInput"
-              >Redacción cronológica de la intervención*:</span
-            >
-            <textarea
-              [ngClass]="{
+            <span class="spanInput">Redacción cronológica de la intervención*:</span>
+            <textarea [ngClass]="{
                 'form-control-error':
                   camposNota.controls?.redaccionCronologica?.dirty &&
                   camposNota.controls?.redaccionCronologica?.errors
-              }"
-              class="form-control"
-              id="redaccionCronologica"
-              placeholder="Ingresar redaci&oacute;n cronol&oacute;gica"
-              style="height: 65px"
-              formControlName="redaccionCronologica"
-              #objetivosRef
-              maxlength="4096"
-              required
-              rows="4"
-            >
+              }" class="form-control" id="redaccionCronologica"
+              placeholder="Ingresar redaci&oacute;n cronol&oacute;gica" style="height: 65px"
+              formControlName="redaccionCronologica" #objetivosRef maxlength="4096" required rows="4">
             </textarea>
-            <span class="spanCaracteres"
-              >{{ objetivosRef.value?.length }} /
+            <span class="spanCaracteres">{{ objetivosRef.value?.length }} /
               {{ objetivosRef.getAttribute("maxlength") }} caracteres</span>
-              <br>
-              <small
-              *ngIf="
+            <br>
+            <small *ngIf="
                 camposNota.controls?.redaccionCronologica?.dirty &&
                 camposNota.controls?.redaccionCronologica?.errors
-              "
-              class="form-text form-text-error Campo-obligatorio">
+              " class="form-text form-text-error Campo-obligatorio">
               Campo obligatorio
             </small>
           </div>
 
           <div class="col-md-12 form-group">
             <span class="spanInput">Diagnostico social*:</span>
-            <textarea
-              [ngClass]="{
+            <textarea [ngClass]="{
                 'form-control-error':
                   camposNota.controls?.diagnosticoSocial?.dirty &&
                   camposNota.controls?.diagnosticoSocial?.errors
-              }"
-              class="form-control"
-              id="diagnosticoSocial"
-              placeholder="Ingresar diagnostico social"
-              style="height: 65px"
-              formControlName="diagnosticoSocial"
-              #desarrolloRef
-              maxlength="4096"
-              rows="4"
-            ></textarea>
-            <span class="spanCaracteres"
-              >{{ desarrolloRef.value?.length }} /
+              }" class="form-control" id="diagnosticoSocial" placeholder="Ingresar diagnostico social"
+              style="height: 65px" formControlName="diagnosticoSocial" #desarrolloRef maxlength="4096"
+              rows="4"></textarea>
+            <span class="spanCaracteres">{{ desarrolloRef.value?.length }} /
               {{ desarrolloRef.getAttribute("maxlength") }} caracteres</span>
-              <br>
-            <small
-              *ngIf="
+            <br>
+            <small *ngIf="
                 camposNota.controls?.diagnosticoSocial?.dirty &&
                 camposNota.controls?.diagnosticoSocial?.errors
-              "
-              class="form-text form-text-error Campo-obligatorio"
-            >
+              " class="form-text form-text-error Campo-obligatorio">
               Campo obligatorio
             </small>
           </div>
@@ -292,19 +201,14 @@
     </form>
     <div class="row">
       <div class="col-md-12" style="padding-top: 19px; margin-top: -1.4%">
-        <button
-          [disabled]="camposNota.valid == false"
-          type="button"
-          (click)="guardar(); irConsultaNota()"
-          class="btn btn-primary buttonL"
-          style="float: right; border: solid 1px #9d2449"
-        >
+        <button [disabled]="camposNota.valid == false" type="button" (click)="guardar(); irConsultaNota()"
+          class="btn btn-primary buttonL" style="float: right; border: solid 1px #9d2449">
           Guardar
         </button>
         <button (click)="modalcarga(content)" type="button" class="btn btn-danger buttonL"
-    style="float: right; border: solid 1px #b38e5d;" >
-    Cancelar
-</button>
+          style="float: right; border: solid 1px #b38e5d;">
+          Cancelar
+        </button>
       </div>
     </div>
   </div>

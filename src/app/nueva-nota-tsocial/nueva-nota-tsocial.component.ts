@@ -25,11 +25,11 @@ export class NuevaNotaTSocialComponent implements OnInit {
   })
 
   camposNota: any = this.formBuilder.group({
-    tipoDeNota: ['', Validators.required],
+    tipoDeNota: ['-1', Validators.required],
+    redDeApoyo: ['-1', Validators.required],
+    actividadTecnica: ['-1', Validators.required],
+    diagnosticoMedico: ['-1', Validators.required],
     redaccionCronologica: ['', Validators.required],
-    redDeApoyo: ['', Validators.required],
-    actividadTecnica: ['', Validators.required],
-    diagnosticoMedico: ['', Validators.required],
     diagnosticoSocial: ['', Validators.required],
   })
 
