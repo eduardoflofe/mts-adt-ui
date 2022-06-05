@@ -28,8 +28,8 @@ const routes: Routes = [
   { path: 'cronicaGuardada', component: CronicaGuardadaComponent, canActivate: [SeguridadRouter] },
   { path: 'consulta-cronica-grupal', component: ConsultaComponent, canActivate: [SeguridadRouter] },
   { path: 'nueva-nota', component:NuevaNotaTSocialComponent, canActivate: [SeguridadRouter]},
-  { path: 'consulta-notas', component:ConsultaListaNotasTSocialComponent, canActivate: []},
-  {path:'estudio-medico', component:EstudioMedicoComponent, canActivate: []},
+  { path: 'consulta-notas', component:ConsultaListaNotasTSocialComponent, canActivate: [SeguridadRouter]},
+  {path:'estudio-medico', component:EstudioMedicoComponent, canActivate: [SeguridadRouter]},
   { path: '**', redirectTo: 'login' }
 ];
 
