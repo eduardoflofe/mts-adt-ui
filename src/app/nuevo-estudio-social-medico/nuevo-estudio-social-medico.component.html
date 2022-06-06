@@ -1,0 +1,35 @@
+<!-- <app-menu [activeItem]="1"></app-menu> -->
+<app-tarjeta-presentacion></app-tarjeta-presentacion>
+<app-card-template>
+    <div header class="flex justify-content-between align-items-center consultaCronicasGrupales">
+        <label>
+          Nuevo estudio social médico
+        </label>
+      </div>
+      <div content>
+        <span>1.-Datos generales</span>
+        <div class="line63" style="border-bottom: black;"></div>
+        <div>
+          <span class="instrucciones">
+            Por favor capture los siguientes datos:
+          </span>
+        </div>
+        <form class="formInfo">
+          <div class="container">
+            <span class="estudioSolicitadoPor">Estudio solicitado por*:</span>
+            <br>
+            <input class="inputEstudioSolicitadoPor" placeholder="Ingresar nombre">
+          </div>
+          <div class="col-md-4">
+            <div class="form-group datepicker-group">
+              <span class="spanInput">Fecha del estudio*:</span>
+              <input class="fechaEstudio" type="text"
+                placeholder="dd/mm/aaaa">
+              <span class="glyphicon glyphicon-calendar fondocalendar" aria-hidden="true">
+              </span>
+            </div>
+          </div>
+
+        </form>
+      </div>
+</app-card-template>
