@@ -13,7 +13,7 @@
 
             <div style="display: grid;">
                 <span class="pacienteSpan">Paciente</span>
-                <span class="pacienteNombreSpan">{{paciente.paciente}}</span>
+                <span class="pacienteNombreSpan">{{paciente?.paciente}}</span>
 
             </div>
 
@@ -21,7 +21,7 @@
 
             <div style="display: grid;">
                 <span class="unidadSpan">Unidad de Adscripción</span>
-                <span class="pacienteNombreSpan">UMF {{paciente.unidadMedica}}</span>
+                <span class="pacienteNombreSpan">UMF {{paciente?.unidadMedica}}</span>
             </div>
         </div>
         <div class="polig">
@@ -43,7 +43,7 @@
 
             <div style="display: grid; width: 170px;">
                 <span class="unidadSpan" style="margin-left: 12px;">Fecha de nacimiento</span>
-                <span class="detalleDescrip" style="margin-left: 12px;">{{paciente.fechaNacimiento}}</span>
+                <span class="detalleDescrip" style="margin-left: 12px;">{{paciente?.fechaNacimiento}}</span>
 
             </div>
 
@@ -51,7 +51,7 @@
 
             <div style="display: grid;  width: 65px;">
                 <span class="unidadSpan">Edad</span>
-                <span class="detalleDescrip">{{paciente.edad}} años</span>
+                <span class="detalleDescrip">{{paciente?.edad}} años</span>
                 <!-- <span class="detalleDescrip">{{'3'}}meses</span> -->
 
             </div>
@@ -60,7 +60,7 @@
 
             <div style="display: grid; width: 83px;">
                 <span class="unidadSpan">Sexo</span>
-                <span class="detalleDescrip">{{paciente.sexo}}</span>
+                <span class="detalleDescrip">{{paciente?.sexo}}</span>
 
             </div>
 
@@ -68,7 +68,7 @@
 
             <div style="display: grid; width: 95px;">
                 <span class="unidadSpan">NSS</span>
-                <span class="detalleDescrip">{{paciente.nss}}</span>
+                <span class="detalleDescrip">{{paciente?.nss}}</span>
 
             </div>
 
@@ -76,7 +76,7 @@
 
             <div style="display: grid;  width: 83px;">
                 <span class="unidadSpan">A. M&eacute;dico</span>
-                <span class="detalleDescrip">{{paciente.agregadoMedico}}</span>
+                <span class="detalleDescrip">{{paciente?.agregadoMedico}}</span>
 
             </div>
 
@@ -84,7 +84,7 @@
 
             <div style="display: grid; width: 188px;">
                 <span class="unidadSpan">CURP</span>
-                <span class="detalleDescrip">{{paciente.curp}}</span>
+                <span class="detalleDescrip">{{paciente?.curp}}</span>
 
             </div>
 
@@ -92,7 +92,7 @@
 
             <div style="display: grid; width: 84px;">
                 <span class="unidadSpan">Consultorio</span>
-                <span class="detalleDescrip">{{paciente.consultorio}}</span>
+                <span class="detalleDescrip">{{paciente?.consultorio}}</span>
 
             </div>
 
@@ -100,7 +100,7 @@
 
             <div style="display: grid; width: 60px;">
                 <span class="unidadSpan">Turno</span>
-                <span class="detalleDescrip">{{paciente.turno}}</span>
+                <span class="detalleDescrip">{{paciente?.turno}}</span>
             </div>
 
             <div class="divMenuHamburg">
