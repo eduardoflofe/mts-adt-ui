@@ -49,7 +49,7 @@ export class BusquedaNssComponent {
 
     this.tarjetaService.add(this.pacienteSeleccionado);
 
-    this.router.navigate(['consulta-notas'], { skipLocationChange: true });
+    this.router.navigate(['consulta-notas'], { skipLocationChange: true, state: { id: this.pacienteSeleccionado.nss } });
     console.log(this.pacienteSeleccionado)
 
   }
@@ -142,7 +142,7 @@ export class BusquedaNssComponent {
 
   sortBy(columnaId: string, order: string, type: string) {
     console.log(columnaId, order, type);
-    
+
     this.columnaId = columnaId;
     this.order = order;
 
