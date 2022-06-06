@@ -29,7 +29,7 @@ const routes: Routes = [
   { path: 'consulta-cronica-grupal', component: ConsultaComponent, canActivate: [SeguridadRouter] },
   { path: 'nueva-nota', component:NuevaNotaTSocialComponent, canActivate: [SeguridadRouter]},
   { path: 'consulta-notas', component:ConsultaListaNotasTSocialComponent, canActivate: [SeguridadRouter]},
-  {path: 'nuevo-estudio-social-medico', component: NuevoEstudioSocialMedicoComponent}
+  {path: 'nuevo-estudio-social-medico', component: NuevoEstudioSocialMedicoComponent},
   { path: '**', redirectTo: 'login' }
 ];
 

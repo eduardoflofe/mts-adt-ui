@@ -1,3 +1,4 @@
+import { ConsultaNotaTSocialComponent } from './consulta-nota-tsocial/consulta-nota-tsocial.component';
 import { LOCALE_ID, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { MatIconModule } from '@angular/material/icon';
@@ -38,6 +39,7 @@ import { NumberDirective } from './directives/only-numbers.directive';
 import { NuevaNotaTSocialComponent } from './nueva-nota-tsocial/nueva-nota-tsocial.component';
 import { ConsultaListaNotasTSocialComponent } from './consulta-lista-notas-tsocial/consulta-lista-notas-tsocial.component';
 import { NuevoEstudioSocialMedicoComponent } from './nuevo-estudio-social-medico/nuevo-estudio-social-medico.component';
+import { ConsultaEstudiosMedicosComponent } from './consulta-estudios-medicos/consulta-estudios-medicos.component';
 
 registerLocaleData('es');
 
@@ -62,7 +64,10 @@ registerLocaleData('es');
     NumberDirective,
     NuevaNotaTSocialComponent,
     ConsultaListaNotasTSocialComponent,
-    NuevoEstudioSocialMedicoComponent
+    NuevoEstudioSocialMedicoComponent,
+    ConsultaNotaTSocialComponent,
+    ConsultaEstudiosMedicosComponent
+
   ],
   imports: [
     BrowserModule,
@@ -98,7 +103,7 @@ registerLocaleData('es');
       } as RecaptchaSettings
     }, {
         provide:
-            HTTP_INTERCEPTORS, useClass: JRInterceptor, multi: true 
+            HTTP_INTERCEPTORS, useClass: JRInterceptor, multi: true
       }, {
         provide:
             LOCALE_ID, useValue: 'es'
@@ -106,8 +111,8 @@ registerLocaleData('es');
     ],
   bootstrap: [AppComponent]
 })
-export class AppModule { 
+export class AppModule {
   constructor(){
-   sessionStorage.setItem('token','token is null'); 
+   sessionStorage.setItem('token','token is null');
   }
 }
