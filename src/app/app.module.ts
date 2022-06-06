@@ -38,7 +38,8 @@ import '@angular/common/locales/global/es';
 import { NumberDirective } from './directives/only-numbers.directive';
 import { NuevaNotaTSocialComponent } from './nueva-nota-tsocial/nueva-nota-tsocial.component';
 import { ConsultaListaNotasTSocialComponent } from './consulta-lista-notas-tsocial/consulta-lista-notas-tsocial.component';
-import { EstudioMedicoComponent } from './estudio-medico/estudio-medico.component';
+import { NuevoEstudioSocialMedicoComponent } from './nuevo-estudio-social-medico/nuevo-estudio-social-medico.component';
+
 
 registerLocaleData('es');
 
@@ -63,8 +64,11 @@ registerLocaleData('es');
     NumberDirective,
     NuevaNotaTSocialComponent,
     ConsultaListaNotasTSocialComponent,
-    EstudioMedicoComponent],
-  imports: [
+    NuevoEstudioSocialMedicoComponent,
+    ConsultaNotaTSocialComponent
+
+  ],
+    imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,

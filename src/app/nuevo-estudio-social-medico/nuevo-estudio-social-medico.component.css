@@ -1,0 +1,40 @@
+.line63{
+    height: 0.15px;
+    background-color: #CCCCCC;
+    width: 494px;
+  }
+
+  .instrucciones {
+    width: 270px;
+    height: 17px;
+    margin: 14.5px 711px 10px 10px;
+    font-family: Montserrat;
+    font-size: 14px;
+    font-weight: 500;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: normal;
+    text-align: left;
+    color: #222;
+    margin-top: 5px;
+    margin-left: 10px;
+  }
+  .inputEstudioSolicitadoPor{
+    width: 370px;
+    height: 30px;
+    top: 129px;
+    left: 10px;
+    border-radius: 5px;
+    border-color: #DDDDDD ;
+  }
+
+  .estudioSolicitadoPor{
+    width: 275px;
+    height: 20px;
+    top: 110px;
+    left: 10px;
+    font-family: 'Montserrat';
+    font-weight: 600;
+    font-size: 12px;
+  }
