@@ -127,7 +127,7 @@ a {
   text-align: left;
   background-color: rgba(196, 196, 196, 0.1);
   border: 1px solid #EEEEEE;
-  text-align: left 10%;
+  text-align: left;
 }
 
 .encabezadoTableCentro {
@@ -145,7 +145,7 @@ a {
 }
 .bordesTablaFecha {
   border: 1px solid #ddd;
-  text-align: center !important;
+  text-align: left !important;
   padding-top: 14px;
   width: 17%;
 }
@@ -153,14 +153,14 @@ a {
 
 .bordesTablaNombreDeEstudio{
   border: 1px solid #ddd;
-  text-align: center !important;
+  text-align: left !important;
   padding-top: 14px;
   width: 50%;
 }
 
 .bordesTablaPersonalSOlicitante{
   border: 1px solid #ddd;
-  text-align: center !important;
+  text-align: left !important;
   padding-top: 14px;
   width: 30%;
 }

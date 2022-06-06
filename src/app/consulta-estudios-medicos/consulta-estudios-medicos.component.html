@@ -21,6 +21,7 @@
           </span>
         </div>
       </div>
+    
       <div class="col-md-4">
         <div class="form-group datepicker-group">
           <label class="control-label tituloServicio" for="calendar">Fecha hasta:</label>
@@ -64,10 +65,10 @@
             <tbody *ngFor="let item of tabla | paginate:{itemsPerPage:pageSize,currentPage:page}; let i = index">
               <tr>
                 <td class="bordesTablaFecha"
-                  style="cursor: pointer; text-decoration: none !important; color: #4D92DF!important; text-decoration: none !important;"
+                  style="cursor: pointer;  padding-left: 40px; text-decoration: none !important; color: #4D92DF!important; text-decoration: none !important;"
                   (click)="irDetalle(item);">{{ item.Fecha }}</td>
-                <td class="bordesTablaNombreDeEstudio">   {{item.NombreDeEstudio}}  </td>
-                <td class="bordesTablaPersonalSOlicitante">   {{item.PersonalSolicitante}}  </td>
+                <td class="bordesTablaNombreDeEstudio" style= padding-left:40px;>   {{item.NombreDeEstudio}}  </td>
+                <td class="bordesTablaPersonalSOlicitante" style= padding-left:40px;>   {{item.PersonalSolicitante}}  </td>
               </tr>
             </tbody>
           </table>
