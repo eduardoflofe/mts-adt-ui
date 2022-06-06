@@ -54,11 +54,11 @@
           <table  class="tabla" style="width: 100%;">
             <thead>
               <tr>
-                <th class="encabezadoTable" style="padding-top: 13px;">
+                <th class="encabezadoTable" style="padding-top: 13px; padding-left: 40px;">
                   Fecha
                 </th>
-                <th class="encabezadoTable" style="padding-top: 13px; width: 70px;">Nombre de Estudio</th>
-                <th class="encabezadoTable" style="padding-top: 13px; width: 70px;">Personal solicitante</th>
+                <th class="encabezadoTable" style="padding-top: 13px; padding-left: 40px; width: 70px;">Nombre de Estudio</th>
+                <th class="encabezadoTable" style="padding-top: 13px; padding-left: 40px; width: 70px;">Personal solicitante</th>
               </tr>
             </thead>
             <tbody *ngFor="let item of tabla | paginate:{itemsPerPage:pageSize,currentPage:page}; let i = index">
