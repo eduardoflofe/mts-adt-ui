@@ -34,23 +34,6 @@
   border-radius: 1px;
 }
 
-/* .instrucciones {
-  width: 270px;
-  height: 20px;
-  margin: 14.5px 71px 10px 10px;
-  font-family: Montserrat;
-  font-size: 14px;
-  font-weight: 500;
-  font-stretch: normal;
-  font-style: normal;
-  line-height: normal;
-  letter-spacing: normal;
-  text-align: left;
-  color: #222222;
-  margin-top: 83px;
-  margin-left: 10px;
-} */
-
 .labels {
   width: 275px;
   height: 20px;
@@ -403,4 +386,37 @@ select {
   letter-spacing: normal;
   text-align: center;
   margin-left: 200%;
+}
+
+
+/* -----------------------------------------modal----------------------------------------- */
+
+.modal-header{
+  background-color: #fff;
+  color:#fff;
+}
+
+.modal-content{
+  margin: auto;
+  width: 496px;
+}
+
+.line62{
+  height: 0.15px;
+  background-color: #CCCCCC;
+  width: 494px;
+}
+
+.tituloModal {
+  width: 358px;
+  height: 29px;
+  font-family: Montserrat;
+  font-size: 24px;
+  font-weight: bold;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  text-align: left;
+  color: #222;
 }
