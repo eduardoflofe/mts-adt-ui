@@ -34,4 +34,10 @@ export class NuevoEstudioSocialMedicoComponent implements OnInit {
     this.datosExploracionCaso = true
   }
 
+  irDatosGenerales(){
+    this.datosGenerales = true
+    this.datosFamiliar = false
+    this.datosExploracionCaso = false
+  }
+
 }
