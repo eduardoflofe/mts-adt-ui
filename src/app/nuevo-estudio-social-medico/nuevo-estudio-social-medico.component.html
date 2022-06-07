@@ -20,18 +20,29 @@
           Por favor capture los siguientes datos:
         </span>
       </div>
-      <form class="formInfo">
+      <form novalidate class="formInfo" [formGroup]="camposNota">
         <div class="container">
           <div class="flex" style="display:flex;">
             <div class="divEstudioSolicitado">
               <span class="labels">Estudio solicitado por*:</span>
               <br>
-              <input class="inputNormal" placeholder="Ingresar nombre">
+              <input class="form-control" placeholder="Ingresar nombre" formControlName="nuevoEstudioSocial"
+              [ngClass]="{
+                'form-control-error':
+                  camposNota.controls?.nuevoEstudioSocial?.dirty &&
+                  camposNota.controls?.nuevoEstudioSocial?.errors
+              }" required>
+              <small *ngIf="
+                camposNota.controls?.nuevoEstudioSocial?.dirty &&
+                camposNota.controls?.nuevoEstudioSocial?.errors
+              " class="form-text form-text-error Campo-obligatorio">
+              Campo obligatorio
+            </small>
             </div>
             <div class="divFechas">
               <span class="labels">Fecha del estudio*:</span>
               <br>
-              <input class="inputBloqueado" type="text" placeholder="dd/mm/aaaa" style="border-color:#DDDDDD;">
+              <input class="form-control" type="text" placeholder="dd/mm/aaaa" style="background-color:#EEEEEE ;">
             </div>
           </div>
 
@@ -43,17 +54,17 @@
             <div class="divCP">
               <span class="labels">Código Postal*:</span>
               <br>
-              <input class="inputNormal" placeholder="Ingresar código postal">
+              <input class="form-control" placeholder="Ingresar código postal">
             </div>
             <div class="divEstado">
               <span class="labels">Estado:</span>
               <br>
-              <input class="inputBloqueado" style="background-color:#EEEEEE ; border-color:#DDDDDD;">
+              <input class="form-control" style="background-color:#EEEEEE ;">
             </div>
             <div class="divD">
               <span class="labels">Delegación/Municipio:</span>
               <br>
-              <input class="inputBloqueado" style="background-color:#EEEEEE ;border-color:#DDDDDD;">
+              <input class="form-control" style="background-color:#EEEEEE ;">
             </div>
           </div>
           <div class="flex-3" style="display:flex ;">
@@ -67,24 +78,24 @@
             <div class="divColonia">
               <span class="labels">Colonia*:</span>
               <br>
-              <input class="inputNormal" placeholder="Ingresar colonia">
+              <input class="form-control" placeholder="Ingresar colonia">
             </div>
             <div class="divCalle">
               <span class="labels">Calle*:</span>
               <br>
-              <input class="inputNormal" placeholder="Ingresar calle">
+              <input class="form-control" placeholder="Ingresar calle">
             </div>
           </div>
           <div class="flex-4" style="display:flex ;">
             <div class="divNumExt">
               <span class="labels">Número exterior*:</span>
               <br>
-              <input class="inputNormal" placeholder="Ingresar número">
+              <input class="form-control" placeholder="Ingresar número">
             </div>
             <div class="divNumInt">
               <span class="labels">Número interior*:</span>
               <br>
-              <input class="inputNormal" placeholder="Ingresar número">
+              <input class="form-control" placeholder="Ingresar número">
             </div>
             <div class="divTipoComunidad">
               <span class="labels">Tipo de comunidad*:</span>
@@ -98,17 +109,17 @@
             <div class="divTelefonoFijo">
               <span class="labels">Teléfono fijo:</span>
               <br>
-              <input class="inputNormal" placeholder="Ingresar número">
+              <input class="form-control" placeholder="Ingresar número">
             </div>
             <div class="divTelefonoCelular">
               <span class="labels">Teléfono celular:</span>
               <br>
-              <input class="inputNormal" placeholder="Ingresar número">
+              <input class="form-control" placeholder="Ingresar número">
             </div>
             <div class="divEmail">
               <span class="labels">Correo electrónico:</span>
               <br>
-              <input class="inputNormal" placeholder="Ingresar correo">
+              <input class="form-control" placeholder="Ingresar correo">
             </div>
           </div>
           <div class="flex-6" style="display:flex ;">
@@ -420,8 +431,8 @@
                   Datos del paciente*:
                 </label>
                 <input class="form-control matricula inputs3" id="txtconsulta" placeholder="Ingresar datos del paciente"
-                  type="text" />
-                <label class="caracteres">0/2000 caracteres</label>
+                  type="text" #objetivosRef maxlength="4096" required rows="4"/>
+                <label class="caracteres">{{ objetivosRef.value?.length }} /2000 caracteres</label>
               </div>
             </div>
           </div>
