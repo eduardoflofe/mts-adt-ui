@@ -101,6 +101,13 @@
   border: solid 1px #e6e6e6;
 
 }
+.Rectangle-306-2 {
+  margin-top: 10px;
+  height: 800px;
+  width: 100%;
+  flex-grow: 0;
+  border: solid 1px #e6e6e6;
+}
 
 .nuevoEstudioSocialMedico {
   font-family: 'Montserrat';
@@ -269,6 +276,16 @@
   font-size: 14px;
   font-weight: 300;
   margin-top: -4px;
+}
+
+.inputs3 {
+  height: 60px;
+  border-color: #EEEEEE;
+  width: 500px;
+  left: 10px;
+  top: 235px;
+  border-radius: 5px;
+
 }
 
 .tituloInput{
