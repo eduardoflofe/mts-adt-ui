@@ -14,8 +14,8 @@
     <div class="row">
       <div class="col-md-4">
         <div class="form-group datepicker-group">
-          <label class="control-label tituloServicio" for="calendar">Fecha desde:</label>
-          <input calendar class="form-control" id="calendar" type="text" placeholder="dd/mm/aaaa">
+          <label class="control-label tituloServicio" for="notasInit">Fecha desde:</label>
+          <input notasInit class="form-control" id="notasInit" type="text" placeholder="dd/mm/aaaa">
           <span class="glyphicon glyphicon-calendar fondocalendar" aria-hidden="true">
             <div class="imgCalendar"></div>
           </span>
@@ -23,8 +23,8 @@
       </div>
       <div class="col-md-4">
         <div class="form-group datepicker-group">
-          <label class="control-label tituloServicio" for="calendar">Fecha hasta:</label>
-          <input calendar class="form-control" id="calendar" type="text" placeholder="dd/mm/aaaa">
+          <label class="control-label tituloServicio" for="notasFinal">Fecha hasta:</label>
+          <input notasFinal class="form-control" id="notasFinal" type="text" placeholder="dd/mm/aaaa">
           <span class="glyphicon glyphicon-calendar fondocalendar" aria-hidden="true">
             <div class="imgCalendar"></div>
           </span>
@@ -51,7 +51,7 @@
     <ng-container *ngIf="tabla.length > 0 else mostrarSeccionSinResultados">
       <div class="row">
         <div class="col-md-12">
-          <table  class="tabla" style="width: 100%;">
+          <table class="tabla" style="width: 100%;">
             <thead>
               <tr>
                 <th class="encabezadoTable" style="padding-top: 13px;">
@@ -65,7 +65,7 @@
                 <td class="bordesTablaFecha"
                   style="cursor: pointer; text-decoration: none !important; color: #4D92DF!important; text-decoration: none !important;"
                   (click)="irDetalle(item);">{{ item.Fecha }}</td>
-                <td class="bordesTablaDescripcion">   {{item.Descripcion}}  </td>
+                <td class="bordesTablaDescripcion"> {{item.Descripcion}} </td>
               </tr>
             </tbody>
           </table>

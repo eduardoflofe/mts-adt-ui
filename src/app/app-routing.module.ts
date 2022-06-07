@@ -16,6 +16,7 @@ import { ConsultaListaNotasTSocialComponent } from './consulta-lista-notas-tsoci
 import { NuevoEstudioSocialMedicoComponent } from './nuevo-estudio-social-medico/nuevo-estudio-social-medico.component';
 import { ConsultaNotaTSocialComponent } from './consulta-nota-tsocial/consulta-nota-tsocial.component';
 import { ConsultaEstudiosMedicosComponent } from './consulta-estudios-medicos/consulta-estudios-medicos.component';
+import { EstudioMedicoGuardadoComponent } from './estudio-medico-guardado/estudio-medico-guardado.component';
 
 
 
@@ -34,7 +35,8 @@ const routes: Routes = [
   { path: 'consulta-nota', component: ConsultaNotaTSocialComponent, canActivate: [SeguridadRouter] },
   { path: 'consulta-estudios-medicos', component: ConsultaEstudiosMedicosComponent, canActivate: [SeguridadRouter] },
   { path: 'consulta-notas', component: ConsultaListaNotasTSocialComponent, canActivate: [SeguridadRouter] },
-  { path: 'nuevo-estudio-social-medico', component: NuevoEstudioSocialMedicoComponent,  canActivate: [SeguridadRouter] },
+  { path: 'nuevo-estudio-social-medico', component: NuevoEstudioSocialMedicoComponent, canActivate: [SeguridadRouter] },
+  { path: 'estudio-medico-guardado', component: EstudioMedicoGuardadoComponent, canActivate: [SeguridadRouter] },
   { path: '**', redirectTo: 'login' }
 ];
 

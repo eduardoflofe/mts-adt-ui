@@ -3,6 +3,8 @@ import { Router } from '@angular/router';
 import { HttpErrorResponse } from '@angular/common/http';
 import { AuthService } from 'src/app/service/auth-service.service';
 import { NotasService } from 'src/app/service/notas.service';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import * as moment from 'moment';
 
 declare var $: any;
 
@@ -21,12 +23,14 @@ export class ConsultaListaNotasTSocialComponent implements OnInit, AfterViewInit
   public order: string = 'desc';
   public tabla: any[] = [];
   public extras: any;
+  public datesForm!: FormGroup;
   // tabla = [{ "Fecha": "20/06/2022", "Descripcion": "lorem imput dolor sit amen lorem imput dolor sit amen lorem imput dolor sit amen lorem imput", }];
 
   constructor(
     private router: Router,
     private authService: AuthService,
     private notasService: NotasService,
+    private fb: FormBuilder,
   ) {
     this.extras = this.router.getCurrentNavigation()?.extras;
     if (this.extras && this.extras.state) {
@@ -35,7 +39,12 @@ export class ConsultaListaNotasTSocialComponent implements OnInit, AfterViewInit
     }
   }
 
-  ngOnInit(): void { }
+  ngOnInit(): void {
+    this.datesForm = this.fb.group({
+      fechaInicial: [null, Validators.required],
+      fechaFinal: [null, Validators.required],
+    });
+  }
 
   getNotasById(id: number) {
     this.notasService.getNotasById(id).subscribe(
@@ -49,8 +58,8 @@ export class ConsultaListaNotasTSocialComponent implements OnInit, AfterViewInit
     );
   }
 
-  getNotasByFecha(fechaInicial: string, fechaFinal: string) {
-    this.notasService.getNotasByFechas(fechaInicial, fechaFinal).subscribe(
+  getNotasByFecha() {
+    this.notasService.getNotasByFechas(this.datesForm.get('fechaInicial')?.value, this.datesForm.get('fechaFinal')?.value).subscribe(
       (res) => {
         console.log(res);
         this.tabla = res;
@@ -60,17 +69,36 @@ export class ConsultaListaNotasTSocialComponent implements OnInit, AfterViewInit
       }
     );
   }
-
+  // yy/mm/dd
   ngAfterViewInit(): void {
-    $('#calendar').datepicker({
-      dateFormat: "yy/mm/dd",
+    $('#notasInit').datepicker({
+      dateFormat: "dd/mm/yy",
       onSelect: (date: any, datepicker: any) => {
         if (date != '') {
-          this.fechaSelected = date.replaceAll('/', '-');
-          // console.log("date onSelect: ", date);
-          setTimeout(() => {
-            // this.getCronicasGrupales()
-          }, 0)
+          date = moment(date, 'DD/MM/YYYY').format('YYYY-MM-DD');
+          this.datesForm.get('fechaInicial')?.patchValue(date);
+          this.handleDatesChange();
+        }
+      },
+      onClose: (date: any) => {
+        if (!date) {
+          this.datesForm.get('fechaInicial')?.patchValue(null);
+        }
+      }
+    });
+
+    $('#notasFinal').datepicker({
+      dateFormat: "dd/mm/yy",
+      onSelect: (date: any, datepicker: any) => {
+        if (date != '') {
+          date = moment(date, 'DD/MM/YYYY').format('YYYY-MM-DD');
+          this.datesForm.get('fechaFinal')?.patchValue(date);
+          this.handleDatesChange();
+        }
+      },
+      onClose: (date: any) => {
+        if (!date) {
+          this.datesForm.get('fechaFinal')?.patchValue(null);
         }
       }
     });
@@ -87,4 +115,14 @@ export class ConsultaListaNotasTSocialComponent implements OnInit, AfterViewInit
     this.router.navigate(["nueva-nota"], { queryParams: params, skipLocationChange: true });
   }
 
+  handleDatesChange() {
+    if (
+      this.datesForm.get('fechaInicial')?.value &&
+      this.datesForm.get('fechaInicial')?.value !== '' &&
+      this.datesForm.get('fechaFinal')?.value &&
+      this.datesForm.get('fechaFinal')?.value !== '')
+    {
+      this.getNotasByFecha();
+    }
+  }
 }

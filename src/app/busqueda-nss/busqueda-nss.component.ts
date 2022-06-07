@@ -44,14 +44,9 @@ export class BusquedaNssComponent {
   ) { }
 
   elementoSeleccionado(obj: any) {
-
     this.pacienteSeleccionado = obj;
-
     this.tarjetaService.add(this.pacienteSeleccionado);
-
-    this.router.navigate(['consulta-notas'], { skipLocationChange: true, state: { id: this.pacienteSeleccionado.nss } });
-    console.log(this.pacienteSeleccionado)
-
+    this.router.navigate(['consulta-notas'], { skipLocationChange: true });
   }
 
   muestra(i: number) {
