@@ -1,35 +1,557 @@
-<!-- <app-menu [activeItem]="1"></app-menu> -->
+<div style="margin-bottom: 1%"></div>
 <app-tarjeta-presentacion></app-tarjeta-presentacion>
 <app-card-template>
-    <div header class="flex justify-content-between align-items-center consultaCronicasGrupales">
-        <label>
-          Nuevo estudio social médico
-        </label>
-      </div>
-      <div content>
-        <span>1.-Datos generales</span>
-        <div class="line63" style="border-bottom: black;"></div>
-        <div>
-          <span class="instrucciones">
-            Por favor capture los siguientes datos:
-          </span>
+  <div header class="flex justify-content-between align-items-center nuevoEstudio">
+    <span style="font-weight: 700; font-size: 24px; color: #222222; line-height: 29.16px;">
+      Nuevo estudio social médico
+    </span>
+  </div>
+  <div content class="content" style="border: 1px solid #CCCCCC ; width: 1099px;">
+    <div class="contenido">
+      <div class="contentHeader" style="display:flex;">
+        <div class="datosG">
+          <label class="datosGeneralesLabel">1.-Datos generales</label>
         </div>
-        <form class="formInfo">
-          <div class="container">
-            <span class="estudioSolicitadoPor">Estudio solicitado por*:</span>
-            <br>
-            <input class="inputEstudioSolicitadoPor" placeholder="Ingresar nombre">
-          </div>
-          <div class="col-md-4">
-            <div class="form-group datepicker-group">
-              <span class="spanInput">Fecha del estudio*:</span>
-              <input class="fechaEstudio" type="text"
-                placeholder="dd/mm/aaaa">
-              <span class="glyphicon glyphicon-calendar fondocalendar" aria-hidden="true">
-              </span>
+      </div>
+      <br>
+      <div class="line63" style="border-bottom: black;"></div>
+      <div>
+        <span class="instrucciones">
+          Por favor capture los siguientes datos:
+        </span>
+      </div>
+      <form novalidate class="formInfo" [formGroup]="camposNota">
+        <div class="container">
+          <div class="flex" style="display:flex;">
+            <div class="divEstudioSolicitado">
+              <span class="labels">Estudio solicitado por*:</span>
+              <br>
+              <input class="form-control" placeholder="Ingresar nombre" formControlName="nuevoEstudioSocial"
+              [ngClass]="{
+                'form-control-error':
+                  camposNota.controls?.nuevoEstudioSocial?.dirty &&
+                  camposNota.controls?.nuevoEstudioSocial?.errors
+              }" required>
+              <small *ngIf="
+                camposNota.controls?.nuevoEstudioSocial?.dirty &&
+                camposNota.controls?.nuevoEstudioSocial?.errors
+              " class="form-text form-text-error Campo-obligatorio">
+              Campo obligatorio
+            </small>
+            </div>
+            <div class="divFechas">
+              <span class="labels">Fecha del estudio*:</span>
+              <br>
+              <input class="form-control" type="text" placeholder="dd/mm/aaaa" style="background-color:#EEEEEE ;">
             </div>
           </div>
 
-        </form>
+          <br>
+          <div class="line63-DatosG" style="border-bottom: black;"></div>
+          <br>
+
+          <div class="flex-2" style="display:flex ;">
+            <div class="divCP">
+              <span class="labels">Código Postal*:</span>
+              <br>
+              <input class="form-control" placeholder="Ingresar código postal">
+            </div>
+            <div class="divEstado">
+              <span class="labels">Estado:</span>
+              <br>
+              <input class="form-control" style="background-color:#EEEEEE ;">
+            </div>
+            <div class="divD">
+              <span class="labels">Delegación/Municipio:</span>
+              <br>
+              <input class="form-control" style="background-color:#EEEEEE ;">
+            </div>
+          </div>
+          <div class="flex-3" style="display:flex ;">
+            <div class="divCiudad">
+              <span class="labels">Ciudad*:</span>
+              <br>
+              <select class="select">
+                <option value="-1">Ingresar ciudad</option>
+              </select>
+            </div>
+            <div class="divColonia">
+              <span class="labels">Colonia*:</span>
+              <br>
+              <input class="form-control" placeholder="Ingresar colonia">
+            </div>
+            <div class="divCalle">
+              <span class="labels">Calle*:</span>
+              <br>
+              <input class="form-control" placeholder="Ingresar calle">
+            </div>
+          </div>
+          <div class="flex-4" style="display:flex ;">
+            <div class="divNumExt">
+              <span class="labels">Número exterior*:</span>
+              <br>
+              <input class="form-control" placeholder="Ingresar número">
+            </div>
+            <div class="divNumInt">
+              <span class="labels">Número interior*:</span>
+              <br>
+              <input class="form-control" placeholder="Ingresar número">
+            </div>
+            <div class="divTipoComunidad">
+              <span class="labels">Tipo de comunidad*:</span>
+              <br>
+              <select class="select">
+                <option value="-1">Seleccionar comunidad</option>
+              </select>
+            </div>
+          </div>
+          <div class="flex-5" style="display:flex ; height: 60px;">
+            <div class="divTelefonoFijo">
+              <span class="labels">Teléfono fijo:</span>
+              <br>
+              <input class="form-control" placeholder="Ingresar número">
+            </div>
+            <div class="divTelefonoCelular">
+              <span class="labels">Teléfono celular:</span>
+              <br>
+              <input class="form-control" placeholder="Ingresar número">
+            </div>
+            <div class="divEmail">
+              <span class="labels">Correo electrónico:</span>
+              <br>
+              <input class="form-control" placeholder="Ingresar correo">
+            </div>
+          </div>
+          <div class="flex-6" style="display:flex ;">
+            <div class="divEstadoCivil">
+              <span class="labels">Estado civil*:</span>
+              <br>
+              <select class="select">
+                <option value="-1">Seleccionar estado civil</option>
+              </select>
+            </div>
+            <div class="divOcupacion">
+              <span class="labels">Ocupación*:</span>
+              <br>
+              <select class="select">
+                <option value="-1">Ingresar ocupación</option>
+              </select>
+            </div>
+          </div>
+          <br>
+          <div><span class="labels">*Campos obligatorios</span></div>
+          <div class="row">
+            <div class="col-md-4"
+              style="padding-top: 19px; padding-right: 24px;  margin-top: -1.4%; text-align: center;">
+
+            </div>
+            <div class="col-md-4"
+              style="padding-top: 19px; padding-right: 24px;  margin-top: 0.4%; text-align: center;">
+              <img src="url('../../../../assets/icons/menor_que.svg" alt="" style="margin-right: 3px;">
+              Atrás
+              <img src="url('../../../../assets/icons/circulo_verde.svg" alt="" style="margin-left: 9px;">
+              <img src="url('../../../../assets/icons/1.svg" alt="" style="margin-left: -18px;">
+            </div>
+            <div class="col-md-4" style="padding-top: 29px; padding-right: 79px;  margin-top: -1.4%;">
+              <button class="btn btn-primary buttonL" style="float: right;border: solid 1px #9d2449;">
+                Guardar
+              </button>
+              <button type="button" class="btn btn-danger buttonL" style="float: right; border: solid 1px #b38e5d;">
+                Cancelar
+              </button>
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</app-card-template>
+
+
+<app-card-template>
+  <div header class="flex justify-content-between align-items-center consultaCronicasGrupales">
+    <label>
+      Nuevo estudio social médicos
+    </label>
+  </div>
+  <div content style="padding-bottom: 5.5%;">
+    <div class="Rectangle-306" style="background-color: white">
+      <div class="row" style="width: 100%; height: 11%; ">
+        <div header class="flex justify-content-between align-items-center col-md-6">
+          <label class="datos">
+            2.- Datos de familiar / responsable
+          </label>
+        </div>
+        <div header class="flex justify-content-between align-items-center col-md-3"></div>
+        <div header class="flex justify-content-between align-items-center col-md-3 row"
+          style="background-color: #9d2449;">
+
+          <div class="col-md-4" style="background-color: #9d2449;">
+
+          </div>
+          <div class="col-md-4" style="background-color: blue">
+          </div>
+          <div class="col-md-4" style="background-color: #9d2449;">
+          </div>
+
+        </div>
       </div>
+
+      <div style="width: 464px; background-color:#DBDBDC; height: 1px;"></div>
+
+      <span class="instrucciones">
+        Por favor capture los siguientes datos:
+      </span>
+      <div style="width: 100%; height: 57%;">
+
+        <div class="row" style="margin: 0 -4px 0 -4px;">
+          <div class="col-md-4">
+            <div class="">
+              <label class="control-label tituloInput">
+                Servicio:
+              </label>
+              <input class="form-control matricula inputs" id="txtconsulta" placeholder="Ingresar ponentes"
+                type="text" />
+            </div>
+          </div>
+
+          <div class="col-md-4">
+            <div class="">
+              <label class="control-label tituloInput">
+                Servicio:
+              </label>
+              <input class="form-control matricula inputs" id="txtconsulta" placeholder="Ingresar ponentes"
+                type="text" />
+            </div>
+          </div>
+
+          <div class="col-md-4">
+            <div class="">
+              <label class="control-label tituloInput">
+                Servicio:
+              </label>
+              <input class="form-control matricula inputs" id="txtconsulta" placeholder="Ingresar ponentes"
+                type="text" />
+            </div>
+          </div>
+        </div>
+        <div class="row" style="margin: 0 -4px  -4px;">
+          <div class="col-md-4">
+            <div class="">
+              <label class="control-label tituloInput">
+                Servicio:
+              </label>
+              <input class="form-control matricula inputs" id="txtconsulta" placeholder="Ingresar ponentes"
+                type="text" />
+            </div>
+          </div>
+
+          <div class="col-md-4">
+            <div class="">
+              <label class="control-label tituloInput">
+                Servicio:
+              </label>
+              <input class="form-control matricula inputs" id="txtconsulta" placeholder="Ingresar ponentes"
+                type="text" />
+            </div>
+          </div>
+
+          <div class="col-md-4">
+            <div class="">
+              <label class="control-label tituloInput">
+                Servicio:
+              </label>
+              <input class="form-control matricula inputs" id="txtconsulta" placeholder="Ingresar ponentes"
+                type="text" />
+            </div>
+          </div>
+        </div>
+        <div class="row" style="margin: 0 -4px 0 -4px;">
+          <div class="col-md-4">
+            <div class="">
+              <label class="control-label tituloInput">
+                Servicio:
+              </label>
+              <input class="form-control matricula inputs" id="txtconsulta" placeholder="Ingresar ponentes"
+                type="text" />
+            </div>
+          </div>
+
+          <div class="col-md-4">
+            <div class="">
+              <label class="control-label tituloInput">
+                Servicio:
+              </label>
+              <input class="form-control matricula inputs" id="txtconsulta" placeholder="Ingresar ponentes"
+                type="text" />
+            </div>
+          </div>
+
+          <div class="col-md-4">
+            <div class="">
+              <label class="control-label tituloInput">
+                Servicio:
+              </label>
+              <input class="form-control matricula inputs" id="txtconsulta" placeholder="Ingresar ponentes"
+                type="text" />
+            </div>
+          </div>
+        </div>
+        <div class="row" style="margin: 0 -4px 0 -4px;">
+          <div class="col-md-4">
+            <div class="">
+              <label class="control-label tituloInput">
+                Servicio:
+              </label>
+              <input class="form-control matricula inputs" id="txtconsulta" placeholder="Ingresar ponentes"
+                type="text" />
+            </div>
+          </div>
+
+          <div class="col-md-4">
+            <div class="">
+              <label class="control-label tituloInput">
+                Servicio:
+              </label>
+              <input class="form-control matricula inputs" id="txtconsulta" placeholder="Ingresar ponentes"
+                type="text" />
+            </div>
+          </div>
+
+          <div class="col-md-4">
+          </div>
+        </div>
+        <div class="row" style="margin: 0 -4px 0 -4px;">
+          <div class="col-md-4">
+            <div class="" style="margin-bottom: 15px!important">
+              <label class="control-label tituloInput">
+                Servicio:
+              </label>
+              <input class="form-control matricula inputs" id="txtconsulta" placeholder="Ingresar ponentes"
+                type="text" />
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="">
+              <label class="control-label tituloInput">
+                Servicio:
+              </label>
+              <input class="form-control matricula inputs" id="txtconsulta" placeholder="Ingresar ponentes"
+                type="text" />
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="">
+              <label class="control-label tituloInput">
+                Servicio:
+              </label>
+              <input class="form-control matricula inputs" id="txtconsulta" placeholder="Ingresar ponentes"
+                type="text" />
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div style="width: 100%; height: 17%; ">
+        <div class="row">
+          <div class="col-md-4" style="padding-top: 19px; padding-right: 24px;  margin-top: -1.4%; text-align: center;">
+
+          </div>
+          <div class="col-md-4" style="padding-top: 19px; padding-right: 24px;  margin-top: 0.4%; text-align: center;">
+            <img src="url('../../../../assets/icons/menor_que.svg" alt="" style="margin-right: 3px;">
+            Atrás
+            <img src="url('../../../../assets/icons/circulo_verde.svg" alt="" style="margin-left: 9px;">
+            <img src="url('../../../../assets/icons/2.svg" alt="" style="margin-left: -18px;">
+          </div>
+          <div class="col-md-4" style="padding-top: 19px; padding-right: 24px;  margin-top: -1.4%;">
+            <button class="btn btn-primary buttonL" style="float: right;border: solid 1px #9d2449;">
+              Guardar
+            </button>
+            <button type="button" class="btn btn-danger buttonL" style="float: right; border: solid 1px #b38e5d;">
+              Cancelar
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</app-card-template>
+
+<app-card-template>
+  <div header class="flex justify-content-between align-items-center consultaCronicasGrupales">
+    <label>
+      Nuevo estudio social médicos
+    </label>
+  </div>
+  <div content style="padding-bottom: 5.5%; height: 800px;">
+    <div class="Rectangle-306-2" style="background-color: white">
+      <div class="row" style="width: 100%; height: 11%; ">
+        <div header class="flex justify-content-between align-items-center col-md-6">
+          <label class="datos">
+            3.- Datos de exploración del caso
+          </label>
+        </div>
+        <div header class="flex justify-content-between align-items-center col-md-3"></div>
+        <div header class="flex justify-content-between align-items-center col-md-3 row"
+          style="background-color: #9d2449;">
+
+          <div class="col-md-4" style="background-color: #9d2449;">
+
+          </div>
+          <div class="col-md-4" style="background-color: blue">
+          </div>
+          <div class="col-md-4" style="background-color: #9d2449;">
+          </div>
+
+        </div>
+      </div>
+
+      <div style="width: 464px; background-color:#DBDBDC; height: 1px;"></div>
+      <span class="instrucciones">
+        Por favor capture los siguientes datos:
+      </span>
+      <div style="width: 100%; height: 57%;">
+
+        <div class="row" style="margin: 0 -4px 0 -4px;">
+          <div class="contenedor1" style="display: flex;">
+            <div class="col-md-4" style="flex:auto ;">
+              <div class="" style="float: inline-start; width: 300px;">
+                <label class="control-label tituloInput">
+                  Objetivo del estudio*:
+                </label>
+                <input class="form-control matricula inputs3" id="txtconsulta" placeholder="Ingresar objetivo"
+                  type="text" />
+                <label class="caracteres">0/2000 caracteres</label>
+              </div>
+            </div>
+
+            <div class="col-md-4" style="flex:auto ;">
+              <div class="" style="float:inline-end ; width: 200 px;">
+                <label class="control-label tituloInput">
+                  Datos del paciente*:
+                </label>
+                <input class="form-control matricula inputs3" id="txtconsulta" placeholder="Ingresar datos del paciente"
+                  type="text" #objetivosRef maxlength="4096" required rows="4"/>
+                <label class="caracteres">{{ objetivosRef.value?.length }} /2000 caracteres</label>
+              </div>
+            </div>
+          </div>
+          <div class="contenedor2" style="display: flex;">
+            <div class="col-md-4" style="flex:auto ;">
+              <div class="">
+                <label class="control-label tituloInput">
+                  Datos familiares*:
+                </label>
+                <input class="form-control matricula inputs3" id="txtconsulta" placeholder="Ingresar datos familiares"
+                  type="text" />
+                <label class="caracteres">0/2000 caracteres</label>
+              </div>
+            </div>
+
+            <div class="col-md-4" style="flex:auto ;">
+              <div class="">
+                <label class="control-label tituloInput">
+                  Datos económicos*:
+                </label>
+                <input class="form-control matricula inputs3" id="txtconsulta" placeholder="Ingresar datos económicos"
+                  type="text" />
+                <label class="caracteres">0/2000 caracteres</label>
+              </div>
+            </div>
+          </div>
+          <div class="contenedor3" style="display: flex;">
+            <div class="col-md-4" style="flex:auto ;">
+              <div class="">
+                <label class="control-label tituloInput">
+                  Condiciones del hogar*:
+                </label>
+                <input class="form-control matricula inputs3" id="txtconsulta"
+                  placeholder="Ingresar condiciones del hogar" type="text" />
+                <label class="caracteres">0/2000 caracteres</label>
+              </div>
+            </div>
+
+            <div class="col-md-4" style="flex:auto ;">
+              <div class="">
+                <label class="control-label tituloInput">
+                  Datos complementarios*:
+                </label>
+                <input class="form-control matricula inputs3" id="txtconsulta"
+                  placeholder="Ingresar datos complementarios" type="text" />
+                <label class="caracteres">0/2000 caracteres</label>
+              </div>
+            </div>
+          </div>
+          <div class="contenedor4" style="display: flex;">
+            <!-- <div class="row" style="margin: 0 -4px 0 -4px;"> -->
+            <div class="col-md-4" style="flex:auto ;">
+              <div class="">
+                <label class="control-label tituloInput">
+                  Diagnóstico social del paciente*:
+                </label>
+                <input class="form-control matricula inputs3" id="txtconsulta"
+                  placeholder="Ingresar diagnóstico social del paciente" type="text" />
+                <label class="caracteres">0/2000 caracteres</label>
+              </div>
+            </div>
+
+            <div class="col-md-4" style="flex:auto ;">
+              <div class="">
+                <label class="control-label tituloInput">
+                  Diagnóstico social de la familia*:
+                </label>
+                <input class="form-control matricula inputs3" id="txtconsulta"
+                  placeholder="Ingresar diagnóstico social de la familia" type="text" />
+                <label class="caracteres">0/2000 caracteres</label>
+              </div>
+            </div>
+          </div>
+          <div class="contenedor5" style="display: flex;">
+            <div class="col-md-4" style="flex:auto ;">
+              <div class="">
+                <label class="control-label tituloInput">
+                  Plan de tratamiento social*:
+                </label>
+                <input class="form-control matricula inputs3" id="txtconsulta"
+                  placeholder="Ingresar plan de tratamiento social" type="text" />
+                <label class="caracteres">0/2000 caracteres</label>
+              </div>
+            </div>
+
+            <div class="col-md-4" style="flex:auto ;">
+              <div class="">
+                <label class="control-label tituloInput">
+                  Acciones realizadas*:
+                </label>
+                <input class="form-control matricula inputs3" id="txtconsulta"
+                  placeholder="Ingresar acciones realizadas" type="text" />
+                <label class="caracteres">0/2000 caracteres</label>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div style="width: 100%; height: 17%; ">
+        <div class="row">
+          <div class="col-md-4" style="padding-top: 19px; padding-right: 24px;  margin-top: -1.4%; text-align: end;">
+          </div>
+          <div class="col-md-4" style="padding-top: 19px; padding-right: 24px;  margin-top: 12.4%; text-align: center;">
+            <img src="url('../../../../assets/icons/menor_que.svg" alt="" style="margin-right: 3px;">
+            Atrás
+            <img src="url('../../../../assets/icons/circulo_verde.svg" alt="" style="margin-left: 9px;">
+            <img src="url('../../../../assets/icons/3.svg" alt="" style="margin-left: -18px;">
+          </div>
+          <div class="col-md-4" style="padding-top: 19px; padding-right: 24px;  margin-top: 11.4%;">
+            <button class="btn btn-primary buttonL" style="float: right;border: solid 1px #9d2449;">
+              Guardar
+            </button>
+            <button type="button" class="btn btn-danger buttonL" style="float: right; border: solid 1px #b38e5d;">
+              Cancelar
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <app-info-bottom></app-info-bottom>
 </app-card-template>

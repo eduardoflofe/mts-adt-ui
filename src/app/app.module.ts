@@ -40,6 +40,8 @@ import { NuevaNotaTSocialComponent } from './nueva-nota-tsocial/nueva-nota-tsoci
 import { ConsultaListaNotasTSocialComponent } from './consulta-lista-notas-tsocial/consulta-lista-notas-tsocial.component';
 import { NuevoEstudioSocialMedicoComponent } from './nuevo-estudio-social-medico/nuevo-estudio-social-medico.component';
 import { ConsultaEstudiosMedicosComponent } from './consulta-estudios-medicos/consulta-estudios-medicos.component';
+import { EstudioMedicoGuardadoComponent } from './estudio-medico-guardado/estudio-medico-guardado.component';
+
 
 registerLocaleData('es');
 
@@ -66,10 +68,11 @@ registerLocaleData('es');
     ConsultaListaNotasTSocialComponent,
     NuevoEstudioSocialMedicoComponent,
     ConsultaNotaTSocialComponent,
-    ConsultaEstudiosMedicosComponent
+    ConsultaEstudiosMedicosComponent,
+    EstudioMedicoGuardadoComponent
 
   ],
-  imports: [
+    imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
