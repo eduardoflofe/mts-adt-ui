@@ -17,7 +17,15 @@
   top: 272px;
   left: 10px;
   font-size: 14px;
-  color: #222222;
+}
+.form-control-txt {
+  font-size: 14px !important;
+  height: 60px;
+  width: 500px;
+  left: 10px;
+  top: 235px;
+  border-radius: 5px;
+  border-color: #DDDDDD
 }
 .content {
   width: 596px;
@@ -67,13 +75,6 @@
   font-size: 14px;
 }
 
-/* .inputBloqueado {
-  background-color: #EEEEEE;
-  border-radius: 5px;
-  width: 340px;
-  height: 30px;
-  font-size: 14px;
-} */
 .inputBloqueado{
   border-radius: 5px;
   width: 340px;
@@ -185,8 +186,8 @@
 }
 
 .caracteres {
-  width: 134px;
-  height: 17px;
+  width: 145px;
+  height: 10px;
   top: 295px;
   left: 10px;
   font-family: 'Montserrat';

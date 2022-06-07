@@ -9,8 +9,30 @@ import { Validators } from '@angular/forms'
 })
 export class NuevoEstudioSocialMedicoComponent implements OnInit {
   camposNota: any = this.formBuilder.group({
-    nuevoEstudioSocial: ['', Validators.required]
+    nuevoEstudioSocial: ['', Validators.required],
+    solicitadoPor:['',Validators.required],
+    fechas:['',Validators.required],
+    cp:['',Validators.required],
+    colonia:['',Validators.required],
+    calle:['',Validators.required],
+    numeroExt:['',Validators.required],
+    numeroInt:['',Validators.required],
+    telefonoFijo:['',Validators.required],
+    telefonoCelular:['',Validators.required],
+    email:['',Validators.required],
+    objetivoEstudio:['',Validators.required],
+    datosPaciente:['',Validators.required],
+    datosFamiliares:['',Validators.required],
+    datosEconomicos:['',Validators.required],
+    datosHogar:['',Validators.required],
+    datosComplementarios:['',Validators.required],
+    datosSocialF:['',Validators.required],
+    datosTratamiento:['',Validators.required],
+    datosAcciones:['',Validators.required]
   })
+  // camposExploracion: any = this.formBuilder.group({
+  //   objetivoEstudio:['',Validators.required]
+  // })
   constructor(private formBuilder: FormBuilder) { }
 
   ngOnInit(): void {
