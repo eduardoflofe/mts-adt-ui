@@ -44,12 +44,29 @@
 }
 
 .inputNormal{
+  font-family: Montserrat;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 17px;
   width: 340px;
   height: 30px;
   top: 129px;
   left: 410px;
   border-radius: 5px;
   border-color:#DDDDDD ;
+}
+.inputs3 {
+  font-family: Montserrat;
+  font-weight: 300;
+  font-size: 14px;
+  line-height: 17px;
+  height: 43px;
+  border-color: #DDDDDD ;
+  width: 547px;
+  left: 10px;
+  top: 235px;
+  border-radius: 5px;
+
 }
 
 ::placeholder{
@@ -103,7 +120,7 @@
 }
 .Rectangle-306-2 {
   margin-top: 10px;
-  height: 800px;
+  height: 600px;
   width: 100%;
   flex-grow: 0;
   border: solid 1px #e6e6e6;
@@ -276,16 +293,6 @@
   font-size: 14px;
   font-weight: 300;
   margin-top: -4px;
-}
-
-.inputs3 {
-  height: 60px;
-  border-color: #EEEEEE;
-  width: 500px;
-  left: 10px;
-  top: 235px;
-  border-radius: 5px;
-
 }
 
 .tituloInput{
