@@ -1,6 +1,7 @@
 <!-- <app-menu [activeItem]="1"></app-menu> -->
 <div style="margin-bottom: 1%"></div>
 <app-tarjeta-presentacion></app-tarjeta-presentacion>
+<ng-container *ngIf="datosGenerales == true">
 <app-card-template>
   <div header class="flex justify-content-between align-items-center nuevoEstudio">
     <span style="font-weight: 700; font-size: 24px; color: #222222; line-height: 29.16px;">
@@ -10,7 +11,7 @@
   <div content class="content" style="border: 1px solid #CCCCCC ; width: 1099px;
   box-shadow: 0px 0px 0px rgba(0, 0, 0, 0);">
     <div class="contenido">
-      
+
       <div class="contentHeader" style="display:flex;">
         <div class="datosG">
           <label class="datosGeneralesLabel">1.-Datos generales</label>
@@ -48,7 +49,7 @@
               <span class="labels">Código Postal:</span>
               <br>
               <label class="inputNormal" placeholder="Ingresar código postal">
-                06500 
+                06500
               </label>
               </div>
             <div class="divEstado">
@@ -152,14 +153,14 @@
             </div>
           </div>
           <br>
-         
+
           <div class="row">
             <div class="col-md-4" style="padding-top: 19px; padding-right: 24px;  margin-top: -1.4%; text-align: center;">
-  
+
             </div>
             <div class="col-md-4" style="padding-top: 19px; padding-right: 24px;  margin-top: 0.4%; text-align: center;  color: rgb(122, 122, 122);">
-              <img src="url('../../../../assets/icons/menor_que.svg" alt="" style="margin-right: 3px;">
-              Atrás
+              <img src="url('../../../../assets/icons/menorqueBloqueado.svg" alt="" style="margin-right: 3px;">
+              <label style="font-size: 14px; font-weight: 500; color: #CFCFCF" > Atrás </label>
               <img src="url('../../../../assets/icons/circulo_verde.svg" alt="" style="margin-left: 9px;">
               <img src="url('../../../../assets/icons/1.svg" alt="" style="margin-left: -18px;">
             </div>
@@ -167,7 +168,7 @@
               <button class="btn btn-primary buttonL" style="float: right;border: solid 1px #9d2449;">
                 Imprimir
               </button>
-              <button type="button" class="btn btn-danger buttonL" style="float: right; border: solid 1px #b38e5d;">
+              <button type="button" class="btn btn-danger buttonL" style="float: right; border: solid 1px #b38e5d;" (click)="irDatosDeFamiliar()">
                 Siguiente
               </button>
             </div>
@@ -177,11 +178,12 @@
     </div>
   </div>
 </app-card-template>
+</ng-container>
 
 
 
-
-    <app-card-template>
+<ng-container *ngIf="datosFamiliar == true">
+<app-card-template>
       <div header class="flex justify-content-between align-items-center consultaCronicasGrupales">
         <label>
           Nuevo estudio social médico
@@ -279,9 +281,9 @@
             </div>
           </div>
         </div>
-    
 
-    
+
+
             <div class="col-md-4" >
               <div class="">
                 <label class="control-label tituloInput">
@@ -292,7 +294,7 @@
                 </label>
               </div>
             </div>
-  
+
             <div class="col-md-4">
               <div class="">
                 <label class="control-label tituloInput">
@@ -303,7 +305,7 @@
                 </label>
               </div>
             </div>
-  
+
             <div class="col-md-4">
               <div class="">
                 <label class="control-label tituloInput">
@@ -326,7 +328,7 @@
                   </label>
                 </div>
               </div>
-    
+
               <div class="col-md-4">
                 <div class="">
                   <label class="control-label tituloInput">
@@ -338,8 +340,8 @@
                 </div>
               </div>
             </div>
-            
-            
+
+
             <div class="row" style="margin: 0 -4px  -4px;">
                 <div class="col-md-4">
                   <div class="">
@@ -351,7 +353,7 @@
                   </label>
                   </div>
                 </div>
-      
+
                 <div class="col-md-4">
                   <div class="">
                     <label class="control-label tituloInput">
@@ -374,15 +376,15 @@
                     </div>
                   </div>
                 </div>
-                
+
       <div  style="width: 100%; height: 17%; ">
         <div class="row">
           <div class="col-md-4" style="padding-top: 19px; padding-right: 24px;  margin-top: -1.4%; text-align: center;">
 
          </div>
           <div class="col-md-4" style="padding-top: 49px; padding-right: 24px;  margin-top: 0.4%; text-align: center;">
-            <img src="url('../../../../assets/icons/menor_que.svg" alt="" style="margin-right: 3px;">
-            Atrás
+            <img src="url('../../../../assets/icons/menor_que.svg" alt="" style="margin-right: 5px;" (click)="irDatosGenerales()">
+            <label style="font-size: 14px; font-weight: 500;" (click)="irDatosGenerales()"> Atrás </label>
             <img src="url('../../../../assets/icons/circulo_verde.svg" alt="" style="margin-left: 9px;">
             <img src="url('../../../../assets/icons/2.svg" alt="" style="margin-left: -18px;">
             </div>
@@ -392,7 +394,7 @@
               Imprimir
             </button>
             <button  type="button" class="btn btn-danger buttonL"
-            style="float: right; border: solid 1px #b38e5d;" >
+            style="float: right; border: solid 1px #b38e5d;" (click)="irExploracionCaso()">
             Siguiente
         </button>
           </div>
@@ -400,10 +402,11 @@
       </div>
     </div>
   </div>
+</app-card-template>
+</ng-container>
 
-  </app-card-template>
-
-  <app-card-template>
+<ng-container *ngIf="datosExploracionCaso == true">
+<app-card-template>
   <div header class="flex justify-content-between align-items-center consultaCronicasGrupales">
     <label>
       Nuevo estudio social médico
@@ -433,7 +436,7 @@
       </div>
 
       <div style="width: 464px; background-color:#DBDBDC; height: 1px;"></div>
-     
+
       <div style="width: 100%; height: 50%;">
 
         <div class="row" style="margin: 0 -4px 0 -4px;">
@@ -444,7 +447,7 @@
                   Objetivo del estudio:
                 </label>
                 <label class=" inputs3" id="txtconsulta" placeholder="Ingresar objetivo" >
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim 
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
                   veniam.
                </label>
               </div>
@@ -456,7 +459,7 @@
                   Datos del paciente:
                 </label>
                 <label class="inputs3" id="txtconsulta" placeholder="Ingresar datos del paciente">
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim 
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
                   veniam.
                 </label>
               </div>
@@ -469,7 +472,7 @@
                   Datos familiares:
                 </label>
                 <label class="inputs3" id="txtconsulta" placeholder="Ingresar datos familiares">
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim 
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
                   veniam.
               </label>
               </div>
@@ -481,7 +484,7 @@
                   Datos económicos:
                 </label>
                 <label class="inputs3" id="txtconsulta" placeholder="Ingresar datos económicos">
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim 
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
                   veniam.
                 </label>
               </div>
@@ -494,7 +497,7 @@
                   Condiciones del hogar:
                 </label>
                 <label class="inputs3" id="txtconsulta" placeholder="Ingresar condiciones del hogar"  >
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim 
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
                   veniam.
                 </label>
               </div>
@@ -506,7 +509,7 @@
                   Datos complementarios:
                 </label>
                 <label class="inputs3" id="txtconsulta" placeholder="Ingresar datos complementarios" >
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim 
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
                   veniam.
                 </label>
               </div>
@@ -520,7 +523,7 @@
                   Diagnóstico social del paciente:
                 </label>
                 <label class="inputs3" id="txtconsulta" placeholder="Ingresar diagnóstico social del paciente" >
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim 
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
                   veniam.
                 </label>
               </div>
@@ -532,7 +535,7 @@
                   Diagnóstico social de la familia:
                 </label>
                 <label class="inputs3" id="txtconsulta" placeholder="Ingresar diagnóstico social de la familia">
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim 
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
                   veniam.
                 </label>
               </div>
@@ -545,7 +548,7 @@
                   Plan de tratamiento social:
                 </label>
                 <label class="inputs3" id="txtconsulta" placeholder="Ingresar plan de tratamiento social" >
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim 
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
                   veniam.
                 </label>
               </div>
@@ -557,7 +560,7 @@
                   Acciones realizadas:
                 </label>
                 <label class="inputs3" id="txtconsulta" placeholder="Ingresar acciones realizadas" >
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim 
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
                   veniam.
                 </label>
               </div>
@@ -570,8 +573,8 @@
           <div class="col-md-4" style="padding-top: 19px; padding-right: 24px;  margin-top: -1.4%; text-align: end;">
           </div>
           <div class="col-md-4" style="padding-top: 19px; padding-right: 24px;  margin-top: 12.4%; text-align: center;">
-            <img src="url('../../../../assets/icons/menor_que.svg" alt="" style="margin-right: 3px;">
-            Atrás
+            <img src="url('../../../../assets/icons/menor_que.svg" alt="" style="margin-right: 5px;" (click)="irDatosDeFamiliar()">
+            <label style="font-size: 14px; font-weight: 500;" (click)="irDatosDeFamiliar()"> Atrás </label>
             <img src="url('../../../../assets/icons/circulo_verde.svg" alt="" style="margin-left: 9px;">
             <img src="url('../../../../assets/icons/3.svg" alt="" style="margin-left: -18px;">
           </div>
@@ -579,12 +582,11 @@
             <button class="btn btn-primary buttonL" style="float: right;border: solid 1px #9d2449;">
               Imprimir
             </button>
-           
           </div>
         </div>
       </div>
     </div>
   </div>
-  <app-info-bottom></app-info-bottom>
 </app-card-template>
-  
+</ng-container>
+
