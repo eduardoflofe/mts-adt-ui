@@ -1,35 +1,153 @@
-<!-- <app-menu [activeItem]="1"></app-menu> -->
+<div style="margin-bottom: 1%"></div>
 <app-tarjeta-presentacion></app-tarjeta-presentacion>
 <app-card-template>
-    <div header class="flex justify-content-between align-items-center consultaCronicasGrupales">
-        <label>
-          Nuevo estudio social médico
-        </label>
-      </div>
-      <div content>
-        <span>1.-Datos generales</span>
-        <div class="line63" style="border-bottom: black;"></div>
-        <div>
-          <span class="instrucciones">
-            Por favor capture los siguientes datos:
-          </span>
+  <div header class="flex justify-content-between align-items-center nuevoEstudio">
+    <span style="font-weight: 700; font-size: 24px; color: #222222; line-height: 29.16px;">
+      Nuevo estudio social médico
+    </span>
+  </div>
+  <div content class="content" style="border: 1px solid #CCCCCC ; width: 1099px;
+  box-shadow: 0px 0px 0px rgba(0, 0, 0, 0);">
+    <div class="contenido">
+      <br>
+      <div class="contentHeader" style="display:flex;">
+        <div class="datosG">
+          <span style=" font-size: 20px; width: 109px; height: 24px; font-weight: 500;
+          left: 16.03px; color: #222222;">1.-Datos generales</span>
+          
         </div>
-        <form class="formInfo">
-          <div class="container">
-            <span class="estudioSolicitadoPor">Estudio solicitado por*:</span>
-            <br>
-            <input class="inputEstudioSolicitadoPor" placeholder="Ingresar nombre">
-          </div>
-          <div class="col-md-4">
-            <div class="form-group datepicker-group">
-              <span class="spanInput">Fecha del estudio*:</span>
-              <input class="fechaEstudio" type="text"
-                placeholder="dd/mm/aaaa">
-              <span class="glyphicon glyphicon-calendar fondocalendar" aria-hidden="true">
-              </span>
+        <div>
+          <label>1</label>
+        </div>
+        <div class = "circulo"> <link rel="icon" href="/src/assets/icons/iconInformacion.png"></div>
+      </div>
+      <br>
+      <div class="line63" style="border-bottom: black;"></div>
+      <div>
+        <span class="instrucciones">
+          Por favor capture los siguientes datos:
+        </span>
+      </div>
+      <form class="formInfo">
+        <div class="container">
+          <div class="flex" style="display:flex;">
+            <div class="divEstudioSolicitado">
+              <span class="labels">Estudio solicitado por*:</span>
+              <br>
+              <input class="inputNormal" placeholder="Ingresar nombre">
+            </div>
+            <div class="divFechas">
+              <span class="labels">Fecha del estudio*:</span>
+              <br>
+              <input class="inputBloqueado" type="text" placeholder="dd/mm/aaaa">
             </div>
           </div>
 
-        </form>
-      </div>
+          <br>
+          <div class="line63-DatosG" style="border-bottom: black;"></div>
+          <br>
+
+          <div class="flex-2" style="display:flex ;">
+            <div class="divCP">
+              <span class="labels">Código Postal*:</span>
+              <br>
+              <input class="inputNormal" placeholder="Ingresar código postal">
+            </div>
+            <div class="divEstado">
+              <span class="labels">Estado:</span>
+              <br>
+              <input class="inputBloqueado" style="background-color:#EEEEEE ;">
+            </div>
+            <div class="divD">
+              <span class="labels">Delegación/Municipio:</span>
+              <br>
+              <input class="inputBloqueado" style="background-color:#EEEEEE ;">
+            </div>
+          </div>
+          <div class="flex-3" style="display:flex ;">
+            <div class="divCiudad">
+              <span class="labels">Ciudad*:</span>
+              <br>
+              <select class="select">
+                <option value="-1">Ingresar ciudad</option>
+              </select>
+            </div>
+            <div class="divColonia">
+              <span class="labels">Colonia*:</span>
+              <br>
+              <input class="inputNormal" placeholder="Ingresar colonia">
+            </div>
+            <div class="divCalle">
+              <span class="labels">Calle*:</span>
+              <br>
+              <input class="inputNormal" placeholder="Ingresar calle">
+            </div>
+          </div>
+          <div class="flex-4" style="display:flex ;">
+            <div class="divNumExt">
+              <span class="labels">Número exterior*:</span>
+              <br>
+              <input class="inputNormal" placeholder="Ingresar número">
+            </div>
+            <div class="divNumInt">
+              <span class="labels">Número interior*:</span>
+              <br>
+              <input class="inputNormal" placeholder="Ingresar número">
+            </div>
+            <div class="divTipoComunidad">
+              <span class="labels">Tipo de comunidad*:</span>
+              <br>
+              <select class="select">
+                <option value="-1">Seleccionar comunidad</option>
+              </select>
+            </div>
+          </div>
+          <div class="flex-5" style="display:flex ; height: 60px;">
+            <div class="divTelefonoFijo">
+              <span class="labels">Teléfono fijo:</span>
+              <br>
+              <input class="inputNormal" placeholder="Ingresar número">
+            </div>
+            <div class="divTelefonoCelular">
+              <span class="labels">Teléfono celular:</span>
+              <br>
+              <input class="inputNormal" placeholder="Ingresar número">
+            </div>
+            <div class="divEmail">
+              <span class="labels">Correo electrónico:</span>
+              <br>
+              <input class="inputNormal" placeholder="Ingresar correo">
+            </div>
+          </div>
+          <div class="flex-6" style="display:flex ;">
+            <div class="divEstadoCivil">
+              <span class="labels">Estado civil*:</span>
+              <br>
+              <select class="select">
+                <option value="-1">Seleccionar estado civil</option>
+              </select>
+            </div>
+            <div class="divOcupacion">
+              <span class="labels">Ocupación*:</span>
+              <br>
+              <select class="select">
+                <option value="-1">Ingresar ocupación</option>
+              </select>
+            </div>
+          </div>
+          <br>
+          <span class="labels">*Campos obligatorios</span>
+          <div class="buttons">
+            <button type="button" class="btn btn-primary buttonL" style="float: right; border: solid 1px #9d2449">
+              Guardar
+            </button>
+            <button type="button" class="btn btn-danger buttonL" style="float: right; border: solid 1px #b38e5d;">
+              Cancelar
+            </button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
 </app-card-template>
+<app-info-bottom></app-info-bottom>

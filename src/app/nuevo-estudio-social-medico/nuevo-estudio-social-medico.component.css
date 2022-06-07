@@ -4,10 +4,22 @@
     width: 494px;
   }
 
+  .line63-DatosG{
+    height: 0.15px;
+    background-color: #CCCCCC;
+    width: 1070px;
+  }
+
+  .content{
+    width: 596px;
+    height: 630px;
+    left: 1193px;
+    border-radius: 1px;
+  }
   .instrucciones {
     width: 270px;
-    height: 17px;
-    margin: 14.5px 711px 10px 10px;
+    height: 20px;
+    margin: 14.5px 71px 10px 10px;
     font-family: Montserrat;
     font-size: 14px;
     font-weight: 500;
@@ -16,20 +28,12 @@
     line-height: normal;
     letter-spacing: normal;
     text-align: left;
-    color: #222;
-    margin-top: 5px;
+    color: #222222;
+    margin-top: 83px;
     margin-left: 10px;
   }
-  .inputEstudioSolicitadoPor{
-    width: 370px;
-    height: 30px;
-    top: 129px;
-    left: 10px;
-    border-radius: 5px;
-    border-color: #DDDDDD ;
-  }
 
-  .estudioSolicitadoPor{
+  .labels{
     width: 275px;
     height: 20px;
     top: 110px;
@@ -37,4 +41,139 @@
     font-family: 'Montserrat';
     font-weight: 600;
     font-size: 12px;
+  }
+
+  .inputNormal{
+    width: 340px;
+    height: 30px;
+    top: 129px;
+    left: 410px;
+    border-radius: 5px;
+    border-color:#DDDDDD ;
+  }
+
+  ::placeholder{
+    color: #222222;
+    font-size: 14px;
+  }
+
+  .inputBloqueado{
+    background-color:#EEEEEE ;
+    width: 340px;
+    height: 30px;
+    top: 129px;
+    left: 410px;
+    border-radius: 5px;
+    border-color:#DDDDDD ;
+  }
+  .select{
+    border-radius: 5px;
+    width: 340px;
+    height: 30px;
+    top: 272px;
+    left: 10px;
+    font-size: 14px;
+    color: #222222;
+  }
+
+  .buttonL {
+    width: 120px;
+    height: 34px;
+    border-radius: 3px;
+    margin: 10px 15px 0 10px !important;
+    padding: 5px;
+    align-self: stretch;
+    flex-grow: 1;
+    font-family: Montserrat;
+    font-size: 14px;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: normal;
+    text-align: center;
+    margin-left: 200%;
+  }
+  .circulo{
+    height: 38px;
+    width:38px;
+    background:#05ADA7;
+    -moz-border-radius:50px;
+    -webkit-border-radius:50px;
+    border-radius:50px;
+  }
+  .datosG{
+    width: 800px;
+  }
+  .buttons{
+    width: 1090px;
+  }
+
+  .divEstudioSolicitado{
+    flex: auto;
+    width: 0px;
+  }
+
+  .divFechas{
+    flex:auto;
+    width: 405px;
+  }
+  .divCP{
+    flex: auto;
+    width: 250px;
+  }
+  .divEstado{
+    flex: auto;
+    width: 250px;
+  }
+  .divD{
+    flex: auto;
+    width: 290px;
+  }
+
+  
+  .divCiudad{
+    flex: auto;
+    width: 250px;
+  }
+  .divColonia{
+    flex:auto;
+    width: 250px;
+  }
+  .divCalle{
+    flex:auto;
+    width: 290px;
+  }
+  .divNumExt{
+    flex: auto;
+    width: 250px;
+  }
+
+  .divNumInt{
+    flex: auto;
+    width: 250px;
+  }
+  .divTipoComunidad{
+    flex: auto;
+    width: 290px;
+  }
+  .divTelefonoFijo{
+    flex: auto;
+    width: 250px;
+  }
+  .divTelefonoCelular{
+    flex: auto;
+    width: 250px;
+  }
+  .divEmail{
+    flex: auto;
+    width: 290px;
+  }
+  .divEstadoCivil{
+    flex:auto;
+    width: 250px;
+  }
+  .divOcupacion{
+    flex: auto;
+    width: 665px;
   }
