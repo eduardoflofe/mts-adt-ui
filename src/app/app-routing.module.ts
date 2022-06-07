@@ -17,6 +17,9 @@ import { NuevoEstudioSocialMedicoComponent } from './nuevo-estudio-social-medico
 import { ConsultaNotaTSocialComponent } from './consulta-nota-tsocial/consulta-nota-tsocial.component';
 import { ConsultaEstudiosMedicosComponent } from './consulta-estudios-medicos/consulta-estudios-medicos.component';
 import { EstudioMedicoGuardadoComponent } from './estudio-medico-guardado/estudio-medico-guardado.component';
+import { NuevoEstudio1Component } from './nuevo-estudio1/nuevo-estudio1.component';
+import { NuevoEstudio2dFamiliarComponent } from './nuevo-estudio2d-familiar/nuevo-estudio2d-familiar.component';
+import { NuevoEstudio3dExploracionComponent } from './nuevo-estudio3d-exploracion/nuevo-estudio3d-exploracion.component';
 
 
 
@@ -37,6 +40,9 @@ const routes: Routes = [
   { path: 'consulta-notas', component: ConsultaListaNotasTSocialComponent, canActivate: [SeguridadRouter] },
   { path: 'nuevo-estudio-social-medico', component: NuevoEstudioSocialMedicoComponent, canActivate: [SeguridadRouter] },
   { path: 'estudio-medico-guardado', component: EstudioMedicoGuardadoComponent, canActivate: [SeguridadRouter] },
+  { path: 'nuevo-estudio1-generales', component: NuevoEstudio1Component, canActivate: [SeguridadRouter] },
+  { path: 'nuevo-estudio2-familiares', component: NuevoEstudio2dFamiliarComponent, canActivate: [SeguridadRouter] },
+  { path: 'nuevo-estudio2-exploracion', component: NuevoEstudio3dExploracionComponent, canActivate: [SeguridadRouter] },
   { path: '**', redirectTo: 'login' }
 ];
 
