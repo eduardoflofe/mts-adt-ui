@@ -76,6 +76,9 @@
                 formControlName="tipoDeNota" id="tipoDeNota" style="background-position-y: 5px" aria-label="Servicio">
                 <option class="select-font" [value]="'-1'" selected>Ingresar tipo de nota</option>
                 <option class="select-font" [value]="0" selected>Nota 1</option>
+                <!-- <option class="select-font" [value]="item.id" *ngFor="let item of catTiposNotas">
+                  {{ item.descripcion }}
+                </option> -->
               </select>
               <small *ngIf="
                   camposNota.controls?.tipoDeNota?.dirty &&

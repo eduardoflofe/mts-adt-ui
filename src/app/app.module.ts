@@ -41,6 +41,7 @@ import { ConsultaListaNotasTSocialComponent } from './consulta-lista-notas-tsoci
 import { NuevoEstudioSocialMedicoComponent } from './nuevo-estudio-social-medico/nuevo-estudio-social-medico.component';
 import { ConsultaEstudiosMedicosComponent } from './consulta-estudios-medicos/consulta-estudios-medicos.component';
 
+
 registerLocaleData('es');
 
 @NgModule({
@@ -69,7 +70,7 @@ registerLocaleData('es');
     ConsultaEstudiosMedicosComponent
 
   ],
-  imports: [
+    imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,

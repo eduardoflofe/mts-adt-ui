@@ -1,10 +1,10 @@
 import { Validators } from '@angular/forms'
 import { Component, OnInit } from '@angular/core'
+import { HttpErrorResponse } from '@angular/common/http';
 import { FormBuilder, FormControl, FormGroup, NgForm } from '@angular/forms'
 import { Router } from '@angular/router';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
-declare var $: any;
-
+import { NotasService } from '../service/notas.service';
 declare var $: any;
 
 @Component({
@@ -33,13 +33,65 @@ export class NuevaNotaTSocialComponent implements OnInit {
     diagnosticoSocial: ['', Validators.required],
   })
 
-  constructor(private formBuilder: FormBuilder,
+  catTiposNotas: any[] = [];
+  catRedesApoyo: any[] = [];
+  catActividadesTecnicas: any[] = [];
+  catDiagnosticosMedicos: any[] = [];
+
+  constructor(
+    private formBuilder: FormBuilder,
     private router: Router,
-    private modalService: NgbModal) {}
+    private modalService: NgbModal,
+    private notasService: NotasService,
+  ) { }
 
   ngOnInit(): void {
+    this.getCatalogos();
   }
 
+  getCatalogos() {
+    this.notasService.getTiposNota().subscribe(
+      (res) => {
+        this.catTiposNotas = res;
+      },
+      (httpErrorResponse: HttpErrorResponse) => {
+        console.error(httpErrorResponse);
+      }
+    );
+
+    this.notasService.getRedesApoyo().subscribe(
+      (res) => {
+        if (res) {
+          this.catRedesApoyo = res;
+        }
+      },
+      (httpErrorResponse: HttpErrorResponse) => {
+        console.error(httpErrorResponse);
+      }
+    );
+
+    this.notasService.getActividadesTecnicas().subscribe(
+      (res) => {
+        if (res) {
+          this.catActividadesTecnicas = res;
+        }
+      },
+      (httpErrorResponse: HttpErrorResponse) => {
+        console.error(httpErrorResponse);
+      }
+    );
+
+    this.notasService.getDiagnosticosMedicos('').subscribe(
+      (res) => {
+        if (res) {
+          this.catDiagnosticosMedicos = res;
+        }
+      },
+      (httpErrorResponse: HttpErrorResponse) => {
+        console.error(httpErrorResponse);
+      }
+    );
+  }
 
   muestraAlerta(mensaje: string, estilo: string, funxion: any) {
     this.alertMensaje = mensaje
@@ -70,7 +122,7 @@ export class NuevaNotaTSocialComponent implements OnInit {
     $('#content').modal('hide');
   }
 
-  salirModal(){
+  salirModal() {
     this.router.navigateByUrl("/consulta-notas", { skipLocationChange: true });
     $('#content').modal('hide');
   }
@@ -85,7 +137,7 @@ export class NuevaNotaTSocialComponent implements OnInit {
     )
   }
 
-  irConsultaNota(){
+  irConsultaNota() {
     let params = {
       'objetoAEnviar': null,
     }
