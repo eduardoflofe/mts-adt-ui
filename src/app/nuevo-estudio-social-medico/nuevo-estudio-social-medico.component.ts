@@ -23,6 +23,19 @@ export class NuevoEstudioSocialMedicoComponent implements OnInit {
     telefonoFijo:['',Validators.required],
     telefonoCelular:['',Validators.required],
     email:['',Validators.required],
+    edad:['',Validators.required],
+    parentesco:['',Validators.required],
+    codigoP:['',Validators.required],
+    estadoF:['',Validators.required],
+    delegacionM:['',Validators.required],
+    ciudadF:['',Validators.required],
+    coloniaF:['',Validators.required],
+    calleF:['',Validators.required],
+    numExtF:['',Validators.required],
+    numIntF:['',Validators.required],
+    telFijo:['',Validators.required],
+    telCel:['',Validators.required],
+    correoF:['',Validators.required],
     objetivoEstudio:['',Validators.required],
     datosPaciente:['',Validators.required],
     datosFamiliares:['',Validators.required],
@@ -31,7 +44,9 @@ export class NuevoEstudioSocialMedicoComponent implements OnInit {
     datosComplementarios:['',Validators.required],
     datosSocialF:['',Validators.required],
     datosTratamiento:['',Validators.required],
-    datosAcciones:['',Validators.required]
+    datosAcciones:['',Validators.required],
+    nombreFamiliar:['',Validators.required]
+    
   })
   // camposExploracion: any = this.formBuilder.group({
   //   objetivoEstudio:['',Validators.required]
