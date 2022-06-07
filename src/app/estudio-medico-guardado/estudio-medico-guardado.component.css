@@ -362,3 +362,18 @@ letter-spacing: normal;
 text-align: center;
 margin-left: 200%;
 }
+
+.alin {
+  position: absolute;
+width: 1193px;
+height: 727px;
+left: 544px;
+top: 69px;
+}
+
+.content {
+  width: 596px;
+  height: 650px;
+  left: 1193px;
+  border-radius: 1px;
+}

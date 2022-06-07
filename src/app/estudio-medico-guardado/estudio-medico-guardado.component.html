@@ -1,4 +1,4 @@
-<!-- <app-menu [activeItem]="1"></app-menu> -->
+
 <div style="margin-bottom: 1%"></div>
 <app-tarjeta-presentacion></app-tarjeta-presentacion>
 <ng-container *ngIf="datosGenerales == true">
@@ -12,11 +12,53 @@
   box-shadow: 0px 0px 0px rgba(0, 0, 0, 0);">
     <div class="contenido">
 
-      <div class="contentHeader" style="display:flex;">
+      
+      <div class="row" style=" height: 11%; ">
         <div class="datosG">
           <label class="datosGeneralesLabel">1.-Datos generales</label>
         </div>
+        <div class="alin" >
+        <div header class="flex justify-content-between align-items-center col-md-3"></div>
+        <div header class="flex justify-content-between align-items-center col-md-3 row" style="text-align: right; margin-top: 10px;">
+          <div class="col-md-4" style=" height: 40px;">
+            <label style="margin-right: 6px; font-size: 14px; position: relative;" >1</label>
+            <img src="../../assets/icons/circulo_verde.svg" alt="" style="width: 38px; height: 38px;">
+            <img src="../../assets/icons/dobles.svg" alt="" style="margin: -17px 0 0 -15px;  ">
+            <img src="../../assets/icons/oja.svg" alt="" style="margin: -51px 0 0 29px">
+            <img src="../../assets/icons/linea3.svg" alt="" style="margin: -220px -0.1px 0 0">
+            <img src="../../assets/icons/linea2.svg" alt="" style="margin: -213.8px 12px 0 -10px">
+            <img src="../../assets/icons/linea1.svg" alt="" style="margin: -207px 9px 0 -19px">
+            <img src="../../assets/icons/goma.svg" alt="" style="margin: -219px -4.3px 0 0">
+            <img src="../../assets/icons/fierrogoma.svg" alt="" style="margin: -217px -10.4px 0 0">
+            <img src="../../assets/icons/lapizcorrecto.svg" alt="" style="margin: -210px 5px 0 0">
+          </div>
+          <div class="col-md-4" style=" height: 40px;">
+            <label style="margin-right: 6px; font-size: 14px; position: relative;" >2</label>
+            <img src="../../assets/icons/grisintenso.svg" alt="" style="width: 38px; height: 38px;">
+            <img src="../../assets/icons/dobles.svg" alt="" style="margin: -17px 0 0 -15px;  ">
+            <img src="../../assets/icons/oja.svg" alt="" style="margin: -51px 0 0 29px">
+            <img src="../../assets/icons/linea3.svg" alt="" style="margin: -220px -0.1px 0 0">
+            <img src="../../assets/icons/linea2.svg" alt="" style="margin: -213.8px 12px 0 -10px">
+            <img src="../../assets/icons/linea1.svg" alt="" style="margin: -207px 9px 0 -19px">
+            <img src="../../assets/icons/goma.svg" alt="" style="margin: -219px -4.4px 0 0">
+            <img src="../../assets/icons/fierrogoma.svg" alt="" style="margin: -217px -10.4px 0 0">
+            <img src="../../assets/icons/lapizcorrecto.svg" alt="" style="margin: -210px 5px 0 0">
+          </div>
+          <div class="col-md-4" style=" height: 40px;">
+            <label style="margin-right: 6px; font-size: 14px; position: relative;" >3</label>
+            <img src="../../assets/icons/grisSutil.svg" alt="" style="width: 38px; height: 38px;">
+            <img src="../../assets/icons/dobles.svg" alt="" style="margin: -17px 0 0 -15px;  ">
+            <img src="../../assets/icons/oja.svg" alt="" style="margin: -51px 0 0 29px">
+            <img src="../../assets/icons/linea3.svg" alt="" style="margin: -220px -0.1px 0 0">
+            <img src="../../assets/icons/linea2.svg" alt="" style="margin: -213.8px 12px 0 -10px">
+            <img src="../../assets/icons/linea1.svg" alt="" style="margin: -207px 9px 0 -19px">
+            <img src="../../assets/icons/goma.svg" alt="" style="margin: -219px -4.3px 0 0">
+            <img src="../../assets/icons/fierrogoma.svg" alt="" style="margin: -217px -10px 0 0">
+            <img src="../../assets/icons/lapizcorrecto.svg" alt="" style="margin: -210px 5px 0 0">
+          </div>
+        </div>
       </div>
+    </div>
       <br>
       <div class="line63" style="border-bottom: black;"></div>
       <div>
@@ -168,7 +210,7 @@
               <button class="btn btn-primary buttonL" style="float: right;border: solid 1px #9d2449;">
                 Imprimir
               </button>
-              <button type="button" class="btn btn-danger buttonL" style="float: right; border: solid 1px #b38e5d;" (click)="irDatosDeFamiliar()">
+              <button class="btn btn-primary buttonL" style="float: right; border: solid 1px #9d2449;" (click)="irDatosDeFamiliar()">
                 Siguiente
               </button>
             </div>
@@ -393,8 +435,8 @@
               style="float: right;border: solid 1px #9d2449;" >
               Imprimir
             </button>
-            <button  type="button" class="btn btn-danger buttonL"
-            style="float: right; border: solid 1px #b38e5d;" (click)="irExploracionCaso()">
+            <button  class="btn btn-primary buttonL"
+            style="float: right; border: solid 1px #9d2449;;" (click)="irExploracionCaso()">
             Siguiente
         </button>
           </div>
