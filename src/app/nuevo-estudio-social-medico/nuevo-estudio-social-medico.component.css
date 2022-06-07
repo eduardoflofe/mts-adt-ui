@@ -12,7 +12,7 @@
 
   .content{
     width: 596px;
-    height: 630px;
+    height: 650px;
     left: 1193px;
     border-radius: 1px;
   }
@@ -157,10 +157,40 @@
     border-radius:50px;
   }
   .datosG{
-    width: 800px;
+    font-family: 'Montserrat';
+    font-size: 20px;
+    font-stretch: normal;
+    font-style: medium;
+    line-height: 80px;
+    line-height: 100%;
+    font-weight: 500;
+    letter-spacing: normal;
+    text-align: left;
+    left: 3.45%;
+    right: 71.79%;
+    color: #222222;
+    margin-top: 20px;
+    margin-left: 37px;
   }
   .buttons{
-    width: 1090px;
+    width: 1070px;
+    height: 90px;
+  }
+  .DdatosGeneralesLabel{
+    font-family: 'Montserrat';
+    font-size: 20px;
+    font-stretch: normal;
+    font-style: medium;
+    line-height: 80px;
+    line-height: 100%;
+    font-weight: 500;
+    letter-spacing: normal;
+    text-align: left;
+    left: 3.45%;
+    right: 71.79%;
+    color: #222222;
+    margin-top: 20px;
+    margin-left: 37px;
   }
 
   .divEstudioSolicitado{
