@@ -34,7 +34,7 @@
   border-radius: 1px;
 }
 
-.instrucciones {
+/* .instrucciones {
   width: 270px;
   height: 20px;
   margin: 14.5px 71px 10px 10px;
@@ -49,7 +49,7 @@
   color: #222222;
   margin-top: 83px;
   margin-left: 10px;
-}
+} */
 
 .labels {
   width: 275px;
@@ -126,7 +126,6 @@
   width: 100%;
   flex-grow: 0;
   border: solid 1px #e6e6e6;
-
 }
 
 .nuevoEstudioSocialMedico {
@@ -164,7 +163,7 @@
 .instrucciones {
   width: 270px;
   height: 17px;
-  margin: 14.5px 711px 10px 10px;
+  margin: 14.5px 711px 10px 12px;
   font-family: Montserrat;
   font-size: 14px;
   font-weight: 500;
@@ -173,7 +172,7 @@
   line-height: normal;
   letter-spacing: normal;
   text-align: center;
-  margin-left: 200%;
+  /* margin-left: 200%; */
 }
 
 .circulo {

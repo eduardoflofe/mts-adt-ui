@@ -8,6 +8,9 @@ import { Validators } from '@angular/forms'
   styleUrls: ['./nuevo-estudio-social-medico.component.css']
 })
 export class NuevoEstudioSocialMedicoComponent implements OnInit {
+  datosGenerales = false;
+  datosFamiliar = false;
+  datosExploracionCaso = false;
   camposNota: any = this.formBuilder.group({
     nuevoEstudioSocial: ['', Validators.required],
     solicitadoPor:['',Validators.required],
@@ -36,6 +39,27 @@ export class NuevoEstudioSocialMedicoComponent implements OnInit {
   constructor(private formBuilder: FormBuilder) { }
 
   ngOnInit(): void {
+    this.datosGenerales = true
+    this.datosFamiliar = false
+    this.datosExploracionCaso = false
+  }
+
+  irDatosDeFamiliar(){
+    this.datosGenerales = false
+    this.datosFamiliar = true
+    this.datosExploracionCaso = false
+  }
+
+  irExploracionCaso(){
+    this.datosGenerales = false
+    this.datosFamiliar = false
+    this.datosExploracionCaso = true
+  }
+
+  irDatosGenerales(){
+    this.datosGenerales = true
+    this.datosFamiliar = false
+    this.datosExploracionCaso = false
   }
 
 }
