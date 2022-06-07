@@ -35,8 +35,8 @@ const routes: Routes = [
   { path: 'consulta-nota', component: ConsultaNotaTSocialComponent, canActivate: [SeguridadRouter] },
   { path: 'consulta-estudios-medicos', component: ConsultaEstudiosMedicosComponent, canActivate: [SeguridadRouter] },
   { path: 'consulta-notas', component: ConsultaListaNotasTSocialComponent, canActivate: [SeguridadRouter] },
-  { path: 'nuevo-estudio-social-medico', component: NuevoEstudioSocialMedicoComponent,  canActivate: [] },
-  { path: 'estudio-medico-guardado', component: EstudioMedicoGuardadoComponent,  canActivate: [] },
+  { path: 'nuevo-estudio-social-medico', component: NuevoEstudioSocialMedicoComponent, canActivate: [SeguridadRouter] },
+  { path: 'estudio-medico-guardado', component: EstudioMedicoGuardadoComponent, canActivate: [SeguridadRouter] },
   { path: '**', redirectTo: 'login' }
 ];
 
