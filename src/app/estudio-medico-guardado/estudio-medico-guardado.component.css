@@ -112,7 +112,7 @@
 /* ---------------------------------------------FER------------------------------------------------- */
 .Rectangle-306 {
   margin-top: 10px;
-  height: 500px;
+  height: 530px;
   width: 100%;
   flex-grow: 0;
   border: solid 1px #e6e6e6;
@@ -361,4 +361,27 @@ line-height: normal;
 letter-spacing: normal;
 text-align: center;
 margin-left: 200%;
+}
+
+.alin {
+  position: absolute;
+width: 1193px;
+height: 727px;
+left: 544px;
+top: 69px;
+}
+
+.alins {
+  position: absolute;
+width: 1193px;
+height: 727px;
+left: 544px;
+top: 185px;
+}
+
+.content {
+  width: 596px;
+  height: 650px;
+  left: 1193px;
+  border-radius: 1px;
 }
