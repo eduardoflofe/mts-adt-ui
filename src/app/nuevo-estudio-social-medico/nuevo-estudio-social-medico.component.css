@@ -9,7 +9,16 @@
   background-color: #CCCCCC;
   width: 1070px;
 }
-
+.form-control {
+  font-size: 14px !important;
+  border-radius: 5px;
+  width: 340px;
+  height: 30px;
+  top: 272px;
+  left: 10px;
+  font-size: 14px;
+  color: #222222;
+}
 .content {
   width: 596px;
   height: 650px;
