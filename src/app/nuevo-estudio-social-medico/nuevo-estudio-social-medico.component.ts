@@ -15,7 +15,7 @@ export class NuevoEstudioSocialMedicoComponent implements OnInit {
   datosFamiliar = false;
   datosExploracionCaso = false;
   camposNota: any = this.formBuilder.group({
-    nuevoEstudioSocial: ['', Validators.required],
+    // pantalla1
     solicitadoPor:['',Validators.required],
     fechas:['',Validators.required],
     cp:['',Validators.required],
@@ -26,6 +26,9 @@ export class NuevoEstudioSocialMedicoComponent implements OnInit {
     telefonoFijo:['',Validators.required],
     telefonoCelular:['',Validators.required],
     email:['',Validators.required],
+    // fin pantalla1
+    // pantalla2
+    nombreFamiliar:['',Validators.required],
     edad:['',Validators.required],
     parentesco:['',Validators.required],
     codigoP:['',Validators.required],
@@ -39,6 +42,8 @@ export class NuevoEstudioSocialMedicoComponent implements OnInit {
     telFijo:['',Validators.required],
     telCel:['',Validators.required],
     correoF:['',Validators.required],
+    // fin pantalla2
+    // pantalla3
     objetivoEstudio:['',Validators.required],
     datosPaciente:['',Validators.required],
     datosFamiliares:['',Validators.required],
@@ -47,9 +52,8 @@ export class NuevoEstudioSocialMedicoComponent implements OnInit {
     datosComplementarios:['',Validators.required],
     datosSocialF:['',Validators.required],
     datosTratamiento:['',Validators.required],
-    datosAcciones:['',Validators.required],
-    nombreFamiliar:['',Validators.required]
-    
+    datosAcciones:['',Validators.required]
+    // fin pantalla3]
   })
   constructor(private formBuilder: FormBuilder, private router: Router, private modalService: NgbModal) {}
 

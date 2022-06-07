@@ -139,13 +139,8 @@
                       <div class="divCiudad">
                         <span class="labels">Ciudad*:</span>
                         <br>
-                        <select [ngClass]="{
-                'form-control-error':
-                  camposNota.controls?.diagnosticoMedico?.dirty &&
-                  camposNota.controls?.diagnosticoMedico?.errors
-              }" class="form-control" id="diagnosticoMedico" formControlName="diagnosticoMedico">
+                        <select class="select">
                           <option class="select-font" [value]="-1" selected>Ingresar ciudad</option>
-                          <option class="select-font" [value]="0" selected>Juarez</option>
                         </select>
                       </div>
                       <div class="divColonia">
@@ -689,7 +684,7 @@
               <img src="url('../../../../assets/icons/2.svg" alt="" style="margin-left: -18px;">
             </div>
             <div class="col-md-4" style="padding-top: 19px; padding-right: 24px;  margin-top: -1.4%;">
-              <button [disabled]="camposNota.valid == false" (click)="irExploracionCaso()"
+              <button (click)="irExploracionCaso()"
                 class="btn btn-primary buttonL" style="float: right;border: solid 1px #9d2449;">
                 Siguiente
               </button>
