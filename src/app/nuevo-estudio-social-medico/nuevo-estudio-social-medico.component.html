@@ -74,11 +74,13 @@
                       <div class="divEstudioSolicitado">
                         <span class="labels">Estudio solicitado por*:</span>
                         <br>
-                        <input [ngClass]="{
+                        <!-- <input [ngClass]="{
                 'form-control-error':
                   camposNota.controls?.solicitadoPor?.dirty &&
                   camposNota.controls?.solicitadoPor?.errors
-              }" class="form-control" id="solicitadoPor" formControlName="solicitadoPor" placeholder="Ingresar nombre">
+              }" class="form-control" id="solicitadoPor" 
+              formControlName="solicitadoPor" placeholder="Ingresar nombre" type="text"> -->
+                        <input type="text" class="form-control" value="Pablo"> 
                         <small *ngIf="
                 camposNota.controls?.solicitadoPor?.dirty &&
                 camposNota.controls?.solicitadoPor?.errors
@@ -89,12 +91,13 @@
                       <div class="divFechas">
                         <span class="labels">Fecha del estudio*:</span>
                         <br>
-                        <input [ngClass]="{
+                        <input class="form-control" type="date" value="02/06/2022">
+                        <!-- <input type="date" [ngClass]="{
                 'form-control-error':
                   camposNota.controls?.fechas?.dirty &&
                   camposNota.controls?.fechas?.errors
               }" class="form-control" id="fechas" formControlName="fechas" placeholder="dd/mm/aaaa"
-                          style="background-color:#EEEEEE ;">
+                          style="background-color:#EEEEEE ;"> -->
                         <small *ngIf="
                 camposNota.controls?.fechas?.dirty &&
                 camposNota.controls?.fechas?.errors
@@ -112,11 +115,12 @@
                       <div class="divCP">
                         <span class="labels">Código Postal*:</span>
                         <br>
-                        <input [ngClass]="{
+                        <input type="text" class="form-control" value="55767"> 
+                        <!-- <input [ngClass]="{
                 'form-control-error':
                   camposNota.controls?.cp?.dirty &&
                   camposNota.controls?.cp?.errors
-              }" class="form-control" id="cp" formControlName="cp" placeholder="Ingresar código postal">
+              }" class="form-control" id="cp" formControlName="cp" placeholder="Ingresar código postal"> -->
                         <small *ngIf="
                 camposNota.controls?.cp?.dirty &&
                 camposNota.controls?.cp?.errors
@@ -127,12 +131,18 @@
                       <div class="divEstado">
                         <span class="labels">Estado:</span>
                         <br>
-                        <input class="form-control" style="background-color:#EEEEEE ;">
+                        <select class="select">
+                          <option class="select-font" [value]="-1">Ingresar estado</option>
+                          <option class="select-font" [value]="1" selected>Ciudad 1</option>
+                        </select>
                       </div>
                       <div class="divD">
                         <span class="labels">Delegación/Municipio:</span>
                         <br>
-                        <input class="form-control" style="background-color:#EEEEEE ;">
+                        <select class="select">
+                          <option class="select-font" [value]="-1">Ingresar delegación/municipio</option>
+                          <option class="select-font" [value]="1" selected>Delegacion 1</option>
+                        </select>
                       </div>
                     </div>
                     <div class="flex-3" style="display:flex ;">
@@ -689,7 +699,8 @@
                 class="btn btn-primary buttonL" style="float: right;border: solid 1px #9d2449;">
                 Siguiente
               </button>
-              <button type="button" class="btn btn-danger buttonL" style="float: right; border: solid 1px #b38e5d;" (click)="modalcarga(content)">
+              <button type="button" class="btn btn-danger buttonL" style="float: right; border: solid 1px #b38e5d;"
+                (click)="modalcarga(content)">
                 Cancelar
               </button>
             </div>
@@ -1046,12 +1057,11 @@
   </app-card-template>
 </ng-container>
 
-<div class="modal fade" role="dialog" id="content" #content >
+<div class="modal fade" role="dialog" id="content" #content>
   <div class="modal-dialog" role="document">
     <div class="modal-content" style="border: 1px solid #CCCCCC ;
     box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.16); border-radius: 10px;">
-      <div class="modal-header text-center" fxLayoutAlign="space-between center" fxLayout="column"
-      style="border: 1px solid #CCCCCC ; border-bottom: 1px;
+      <div class="modal-header text-center" fxLayoutAlign="space-between center" fxLayout="column" style="border: 1px solid #CCCCCC ; border-bottom: 1px;
       border-radius: 10px 10px 0 0;">
         <img src="../../../../assets/images/Group 2082.png" class="Group-2082" alt="">
         <div class="modal-title Atencin">Atención</div>
@@ -1059,43 +1069,29 @@
       <div class="line62" style="border-bottom: black;"></div>
       <div class="col-md12" style="text-align: center; margin-top: 5%; height: 80px;">
 
-          <label class="tituloModal" style="font-weight: 500; font-size: 24px;
-          line-height: 21.94px; text-align: center;" >¿Desea salir sin guardar</label>
-          <br>
-          <label style="font-weight: 500; font-size: 24px;
+        <label class="tituloModal" style="font-weight: 500; font-size: 24px;
+          line-height: 21.94px; text-align: center;">¿Desea salir sin guardar</label>
+        <br>
+        <label style="font-weight: 500; font-size: 24px;
           line-height: 21.94px; text-align: center;"> los cambios?</label>
 
       </div>
-      <div class="col-md12 row"
-          style="width:495px; height: 118px; text-align: center; margin: auto;
+      <div class="col-md12 row" style="width:495px; height: 118px; text-align: center; margin: auto;
           padding: 15px; background-color: #FAFAFA; border-radius: 10px;">
 
-          <div class="col-md10" width="495px" height="118px" aling="center" >
-              <button type="button" class="btn btn-danger buttonL" style="border: solid 1px #b38e5d;"
-                  (click)="cancelarModal()">
-                  Cancelar
-              </button>
-              <button type="button" class="btn btn-primary buttonL" style="border: solid 1px #9d2449;"
-                  (click)="salirModal()">
-                  Aceptar
-              </button>
-          </div>
-          </div>
-
+        <div class="col-md10" width="495px" height="118px" aling="center">
+          <button type="button" class="btn btn-danger buttonL" style="border: solid 1px #b38e5d;"
+            (click)="cancelarModal()">
+            Cancelar
+          </button>
+          <button type="button" class="btn btn-primary buttonL" style="border: solid 1px #9d2449;"
+            (click)="salirModal()">
+            Aceptar
+          </button>
+        </div>
       </div>
-</div>
+
+    </div>
+  </div>
 </div>
 <app-info-bottom></app-info-bottom>
-
-
-
-
-
-
-
-
-
-
-
-
-
