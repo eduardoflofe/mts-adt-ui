@@ -378,7 +378,7 @@
             Por favor capture los siguientes datos:
           </span>
         </div>
-        <form novalidate class="formInfo" [formGroup]="camposNota">
+        <form novalidate class="formInfo" [formGroup]="camposNota2">
           <div style="width: 100%; height: 57%;">
 
             <div class="row" style="margin: 0 -4px 0 -4px;">
@@ -389,13 +389,13 @@
                   </label>
                   <input [ngClass]="{
                   'form-control-error':
-                    camposNota.controls?.nombreFamiliar?.dirty &&
-                    camposNota.controls?.nombreFamiliar?.errors
+                    camposNota2.controls?.nombreFamiliar?.dirty &&
+                    camposNota2.controls?.nombreFamiliar?.errors
                 }" class="form-control" id="nombreFamiliar" formControlName="nombreFamiliar"
                     placeholder="Ingresar nombre" type="text" />
                   <small *ngIf="
-              camposNota.controls?.nombreFamiliar?.dirty &&
-              camposNota.controls?.nombreFamiliar?.errors
+              camposNota2.controls?.nombreFamiliar?.dirty &&
+              camposNota2.controls?.nombreFamiliar?.errors
             " class="form-text form-text-error Campo-obligatorio" style="color: red;">
                     Campo obligatorio
                   </small>
@@ -409,12 +409,12 @@
                   </label>
                   <input [ngClass]="{
                   'form-control-error':
-                    camposNota.controls?.edad?.dirty &&
-                    camposNota.controls?.edad?.errors
+                    camposNota2.controls?.edad?.dirty &&
+                    camposNota2.controls?.edad?.errors
                 }" class="form-control" id="edad" formControlName="edad" placeholder="Ingresar edad" type="text" />
                   <small *ngIf="
-              camposNota.controls?.edad?.dirty &&
-              camposNota.controls?.edad?.errors
+              camposNota2.controls?.edad?.dirty &&
+              camposNota2.controls?.edad?.errors
             " class="form-text form-text-error Campo-obligatorio" style="color: red;">
                     Campo obligatorio
                   </small>
@@ -428,13 +428,13 @@
                   </label>
                   <input [ngClass]="{
                   'form-control-error':
-                    camposNota.controls?.parentesco?.dirty &&
-                    camposNota.controls?.parentesco?.errors
+                    camposNota2.controls?.parentesco?.dirty &&
+                    camposNota2.controls?.parentesco?.errors
                 }" class="form-control" id="parentesco" formControlName="parentesco" placeholder="Ingresar parentesco"
                     type="text" />
                   <small *ngIf="
-              camposNota.controls?.parentesco?.dirty &&
-              camposNota.controls?.parentesco?.errors
+              camposNota2.controls?.parentesco?.dirty &&
+              camposNota2.controls?.parentesco?.errors
             " class="form-text form-text-error Campo-obligatorio" style="color: red;">
                     Campo obligatorio
                   </small>
@@ -449,13 +449,13 @@
                   </label>
                   <input [ngClass]="{
                   'form-control-error':
-                    camposNota.controls?.codigoP?.dirty &&
-                    camposNota.controls?.codigoP?.errors
+                    camposNota2.controls?.codigoP?.dirty &&
+                    camposNota2.controls?.codigoP?.errors
                 }" class="form-control" id="codigoP" formControlName="codigoP" placeholder="Ingresar Código postal"
                     type="text" />
                   <small *ngIf="
-              camposNota.controls?.codigoP?.dirty &&
-              camposNota.controls?.codigoP?.errors
+              camposNota2.controls?.codigoP?.dirty &&
+              camposNota2.controls?.codigoP?.errors
             " class="form-text form-text-error Campo-obligatorio" style="color: red;">
                     Campo obligatorio
                   </small>
@@ -469,13 +469,13 @@
                   </label>
                   <input [ngClass]="{
                   'form-control-error':
-                    camposNota.controls?.estadoF?.dirty &&
-                    camposNota.controls?.estadoF?.errors
+                    camposNota2.controls?.estadoF?.dirty &&
+                    camposNota2.controls?.estadoF?.errors
                 }" class="form-control" id="estadoF" formControlName="estadoF" placeholder="Ingresar estado"
                     type="text" />
                   <small *ngIf="
-              camposNota.controls?.estadoF?.dirty &&
-              camposNota.controls?.estadoF?.errors
+              camposNota2.controls?.estadoF?.dirty &&
+              camposNota2.controls?.estadoF?.errors
             " class="form-text form-text-error Campo-obligatorio" style="color: red;">
                     Campo obligatorio
                   </small>
@@ -489,13 +489,13 @@
                   </label>
                   <input [ngClass]="{
                   'form-control-error':
-                    camposNota.controls?.delegacionM?.dirty &&
-                    camposNota.controls?.delegacionM?.errors
+                    camposNota2.controls?.delegacionM?.dirty &&
+                    camposNota2.controls?.delegacionM?.errors
                 }" class="form-control" id="delegacionM" formControlName="delegacionM"
                     placeholder="Ingresar delegación/unicipio" type="text" />
                   <small *ngIf="
-              camposNota.controls?.delegacionM?.dirty &&
-              camposNota.controls?.delegacionM?.errors
+              camposNota2.controls?.delegacionM?.dirty &&
+              camposNota2.controls?.delegacionM?.errors
             " class="form-text form-text-error Campo-obligatorio" style="color: red;">
                     Campo obligatorio
                   </small>
@@ -510,13 +510,13 @@
                   </label>
                   <input [ngClass]="{
                   'form-control-error':
-                    camposNota.controls?.ciudadF?.dirty &&
-                    camposNota.controls?.ciudadF?.errors
+                    camposNota2.controls?.ciudadF?.dirty &&
+                    camposNota2.controls?.ciudadF?.errors
                 }" class="form-control" id="ciudadF" formControlName="ciudadF" placeholder="Ingresar ciudad"
                     type="text" />
                   <small *ngIf="
-              camposNota.controls?.ciudadF?.dirty &&
-              camposNota.controls?.ciudadF?.errors
+              camposNota2.controls?.ciudadF?.dirty &&
+              camposNota2.controls?.ciudadF?.errors
             " class="form-text form-text-error Campo-obligatorio" style="color: red;">
                     Campo obligatorio
                   </small>
@@ -530,13 +530,13 @@
                   </label>
                   <input [ngClass]="{
                   'form-control-error':
-                    camposNota.controls?.coloniaF?.dirty &&
-                    camposNota.controls?.coloniaF?.errors
+                    camposNota2.controls?.coloniaF?.dirty &&
+                    camposNota2.controls?.coloniaF?.errors
                 }" class="form-control" id="coloniaF" formControlName="coloniaF" placeholder="Ingresar colonia"
                     type="text" />
                   <small *ngIf="
-              camposNota.controls?.coloniaF?.dirty &&
-              camposNota.controls?.coloniaF?.errors
+              camposNota2.controls?.coloniaF?.dirty &&
+              camposNota2.controls?.coloniaF?.errors
             " class="form-text form-text-error Campo-obligatorio" style="color: red;">
                     Campo obligatorio
                   </small>
@@ -550,13 +550,13 @@
                   </label>
                   <input [ngClass]="{
                   'form-control-error':
-                    camposNota.controls?.calleF?.dirty &&
-                    camposNota.controls?.calleF?.errors
+                    camposNota2.controls?.calleF?.dirty &&
+                    camposNota2.controls?.calleF?.errors
                 }" class="form-control" id="calleF" formControlName="calleF" placeholder="Ingresar calle"
                     type="text" />
                   <small *ngIf="
-              camposNota.controls?.calleF?.dirty &&
-              camposNota.controls?.calleF?.errors
+              camposNota2.controls?.calleF?.dirty &&
+              camposNota2.controls?.calleF?.errors
             " class="form-text form-text-error Campo-obligatorio" style="color: red;">
                     Campo obligatorio
                   </small>
@@ -571,13 +571,13 @@
                   </label>
                   <input [ngClass]="{
                   'form-control-error':
-                    camposNota.controls?.numExtF?.dirty &&
-                    camposNota.controls?.numExtF?.errors
+                    camposNota2.controls?.numExtF?.dirty &&
+                    camposNota2.controls?.numExtF?.errors
                 }" class="form-control" id="numExtF" formControlName="numExtF" placeholder="Ingresar número exterior"
                     type="text" />
                   <small *ngIf="
-              camposNota.controls?.numExtF?.dirty &&
-              camposNota.controls?.numExtF?.errors
+              camposNota2.controls?.numExtF?.dirty &&
+              camposNota2.controls?.numExtF?.errors
             " class="form-text form-text-error Campo-obligatorio" style="color: red;">
                     Campo obligatorio
                   </small>
@@ -591,13 +591,13 @@
                   </label>
                   <input [ngClass]="{
                   'form-control-error':
-                    camposNota.controls?.numIntF?.dirty &&
-                    camposNota.controls?.numIntF?.errors
+                    camposNota2.controls?.numIntF?.dirty &&
+                    camposNota2.controls?.numIntF?.errors
                 }" class="form-control" id="numIntF" formControlName="numIntF" placeholder="Ingresar número interior"
                     type="text" />
                   <small *ngIf="
-              camposNota.controls?.numIntF?.dirty &&
-              camposNota.controls?.numIntF?.errors
+              camposNota2.controls?.numIntF?.dirty &&
+              camposNota2.controls?.numIntF?.errors
             " class="form-text form-text-error Campo-obligatorio" style="color: red;">
                     Campo obligatorio
                   </small>
@@ -615,13 +615,13 @@
                   </label>
                   <input [ngClass]="{
                   'form-control-error':
-                    camposNota.controls?.telFijo?.dirty &&
-                    camposNota.controls?.telFijo?.errors
+                    camposNota2.controls?.telFijo?.dirty &&
+                    camposNota2.controls?.telFijo?.errors
                 }" class="form-control" id="telFijo" formControlName="telFijo" placeholder="Ingresar teléfono fijo"
                     type="text" />
                   <small *ngIf="
-              camposNota.controls?.telFijo?.dirty &&
-              camposNota.controls?.telFijo?.errors
+              camposNota2.controls?.telFijo?.dirty &&
+              camposNota2.controls?.telFijo?.errors
             " class="form-text form-text-error Campo-obligatorio" style="color: red;">
                     Campo obligatorio
                   </small>
@@ -634,13 +634,13 @@
                   </label>
                   <input [ngClass]="{
                   'form-control-error':
-                    camposNota.controls?.telCel?.dirty &&
-                    camposNota.controls?.telCel?.errors
+                    camposNota2.controls?.telCel?.dirty &&
+                    camposNota2.controls?.telCel?.errors
                 }" class="form-control" id="telCel" formControlName="telCel" placeholder="Ingresar teléfono celular"
                     type="text" />
                   <small *ngIf="
-              camposNota.controls?.telCel?.dirty &&
-              camposNota.controls?.telCel?.errors
+              camposNota2.controls?.telCel?.dirty &&
+              camposNota2.controls?.telCel?.errors
             " class="form-text form-text-error Campo-obligatorio" style="color: red;">
                     Campo obligatorio
                   </small>
@@ -653,13 +653,13 @@
                   </label>
                   <input [ngClass]="{
                   'form-control-error':
-                    camposNota.controls?.correoF?.dirty &&
-                    camposNota.controls?.correoF?.errors
+                    camposNota2.controls?.correoF?.dirty &&
+                    camposNota2.controls?.correoF?.errors
                 }" class="form-control" id="correoF" formControlName="correoF"
                     placeholder="Ingresar correo electrónico" type="text" />
                   <small *ngIf="
-              camposNota.controls?.correoF?.dirty &&
-              camposNota.controls?.correoF?.errors
+              camposNota2.controls?.correoF?.dirty &&
+              camposNota2.controls?.correoF?.errors
             " class="form-text form-text-error Campo-obligatorio" style="color: red;">
                     Campo obligatorio
                   </small>
@@ -684,7 +684,7 @@
               <img src="url('../../../../assets/icons/2.svg" alt="" style="margin-left: -18px;">
             </div>
             <div class="col-md-4" style="padding-top: 19px; padding-right: 24px;  margin-top: -1.4%;">
-              <button (click)="irExploracionCaso()"
+              <button [disabled]="camposNota2.valid == false" (click)="irExploracionCaso()"
                 class="btn btn-primary buttonL" style="float: right;border: solid 1px #9d2449;">
                 Siguiente
               </button>
@@ -708,7 +708,7 @@
     </div>
     <div content style="padding-bottom: 5.5%; height: 100%;">
       <div class="Rectangle-306-2" style="background-color: white">
-        <div class="row" style=" height: 11%; ">
+        <div class="row" style=" height: 9%; ">
           <div header class="flex justify-content-between align-items-center col-md-6">
             <div style="padding-bottom: 9px; padding-top: 9px;">
               <label class="datos">
@@ -758,13 +758,13 @@
           </div>
         </div>
 
-        <div style="width: 46px; background-color:#DBDBDC; height: 1px;"></div>
+        <div style="width: 494px; background-color:#DBDBDC; height: 1px;"></div>
 
         <span class="instrucciones">
           Por favor capture los siguientes datos:
         </span>
         <div style="width: 100%; height: 57%;">
-          <form novalidate class="formInfo" [formGroup]="camposNota">
+          <form novalidate class="formInfo" [formGroup]="camposNota3">
             <div class="row" style="margin: 0 -4px 0 -4px;">
               <div class="contenedor1" style="display: flex;">
                 <div class="col-md-4" style="flex:auto ;">
@@ -774,16 +774,16 @@
                     </label>
                     <textarea [ngClass]="{
                   'form-control-error':
-                    camposNota.controls?.objetivoEstudio?.dirty &&
-                    camposNota.controls?.objetivoEstudio?.errors
+                    camposNota3.controls?.objetivoEstudio?.dirty &&
+                    camposNota3.controls?.objetivoEstudio?.errors
                 }" class="form-control matricula inputs3" id="objetivoEstudio" formControlName="objetivoEstudio"
                       placeholder="Ingresar objetivo" #objetivosRef maxlength="2000" required rows="4"></textarea>
                     <span class="caracteres">{{ objetivosRef.value?.length }} /
                       {{ objetivosRef.getAttribute("maxlength") }} caracteres</span>
                     <br>
                     <small *ngIf="
-                  camposNota.controls?.objetivoEstudio?.dirty &&
-                  camposNota.controls?.objetivoEstudio?.errors
+                  camposNota3.controls?.objetivoEstudio?.dirty &&
+                  camposNota3.controls?.objetivoEstudio?.errors
                 " class="form-text form-text-error Campo-obligatorio" style="color: red;">
                       Campo obligatorio
                     </small>
@@ -797,8 +797,8 @@
                     </label>
                     <textarea [ngClass]="{
                     'form-control-error':
-                      camposNota.controls?.datosPaciente?.dirty &&
-                      camposNota.controls?.datosPaciente?.errors
+                      camposNota3.controls?.datosPaciente?.dirty &&
+                      camposNota3.controls?.datosPaciente?.errors
                   }" class="form-control matricula inputs3" id="datosPaciente" formControlName="datosPaciente"
                       placeholder="Ingresar datos del paciente" #datosPacienteRef maxlength="2000" required
                       rows="4"></textarea>
@@ -806,8 +806,8 @@
                       {{ datosPacienteRef.getAttribute("maxlength") }} caracteres</span>
                     <br>
                     <small *ngIf="
-                camposNota.controls?.datosPaciente?.dirty &&
-                camposNota.controls?.datosPaciente?.errors
+                camposNota3.controls?.datosPaciente?.dirty &&
+                camposNota3.controls?.datosPaciente?.errors
               " class="form-text form-text-error Campo-obligatorio" style="color: red;">
                       Campo obligatorio
                     </small>
@@ -822,8 +822,8 @@
                     </label>
                     <textarea [ngClass]="{
                     'form-control-error':
-                      camposNota.controls?.datosFamiliares?.dirty &&
-                      camposNota.controls?.datosFamiliares?.errors
+                      camposNota3.controls?.datosFamiliares?.dirty &&
+                      camposNota3.controls?.datosFamiliares?.errors
                   }" class="form-control matricula inputs3" id="datosFamiliares"
                       placeholder="Ingresar datos familiares" formControlName="datosFamiliares" #datosFamiliaresRef
                       maxlength="2000" required rows="4"></textarea>
@@ -831,8 +831,8 @@
                       {{ datosFamiliaresRef.getAttribute("maxlength") }} caracteres</span>
                     <br>
                     <small *ngIf="
-                camposNota.controls?.datosFamiliares?.dirty &&
-                camposNota.controls?.datosFamiliares?.errors
+                camposNota3.controls?.datosFamiliares?.dirty &&
+                camposNota3.controls?.datosFamiliares?.errors
               " class="form-text form-text-error Campo-obligatorio" style="color: red;">
                       Campo obligatorio
                     </small>
@@ -846,8 +846,8 @@
                     </label>
                     <textarea [ngClass]="{
                     'form-control-error':
-                      camposNota.controls?.datosEconomicos?.dirty &&
-                      camposNota.controls?.datosEconomicos?.errors
+                      camposNota3.controls?.datosEconomicos?.dirty &&
+                      camposNota3.controls?.datosEconomicos?.errors
                   }" class="form-control matricula inputs3" id="datosEconomicos"
                       placeholder="Ingresar datos económicos" formControlName="datosEconomicos" #datosEconomicosRef
                       maxlength="2000" required rows="4"></textarea>
@@ -855,8 +855,8 @@
                       {{ datosEconomicosRef.getAttribute("maxlength") }} caracteres</span>
                     <br>
                     <small *ngIf="
-                camposNota.controls?.datosEconomicos?.dirty &&
-                camposNota.controls?.datosEconomicos?.errors
+                camposNota3.controls?.datosEconomicos?.dirty &&
+                camposNota3.controls?.datosEconomicos?.errors
               " class="form-text form-text-error Campo-obligatorio" style="color: red;">
                       Campo obligatorio
                     </small>
@@ -871,8 +871,8 @@
                     </label>
                     <textarea [ngClass]="{
                     'form-control-error':
-                      camposNota.controls?.datosHogar?.dirty &&
-                      camposNota.controls?.datosHogar?.errors
+                      camposNota3.controls?.datosHogar?.dirty &&
+                      camposNota3.controls?.datosHogar?.errors
                   }" class="form-control matricula inputs3" id="datosHogar"
                       placeholder="Ingresar condiciones del hogar" formControlName="datosHogar" #datosHogarRef
                       maxlength="2000" required rows="4"></textarea>
@@ -880,8 +880,8 @@
                       {{ datosHogarRef.getAttribute("maxlength") }} caracteres</span>
                     <br>
                     <small *ngIf="
-                camposNota.controls?.datosHogar?.dirty &&
-                camposNota.controls?.datosHogar?.errors
+                camposNota3.controls?.datosHogar?.dirty &&
+                camposNota3.controls?.datosHogar?.errors
               " class="form-text form-text-error Campo-obligatorio" style="color: red;">
                       Campo obligatorio
                     </small>
@@ -895,8 +895,8 @@
                     </label>
                     <textarea [ngClass]="{
                     'form-control-error':
-                      camposNota.controls?.datosComplementarios?.dirty &&
-                      camposNota.controls?.datosComplementarios?.errors
+                      camposNota3.controls?.datosComplementarios?.dirty &&
+                      camposNota3.controls?.datosComplementarios?.errors
                   }" class="form-control matricula inputs3" id="datosComplementarios"
                       placeholder="Ingresar datos complementarios" formControlName="datosComplementarios"
                       #datosComplementariosRef maxlength="2000" required rows="4"></textarea>
@@ -904,8 +904,8 @@
                       {{ datosComplementariosRef.getAttribute("maxlength") }} caracteres</span>
                     <br>
                     <small *ngIf="
-                camposNota.controls?.datosComplementarios?.dirty &&
-                camposNota.controls?.datosComplementarios?.errors
+                camposNota3.controls?.datosComplementarios?.dirty &&
+                camposNota3.controls?.datosComplementarios?.errors
               " class="form-text form-text-error Campo-obligatorio" style="color: red;">
                       Campo obligatorio
                     </small>
@@ -921,8 +921,8 @@
                     </label>
                     <textarea [ngClass]="{
                     'form-control-error':
-                      camposNota.controls?.datosComplementarios?.dirty &&
-                      camposNota.controls?.datosComplementarios?.errors
+                      camposNota3.controls?.datosComplementarios?.dirty &&
+                      camposNota3.controls?.datosComplementarios?.errors
                   }" class="form-control matricula inputs3" id="datosComplementarios"
                       placeholder="Ingresar diagnóstico social del paciente" formControlName="datosSocialP"
                       #datosSocialPRef maxlength="2000" required rows="4"></textarea>
@@ -930,8 +930,8 @@
                       {{ datosSocialPRef.getAttribute("maxlength") }} caracteres</span>
                     <br>
                     <small *ngIf="
-                camposNota.controls?.datosComplementarios?.dirty &&
-                camposNota.controls?.datosComplementarios?.errors
+                camposNota3.controls?.datosComplementarios?.dirty &&
+                camposNota3.controls?.datosComplementarios?.errors
               " class="form-text form-text-error Campo-obligatorio" style="color: red;">
                       Campo obligatorio
                     </small>
@@ -945,8 +945,8 @@
                     </label>
                     <textarea [ngClass]="{
                     'form-control-error':
-                      camposNota.controls?.datosSocialF?.dirty &&
-                      camposNota.controls?.datosSocialF?.errors
+                      camposNota3.controls?.datosSocialF?.dirty &&
+                      camposNota3.controls?.datosSocialF?.errors
                   }" class="form-control matricula inputs3" id="datosSocialF"
                       placeholder="Ingresar diagnóstico social de la familia" formControlName="datosSocialF"
                       #datosSocialFRef maxlength="2000" required rows="4"></textarea>
@@ -954,8 +954,8 @@
                       {{ datosSocialFRef.getAttribute("maxlength") }} caracteres</span>
                     <br>
                     <small *ngIf="
-                camposNota.controls?.datosSocialF?.dirty &&
-                camposNota.controls?.datosSocialF?.errors
+                camposNota3.controls?.datosSocialF?.dirty &&
+                camposNota3.controls?.datosSocialF?.errors
               " class="form-text form-text-error Campo-obligatorio" style="color: red;">
                       Campo obligatorio
                     </small>
@@ -970,8 +970,8 @@
                     </label>
                     <textarea [ngClass]="{
                     'form-control-error':
-                      camposNota.controls?.datosTratamiento?.dirty &&
-                      camposNota.controls?.datosTratamiento?.errors
+                      camposNota3.controls?.datosTratamiento?.dirty &&
+                      camposNota3.controls?.datosTratamiento?.errors
                   }" class="form-control matricula inputs3" id="datosTratamiento"
                       placeholder="Ingresar plan de tratamiento social" formControlName="datosTratamiento"
                       #datosTratamientoRef maxlength="2000" required rows="4"></textarea>
@@ -979,8 +979,8 @@
                       {{ datosTratamientoRef.getAttribute("maxlength") }} caracteres</span>
                     <br>
                     <small *ngIf="
-                camposNota.controls?.datosTratamiento?.dirty &&
-                camposNota.controls?.datosTratamiento?.errors
+                camposNota3.controls?.datosTratamiento?.dirty &&
+                camposNota3.controls?.datosTratamiento?.errors
               " class="form-text form-text-error Campo-obligatorio" style="color: red;">
                       Campo obligatorio
                     </small>
@@ -994,8 +994,8 @@
                     </label>
                     <textarea [ngClass]="{
                     'form-control-error':
-                      camposNota.controls?.datosAcciones?.dirty &&
-                      camposNota.controls?.datosAcciones?.errors
+                      camposNota3.controls?.datosAcciones?.dirty &&
+                      camposNota3.controls?.datosAcciones?.errors
                   }" class="form-control matricula inputs3" id="datosAcciones"
                       placeholder="Ingresar acciones realizadas" formControlName="datosAcciones" #datosAccionesRef
                       maxlength="2000" required rows="4"></textarea>
@@ -1003,8 +1003,8 @@
                       {{ datosAccionesRef.getAttribute("maxlength") }} caracteres</span>
                     <br>
                     <small *ngIf="
-                        camposNota.controls?.datosAcciones?.dirty &&
-                        camposNota.controls?.datosAcciones?.errors
+                        camposNota3.controls?.datosAcciones?.dirty &&
+                        camposNota3.controls?.datosAcciones?.errors
                       " class="form-text form-text-error Campo-obligatorio" style="color: red;">
                       Campo obligatorio
                     </small>
@@ -1030,7 +1030,7 @@
               <img src="url('../../../../assets/icons/3.svg" alt="" style="margin-left: -18px;">
             </div>
             <div class="col-md-4" style="padding-top: 19px; padding-right: 24px;  margin-top: 11.4%;">
-              <button [disabled]="camposNota.valid == false" class="btn btn-primary buttonL"
+              <button [disabled]="camposNota3.valid == false" class="btn btn-primary buttonL"
                 style="float: right;border: solid 1px #9d2449;">
                 Guardar
               </button>
