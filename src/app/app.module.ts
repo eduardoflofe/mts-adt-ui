@@ -43,9 +43,6 @@ import { ConsultaListaNotasTSocialComponent } from './consulta-lista-notas-tsoci
 import { NuevoEstudioSocialMedicoComponent } from './nuevo-estudio-social-medico/nuevo-estudio-social-medico.component';
 import { ConsultaEstudiosMedicosComponent } from './consulta-estudios-medicos/consulta-estudios-medicos.component';
 import { EstudioMedicoGuardadoComponent } from './estudio-medico-guardado/estudio-medico-guardado.component';
-import { NuevoEstudio1Component } from './nuevo-estudio1/nuevo-estudio1.component';
-import { NuevoEstudio2dFamiliarComponent } from './nuevo-estudio2d-familiar/nuevo-estudio2d-familiar.component';
-import { NuevoEstudio3dExploracionComponent } from './nuevo-estudio3d-exploracion/nuevo-estudio3d-exploracion.component';
 
 
 registerLocaleData('es');
@@ -74,10 +71,7 @@ registerLocaleData('es');
     NuevoEstudioSocialMedicoComponent,
     ConsultaNotaTSocialComponent,
     ConsultaEstudiosMedicosComponent,
-    EstudioMedicoGuardadoComponent,
-    NuevoEstudio1Component,
-    NuevoEstudio2dFamiliarComponent,
-    NuevoEstudio3dExploracionComponent
+    EstudioMedicoGuardadoComponent
 
   ],
   imports: [

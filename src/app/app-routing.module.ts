@@ -17,9 +17,6 @@ import { NuevoEstudioSocialMedicoComponent } from './nuevo-estudio-social-medico
 import { ConsultaNotaTSocialComponent } from './consulta-nota-tsocial/consulta-nota-tsocial.component';
 import { ConsultaEstudiosMedicosComponent } from './consulta-estudios-medicos/consulta-estudios-medicos.component';
 import { EstudioMedicoGuardadoComponent } from './estudio-medico-guardado/estudio-medico-guardado.component';
-import { NuevoEstudio1Component } from './nuevo-estudio1/nuevo-estudio1.component';
-import { NuevoEstudio2dFamiliarComponent } from './nuevo-estudio2d-familiar/nuevo-estudio2d-familiar.component';
-import { NuevoEstudio3dExploracionComponent } from './nuevo-estudio3d-exploracion/nuevo-estudio3d-exploracion.component';
 
 
 
@@ -28,21 +25,18 @@ const routes: Routes = [
   { path: '', component: LoginComponent },
   { path: 'login', component: LoginComponent },
   { path: 'recuperarpassword', component: RegistroComponent },
-  { path: 'busqueda', component: BusquedaNssComponent, canActivate: [SeguridadRouter] },
-  { path: 'tarjeta', component: AppTarjetaPresentacionComponent, canActivate: [SeguridadRouter] },
-  { path: 'busquedaEspecifica', component: CCGrupalEspecificaComponent, canActivate: [SeguridadRouter] },
-  { path: 'nuevaCronica', component: NuevaCronicaComponent, canActivate: [SeguridadRouter] },
-  { path: 'cronicaGuardada', component: CronicaGuardadaComponent, canActivate: [SeguridadRouter] },
-  { path: 'consulta-cronica-grupal', component: ConsultaComponent, canActivate: [SeguridadRouter] },
-  { path: 'nueva-nota', component: NuevaNotaTSocialComponent, canActivate: [SeguridadRouter] },
-  { path: 'consulta-nota', component: ConsultaNotaTSocialComponent, canActivate: [SeguridadRouter] },
-  { path: 'consulta-estudios-medicos', component: ConsultaEstudiosMedicosComponent, canActivate: [SeguridadRouter] },
-  { path: 'consulta-notas', component: ConsultaListaNotasTSocialComponent, canActivate: [SeguridadRouter] },
-  { path: 'nuevo-estudio-social-medico', component: NuevoEstudioSocialMedicoComponent, canActivate: [SeguridadRouter] },
-  { path: 'estudio-medico-guardado', component: EstudioMedicoGuardadoComponent, canActivate: [SeguridadRouter] },
-  { path: 'nuevo-estudio1-generales', component: NuevoEstudio1Component, canActivate: [SeguridadRouter] },
-  { path: 'nuevo-estudio2-familiares', component: NuevoEstudio2dFamiliarComponent, canActivate: [SeguridadRouter] },
-  { path: 'nuevo-estudio2-exploracion', component: NuevoEstudio3dExploracionComponent, canActivate: [SeguridadRouter] },
+  { path: 'busqueda', component: BusquedaNssComponent },
+  { path: 'tarjeta', component: AppTarjetaPresentacionComponent },
+  { path: 'busquedaEspecifica', component: CCGrupalEspecificaComponent },
+  { path: 'nuevaCronica', component: NuevaCronicaComponent },
+  { path: 'cronicaGuardada', component: CronicaGuardadaComponent },
+  { path: 'consulta-cronica-grupal', component: ConsultaComponent },
+  { path: 'nueva-nota', component: NuevaNotaTSocialComponent },
+  { path: 'detalle-nota', component: ConsultaNotaTSocialComponent },
+  { path: 'consulta-estudios-medicos', component: ConsultaEstudiosMedicosComponent },
+  { path: 'consulta-notas', component: ConsultaListaNotasTSocialComponent },
+  { path: 'nuevo-estudio-social-medico', component: NuevoEstudioSocialMedicoComponent },
+  { path: 'detalle-estudio-medico', component: EstudioMedicoGuardadoComponent },
   { path: '**', redirectTo: 'login' }
 ];
 
