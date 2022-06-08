@@ -1,188 +1,675 @@
 <div style="margin-bottom: 1%"></div>
 <app-tarjeta-presentacion></app-tarjeta-presentacion>
 <ng-container *ngIf="datosGenerales == true">
-<app-card-template>
-  <div header class="flex justify-content-between align-items-center nuevoEstudio">
-    <span style="font-weight: 700; font-size: 24px; color: #222222; line-height: 29.16px;">
-      Nuevo estudio social médico
-    </span>
-  </div>
-  <div content style="padding-bottom: 2.5%;">
-    <div content class="content" style="border: 1px solid #CCCCCC ; width: 1099px;">
-    <div class="contenido" >
-      <div class="row" style=" height: 11%; ">
-        <div header class="flex justify-content-between align-items-center col-md-6">
-          <label class="datos">
-            1.-Datos generales
-          </label>
-        </div>
-        <div header class="flex justify-content-between align-items-center col-md-3"></div>
-        <div header class="flex justify-content-between align-items-center col-md-3 row" style="text-align: right; margin-top: 10px;">
-          <div class="col-md-4" style=" height: 40px;">
-            <label style="margin-right: 6px; font-size: 14px; position: relative;" >1</label>
-            <img src="../../assets/icons/circulo_verde.svg" alt="" style="width: 38px; height: 38px;">
-            <img src="../../assets/icons/dobles.svg" alt="" style="margin: -17px 0 0 -15px;  ">
-            <img src="../../assets/icons/oja.svg" alt="" style="margin: -51px 0 0 29px">
-            <img src="../../assets/icons/linea3.svg" alt="" style="margin: -220px -0.1px 0 0">
-            <img src="../../assets/icons/linea2.svg" alt="" style="margin: -213.8px 12px 0 -10px">
-            <img src="../../assets/icons/linea1.svg" alt="" style="margin: -207px 9px 0 -19px">
-            <img src="../../assets/icons/goma.svg" alt="" style="margin: -219px -4.3px 0 0">
-            <img src="../../assets/icons/fierrogoma.svg" alt="" style="margin: -217px -10.4px 0 0">
-            <img src="../../assets/icons/lapizcorrecto.svg" alt="" style="margin: -210px 5px 0 0">
-          </div>
-          <div class="col-md-4" style=" height: 40px;">
-            <label style="margin-right: 6px; font-size: 14px; position: relative;" >2</label>
-            <img src="../../assets/icons/grisintenso.svg" alt="" style="width: 38px; height: 38px;">
-            <img src="../../assets/icons/dobles.svg" alt="" style="margin: -17px 0 0 -15px;  ">
-            <img src="../../assets/icons/oja.svg" alt="" style="margin: -51px 0 0 29px">
-            <img src="../../assets/icons/linea3.svg" alt="" style="margin: -220px -0.1px 0 0">
-            <img src="../../assets/icons/linea2.svg" alt="" style="margin: -213.8px 12px 0 -10px">
-            <img src="../../assets/icons/linea1.svg" alt="" style="margin: -207px 9px 0 -19px">
-            <img src="../../assets/icons/goma.svg" alt="" style="margin: -219px -4.4px 0 0">
-            <img src="../../assets/icons/fierrogoma.svg" alt="" style="margin: -217px -10.4px 0 0">
-            <img src="../../assets/icons/lapizcorrecto.svg" alt="" style="margin: -210px 5px 0 0">
-          </div>
-          <div class="col-md-4" style=" height: 40px;">
-            <label style="margin-right: 6px; font-size: 14px; position: relative;" >3</label>
-            <img src="../../assets/icons/grisSutil.svg" alt="" style="width: 38px; height: 38px;">
-            <img src="../../assets/icons/dobles.svg" alt="" style="margin: -17px 0 0 -15px;  ">
-            <img src="../../assets/icons/oja.svg" alt="" style="margin: -51px 0 0 29px">
-            <img src="../../assets/icons/linea3.svg" alt="" style="margin: -220px -0.1px 0 0">
-            <img src="../../assets/icons/linea2.svg" alt="" style="margin: -213.8px 12px 0 -10px">
-            <img src="../../assets/icons/linea1.svg" alt="" style="margin: -207px 9px 0 -19px">
-            <img src="../../assets/icons/goma.svg" alt="" style="margin: -219px -4.3px 0 0">
-            <img src="../../assets/icons/fierrogoma.svg" alt="" style="margin: -217px -10px 0 0">
-            <img src="../../assets/icons/lapizcorrecto.svg" alt="" style="margin: -210px 5px 0 0">
-          </div>
-        </div>
-      </div>
-      <br>
-      <div class="line63" style="border-bottom: black;"></div>
-      <div style="padding-bottom: 9px; padding-top: 9px;">
-        <span class="instrucciones">
-          Por favor capture los siguientes datos:
-        </span>
-      </div>
-      <form novalidate class="formInfo" [formGroup]="camposNota">
-        <div class="container">
-          <div class="flex" style="display:flex;">
-            <div class="divEstudioSolicitado">
-              <span class="labels">Estudio solicitado por*:</span>
-              <br>
-              <input class="form-control" placeholder="Ingresar nombre" formControlName="nuevoEstudioSocial"
-              [ngClass]="{
+  <app-card-template>
+    <div header class="flex justify-content-between align-items-center nuevoEstudio">
+      <span style="font-weight: 700; font-size: 24px; color: #222222; line-height: 29.16px;">
+        Nuevo estudio social médico
+      </span>
+    </div>
+    <div content class="content" style=" width: 1100px; height: 750px;">
+      <div class="contenido">
+        <div class="contentHeader" style="display:flex;">
+          <!-- <label class="datosGeneralesLabel">1.-Datos generales</label> -->
+          <div content style="padding-bottom: 2.5%;">
+            <div content class="content" style="border: 1px solid #CCCCCC ; width: 1090px;">
+              <div class="contenido">
+                <div class="row" style=" height: 11%; ">
+                  <div header class="flex justify-content-between align-items-center col-md-6">
+                    <label class="datos">
+                      1.-Datos generales
+                    </label>
+                  </div>
+                  <div header class="flex justify-content-between align-items-center col-md-3"></div>
+                  <div header class="flex justify-content-between align-items-center col-md-3 row"
+                    style="text-align: right; margin-top: 10px;">
+                    <div class="col-md-4" style=" height: 40px;">
+                      <label style="margin-right: 6px; font-size: 14px; position: relative;">1</label>
+                      <img src="../../assets/icons/circulo_verde.svg" alt="" style="width: 38px; height: 38px;">
+                      <img src="../../assets/icons/dobles.svg" alt="" style="margin: -17px 0 0 -15px;  ">
+                      <img src="../../assets/icons/oja.svg" alt="" style="margin: -51px 0 0 29px">
+                      <img src="../../assets/icons/linea3.svg" alt="" style="margin: -220px -0.1px 0 0">
+                      <img src="../../assets/icons/linea2.svg" alt="" style="margin: -213.8px 12px 0 -10px">
+                      <img src="../../assets/icons/linea1.svg" alt="" style="margin: -207px 9px 0 -19px">
+                      <img src="../../assets/icons/goma.svg" alt="" style="margin: -219px -4.3px 0 0">
+                      <img src="../../assets/icons/fierrogoma.svg" alt="" style="margin: -217px -10.4px 0 0">
+                      <img src="../../assets/icons/lapizcorrecto.svg" alt="" style="margin: -210px 5px 0 0">
+                    </div>
+                    <div class="col-md-4" style=" height: 40px;">
+                      <label style="margin-right: 6px; font-size: 14px; position: relative;">2</label>
+                      <img src="../../assets/icons/grisintenso.svg" alt="" style="width: 38px; height: 38px;">
+                      <img src="../../assets/icons/dobles.svg" alt="" style="margin: -17px 0 0 -15px;  ">
+                      <img src="../../assets/icons/oja.svg" alt="" style="margin: -51px 0 0 29px">
+                      <img src="../../assets/icons/linea3.svg" alt="" style="margin: -220px -0.1px 0 0">
+                      <img src="../../assets/icons/linea2.svg" alt="" style="margin: -213.8px 12px 0 -10px">
+                      <img src="../../assets/icons/linea1.svg" alt="" style="margin: -207px 9px 0 -19px">
+                      <img src="../../assets/icons/goma.svg" alt="" style="margin: -219px -4.4px 0 0">
+                      <img src="../../assets/icons/fierrogoma.svg" alt="" style="margin: -217px -10.4px 0 0">
+                      <img src="../../assets/icons/lapizcorrecto.svg" alt="" style="margin: -210px 5px 0 0">
+                    </div>
+                    <div class="col-md-4" style=" height: 40px;">
+                      <label style="margin-right: 6px; font-size: 14px; position: relative;">3</label>
+                      <img src="../../assets/icons/grisSutil.svg" alt="" style="width: 38px; height: 38px;">
+                      <img src="../../assets/icons/dobles.svg" alt="" style="margin: -17px 0 0 -15px;  ">
+                      <img src="../../assets/icons/oja.svg" alt="" style="margin: -51px 0 0 29px">
+                      <img src="../../assets/icons/linea3.svg" alt="" style="margin: -220px -0.1px 0 0">
+                      <img src="../../assets/icons/linea2.svg" alt="" style="margin: -213.8px 12px 0 -10px">
+                      <img src="../../assets/icons/linea1.svg" alt="" style="margin: -207px 9px 0 -19px">
+                      <img src="../../assets/icons/goma.svg" alt="" style="margin: -219px -4.3px 0 0">
+                      <img src="../../assets/icons/fierrogoma.svg" alt="" style="margin: -217px -10px 0 0">
+                      <img src="../../assets/icons/lapizcorrecto.svg" alt="" style="margin: -210px 5px 0 0">
+                    </div>
+                  </div>
+                </div>
+                <br>
+                <div class="line63" style="border-bottom: black;"></div>
+                <div style="padding-bottom: 9px; padding-top: 9px;">
+                  <span class="instrucciones">
+                    Por favor capture los siguientes datos:
+                  </span>
+                </div>
+                <form novalidate class="formInfo" [formGroup]="camposNota">
+                  <div class="container">
+                    <div class="flex" style="display:flex;">
+                      <div class="divEstudioSolicitado">
+                        <span class="labels">Estudio solicitado por*:</span>
+                        <br>
+                        <input [ngClass]="{
                 'form-control-error':
-                  camposNota.controls?.nuevoEstudioSocial?.dirty &&
-                  camposNota.controls?.nuevoEstudioSocial?.errors
-              }" required>
-              <small *ngIf="
-                camposNota.controls?.nuevoEstudioSocial?.dirty &&
-                camposNota.controls?.nuevoEstudioSocial?.errors
-              " class="form-text form-text-error Campo-obligatorio">
-              Campo obligatorio
-            </small>
-            </div>
-            <div class="divFechas">
-              <span class="labels">Fecha del estudio*:</span>
-              <br>
-              <input class="form-control" type="text" placeholder="dd/mm/aaaa" style="background-color:#EEEEEE ;">
-            </div>
-          </div>
+                  camposNota.controls?.solicitadoPor?.dirty &&
+                  camposNota.controls?.solicitadoPor?.errors
+              }" class="form-control" id="solicitadoPor" formControlName="solicitadoPor" placeholder="Ingresar nombre">
+                        <small *ngIf="
+                camposNota.controls?.solicitadoPor?.dirty &&
+                camposNota.controls?.solicitadoPor?.errors
+              " class="form-text form-text-error Campo-obligatorio" style="color: red;">
+                          Campo obligatorio
+                        </small>
+                      </div>
+                      <div class="divFechas">
+                        <span class="labels">Fecha del estudio*:</span>
+                        <br>
+                        <input [ngClass]="{
+                'form-control-error':
+                  camposNota.controls?.fechas?.dirty &&
+                  camposNota.controls?.fechas?.errors
+              }" class="form-control" id="fechas" formControlName="fechas" placeholder="dd/mm/aaaa"
+                          style="background-color:#EEEEEE ;">
+                        <small *ngIf="
+                camposNota.controls?.fechas?.dirty &&
+                camposNota.controls?.fechas?.errors
+              " class="form-text form-text-error Campo-obligatorio" style="color: red;">
+                          Campo obligatorio
+                        </small>
+                      </div>
+                    </div>
 
-          <br>
-          <div class="line63-DatosG" style="border-bottom: black;"></div>
-          <br>
+                    <br>
+                    <div class="line63-DatosG" style="border-bottom: black;"></div>
+                    <br>
 
-          <div class="flex-2" style="display:flex ;">
-            <div class="divCP">
-              <span class="labels">Código Postal*:</span>
-              <br>
-              <input class="form-control" placeholder="Ingresar código postal">
-            </div>
-            <div class="divEstado">
-              <span class="labels">Estado:</span>
-              <br>
-              <input class="form-control" style="background-color:#EEEEEE ;">
-            </div>
-            <div class="divD">
-              <span class="labels">Delegación/Municipio:</span>
-              <br>
-              <input class="form-control" style="background-color:#EEEEEE ;">
+                    <div class="flex-2" style="display:flex ;">
+                      <div class="divCP">
+                        <span class="labels">Código Postal*:</span>
+                        <br>
+                        <input [ngClass]="{
+                'form-control-error':
+                  camposNota.controls?.cp?.dirty &&
+                  camposNota.controls?.cp?.errors
+              }" class="form-control" id="cp" formControlName="cp" placeholder="Ingresar código postal">
+                        <small *ngIf="
+                camposNota.controls?.cp?.dirty &&
+                camposNota.controls?.cp?.errors
+              " class="form-text form-text-error Campo-obligatorio" style="color: red;">
+                          Campo obligatorio
+                        </small>
+                      </div>
+                      <div class="divEstado">
+                        <span class="labels">Estado:</span>
+                        <br>
+                        <input class="form-control" style="background-color:#EEEEEE ;">
+                      </div>
+                      <div class="divD">
+                        <span class="labels">Delegación/Municipio:</span>
+                        <br>
+                        <input class="form-control" style="background-color:#EEEEEE ;">
+                      </div>
+                    </div>
+                    <div class="flex-3" style="display:flex ;">
+                      <div class="divCiudad">
+                        <span class="labels">Ciudad*:</span>
+                        <br>
+                        <select class="select">
+                          <option class="select-font" [value]="-1" selected>Ingresar ciudad</option>
+                        </select>
+                      </div>
+                      <div class="divColonia">
+                        <span class="labels">Colonia*:</span>
+                        <br>
+                        <input [ngClass]="{
+                'form-control-error':
+                  camposNota.controls?.colonia?.dirty &&
+                  camposNota.controls?.colonia?.errors
+              }" class="form-control" id="colonia" formControlName="colonia" placeholder="Ingresar colonia">
+                        <small *ngIf="
+                camposNota.controls?.colonia?.dirty &&
+                camposNota.controls?.colonia?.errors
+              " class="form-text form-text-error Campo-obligatorio" style="color: red;">
+                          Campo obligatorio
+                        </small>
+                      </div>
+                      <div class="divCalle">
+                        <span class="labels">Calle*:</span>
+                        <br>
+                        <input [ngClass]="{
+                'form-control-error':
+                  camposNota.controls?.calle?.dirty &&
+                  camposNota.controls?.calle?.errors
+              }" class="form-control" id="calle" formControlName="calle" placeholder="Ingresar calle">
+                        <small *ngIf="
+                camposNota.controls?.calle?.dirty &&
+                camposNota.controls?.calle?.errors
+              " class="form-text form-text-error Campo-obligatorio" style="color: red;">
+                          Campo obligatorio
+                        </small>
+                      </div>
+                    </div>
+                    <div class="flex-4" style="display:flex ;">
+                      <div class="divNumExt">
+                        <span class="labels">Número exterior*:</span>
+                        <br>
+                        <input [ngClass]="{
+                'form-control-error':
+                  camposNota.controls?.numeroExt?.dirty &&
+                  camposNota.controls?.numeroExt?.errors
+              }" class="form-control" id="numeroExt" formControlName="numeroExt" placeholder="Ingresar número">
+                        <small *ngIf="
+                camposNota.controls?.numeroExt?.dirty &&
+                camposNota.controls?.numeroExt?.errors
+              " class="form-text form-text-error Campo-obligatorio" style="color: red;">
+                          Campo obligatorio
+                        </small>
+                      </div>
+                      <div class="divNumInt">
+                        <span class="labels">Número interior*:</span>
+                        <br>
+                        <input [ngClass]="{
+                'form-control-error':
+                  camposNota.controls?.numeroInt?.dirty &&
+                  camposNota.controls?.numeroInt?.errors
+              }" class="form-control" id="numeroInt" formControlName="numeroInt" placeholder="Ingresar número">
+                        <small *ngIf="
+                camposNota.controls?.numeroInt?.dirty &&
+                camposNota.controls?.numeroInt?.errors
+              " class="form-text form-text-error Campo-obligatorio" style="color: red;">
+                          Campo obligatorio
+                        </small>
+                      </div>
+                      <div class="divTipoComunidad">
+                        <span class="labels">Tipo de comunidad*:</span>
+                        <br>
+                        <select class="select">
+                          <option value="-1">Seleccionar comunidad</option>
+                        </select>
+                      </div>
+                    </div>
+                    <div class="flex-5" style="display:flex ; height: 60px;">
+                      <div class="divTelefonoFijo">
+                        <span class="labels">Teléfono fijo:</span>
+                        <br>
+                        <input [ngClass]="{
+                'form-control-error':
+                  camposNota.controls?.telefonoFijo?.dirty &&
+                  camposNota.controls?.telefonoFijo?.errors
+              }" class="form-control" id="telefonoFijo" formControlName="telefonoFijo" placeholder="Ingresar número">
+                        <small *ngIf="
+                camposNota.controls?.telefonoFijo?.dirty &&
+                camposNota.controls?.telefonoFijo?.errors
+              " class="form-text form-text-error Campo-obligatorio" style="color: red;">
+                          Campo obligatorio
+                        </small>
+                      </div>
+                      <div class="divTelefonoCelular">
+                        <span class="labels">Teléfono celular:</span>
+                        <br>
+                        <input [ngClass]="{
+                'form-control-error':
+                  camposNota.controls?.telefonoCelular?.dirty &&
+                  camposNota.controls?.telefonoCelular?.errors
+              }" class="form-control" id="telefonoCelular" formControlName="telefonoCelular"
+                          placeholder="Ingresar número">
+                        <small *ngIf="
+              camposNota.controls?.telefonoCelular?.dirty &&
+              camposNota.controls?.telefonoCelular?.errors
+            " class="form-text form-text-error Campo-obligatorio" style="color: red;">
+                          Campo obligatorio
+                        </small>
+                      </div>
+                      <div class="divEmail">
+                        <span class="labels">Correo electrónico:</span>
+                        <br>
+                        <input [ngClass]="{
+                'form-control-error':
+                  camposNota.controls?.email?.dirty &&
+                  camposNota.controls?.email?.errors
+              }" class="form-control" id="email" formControlName="email" placeholder="Ingresar correo">
+                        <small *ngIf="
+              camposNota.controls?.email?.dirty &&
+              camposNota.controls?.email?.errors
+            " class="form-text form-text-error Campo-obligatorio" style="color: red;">
+                          Campo obligatorio
+                        </small>
+                      </div>
+                    </div>
+                    <div class="flex-6" style="display:flex ;">
+                      <div class="divEstadoCivil">
+                        <span class="labels">Estado civil*:</span>
+                        <br>
+                        <select class="select">
+                          <option value="-1">Seleccionar estado civil</option>
+                        </select>
+                      </div>
+                      <div class="divOcupacion">
+                        <span class="labels">Ocupación*:</span>
+                        <br>
+                        <select class="select">
+                          <option value="-1">Ingresar ocupación</option>
+                        </select>
+                      </div>
+                    </div>
+                    <br>
+                    <div><span class="labels">*Campos obligatorios</span></div>
+                    <div class="row">
+                      <div class="col-md-4"
+                        style="padding-top: 19px; padding-right: 24px;  margin-top: -1.4%; text-align: center;">
+
+                      </div>
+                      <div class="col-md-4"
+                        style="padding-top: 19px; padding-right: 24px;  margin-top: 0.4%; text-align: center;">
+                        <img src="url('../../../../assets/icons/menorqueBloqueado.svg" alt=""
+                          style="margin-right: 5px; ">
+                        <label style="font-size: 14px; font-weight: 500; color: #CFCFCF"> Atrás </label>
+                        <img src="url('../../../../assets/icons/circulo_verde.svg" alt="" style="margin-left: 9px;">
+                        <img src="url('../../../../assets/icons/1.svg" alt="" style="margin-left: -18px;">
+                      </div>
+                      <div class="col-md-4" style="padding-top: 29px; padding-right: 79px;  margin-top: -1.4%;">
+                        <button [disabled]="camposNota.valid == false" (click)="irDatosDeFamiliar()"
+                          class="btn btn-primary buttonL" style="float: right;border: solid 1px #9d2449;">
+                          Siguiente
+                        </button>
+                        <button type="button" class="btn btn-danger buttonL"
+                          style="float: right; border: solid 1px #b38e5d;">
+                          Cancelar
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                </form>
+              </div>
             </div>
           </div>
-          <div class="flex-3" style="display:flex ;">
-            <div class="divCiudad">
-              <span class="labels">Ciudad*:</span>
-              <br>
-              <select class="select">
-                <option value="-1">Ingresar ciudad</option>
-              </select>
+        </div>
+      </div>
+    </div>
+  </app-card-template>
+</ng-container>
+
+<ng-container *ngIf="datosFamiliar == true">
+  <app-card-template>
+    <div header class="flex justify-content-between align-items-center consultaCronicasGrupales">
+      <span style="font-weight: 700; font-size: 24px; color: #222222; line-height: 29.16px;">
+        Nuevo estudio social médico
+      </span>
+    </div>
+
+    <div content style="padding-bottom: 2.5%;">
+      <div class="Rectangle-306" style="background-color: white">
+        <div class="row" style=" height: 11%; ">
+          <div header class="flex justify-content-between align-items-center col-md-6">
+            <label class="datos">
+              2.- Datos de familiar / responsable
+            </label>
+          </div>
+          <div header class="flex justify-content-between align-items-center col-md-3"></div>
+          <div header class="flex justify-content-between align-items-center col-md-3 row"
+            style="text-align: right; margin-top: 10px;">
+            <div class="col-md-4" style=" height: 40px;">
+              <label style="margin-right: 6px; font-size: 14px; position: relative;">1</label>
+              <img src="../../assets/icons/grisintenso.svg" alt="" style="width: 38px; height: 38px;">
+              <img src="../../assets/icons/dobles.svg" alt="" style="margin: -17px 0 0 -15px;  ">
+              <img src="../../assets/icons/oja.svg" alt="" style="margin: -51px 0 0 29px">
+              <img src="../../assets/icons/linea3.svg" alt="" style="margin: -220px -0.1px 0 0">
+              <img src="../../assets/icons/linea2.svg" alt="" style="margin: -213.8px 12px 0 -10px">
+              <img src="../../assets/icons/linea1.svg" alt="" style="margin: -207px 9px 0 -19px">
+              <img src="../../assets/icons/goma.svg" alt="" style="margin: -219px -4.3px 0 0">
+              <img src="../../assets/icons/fierrogoma.svg" alt="" style="margin: -217px -10.4px 0 0">
+              <img src="../../assets/icons/lapizcorrecto.svg" alt="" style="margin: -210px 5px 0 0">
             </div>
-            <div class="divColonia">
-              <span class="labels">Colonia*:</span>
-              <br>
-              <input class="form-control" placeholder="Ingresar colonia">
+            <div class="col-md-4" style=" height: 40px;">
+              <label style="margin-right: 6px; font-size: 14px; position: relative;">2</label>
+              <img src="../../assets/icons/circulo_verde.svg" alt="" style="width: 38px; height: 38px;">
+              <img src="../../assets/icons/dobles.svg" alt="" style="margin: -17px 0 0 -15px;  ">
+              <img src="../../assets/icons/oja.svg" alt="" style="margin: -51px 0 0 29px">
+              <img src="../../assets/icons/linea3.svg" alt="" style="margin: -220px -0.1px 0 0">
+              <img src="../../assets/icons/linea2.svg" alt="" style="margin: -213.8px 12px 0 -10px">
+              <img src="../../assets/icons/linea1.svg" alt="" style="margin: -207px 9px 0 -19px">
+              <img src="../../assets/icons/goma.svg" alt="" style="margin: -219px -4.4px 0 0">
+              <img src="../../assets/icons/fierrogoma.svg" alt="" style="margin: -217px -10.4px 0 0">
+              <img src="../../assets/icons/lapizcorrecto.svg" alt="" style="margin: -210px 5px 0 0">
             </div>
-            <div class="divCalle">
-              <span class="labels">Calle*:</span>
-              <br>
-              <input class="form-control" placeholder="Ingresar calle">
+            <div class="col-md-4" style=" height: 40px;">
+              <label style="margin-right: 6px; font-size: 14px; position: relative;">3</label>
+              <img src="../../assets/icons/grisSutil.svg" alt="" style="width: 38px; height: 38px;">
+              <img src="../../assets/icons/dobles.svg" alt="" style="margin: -17px 0 0 -15px;  ">
+              <img src="../../assets/icons/oja.svg" alt="" style="margin: -51px 0 0 29px">
+              <img src="../../assets/icons/linea3.svg" alt="" style="margin: -220px -0.1px 0 0">
+              <img src="../../assets/icons/linea2.svg" alt="" style="margin: -213.8px 12px 0 -10px">
+              <img src="../../assets/icons/linea1.svg" alt="" style="margin: -207px 9px 0 -19px">
+              <img src="../../assets/icons/goma.svg" alt="" style="margin: -219px -4.3px 0 0">
+              <img src="../../assets/icons/fierrogoma.svg" alt="" style="margin: -217px -10px 0 0">
+              <img src="../../assets/icons/lapizcorrecto.svg" alt="" style="margin: -210px 5px 0 0">
             </div>
           </div>
-          <div class="flex-4" style="display:flex ;">
-            <div class="divNumExt">
-              <span class="labels">Número exterior*:</span>
-              <br>
-              <input class="form-control" placeholder="Ingresar número">
+        </div>
+
+        <div style="width: 464px; background-color:#DBDBDC; height: 1px;"></div>
+        <div style="padding-bottom: 9px; padding-top: 9px;">
+          <span class="instrucciones">
+            Por favor capture los siguientes datos:
+          </span>
+        </div>
+        <form novalidate class="formInfo" [formGroup]="camposNota2">
+          <div style="width: 100%; height: 57%;">
+
+            <div class="row" style="margin: 0 -4px 0 -4px;">
+              <div class="col-md-4">
+                <div class="">
+                  <label class="control-label tituloInput">
+                    Nombre de familiar o persona responsable*:
+                  </label>
+                  <input [ngClass]="{
+                  'form-control-error':
+                    camposNota2.controls?.nombreFamiliar?.dirty &&
+                    camposNota2.controls?.nombreFamiliar?.errors
+                }" class="form-control" id="nombreFamiliar" formControlName="nombreFamiliar"
+                    placeholder="Ingresar nombre" type="text" />
+                  <small *ngIf="
+              camposNota2.controls?.nombreFamiliar?.dirty &&
+              camposNota2.controls?.nombreFamiliar?.errors
+            " class="form-text form-text-error Campo-obligatorio" style="color: red;">
+                    Campo obligatorio
+                  </small>
+                </div>
+              </div>
+
+              <div class="col-md-4">
+                <div class="">
+                  <label class="control-label tituloInput">
+                    Edad*:
+                  </label>
+                  <input [ngClass]="{
+                  'form-control-error':
+                    camposNota2.controls?.edad?.dirty &&
+                    camposNota2.controls?.edad?.errors
+                }" class="form-control" id="edad" formControlName="edad" placeholder="Ingresar edad" type="text" />
+                  <small *ngIf="
+              camposNota2.controls?.edad?.dirty &&
+              camposNota2.controls?.edad?.errors
+            " class="form-text form-text-error Campo-obligatorio" style="color: red;">
+                    Campo obligatorio
+                  </small>
+                </div>
+              </div>
+
+              <div class="col-md-4">
+                <div class="">
+                  <label class="control-label tituloInput">
+                    Parentesco*:
+                  </label>
+                  <input [ngClass]="{
+                  'form-control-error':
+                    camposNota2.controls?.parentesco?.dirty &&
+                    camposNota2.controls?.parentesco?.errors
+                }" class="form-control" id="parentesco" formControlName="parentesco" placeholder="Ingresar parentesco"
+                    type="text" />
+                  <small *ngIf="
+              camposNota2.controls?.parentesco?.dirty &&
+              camposNota2.controls?.parentesco?.errors
+            " class="form-text form-text-error Campo-obligatorio" style="color: red;">
+                    Campo obligatorio
+                  </small>
+                </div>
+              </div>
             </div>
-            <div class="divNumInt">
-              <span class="labels">Número interior*:</span>
-              <br>
-              <input class="form-control" placeholder="Ingresar número">
+            <div class="row" style="margin: 0 -4px  -4px;">
+              <div class="col-md-4">
+                <div class="">
+                  <label class="control-label tituloInput">
+                    Código postal*:
+                  </label>
+                  <input [ngClass]="{
+                  'form-control-error':
+                    camposNota2.controls?.codigoP?.dirty &&
+                    camposNota2.controls?.codigoP?.errors
+                }" class="form-control" id="codigoP" formControlName="codigoP" placeholder="Ingresar Código postal"
+                    type="text" />
+                  <small *ngIf="
+              camposNota2.controls?.codigoP?.dirty &&
+              camposNota2.controls?.codigoP?.errors
+            " class="form-text form-text-error Campo-obligatorio" style="color: red;">
+                    Campo obligatorio
+                  </small>
+                </div>
+              </div>
+
+              <div class="col-md-4">
+                <div class="">
+                  <label class="control-label tituloInput">
+                    Estado:
+                  </label>
+                  <input [ngClass]="{
+                  'form-control-error':
+                    camposNota2.controls?.estadoF?.dirty &&
+                    camposNota2.controls?.estadoF?.errors
+                }" class="form-control" id="estadoF" formControlName="estadoF" placeholder="Ingresar estado"
+                    type="text" />
+                  <small *ngIf="
+              camposNota2.controls?.estadoF?.dirty &&
+              camposNota2.controls?.estadoF?.errors
+            " class="form-text form-text-error Campo-obligatorio" style="color: red;">
+                    Campo obligatorio
+                  </small>
+                </div>
+              </div>
+
+              <div class="col-md-4">
+                <div class="">
+                  <label class="control-label tituloInput">
+                    Delegación/Municipio:
+                  </label>
+                  <input [ngClass]="{
+                  'form-control-error':
+                    camposNota2.controls?.delegacionM?.dirty &&
+                    camposNota2.controls?.delegacionM?.errors
+                }" class="form-control" id="delegacionM" formControlName="delegacionM"
+                    placeholder="Ingresar delegación/unicipio" type="text" />
+                  <small *ngIf="
+              camposNota2.controls?.delegacionM?.dirty &&
+              camposNota2.controls?.delegacionM?.errors
+            " class="form-text form-text-error Campo-obligatorio" style="color: red;">
+                    Campo obligatorio
+                  </small>
+                </div>
+              </div>
             </div>
-            <div class="divTipoComunidad">
-              <span class="labels">Tipo de comunidad*:</span>
-              <br>
-              <select class="select">
-                <option value="-1">Seleccionar comunidad</option>
-              </select>
+            <div class="row" style="margin: 0 -4px 0 -4px;">
+              <div class="col-md-4">
+                <div class="">
+                  <label class="control-label tituloInput">
+                    Ciudad*:
+                  </label>
+                  <input [ngClass]="{
+                  'form-control-error':
+                    camposNota2.controls?.ciudadF?.dirty &&
+                    camposNota2.controls?.ciudadF?.errors
+                }" class="form-control" id="ciudadF" formControlName="ciudadF" placeholder="Ingresar ciudad"
+                    type="text" />
+                  <small *ngIf="
+              camposNota2.controls?.ciudadF?.dirty &&
+              camposNota2.controls?.ciudadF?.errors
+            " class="form-text form-text-error Campo-obligatorio" style="color: red;">
+                    Campo obligatorio
+                  </small>
+                </div>
+              </div>
+
+              <div class="col-md-4">
+                <div class="">
+                  <label class="control-label tituloInput">
+                    Colonia*:
+                  </label>
+                  <input [ngClass]="{
+                  'form-control-error':
+                    camposNota2.controls?.coloniaF?.dirty &&
+                    camposNota2.controls?.coloniaF?.errors
+                }" class="form-control" id="coloniaF" formControlName="coloniaF" placeholder="Ingresar colonia"
+                    type="text" />
+                  <small *ngIf="
+              camposNota2.controls?.coloniaF?.dirty &&
+              camposNota2.controls?.coloniaF?.errors
+            " class="form-text form-text-error Campo-obligatorio" style="color: red;">
+                    Campo obligatorio
+                  </small>
+                </div>
+              </div>
+
+              <div class="col-md-4">
+                <div class="">
+                  <label class="control-label tituloInput">
+                    Calle*:
+                  </label>
+                  <input [ngClass]="{
+                  'form-control-error':
+                    camposNota2.controls?.calleF?.dirty &&
+                    camposNota2.controls?.calleF?.errors
+                }" class="form-control" id="calleF" formControlName="calleF" placeholder="Ingresar calle"
+                    type="text" />
+                  <small *ngIf="
+              camposNota2.controls?.calleF?.dirty &&
+              camposNota2.controls?.calleF?.errors
+            " class="form-text form-text-error Campo-obligatorio" style="color: red;">
+                    Campo obligatorio
+                  </small>
+                </div>
+              </div>
+            </div>
+            <div class="row" style="margin: 0 -4px 0 -4px;">
+              <div class="col-md-4">
+                <div class="">
+                  <label class="control-label tituloInput">
+                    Número exterior*:
+                  </label>
+                  <input [ngClass]="{
+                  'form-control-error':
+                    camposNota2.controls?.numExtF?.dirty &&
+                    camposNota2.controls?.numExtF?.errors
+                }" class="form-control" id="numExtF" formControlName="numExtF" placeholder="Ingresar número exterior"
+                    type="text" />
+                  <small *ngIf="
+              camposNota2.controls?.numExtF?.dirty &&
+              camposNota2.controls?.numExtF?.errors
+            " class="form-text form-text-error Campo-obligatorio" style="color: red;">
+                    Campo obligatorio
+                  </small>
+                </div>
+              </div>
+
+              <div class="col-md-4">
+                <div class="">
+                  <label class="control-label tituloInput">
+                    Número interior*:
+                  </label>
+                  <input [ngClass]="{
+                  'form-control-error':
+                    camposNota2.controls?.numIntF?.dirty &&
+                    camposNota2.controls?.numIntF?.errors
+                }" class="form-control" id="numIntF" formControlName="numIntF" placeholder="Ingresar número interior"
+                    type="text" />
+                  <small *ngIf="
+              camposNota2.controls?.numIntF?.dirty &&
+              camposNota2.controls?.numIntF?.errors
+            " class="form-text form-text-error Campo-obligatorio" style="color: red;">
+                    Campo obligatorio
+                  </small>
+                </div>
+              </div>
+
+              <div class="col-md-4">
+              </div>
+            </div>
+            <div class="row" style="margin: 0 -4px 0 -4px;">
+              <div class="col-md-4">
+                <div class="" style="margin-bottom: 15px!important">
+                  <label class="control-label tituloInput">
+                    Teléfono fijo:
+                  </label>
+                  <input [ngClass]="{
+                  'form-control-error':
+                    camposNota2.controls?.telFijo?.dirty &&
+                    camposNota2.controls?.telFijo?.errors
+                }" class="form-control" id="telFijo" formControlName="telFijo" placeholder="Ingresar teléfono fijo"
+                    type="text" />
+                  <small *ngIf="
+              camposNota2.controls?.telFijo?.dirty &&
+              camposNota2.controls?.telFijo?.errors
+            " class="form-text form-text-error Campo-obligatorio" style="color: red;">
+                    Campo obligatorio
+                  </small>
+                </div>
+              </div>
+              <div class="col-md-4">
+                <div class="">
+                  <label class="control-label tituloInput">
+                    Teléfono celular:
+                  </label>
+                  <input [ngClass]="{
+                  'form-control-error':
+                    camposNota2.controls?.telCel?.dirty &&
+                    camposNota2.controls?.telCel?.errors
+                }" class="form-control" id="telCel" formControlName="telCel" placeholder="Ingresar teléfono celular"
+                    type="text" />
+                  <small *ngIf="
+              camposNota2.controls?.telCel?.dirty &&
+              camposNota2.controls?.telCel?.errors
+            " class="form-text form-text-error Campo-obligatorio" style="color: red;">
+                    Campo obligatorio
+                  </small>
+                </div>
+              </div>
+              <div class="col-md-4">
+                <div class="">
+                  <label class="control-label tituloInput">
+                    Correo electrónico:
+                  </label>
+                  <input [ngClass]="{
+                  'form-control-error':
+                    camposNota2.controls?.correoF?.dirty &&
+                    camposNota2.controls?.correoF?.errors
+                }" class="form-control" id="correoF" formControlName="correoF"
+                    placeholder="Ingresar correo electrónico" type="text" />
+                  <small *ngIf="
+              camposNota2.controls?.correoF?.dirty &&
+              camposNota2.controls?.correoF?.errors
+            " class="form-text form-text-error Campo-obligatorio" style="color: red;">
+                    Campo obligatorio
+                  </small>
+                </div>
+              </div>
             </div>
           </div>
-          <div class="flex-5" style="display:flex ; height: 60px;">
-            <div class="divTelefonoFijo">
-              <span class="labels">Teléfono fijo:</span>
-              <br>
-              <input class="form-control" placeholder="Ingresar número">
-            </div>
-            <div class="divTelefonoCelular">
-              <span class="labels">Teléfono celular:</span>
-              <br>
-              <input class="form-control" placeholder="Ingresar número">
-            </div>
-            <div class="divEmail">
-              <span class="labels">Correo electrónico:</span>
-              <br>
-              <input class="form-control" placeholder="Ingresar correo">
-            </div>
-          </div>
-          <div class="flex-6" style="display:flex ;">
-            <div class="divEstadoCivil">
-              <span class="labels">Estado civil*:</span>
-              <br>
-              <select class="select">
-                <option value="-1">Seleccionar estado civil</option>
-              </select>
-            </div>
-            <div class="divOcupacion">
-              <span class="labels">Ocupación*:</span>
-              <br>
-              <select class="select">
-                <option value="-1">Ingresar ocupación</option>
-              </select>
-            </div>
-          </div>
-          <br>
-          <div><span class="labels">*Campos obligatorios</span></div>
+        </form>
+
+        <div style="width: 100%; height: 14%; ">
           <div class="row">
             <div class="col-md-4"
               style="padding-top: 19px; padding-right: 24px;  margin-top: -1.4%; text-align: center;">
@@ -190,13 +677,15 @@
             </div>
             <div class="col-md-4"
               style="padding-top: 19px; padding-right: 24px;  margin-top: 0.4%; text-align: center;">
-              <img src="url('../../../../assets/icons/menorqueBloqueado.svg" alt="" style="margin-right: 5px; ">
-              <label style="font-size: 14px; font-weight: 500; color: #CFCFCF" > Atrás </label>
+              <img src="url('../../../../assets/icons/menor_que.svg" alt="" style="margin-right: 5px;"
+                (click)="irDatosGenerales()">
+              <label style="font-size: 14px; font-weight: 500;" (click)="irDatosGenerales()"> Atrás </label>
               <img src="url('../../../../assets/icons/circulo_verde.svg" alt="" style="margin-left: 9px;">
-              <img src="url('../../../../assets/icons/1.svg" alt="" style="margin-left: -18px;">
+              <img src="url('../../../../assets/icons/2.svg" alt="" style="margin-left: -18px;">
             </div>
-            <div class="col-md-4" style="padding-top: 29px; padding-right: 79px;  margin-top: -1.4%;">
-              <button (click)="irDatosDeFamiliar()" class="btn btn-primary buttonL" style="float: right;border: solid 1px #9d2449;">
+            <div class="col-md-4" style="padding-top: 19px; padding-right: 24px;  margin-top: -1.4%;">
+              <button [disabled]="camposNota2.valid == false" (click)="irExploracionCaso()"
+                class="btn btn-primary buttonL" style="float: right;border: solid 1px #9d2449;">
                 Siguiente
               </button>
               <button type="button" class="btn btn-danger buttonL" style="float: right; border: solid 1px #b38e5d;" (click)="modalcarga(content)">
@@ -205,463 +694,355 @@
             </div>
           </div>
         </div>
-      </form>
-    </div>
-</div>
-
-  </div>
-</app-card-template>
-</ng-container>
-
-<ng-container *ngIf="datosFamiliar == true">
-<app-card-template>
-  <div header class="flex justify-content-between align-items-center consultaCronicasGrupales">
-    <span style="font-weight: 700; font-size: 24px; color: #222222; line-height: 29.16px;">
-      Nuevo estudio social médico
-    </span>
-  </div>
-
-  <div content style="padding-bottom: 2.5%;">
-    <div class="Rectangle-306" style="background-color: white">
-      <div class="row" style=" height: 11%; ">
-        <div header class="flex justify-content-between align-items-center col-md-6">
-          <label class="datos">
-            2.- Datos de familiar / responsable
-          </label>
-        </div>
-        <div header class="flex justify-content-between align-items-center col-md-3"></div>
-        <div header class="flex justify-content-between align-items-center col-md-3 row" style="text-align: right; margin-top: 10px;">
-          <div class="col-md-4" style=" height: 40px;">
-            <label style="margin-right: 6px; font-size: 14px; position: relative;" >1</label>
-            <img src="../../assets/icons/grisintenso.svg" alt="" style="width: 38px; height: 38px;">
-            <img src="../../assets/icons/dobles.svg" alt="" style="margin: -17px 0 0 -15px;  ">
-            <img src="../../assets/icons/oja.svg" alt="" style="margin: -51px 0 0 29px">
-            <img src="../../assets/icons/linea3.svg" alt="" style="margin: -220px -0.1px 0 0">
-            <img src="../../assets/icons/linea2.svg" alt="" style="margin: -213.8px 12px 0 -10px">
-            <img src="../../assets/icons/linea1.svg" alt="" style="margin: -207px 9px 0 -19px">
-            <img src="../../assets/icons/goma.svg" alt="" style="margin: -219px -4.3px 0 0">
-            <img src="../../assets/icons/fierrogoma.svg" alt="" style="margin: -217px -10.4px 0 0">
-            <img src="../../assets/icons/lapizcorrecto.svg" alt="" style="margin: -210px 5px 0 0">
-          </div>
-          <div class="col-md-4" style=" height: 40px;">
-            <label style="margin-right: 6px; font-size: 14px; position: relative;" >2</label>
-            <img src="../../assets/icons/circulo_verde.svg" alt="" style="width: 38px; height: 38px;">
-            <img src="../../assets/icons/dobles.svg" alt="" style="margin: -17px 0 0 -15px;  ">
-            <img src="../../assets/icons/oja.svg" alt="" style="margin: -51px 0 0 29px">
-            <img src="../../assets/icons/linea3.svg" alt="" style="margin: -220px -0.1px 0 0">
-            <img src="../../assets/icons/linea2.svg" alt="" style="margin: -213.8px 12px 0 -10px">
-            <img src="../../assets/icons/linea1.svg" alt="" style="margin: -207px 9px 0 -19px">
-            <img src="../../assets/icons/goma.svg" alt="" style="margin: -219px -4.4px 0 0">
-            <img src="../../assets/icons/fierrogoma.svg" alt="" style="margin: -217px -10.4px 0 0">
-            <img src="../../assets/icons/lapizcorrecto.svg" alt="" style="margin: -210px 5px 0 0">
-          </div>
-          <div class="col-md-4" style=" height: 40px;">
-            <label style="margin-right: 6px; font-size: 14px; position: relative;" >3</label>
-            <img src="../../assets/icons/grisSutil.svg" alt="" style="width: 38px; height: 38px;">
-            <img src="../../assets/icons/dobles.svg" alt="" style="margin: -17px 0 0 -15px;  ">
-            <img src="../../assets/icons/oja.svg" alt="" style="margin: -51px 0 0 29px">
-            <img src="../../assets/icons/linea3.svg" alt="" style="margin: -220px -0.1px 0 0">
-            <img src="../../assets/icons/linea2.svg" alt="" style="margin: -213.8px 12px 0 -10px">
-            <img src="../../assets/icons/linea1.svg" alt="" style="margin: -207px 9px 0 -19px">
-            <img src="../../assets/icons/goma.svg" alt="" style="margin: -219px -4.3px 0 0">
-            <img src="../../assets/icons/fierrogoma.svg" alt="" style="margin: -217px -10px 0 0">
-            <img src="../../assets/icons/lapizcorrecto.svg" alt="" style="margin: -210px 5px 0 0">
-          </div>
-        </div>
-      </div>
-
-      <div style="width: 464px; background-color:#DBDBDC; height: 1px;"></div>
-<div style="padding-bottom: 9px; padding-top: 9px;">
-      <span class="instrucciones">
-        Por favor capture los siguientes datos:
-      </span>
-      </div>
-      <div style="width: 100%; height: 57%;">
-
-        <div class="row" style="margin: 0 -4px 0 -4px;">
-          <div class="col-md-4">
-            <div class="">
-              <label class="control-label tituloInput">
-                Nombre de familiar o persona responsable*:
-              </label>
-              <input class="form-control matricula inputs" id="txtconsulta" placeholder="Ingresar nombre"
-                type="text" />
-            </div>
-          </div>
-
-          <div class="col-md-4">
-            <div class="">
-              <label class="control-label tituloInput">
-                Edad*:
-              </label>
-              <input class="form-control matricula inputs" id="txtconsulta" placeholder="Ingresar edad"
-                type="text" />
-            </div>
-          </div>
-
-          <div class="col-md-4">
-            <div class="">
-              <label class="control-label tituloInput">
-                Parentesco*:
-              </label>
-              <input class="form-control matricula inputs" id="txtconsulta" placeholder="Ingresar parentesco"
-                type="text" />
-            </div>
-          </div>
-        </div>
-        <div class="row" style="margin: 0 -4px  -4px;">
-          <div class="col-md-4">
-            <div class="">
-              <label class="control-label tituloInput">
-                Código postal*:
-              </label>
-              <input class="form-control matricula inputs" id="txtconsulta" placeholder="Ingresar Código postal"
-                type="text" />
-            </div>
-          </div>
-
-          <div class="col-md-4">
-            <div class="">
-              <label class="control-label tituloInput">
-                Estado:
-              </label>
-              <input style="background-color: #DBDBDC;" class="form-control matricula inputs" id="txtconsulta" placeholder="Ingresar estado"
-                type="text" />
-            </div>
-          </div>
-
-          <div class="col-md-4">
-            <div class="">
-              <label class="control-label tituloInput">
-                Delegación/Municipio:
-              </label>
-              <input style="background-color: #DBDBDC;"  class="form-control matricula inputs" id="txtconsulta" placeholder="Ingresar delegación/unicipio"
-                type="text" />
-            </div>
-          </div>
-        </div>
-        <div class="row" style="margin: 0 -4px 0 -4px;">
-          <div class="col-md-4">
-            <div class="">
-              <label class="control-label tituloInput">
-                Ciudad*:
-              </label>
-              <input class="form-control matricula inputs" id="txtconsulta" placeholder="Ingresar ciudad"
-                type="text" />
-            </div>
-          </div>
-
-          <div class="col-md-4">
-            <div class="">
-              <label class="control-label tituloInput">
-                Colonia*:
-              </label>
-              <input class="form-control matricula inputs" id="txtconsulta" placeholder="Ingresar colonia"
-                type="text" />
-            </div>
-          </div>
-
-          <div class="col-md-4">
-            <div class="">
-              <label class="control-label tituloInput">
-                Calle*:
-              </label>
-              <input class="form-control matricula inputs" id="txtconsulta" placeholder="Ingresar calle"
-                type="text" />
-            </div>
-          </div>
-        </div>
-        <div class="row" style="margin: 0 -4px 0 -4px;">
-          <div class="col-md-4">
-            <div class="">
-              <label class="control-label tituloInput">
-                Número exterior*:
-              </label>
-              <input class="form-control matricula inputs" id="txtconsulta" placeholder="Ingresar número exterior"
-                type="text" />
-            </div>
-          </div>
-
-          <div class="col-md-4">
-            <div class="">
-              <label class="control-label tituloInput">
-                Número interior*:
-              </label>
-              <input class="form-control matricula inputs" id="txtconsulta" placeholder="Ingresar número interior"
-                type="text" />
-            </div>
-          </div>
-
-          <div class="col-md-4">
-          </div>
-        </div>
-        <div class="row" style="margin: 0 -4px 0 -4px;">
-          <div class="col-md-4">
-            <div class="" style="margin-bottom: 15px!important">
-              <label class="control-label tituloInput">
-                Teléfono fijo:
-              </label>
-              <input class="form-control matricula inputs" id="txtconsulta" placeholder="Ingresar teléfono fijo"
-                type="text" />
-            </div>
-          </div>
-          <div class="col-md-4">
-            <div class="">
-              <label class="control-label tituloInput">
-                Teléfono celular:
-              </label>
-              <input class="form-control matricula inputs" id="txtconsulta" placeholder="Ingresar teléfono celular"
-                type="text" />
-            </div>
-          </div>
-          <div class="col-md-4">
-            <div class="">
-              <label class="control-label tituloInput">
-                Correo electrónico:
-              </label>
-              <input class="form-control matricula inputs" id="txtconsulta" placeholder="Ingresar correo electrónico"
-                type="text" />
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div style="width: 100%; height: 14%; ">
-        <div class="row">
-          <div class="col-md-4" style="padding-top: 19px; padding-right: 24px;  margin-top: -1.4%; text-align: center;">
-
-          </div>
-          <div class="col-md-4" style="padding-top: 19px; padding-right: 24px;  margin-top: 0.4%; text-align: center;">
-            <img src="url('../../../../assets/icons/menor_que.svg" alt="" style="margin-right: 5px;" (click)="irDatosGenerales()">
-            <label style="font-size: 14px; font-weight: 500;" (click)="irDatosGenerales()"> Atrás </label>
-            <img src="url('../../../../assets/icons/circulo_verde.svg" alt="" style="margin-left: 9px;">
-            <img src="url('../../../../assets/icons/2.svg" alt="" style="margin-left: -18px;">
-          </div>
-          <div class="col-md-4" style="padding-top: 19px; padding-right: 24px;  margin-top: -1.4%;">
-            <button (click)="irExploracionCaso()" class="btn btn-primary buttonL" style="float: right;border: solid 1px #9d2449;">
-              Siguiente
-            </button>
-            <button type="button" class="btn btn-danger buttonL" style="float: right; border: solid 1px #b38e5d;" (click)="modalcarga(content)">
-              Cancelar
-            </button>
-          </div>
-        </div>
       </div>
     </div>
-  </div>
-
-
-</app-card-template>
+  </app-card-template>
 </ng-container>
 
 <ng-container *ngIf="datosExploracionCaso == true">
-<app-card-template style="padding-bottom: 10%;">
-  <div header class="flex justify-content-between align-items-center consultaCronicasGrupales">
-    <label>
-      Nuevo estudio social médicos
-    </label>
-  </div>
-  <div content style="padding-bottom: 5.5%; height: 100%;">
-    <div class="Rectangle-306-2" style="background-color: white">
-      <div class="row" style=" height: 11%; ">
-        <div header class="flex justify-content-between align-items-center col-md-6">
-          <div style="padding-bottom: 9px; padding-top: 9px;">
-          <label class="datos">
-            3.- Datos de exploración del caso
-          </label>
-          </div>
-        </div>
-        <div header class="flex justify-content-between align-items-center col-md-3"></div>
-        <div header class="flex justify-content-between align-items-center col-md-3 row" style="text-align: right; margin-top: 10px;">
-          <div class="col-md-4" style=" height: 40px;">
-            <label style="margin-right: 6px; font-size: 14px; position: relative;" >1</label>
-            <img src="../../assets/icons/grisintenso.svg" alt="" style="width: 38px; height: 38px;">
-            <img src="../../assets/icons/dobles.svg" alt="" style="margin: -17px 0 0 -15px;  ">
-            <img src="../../assets/icons/oja.svg" alt="" style="margin: -51px 0 0 29px">
-            <img src="../../assets/icons/linea3.svg" alt="" style="margin: -220px -0.1px 0 0">
-            <img src="../../assets/icons/linea2.svg" alt="" style="margin: -213.8px 12px 0 -10px">
-            <img src="../../assets/icons/linea1.svg" alt="" style="margin: -207px 9px 0 -19px">
-            <img src="../../assets/icons/goma.svg" alt="" style="margin: -219px -4.3px 0 0">
-            <img src="../../assets/icons/fierrogoma.svg" alt="" style="margin: -217px -10.4px 0 0">
-            <img src="../../assets/icons/lapizcorrecto.svg" alt="" style="margin: -210px 5px 0 0">
-          </div>
-          <div class="col-md-4" style=" height: 40px;">
-            <label style="margin-right: 6px; font-size: 14px; position: relative;" >2</label>
-            <img src="../../assets/icons/grisSutil.svg" alt="" style="width: 38px; height: 38px;">
-            <img src="../../assets/icons/dobles.svg" alt="" style="margin: -17px 0 0 -15px;  ">
-            <img src="../../assets/icons/oja.svg" alt="" style="margin: -51px 0 0 29px">
-            <img src="../../assets/icons/linea3.svg" alt="" style="margin: -220px -0.1px 0 0">
-            <img src="../../assets/icons/linea2.svg" alt="" style="margin: -213.8px 12px 0 -10px">
-            <img src="../../assets/icons/linea1.svg" alt="" style="margin: -207px 9px 0 -19px">
-            <img src="../../assets/icons/goma.svg" alt="" style="margin: -219px -4.4px 0 0">
-            <img src="../../assets/icons/fierrogoma.svg" alt="" style="margin: -217px -10.4px 0 0">
-            <img src="../../assets/icons/lapizcorrecto.svg" alt="" style="margin: -210px 5px 0 0">
-          </div>
-          <div class="col-md-4" style=" height: 40px;">
-            <label style="margin-right: 6px; font-size: 14px; position: relative;" >3</label>
-            <img src="../../assets/icons/circulo_verde.svg" alt="" style="width: 38px; height: 38px;">
-            <img src="../../assets/icons/dobles.svg" alt="" style="margin: -17px 0 0 -15px;  ">
-            <img src="../../assets/icons/oja.svg" alt="" style="margin: -51px 0 0 29px">
-            <img src="../../assets/icons/linea3.svg" alt="" style="margin: -220px -0.1px 0 0">
-            <img src="../../assets/icons/linea2.svg" alt="" style="margin: -213.8px 12px 0 -10px">
-            <img src="../../assets/icons/linea1.svg" alt="" style="margin: -207px 9px 0 -19px">
-            <img src="../../assets/icons/goma.svg" alt="" style="margin: -219px -4.3px 0 0">
-            <img src="../../assets/icons/fierrogoma.svg" alt="" style="margin: -217px -10px 0 0">
-            <img src="../../assets/icons/lapizcorrecto.svg" alt="" style="margin: -210px 5px 0 0">
-          </div>
-        </div>
-      </div>
-
-      <div style="width: 464px; background-color:#DBDBDC; height: 1px;"></div>
-
-      <span class="instrucciones">
-        Por favor capture los siguientes datos:
+  <app-card-template>
+    <div header class="flex justify-content-between align-items-center consultaCronicasGrupales">
+      <span style="font-weight: 700; font-size: 24px; color: #222222; line-height: 29.16px;">
+        Nuevo estudio social médico
       </span>
-      <div style="width: 100%; height: 57%;">
-
-        <div class="row" style="margin: 0 -4px 0 -4px;">
-          <div class="contenedor1" style="display: flex;">
-            <div class="col-md-4" style="flex:auto ;">
-              <div class="" style="float: inline-start; width: 300px;">
-                <label class="control-label tituloInput">
-                  Objetivo del estudio*:
-                </label>
-                <textarea class="form-control matricula inputs3" id="txtconsulta" placeholder="Ingresar objetivo"
-                  type="text"></textarea>
-                <label class="caracteres">0/2000 caracteres</label>
-              </div>
-            </div>
-
-            <div class="col-md-4" style="flex:auto ;">
-              <div class="" style="float:inline-end ; width: 200 px;">
-                <label class="control-label tituloInput">
-                  Datos del paciente*:
-                </label>
-                <textarea class="form-control matricula inputs3" id="txtconsulta" placeholder="Ingresar datos del paciente"
-                  type="text" #objetivosRef maxlength="4096" required rows="4"></textarea>
-                <label class="caracteres">{{ objetivosRef.value?.length }} /2000 caracteres</label>
-              </div>
+    </div>
+    <div content style="padding-bottom: 5.5%; height: 100%;">
+      <div class="Rectangle-306-2" style="background-color: white">
+        <div class="row" style=" height: 9%; ">
+          <div header class="flex justify-content-between align-items-center col-md-6">
+            <div style="padding-bottom: 9px; padding-top: 9px;">
+              <label class="datos">
+                3.- Datos de exploración del caso
+              </label>
             </div>
           </div>
-          <div class="contenedor2" style="display: flex;">
-            <div class="col-md-4" style="flex:auto ;">
-              <div class="">
-                <label class="control-label tituloInput">
-                  Datos familiares*:
-                </label>
-                <textarea class="form-control matricula inputs3" id="txtconsulta" placeholder="Ingresar datos familiares"
-                  type="text"></textarea>
-                <label class="caracteres">0/2000 caracteres</label>
-              </div>
+          <div header class="flex justify-content-between align-items-center col-md-3"></div>
+          <div header class="flex justify-content-between align-items-center col-md-3 row"
+            style="text-align: right; margin-top: 10px;">
+            <div class="col-md-4" style=" height: 40px;">
+              <label style="margin-right: 6px; font-size: 14px; position: relative;">1</label>
+              <img src="../../assets/icons/grisintenso.svg" alt="" style="width: 38px; height: 38px;">
+              <img src="../../assets/icons/dobles.svg" alt="" style="margin: -17px 0 0 -15px;  ">
+              <img src="../../assets/icons/oja.svg" alt="" style="margin: -51px 0 0 29px">
+              <img src="../../assets/icons/linea3.svg" alt="" style="margin: -220px -0.1px 0 0">
+              <img src="../../assets/icons/linea2.svg" alt="" style="margin: -213.8px 12px 0 -10px">
+              <img src="../../assets/icons/linea1.svg" alt="" style="margin: -207px 9px 0 -19px">
+              <img src="../../assets/icons/goma.svg" alt="" style="margin: -219px -4.3px 0 0">
+              <img src="../../assets/icons/fierrogoma.svg" alt="" style="margin: -217px -10.4px 0 0">
+              <img src="../../assets/icons/lapizcorrecto.svg" alt="" style="margin: -210px 5px 0 0">
             </div>
-
-            <div class="col-md-4" style="flex:auto ;">
-              <div class="">
-                <label class="control-label tituloInput">
-                  Datos económicos*:
-                </label>
-                <textarea class="form-control matricula inputs3" id="txtconsulta" placeholder="Ingresar datos económicos"
-                  type="text"></textarea>
-                <label class="caracteres">0/2000 caracteres</label>
-              </div>
+            <div class="col-md-4" style=" height: 40px;">
+              <label style="margin-right: 6px; font-size: 14px; position: relative;">2</label>
+              <img src="../../assets/icons/grisSutil.svg" alt="" style="width: 38px; height: 38px;">
+              <img src="../../assets/icons/dobles.svg" alt="" style="margin: -17px 0 0 -15px;  ">
+              <img src="../../assets/icons/oja.svg" alt="" style="margin: -51px 0 0 29px">
+              <img src="../../assets/icons/linea3.svg" alt="" style="margin: -220px -0.1px 0 0">
+              <img src="../../assets/icons/linea2.svg" alt="" style="margin: -213.8px 12px 0 -10px">
+              <img src="../../assets/icons/linea1.svg" alt="" style="margin: -207px 9px 0 -19px">
+              <img src="../../assets/icons/goma.svg" alt="" style="margin: -219px -4.4px 0 0">
+              <img src="../../assets/icons/fierrogoma.svg" alt="" style="margin: -217px -10.4px 0 0">
+              <img src="../../assets/icons/lapizcorrecto.svg" alt="" style="margin: -210px 5px 0 0">
             </div>
-          </div>
-          <div class="contenedor3" style="display: flex;">
-            <div class="col-md-4" style="flex:auto ;">
-              <div class="">
-                <label class="control-label tituloInput">
-                  Condiciones del hogar*:
-                </label>
-                <textarea class="form-control matricula inputs3" id="txtconsulta"
-                  placeholder="Ingresar condiciones del hogar" type="text"></textarea>
-                <label class="caracteres">0/2000 caracteres</label>
-              </div>
-            </div>
-
-            <div class="col-md-4" style="flex:auto ;">
-              <div class="">
-                <label class="control-label tituloInput">
-                  Datos complementarios*:
-                </label>
-                <textarea class="form-control matricula inputs3" id="txtconsulta"
-                  placeholder="Ingresar datos complementarios" type="text" ></textarea>
-                <label class="caracteres">0/2000 caracteres</label>
-              </div>
-            </div>
-          </div>
-          <div class="contenedor4" style="display: flex;">
-            <!-- <div class="row" style="margin: 0 -4px 0 -4px;"> -->
-            <div class="col-md-4" style="flex:auto ;">
-              <div class="">
-                <label class="control-label tituloInput">
-                  Diagnóstico social del paciente*:
-                </label>
-                <textarea class="form-control matricula inputs3" id="txtconsulta"
-                  placeholder="Ingresar diagnóstico social del paciente" type="text" ></textarea>
-                <label class="caracteres">0/2000 caracteres</label>
-              </div>
-            </div>
-
-            <div class="col-md-4" style="flex:auto ;">
-              <div class="">
-                <label class="control-label tituloInput">
-                  Diagnóstico social de la familia*:
-                </label>
-                <textarea class="form-control matricula inputs3" id="txtconsulta"
-                  placeholder="Ingresar diagnóstico social de la familia" type="text" ></textarea>
-                <label class="caracteres">0/2000 caracteres</label>
-              </div>
-            </div>
-          </div>
-          <div class="contenedor5" style="display: flex;">
-            <div class="col-md-4" style="flex:auto ;">
-              <div class="">
-                <label class="control-label tituloInput">
-                  Plan de tratamiento social*:
-                </label>
-                <textarea class="form-control matricula inputs3" id="txtconsulta"
-                  placeholder="Ingresar plan de tratamiento social" type="text" ></textarea>
-                <label class="caracteres">0/2000 caracteres</label>
-              </div>
-            </div>
-
-            <div class="col-md-4" style="flex:auto ;">
-              <div class="">
-                <label class="control-label tituloInput">
-                  Acciones realizadas*:
-                </label>
-                <textarea class="form-control matricula inputs3" id="txtconsulta"
-                  placeholder="Ingresar acciones realizadas" type="text" ></textarea>
-                <label class="caracteres">0/2000 caracteres</label>
-              </div>
+            <div class="col-md-4" style=" height: 40px;">
+              <label style="margin-right: 6px; font-size: 14px; position: relative;">3</label>
+              <img src="../../assets/icons/circulo_verde.svg" alt="" style="width: 38px; height: 38px;">
+              <img src="../../assets/icons/dobles.svg" alt="" style="margin: -17px 0 0 -15px;  ">
+              <img src="../../assets/icons/oja.svg" alt="" style="margin: -51px 0 0 29px">
+              <img src="../../assets/icons/linea3.svg" alt="" style="margin: -220px -0.1px 0 0">
+              <img src="../../assets/icons/linea2.svg" alt="" style="margin: -213.8px 12px 0 -10px">
+              <img src="../../assets/icons/linea1.svg" alt="" style="margin: -207px 9px 0 -19px">
+              <img src="../../assets/icons/goma.svg" alt="" style="margin: -219px -4.3px 0 0">
+              <img src="../../assets/icons/fierrogoma.svg" alt="" style="margin: -217px -10px 0 0">
+              <img src="../../assets/icons/lapizcorrecto.svg" alt="" style="margin: -210px 5px 0 0">
             </div>
           </div>
         </div>
-      </div>
-      <div style="width: 100%; height: 17%; ">
-        <div class="row">
-          <div class="col-md-4" style="padding-top: 19px; padding-right: 24px;  margin-top: -1.4%; text-align: end;">
-          </div>
-          <div class="col-md-4" style="padding-top: 19px; padding-right: 24px;  margin-top: 12.4%; text-align: center;">
-            <img src="url('../../../../assets/icons/menor_que.svg" alt="" style="margin-right: 5px;" (click)="irDatosDeFamiliar()">
-            <label style="font-size: 14px; font-weight: 500;" (click)="irDatosDeFamiliar()"> Atrás </label>
 
-            <img src="url('../../../../assets/icons/circulo_verde.svg" alt="" style="margin-left: 9px;">
-            <img src="url('../../../../assets/icons/3.svg" alt="" style="margin-left: -18px;">
-          </div>
-          <div class="col-md-4" style="padding-top: 19px; padding-right: 24px;  margin-top: 11.4%;">
-            <button class="btn btn-primary buttonL" style="float: right;border: solid 1px #9d2449;">
-              Guardar
-            </button>
-            <button type="button" class="btn btn-danger buttonL" style="float: right; border: solid 1px #b38e5d;"  (click)="modalcarga(content)">
-              Cancelar
-            </button>
+        <div style="width: 494px; background-color:#DBDBDC; height: 1px;"></div>
+
+        <span class="instrucciones">
+          Por favor capture los siguientes datos:
+        </span>
+        <div style="width: 100%; height: 57%;">
+          <form novalidate class="formInfo" [formGroup]="camposNota3">
+            <div class="row" style="margin: 0 -4px 0 -4px;">
+              <div class="contenedor1" style="display: flex;">
+                <div class="col-md-4" style="flex:auto ;">
+                  <div class="" style="float: inline-start; width: 300px;">
+                    <label class="control-label tituloInput">
+                      Objetivo del estudio*:
+                    </label>
+                    <textarea [ngClass]="{
+                  'form-control-error':
+                    camposNota3.controls?.objetivoEstudio?.dirty &&
+                    camposNota3.controls?.objetivoEstudio?.errors
+                }" class="form-control matricula inputs3" id="objetivoEstudio" formControlName="objetivoEstudio"
+                      placeholder="Ingresar objetivo" #objetivosRef maxlength="2000" required rows="4"></textarea>
+                    <span class="caracteres">{{ objetivosRef.value?.length }} /
+                      {{ objetivosRef.getAttribute("maxlength") }} caracteres</span>
+                    <br>
+                    <small *ngIf="
+                  camposNota3.controls?.objetivoEstudio?.dirty &&
+                  camposNota3.controls?.objetivoEstudio?.errors
+                " class="form-text form-text-error Campo-obligatorio" style="color: red;">
+                      Campo obligatorio
+                    </small>
+                  </div>
+                </div>
+
+                <div class="col-md-4 form-group" style="flex:auto ;">
+                  <div class="" style="float:inline-end ; width: 200 px;">
+                    <label class="control-label tituloInput">
+                      Datos del paciente*:
+                    </label>
+                    <textarea [ngClass]="{
+                    'form-control-error':
+                      camposNota3.controls?.datosPaciente?.dirty &&
+                      camposNota3.controls?.datosPaciente?.errors
+                  }" class="form-control matricula inputs3" id="datosPaciente" formControlName="datosPaciente"
+                      placeholder="Ingresar datos del paciente" #datosPacienteRef maxlength="2000" required
+                      rows="4"></textarea>
+                    <span class="caracteres">{{ datosPacienteRef.value?.length }} /
+                      {{ datosPacienteRef.getAttribute("maxlength") }} caracteres</span>
+                    <br>
+                    <small *ngIf="
+                camposNota3.controls?.datosPaciente?.dirty &&
+                camposNota3.controls?.datosPaciente?.errors
+              " class="form-text form-text-error Campo-obligatorio" style="color: red;">
+                      Campo obligatorio
+                    </small>
+                  </div>
+                </div>
+              </div>
+              <div class="contenedor2" style="display: flex;">
+                <div class="col-md-4" style="flex:auto ;">
+                  <div class="">
+                    <label class="control-label tituloInput">
+                      Datos familiares*:
+                    </label>
+                    <textarea [ngClass]="{
+                    'form-control-error':
+                      camposNota3.controls?.datosFamiliares?.dirty &&
+                      camposNota3.controls?.datosFamiliares?.errors
+                  }" class="form-control matricula inputs3" id="datosFamiliares"
+                      placeholder="Ingresar datos familiares" formControlName="datosFamiliares" #datosFamiliaresRef
+                      maxlength="2000" required rows="4"></textarea>
+                    <span class="caracteres">{{ datosFamiliaresRef.value?.length }} /
+                      {{ datosFamiliaresRef.getAttribute("maxlength") }} caracteres</span>
+                    <br>
+                    <small *ngIf="
+                camposNota3.controls?.datosFamiliares?.dirty &&
+                camposNota3.controls?.datosFamiliares?.errors
+              " class="form-text form-text-error Campo-obligatorio" style="color: red;">
+                      Campo obligatorio
+                    </small>
+                  </div>
+                </div>
+
+                <div class="col-md-4" style="flex:auto ;">
+                  <div class="">
+                    <label class="control-label tituloInput">
+                      Datos económicos*:
+                    </label>
+                    <textarea [ngClass]="{
+                    'form-control-error':
+                      camposNota3.controls?.datosEconomicos?.dirty &&
+                      camposNota3.controls?.datosEconomicos?.errors
+                  }" class="form-control matricula inputs3" id="datosEconomicos"
+                      placeholder="Ingresar datos económicos" formControlName="datosEconomicos" #datosEconomicosRef
+                      maxlength="2000" required rows="4"></textarea>
+                    <span class="caracteres">{{ datosEconomicosRef.value?.length }} /
+                      {{ datosEconomicosRef.getAttribute("maxlength") }} caracteres</span>
+                    <br>
+                    <small *ngIf="
+                camposNota3.controls?.datosEconomicos?.dirty &&
+                camposNota3.controls?.datosEconomicos?.errors
+              " class="form-text form-text-error Campo-obligatorio" style="color: red;">
+                      Campo obligatorio
+                    </small>
+                  </div>
+                </div>
+              </div>
+              <div class="contenedor3" style="display: flex;">
+                <div class="col-md-4" style="flex:auto ;">
+                  <div class="">
+                    <label class="control-label tituloInput">
+                      Condiciones del hogar*:
+                    </label>
+                    <textarea [ngClass]="{
+                    'form-control-error':
+                      camposNota3.controls?.datosHogar?.dirty &&
+                      camposNota3.controls?.datosHogar?.errors
+                  }" class="form-control matricula inputs3" id="datosHogar"
+                      placeholder="Ingresar condiciones del hogar" formControlName="datosHogar" #datosHogarRef
+                      maxlength="2000" required rows="4"></textarea>
+                    <span class="caracteres">{{ datosHogarRef.value?.length }} /
+                      {{ datosHogarRef.getAttribute("maxlength") }} caracteres</span>
+                    <br>
+                    <small *ngIf="
+                camposNota3.controls?.datosHogar?.dirty &&
+                camposNota3.controls?.datosHogar?.errors
+              " class="form-text form-text-error Campo-obligatorio" style="color: red;">
+                      Campo obligatorio
+                    </small>
+                  </div>
+                </div>
+
+                <div class="col-md-4" style="flex:auto ;">
+                  <div class="">
+                    <label class="control-label tituloInput">
+                      Datos complementarios*:
+                    </label>
+                    <textarea [ngClass]="{
+                    'form-control-error':
+                      camposNota3.controls?.datosComplementarios?.dirty &&
+                      camposNota3.controls?.datosComplementarios?.errors
+                  }" class="form-control matricula inputs3" id="datosComplementarios"
+                      placeholder="Ingresar datos complementarios" formControlName="datosComplementarios"
+                      #datosComplementariosRef maxlength="2000" required rows="4"></textarea>
+                    <span class="caracteres">{{ datosComplementariosRef.value?.length }} /
+                      {{ datosComplementariosRef.getAttribute("maxlength") }} caracteres</span>
+                    <br>
+                    <small *ngIf="
+                camposNota3.controls?.datosComplementarios?.dirty &&
+                camposNota3.controls?.datosComplementarios?.errors
+              " class="form-text form-text-error Campo-obligatorio" style="color: red;">
+                      Campo obligatorio
+                    </small>
+                  </div>
+                </div>
+              </div>
+              <div class="contenedor4" style="display: flex;">
+                <!-- <div class="row" style="margin: 0 -4px 0 -4px;"> -->
+                <div class="col-md-4" style="flex:auto ;">
+                  <div class="">
+                    <label class="control-label tituloInput">
+                      Diagnóstico social del paciente*:
+                    </label>
+                    <textarea [ngClass]="{
+                    'form-control-error':
+                      camposNota3.controls?.datosComplementarios?.dirty &&
+                      camposNota3.controls?.datosComplementarios?.errors
+                  }" class="form-control matricula inputs3" id="datosComplementarios"
+                      placeholder="Ingresar diagnóstico social del paciente" formControlName="datosSocialP"
+                      #datosSocialPRef maxlength="2000" required rows="4"></textarea>
+                    <span class="caracteres">{{ datosSocialPRef.value?.length }} /
+                      {{ datosSocialPRef.getAttribute("maxlength") }} caracteres</span>
+                    <br>
+                    <small *ngIf="
+                camposNota3.controls?.datosComplementarios?.dirty &&
+                camposNota3.controls?.datosComplementarios?.errors
+              " class="form-text form-text-error Campo-obligatorio" style="color: red;">
+                      Campo obligatorio
+                    </small>
+                  </div>
+                </div>
+
+                <div class="col-md-4" style="flex:auto ;">
+                  <div class="">
+                    <label class="control-label tituloInput">
+                      Diagnóstico social de la familia*:
+                    </label>
+                    <textarea [ngClass]="{
+                    'form-control-error':
+                      camposNota3.controls?.datosSocialF?.dirty &&
+                      camposNota3.controls?.datosSocialF?.errors
+                  }" class="form-control matricula inputs3" id="datosSocialF"
+                      placeholder="Ingresar diagnóstico social de la familia" formControlName="datosSocialF"
+                      #datosSocialFRef maxlength="2000" required rows="4"></textarea>
+                    <span class="caracteres">{{ datosSocialFRef.value?.length }} /
+                      {{ datosSocialFRef.getAttribute("maxlength") }} caracteres</span>
+                    <br>
+                    <small *ngIf="
+                camposNota3.controls?.datosSocialF?.dirty &&
+                camposNota3.controls?.datosSocialF?.errors
+              " class="form-text form-text-error Campo-obligatorio" style="color: red;">
+                      Campo obligatorio
+                    </small>
+                  </div>
+                </div>
+              </div>
+              <div class="contenedor5" style="display: flex;">
+                <div class="col-md-4" style="flex:auto ;">
+                  <div class="">
+                    <label class="control-label tituloInput">
+                      Plan de tratamiento social*:
+                    </label>
+                    <textarea [ngClass]="{
+                    'form-control-error':
+                      camposNota3.controls?.datosTratamiento?.dirty &&
+                      camposNota3.controls?.datosTratamiento?.errors
+                  }" class="form-control matricula inputs3" id="datosTratamiento"
+                      placeholder="Ingresar plan de tratamiento social" formControlName="datosTratamiento"
+                      #datosTratamientoRef maxlength="2000" required rows="4"></textarea>
+                    <span class="caracteres">{{ datosTratamientoRef.value?.length }} /
+                      {{ datosTratamientoRef.getAttribute("maxlength") }} caracteres</span>
+                    <br>
+                    <small *ngIf="
+                camposNota3.controls?.datosTratamiento?.dirty &&
+                camposNota3.controls?.datosTratamiento?.errors
+              " class="form-text form-text-error Campo-obligatorio" style="color: red;">
+                      Campo obligatorio
+                    </small>
+                  </div>
+                </div>
+
+                <div class="col-md-4" style="flex:auto ;">
+                  <div class="">
+                    <label class="control-label tituloInput">
+                      Acciones realizadas*:
+                    </label>
+                    <textarea [ngClass]="{
+                    'form-control-error':
+                      camposNota3.controls?.datosAcciones?.dirty &&
+                      camposNota3.controls?.datosAcciones?.errors
+                  }" class="form-control matricula inputs3" id="datosAcciones"
+                      placeholder="Ingresar acciones realizadas" formControlName="datosAcciones" #datosAccionesRef
+                      maxlength="2000" required rows="4"></textarea>
+                    <span class="caracteres">{{ datosAccionesRef.value?.length }} /
+                      {{ datosAccionesRef.getAttribute("maxlength") }} caracteres</span>
+                    <br>
+                    <small *ngIf="
+                        camposNota3.controls?.datosAcciones?.dirty &&
+                        camposNota3.controls?.datosAcciones?.errors
+                      " class="form-text form-text-error Campo-obligatorio" style="color: red;">
+                      Campo obligatorio
+                    </small>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </form>
+        </div>
+
+
+        <div style="width: 100%; height: 17%; ">
+          <div class="row">
+            <div class="col-md-4" style="padding-top: 19px; padding-right: 24px;  margin-top: -1.4%; text-align: end;">
+            </div>
+            <div class="col-md-4"
+              style="padding-top: 19px; padding-right: 24px;  margin-top: 12.4%; text-align: center;">
+              <img src="url('../../../../assets/icons/menor_que.svg" alt="" style="margin-right: 5px;"
+                (click)="irDatosDeFamiliar()">
+              <label style="font-size: 14px; font-weight: 500;" (click)="irDatosDeFamiliar()"> Atrás </label>
+
+              <img src="url('../../../../assets/icons/circulo_verde.svg" alt="" style="margin-left: 9px;">
+              <img src="url('../../../../assets/icons/3.svg" alt="" style="margin-left: -18px;">
+            </div>
+            <div class="col-md-4" style="padding-top: 19px; padding-right: 24px;  margin-top: 11.4%;">
+              <button [disabled]="camposNota3.valid == false" class="btn btn-primary buttonL"
+                style="float: right;border: solid 1px #9d2449;">
+                Guardar
+              </button>
+              <button type="button" class="btn btn-danger buttonL" style="float: right; border: solid 1px #b38e5d;">
+                Cancelar
+              </button>
+            </div>
           </div>
         </div>
       </div>
     </div>
-  </div>
-</app-card-template>
+  </app-card-template>
 </ng-container>
 
 <div class="modal fade" role="dialog" id="content" #content >

@@ -15,7 +15,45 @@ export class NuevoEstudioSocialMedicoComponent implements OnInit {
   datosFamiliar = false;
   datosExploracionCaso = false;
   camposNota: any = this.formBuilder.group({
-    nuevoEstudioSocial: ['', Validators.required]
+    solicitadoPor:['',Validators.required],
+    fechas:['',Validators.required],
+    cp:['',Validators.required],
+    colonia:['',Validators.required],
+    calle:['',Validators.required],
+    numeroExt:['',Validators.required],
+    numeroInt:['',Validators.required],
+    telefonoFijo:['',Validators.required],
+    telefonoCelular:['',Validators.required],
+    email:['',Validators.required]
+  })
+
+  camposNota2: any = this.formBuilder.group({
+    nombreFamiliar:['',Validators.required],
+    edad:['',Validators.required],
+    parentesco:['',Validators.required],
+    codigoP:['',Validators.required],
+    estadoF:['',Validators.required],
+    delegacionM:['',Validators.required],
+    ciudadF:['',Validators.required],
+    coloniaF:['',Validators.required],
+    calleF:['',Validators.required],
+    numExtF:['',Validators.required],
+    numIntF:['',Validators.required],
+    telFijo:['',Validators.required],
+    telCel:['',Validators.required],
+    correoF:['',Validators.required]
+  })
+
+  camposNota3: any = this.formBuilder.group({
+    objetivoEstudio:['',Validators.required],
+    datosPaciente:['',Validators.required],
+    datosFamiliares:['',Validators.required],
+    datosEconomicos:['',Validators.required],
+    datosHogar:['',Validators.required],
+    datosComplementarios:['',Validators.required],
+    datosSocialF:['',Validators.required],
+    datosTratamiento:['',Validators.required],
+    datosAcciones:['',Validators.required]
   })
   constructor(private formBuilder: FormBuilder, private router: Router, private modalService: NgbModal) {}
 
