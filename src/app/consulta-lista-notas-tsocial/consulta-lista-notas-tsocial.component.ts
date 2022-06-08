@@ -41,8 +41,8 @@ export class ConsultaListaNotasTSocialComponent implements OnInit, AfterViewInit
 
   ngOnInit(): void {
     this.datesForm = this.fb.group({
-      fechaInicial: [null, Validators.required],
-      fechaFinal: [null, Validators.required],
+      fechaInicial: [moment().format('YYYY-MM-DD'), Validators.required],
+      fechaFinal: [moment().format('YYYY-MM-DD'), Validators.required],
     });
   }
 
@@ -71,7 +71,7 @@ export class ConsultaListaNotasTSocialComponent implements OnInit, AfterViewInit
   }
   // yy/mm/dd
   ngAfterViewInit(): void {
-    $('#notasInit').datepicker({
+    $('#notasInit').val(moment().format('DD/MM/YYYY')).datepicker({
       dateFormat: "dd/mm/yy",
       onSelect: (date: any, datepicker: any) => {
         if (date != '') {
@@ -87,7 +87,7 @@ export class ConsultaListaNotasTSocialComponent implements OnInit, AfterViewInit
       }
     });
 
-    $('#notasFinal').datepicker({
+    $('#notasFinal').val(moment().format('DD/MM/YYYY')).datepicker({
       dateFormat: "dd/mm/yy",
       onSelect: (date: any, datepicker: any) => {
         if (date != '') {
@@ -102,6 +102,7 @@ export class ConsultaListaNotasTSocialComponent implements OnInit, AfterViewInit
         }
       }
     });
+    this.handleDatesChange();
   }
 
   irDetalle(cronicaGrupal: any) {

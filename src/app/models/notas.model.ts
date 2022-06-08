@@ -1,4 +1,4 @@
-export class Notas {
+export class Nota {
     numNss?: string;
 	idTipoNota?: number;
 	idRedApoyo?: number;

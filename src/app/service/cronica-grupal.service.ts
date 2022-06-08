@@ -33,6 +33,10 @@ export class CronicaGrupalService {
   getCatLugar(cveServicio: string) {
     return this.http.get<any>(`${environment.urlServCatalogos}/api/listUbicacion/${cveServicio}`);
   }
+  
+  getCatDiagnosticosMedicos(texto: string) {
+    return this.http.get<any>(`${environment.urlServCatalogos}/api/listDiagnosticos/${texto}`);
+  }
 
   getAllCronicasGrupales() {
     return this.http.get<any>(`${environment.urlServCronicas}/api/cronicasgrupales`, { responseType: 'json'});

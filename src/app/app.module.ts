@@ -3,6 +3,8 @@ import { LOCALE_ID, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { MatIconModule } from '@angular/material/icon';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { MatAutocompleteModule } from '@angular/material/autocomplete';
+import { MatInputModule } from '@angular/material/input';
 import { MatDialogModule } from '@angular/material/dialog';
 import { AppRoutingModule } from './app-routing.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -78,7 +80,7 @@ registerLocaleData('es');
     NuevoEstudio3dExploracionComponent
 
   ],
-    imports: [
+  imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
@@ -86,9 +88,11 @@ registerLocaleData('es');
     ReactiveFormsModule,
     BrowserAnimationsModule,
     MatDialogModule,
+    MatAutocompleteModule,
     NgbModule,
     MatIconModule,
     MatFormFieldModule,
+    MatInputModule,
     RecaptchaModule,
     RecaptchaFormsModule,
     NgxPaginationModule,
@@ -98,8 +102,8 @@ registerLocaleData('es');
         tokenGetter: function tokenGetter() {
           return sessionStorage.getItem('token');
         },
-        allowedDomains: ['localhost:4200','localhost:8080','localhost:8081','localhost:8082'],
-        disallowedRoutes: ['http://localhost:8080/login','http://localhost:8081/login']
+        allowedDomains: ['localhost:4200', 'localhost:8080', 'localhost:8081', 'localhost:8082'],
+        disallowedRoutes: ['http://localhost:8080/login', 'http://localhost:8081/login']
       }
     })
   ],
@@ -112,16 +116,16 @@ registerLocaleData('es');
       } as RecaptchaSettings
     }, {
         provide:
-            HTTP_INTERCEPTORS, useClass: JRInterceptor, multi: true
+          HTTP_INTERCEPTORS, useClass: JRInterceptor, multi: true
       }, {
         provide:
-            LOCALE_ID, useValue: 'es'
+          LOCALE_ID, useValue: 'es'
       }
     ],
   bootstrap: [AppComponent]
 })
 export class AppModule {
-  constructor(){
-   sessionStorage.setItem('token','token is null');
+  constructor() {
+    sessionStorage.setItem('token', 'token is null');
   }
 }

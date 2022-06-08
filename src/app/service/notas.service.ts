@@ -3,7 +3,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
 import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
-import { Notas } from '../models/notas.model';
+import { Nota } from '../models/notas.model';
 
 
 @Injectable({
@@ -22,6 +22,14 @@ export class NotasService {
 
   getNotasById(id: number) {
     return this.http.get<any>(`${environment.urlServNotas}/consultaNotasTs/getNotaTSById/${id}`, { responseType: 'json'});
+  }
+
+  addNota(nota: Nota) {
+    return this.http.post<Nota>(`${environment.urlServNotas}/registroNotasTs/guardaNuevaNota`, nota);
+  }
+
+  updateNota(nota: Nota) {
+    return this.http.put<Nota>(`${environment.urlServNotas}/registroNotasTs/actualizaNotaTs`, nota);
   }
 
   getTiposNota() {

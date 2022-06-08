@@ -54,7 +54,7 @@
       <div style="display: grid; text-align: left">
         <span class="nuevaNotaTrabajoSocial">{{
           "Nueva nota de trabajo social"
-        }}</span>
+          }}</span>
       </div>
     </div>
   </div>
@@ -65,24 +65,24 @@
         Por favor capture los siguientes datos:
       </span>
     </div>
-    <form novalidate class="formInfo" [formGroup]="camposNota">
+    <form novalidate class="formInfo" [formGroup]="formNuevaNota">
       <div class="container seccion">
         <div class="row">
           <div class="col-md-4">
             <div class="form-group">
               <span class="spanInput">Tipo de nota*:</span>
               <select class="form-control"
-                [ngClass]="{'form-control-error': camposNota.controls?.tipoDeNota?.dirty && camposNota.controls?.tipoDeNota?.errors }"
+                [ngClass]="{'form-control-error': formNuevaNota.controls?.tipoDeNota?.dirty && formNuevaNota.controls?.tipoDeNota?.errors }"
                 formControlName="tipoDeNota" id="tipoDeNota" style="background-position-y: 5px" aria-label="Servicio">
                 <option class="select-font" [value]="'-1'" selected>Ingresar tipo de nota</option>
-                <option class="select-font" [value]="0" selected>Nota 1</option>
-                <!-- <option class="select-font" [value]="item.id" *ngFor="let item of catTiposNotas">
+                <!-- <option class="select-font" [value]="0" selected>Nota 1</option> -->
+                <option class="select-font" [value]="item.id" *ngFor="let item of catTiposNotas">
                   {{ item.descripcion }}
-                </option> -->
+                </option>
               </select>
               <small *ngIf="
-                  camposNota.controls?.tipoDeNota?.dirty &&
-                  camposNota.controls?.tipoDeNota?.errors
+                  formNuevaNota.controls?.tipoDeNota?.dirty &&
+                  formNuevaNota.controls?.tipoDeNota?.errors
                 " class="form-text form-text-error Campo-obligatorio">
                 Campo obligatorios
               </small>
@@ -94,17 +94,18 @@
               <span class="spanInput">Red de apoyo con la que cuenta el paciente*:</span>
               <select [ngClass]="{
                   'form-control-error':
-                    camposNota.controls?.redDeApoyo?.dirty &&
-                    camposNota.controls?.redDeApoyo?.errors
+                    formNuevaNota.controls?.redDeApoyo?.dirty &&
+                    formNuevaNota.controls?.redDeApoyo?.errors
                 }" class="form-control" formControlName="redDeApoyo" id="redDeApoyo" style="background-position-y: 5px"
                 aria-label="Servicio">
                 <option class="select-font" [value]="'-1'" selected>Seleccionar red de apoyo</option>
-                <option class="select-font" [value]="0" selected>Red Apoyo 1</option>
-                <option class="select-font">{{ "Ingresar Grupo" }}</option>
+                <option class="select-font" [value]="item.id" *ngFor="let item of catRedesApoyo">
+                  {{ item.descripcion }}
+                </option>
               </select>
               <small *ngIf="
-                  camposNota.controls?.redDeApoyo?.dirty &&
-                  camposNota.controls?.redDeApoyo?.errors
+                  formNuevaNota.controls?.redDeApoyo?.dirty &&
+                  formNuevaNota.controls?.redDeApoyo?.errors
                 " class="form-text form-text-error Campo-obligatorio">
                 Campo obligatorios
               </small>
@@ -116,16 +117,18 @@
               <span class="spanInput">Actividad técnica*:</span>
               <select [ngClass]="{
                   'form-control-error':
-                    camposNota.controls?.actividadTecnica?.dirty &&
-                    camposNota.controls?.actividadTecnica?.errors
+                    formNuevaNota.controls?.actividadTecnica?.dirty &&
+                    formNuevaNota.controls?.actividadTecnica?.errors
                 }" class="form-control" id="actividadTecnica" formControlName="actividadTecnica"
                 style="background-position-y: 5px" aria-label="Servicio">
                 <option class="select-font" [value]="'-1'" selected>Seleccionar actividad técnica</option>
-                <option class="select-font" [value]="0" selected>Actividad 1</option>
+                <option class="select-font" [value]="item.id" *ngFor="let item of catActividadesTecnicas">
+                  {{ item.descripcion }}
+                </option>
               </select>
               <small *ngIf="
-                  camposNota.controls?.actividadTecnica?.dirty &&
-                  camposNota.controls?.actividadTecnica?.errors
+                  formNuevaNota.controls?.actividadTecnica?.dirty &&
+                  formNuevaNota.controls?.actividadTecnica?.errors
                 " class="form-text form-text-error Campo-obligatorio">
                 Campo obligatorios
               </small>
@@ -135,21 +138,30 @@
             <div class="col-md-4">
               <div class="form-group">
                 <span class="spanInput">Diagnostico médico*:</span>
-                <select [ngClass]="{
+                <input type="text" class="form-control" placeholder="Seleccionar diagnóstico médico" aria-label="Number"
+                  matInput formControlName="diagnosticoMedico" [matAutocomplete]="auto">
+                <mat-autocomplete #auto="matAutocomplete" [displayWith]="getOptionText">
+                  <mat-option *ngFor="let option of filteredOptions | async" [value]="option">
+                    {{option?.descripcion}}
+                  </mat-option>
+                </mat-autocomplete>
+                <!-- <select [ngClass]="{
                     'form-control-error':
-                      camposNota.controls?.diagnosticoMedico?.dirty &&
-                      camposNota.controls?.diagnosticoMedico?.errors
+                      formNuevaNota.controls?.diagnosticoMedico?.dirty &&
+                      formNuevaNota.controls?.diagnosticoMedico?.errors
                   }" class="form-control" id="diagnosticoMedico" formControlName="diagnosticoMedico"
                   style="background-position-y: 5px" aria-label="Servicio">
                   <option class="select-font" [value]="'-1'" selected>Seleccionar diagnóstico médico</option>
-                  <option class="select-font" [value]="0" selected>Diagnóstico 1</option>
+                  <option class="select-font" [value]="item.id" *ngFor="let item of catDiagnosticosMedicos">
+                    {{ item.descripcion }}
+                  </option>
                 </select>
                 <small *ngIf="
-                    camposNota.controls?.diagnosticoMedico?.dirty &&
-                    camposNota.controls?.diagnosticoMedico?.errors
+                    formNuevaNota.controls?.diagnosticoMedico?.dirty &&
+                    formNuevaNota.controls?.diagnosticoMedico?.errors
                   " class="form-text form-text-error Campo-obligatorio">
                   Campo obligatorios
-                </small>
+                </small> -->
               </div>
             </div>
           </div>
@@ -163,8 +175,8 @@
             <span class="spanInput">Redacción cronológica de la intervención*:</span>
             <textarea [ngClass]="{
                 'form-control-error':
-                  camposNota.controls?.redaccionCronologica?.dirty &&
-                  camposNota.controls?.redaccionCronologica?.errors
+                  formNuevaNota.controls?.redaccionCronologica?.dirty &&
+                  formNuevaNota.controls?.redaccionCronologica?.errors
               }" class="form-control" id="redaccionCronologica"
               placeholder="Ingresar redaci&oacute;n cronol&oacute;gica" style="height: 65px"
               formControlName="redaccionCronologica" #objetivosRef maxlength="4096" required rows="4">
@@ -173,8 +185,8 @@
               {{ objetivosRef.getAttribute("maxlength") }} caracteres</span>
             <br>
             <small *ngIf="
-                camposNota.controls?.redaccionCronologica?.dirty &&
-                camposNota.controls?.redaccionCronologica?.errors
+                formNuevaNota.controls?.redaccionCronologica?.dirty &&
+                formNuevaNota.controls?.redaccionCronologica?.errors
               " class="form-text form-text-error Campo-obligatorio">
               Campo obligatorio
             </small>
@@ -184,8 +196,8 @@
             <span class="spanInput">Diagnostico social*:</span>
             <textarea [ngClass]="{
                 'form-control-error':
-                  camposNota.controls?.diagnosticoSocial?.dirty &&
-                  camposNota.controls?.diagnosticoSocial?.errors
+                  formNuevaNota.controls?.diagnosticoSocial?.dirty &&
+                  formNuevaNota.controls?.diagnosticoSocial?.errors
               }" class="form-control" id="diagnosticoSocial" placeholder="Ingresar diagnostico social"
               style="height: 65px" formControlName="diagnosticoSocial" #desarrolloRef maxlength="4096"
               rows="4"></textarea>
@@ -193,8 +205,8 @@
               {{ desarrolloRef.getAttribute("maxlength") }} caracteres</span>
             <br>
             <small *ngIf="
-                camposNota.controls?.diagnosticoSocial?.dirty &&
-                camposNota.controls?.diagnosticoSocial?.errors
+                formNuevaNota.controls?.diagnosticoSocial?.dirty &&
+                formNuevaNota.controls?.diagnosticoSocial?.errors
               " class="form-text form-text-error Campo-obligatorio">
               Campo obligatorio
             </small>
@@ -204,7 +216,7 @@
     </form>
     <div class="row">
       <div class="col-md-12" style="padding-top: 19px; margin-top: -1.4%">
-        <button [disabled]="camposNota.valid == false" type="button" (click)="guardar(); irConsultaNota()"
+        <button [disabled]="formNuevaNota.valid == false" type="button" (click)="guardar();"
           class="btn btn-primary buttonL" style="float: right; border: solid 1px #9d2449">
           Guardar
         </button>

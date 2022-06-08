@@ -24,7 +24,7 @@
             <div class="form-group">
               <label class=" tituloServicio">Tipo de nota:</label>
               <label class="control-label">
-                Cierre
+                {{nota.idTipoNota}}
               </label>
             </div>
           </div>
@@ -33,7 +33,7 @@
             <div class="form-group">
               <label class="tituloServicio">Red de apollo con la que cuenta el paciente:</label>
               <label class="control-label">
-                Cuidador social
+                {{nota.idRedApoyo}}
               </label>
             </div>
           </div>
@@ -41,7 +41,7 @@
             <div class="form-group">
               <label class="tituloServicio">Actividad técnica:</label>
               <label class="control-label">
-                Set ut perspiciatis unde omnis
+                {{nota.idActividadTecnica}}
               </label>
             </div>
           </div>
@@ -49,7 +49,7 @@
             <div class="form-group">
               <label class="tituloServicio">Diagnóstico médico:</label>
               <label class="control-label">
-                Bolutismo
+                {{nota.idDiagnosticoMedico}}
               </label>
             </div>
           </div>
@@ -71,7 +71,7 @@
               maxlength="4096"
               required
               rows="4">
-              Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem.
+              {{nota.redaccionCronologica}}
             </label>
 
           </div>
@@ -86,7 +86,7 @@
               #desarrolloRef
               maxlength="4096"
               rows="4">
-              Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem.
+              {{nota.diagnosticoSocial}}
 
             </label>
 
@@ -103,7 +103,7 @@
                 type="button"
                 class="btn btn-primary buttonL"
                 style="float: right; border: solid 1px #9d2449"
-
+                (click)="imprimir()"
               >
                 Imprimir
               </button>
